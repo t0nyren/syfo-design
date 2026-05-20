@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1440" />
+  <title>Syfo — 中文版交互原型</title>
+  <link rel="stylesheet" href="syfo/app.css" />
+  <link rel="icon" href="syfo/assets/logo-mark.svg" />
+  <style>
+    /* Mode toggle (top-right floating) */
+    .syfo-mode-toggle {
+      position: fixed; top: 14px; right: 16px; z-index: 50;
+      display: inline-flex; align-items: center; gap: 0;
+      background: var(--bg-surface); border: 1px solid var(--border-2);
+      border-radius: 999px; padding: 3px;
+      font-family: var(--font-sans); font-size: 12px;
+      box-shadow: var(--shadow-1);
+    }
+    .syfo-mode-toggle button {
+      border: 0; background: transparent; color: var(--fg-2);
+      padding: 5px 12px; border-radius: 999px; cursor: pointer;
+      font-weight: 500; display: inline-flex; align-items: center; gap: 6px;
+      transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+    }
+    .syfo-mode-toggle button.is-active { background: var(--fg-1); color: var(--fg-inverse); }
+
+    /* Mobile preview stage */
+    .syfo-mobile-stage {
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(1200px 600px at 50% 0%, rgba(217,119,87,0.06), transparent 60%),
+        var(--bg-sunken);
+      display: flex; align-items: flex-start; justify-content: center;
+      padding: 56px 24px 24px;
+      overflow: auto;
+    }
+    .syfo-iphone {
+      width: 390px; height: 800px;
+      flex-shrink: 0;
+      background: var(--bg-paper);
+      border-radius: 52px;
+      border: 1px solid var(--border-2);
+      box-shadow:
+        0 0 0 9px #1A1612,
+        0 30px 80px rgba(0,0,0,0.25),
+        0 8px 24px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      margin: auto;
+    }
+    .syfo-iphone-notch {
+      position: absolute; top: 11px; left: 50%; transform: translateX(-50%);
+      width: 122px; height: 36px; background: #1A1612; border-radius: 999px; z-index: 5;
+    }
+    .syfo-iphone-status {
+      height: 54px; padding: 18px 36px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+      font-size: 16px; font-weight: 600; color: var(--fg-1);
+      flex-shrink: 0;
+    }
+    .syfo-iphone-status .right { display: inline-flex; align-items: center; gap: 6px; }
+    .syfo-iphone-content { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+    .syfo-iphone-home {
+      position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+      width: 134px; height: 5px; background: #1A1612; border-radius: 3px;
+    }
+
+    /* Language toggle (right-side, sibling of mode toggle; matches mode-toggle pill) */
+    .syfo-lang-toggle {
+      position: fixed; top: 14px; right: 16px; z-index: 50;
+      display: inline-flex; align-items: center; gap: 0;
+      background: var(--bg-surface); border: 1px solid var(--border-2);
+      border-radius: 999px; padding: 3px;
+      font-family: var(--font-sans); font-size: 12px;
+      line-height: 16px;
+      box-shadow: var(--shadow-1);
+      transform: translateX(0);
+    }
+    .syfo-lang-toggle button {
+      border: 0; background: transparent; color: var(--fg-2);
+      padding: 5px 12px; border-radius: 999px; cursor: pointer;
+      font-weight: 500;
+      font-family: inherit; font-size: inherit; line-height: inherit;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+    }
+    .syfo-lang-toggle button.is-active { background: var(--fg-1); color: var(--fg-inverse); }
+</style>
+</head>
+<body>
+      <div class="syfo-lang-toggle" role="tablist" aria-label="Language">
+    <button role="tab" aria-selected="true" class="is-active" disabled>中文</button>
+    <button role="tab" aria-selected="false" onclick="window.location.href='/'" title="Switch to English">EN</button>
+  </div>
+<div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+          integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+          integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+          integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+          crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="syfo/Atoms.jsx"></script>
+  <script type="text/babel" src="syfo/data.jsx"></script>
+  <script type="text/babel" src="syfo/Shell.jsx"></script>
+  <script type="text/babel" src="syfo/ChannelView.jsx"></script>
+  <script type="text/babel" src="syfo/MembersView.jsx"></script>
+  <script type="text/babel" src="syfo/ActivitySettings.jsx"></script>
+  <script type="text/babel" src="syfo/ComputersView.jsx"></script>
+  <script type="text/babel" src="syfo/Overlays.jsx"></script>
+  <script type="text/babel" src="syfo/Mobile.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      const [mode, setMode] = React.useState('desktop'); // 'desktop' | 'mobile'
+
+      return (
+        <>
+          <div className="syfo-mode-toggle" role="tablist" aria-label="Preview mode">
+            <button
+              role="tab"
+              aria-selected={mode === 'desktop'}
+              className={mode === 'desktop' ? 'is-active' : ''}
+              onClick={() => setMode('desktop')}
+            >
+              <span aria-hidden="true" style={{ display:'inline-flex' }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8 M12 17v4"/>
+                </svg>
+              </span>
+              桌面
+            </button>
+            <button
+              role="tab"
+              aria-selected={mode === 'mobile'}
+              className={mode === 'mobile' ? 'is-active' : ''}
+              onClick={() => setMode('mobile')}
+            >
+              <span aria-hidden="true" style={{ display:'inline-flex' }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="6" y="2" width="12" height="20" rx="3"/>
+                  <path d="M11 18h2"/>
+                </svg>
+              </span>
+              手机
+            </button>
+          </div>
+
+          {mode === 'desktop' ? <DesktopApp /> : <MobileStage />}
+        </>
+      );
+    }
+
+    function DesktopApp() {
+      const [view, setView] = React.useState('home');
+      const [activeChannel, setActiveChannel] = React.useState('gofindbird');
+      const [activeDM, setActiveDM] = React.useState(null);
+      const [searchOpen, setSearchOpen] = React.useState(false);
+      const [wsOpen, setWsOpen] = React.useState(false);
+
+      // Keyboard shortcuts: ⌘K / Ctrl+K for search, Esc to dismiss overlays
+      React.useEffect(() => {
+        function onKey(e) {
+          if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            setSearchOpen(s => !s);
+          }
+          if (e.key === 'Escape') {
+            if (searchOpen) setSearchOpen(false);
+            if (wsOpen) setWsOpen(false);
+          }
+        }
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+      }, [searchOpen, wsOpen]);
+
+      const handleChannel = (id) => { setView('home'); setActiveChannel(id); setActiveDM(null); };
+      const handleDM      = (id) => { setView('dm');   setActiveDM(id); };
+
+      let body;
+      if (view === 'home')          body = <ChannelView channelId={activeChannel} />;
+      else if (view === 'dm')       body = <ChannelView channelId={activeChannel} />;
+      else if (view === 'tasks')    body = <TasksOnlyView />;
+      else if (view === 'members')  body = <MembersView />;
+      else if (view === 'activity') body = <ActivityView />;
+      else if (view === 'settings') body = <SettingsView />;
+      else if (view === 'computers')body = <ComputersView />;
+      else body = <ChannelView channelId={activeChannel} />;
+
+      return (
+        <div className="syfo-app" data-screen-label={`01 desktop · ${view}`}>
+          <Rail view={view === 'computers' ? 'computers' : view} onView={setView} />
+          <Sidebar
+            view={view}
+            activeChannel={activeChannel}
+            activeDM={activeDM}
+            onChannel={handleChannel}
+            onDM={handleDM}
+            onTopView={setView}
+            onOpenWsSwitch={() => setWsOpen(o => !o)}
+            onOpenSearch={() => setSearchOpen(true)}
+          />
+          {body}
+          {searchOpen ? <SearchOverlay onClose={() => setSearchOpen(false)} /> : null}
+          {wsOpen ? (
+            <>
+              <div className="syfo-scrim" onClick={() => setWsOpen(false)} />
+              <WorkspaceSwitcher onClose={() => setWsOpen(false)} />
+            </>
+          ) : null}
+        </div>
+      );
+    }
+
+    function MobileStage() {
+      return (
+        <div className="syfo-mobile-stage" data-screen-label="02 mobile">
+          <div className="syfo-iphone">
+            <div className="syfo-iphone-status">
+              <span>9:41</span>
+              <span className="right">
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="currentColor"><rect x="0" y="6" width="2.5" height="3.5" rx="0.5"/><rect x="3.8" y="4" width="2.5" height="5.5" rx="0.5"/><rect x="7.6" y="2" width="2.5" height="7.5" rx="0.5"/><rect x="11.4" y="0" width="2.5" height="9.5" rx="0.5"/></svg>
+                <svg width="22" height="11" viewBox="0 0 22 11" fill="none" stroke="currentColor" strokeWidth="1"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5"/><rect x="2" y="2" width="15" height="7" rx="1.5" fill="currentColor"/><path d="M20 4v3" strokeOpacity="0.5"/></svg>
+              </span>
+            </div>
+            <div className="syfo-iphone-notch" />
+            <div className="syfo-iphone-content">
+              <MobileApp />
+            </div>
+            <div className="syfo-iphone-home" />
+          </div>
+        </div>
+      );
+    }
+
+    // Compatibility: Tasks-only and Computers fallbacks used by Rail's id='runtimes'
+    function TasksOnlyView() {
+      return (
+        <section className="syfo-content">
+          <header className="syfo-topbar">
+            <div className="title-block">
+              <Icon name="list-todo" size={16} style={{ color: 'var(--fg-2)' }} />
+              <div className="title">Tasks</div>
+              <div className="subtitle">{TASKS.length} workspace tasks</div>
+            </div>
+          </header>
+          <TasksPane />
+        </section>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+<!-- lang-position-init -->
+  <script>
+    // Position language toggle to the left of mode toggle (avoid overlap).
+    (function () {
+      function reposition() {
+        var mode = document.querySelector('.syfo-mode-toggle');
+        var lang = document.querySelector('.syfo-lang-toggle');
+        if (!mode || !lang) return;
+        var modeRect = mode.getBoundingClientRect();
+        // mode pill's right edge is at viewportWidth - 16 (since right: 16px on mode).
+        // Place lang pill so its right edge = mode's left edge - 8px gap.
+        var vw = window.innerWidth || document.documentElement.clientWidth;
+        var newRight = vw - (modeRect.left - 8);
+        lang.style.right = newRight + 'px';
+      }
+      // Run after React mounts and on resize / font load.
+      function init() {
+        reposition();
+        // Re-run after a short tick in case React mounted async.
+        setTimeout(reposition, 50);
+        setTimeout(reposition, 250);
+        setTimeout(reposition, 1000);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(reposition);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      window.addEventListener('resize', reposition);
+    })();
+  </script>
+</body>
+</html>

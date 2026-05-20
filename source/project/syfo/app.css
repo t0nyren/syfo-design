@@ -1,0 +1,426 @@
+/* ============================================================
+   Syfo Workspace UI Kit — app.css
+   Layout + component styles on top of colors_and_type.css
+   ============================================================ */
+
+@import url('./colors_and_type.css');
+
+html, body, #root { height: 100%; }
+body { overflow: hidden; }
+
+/* ============================================================
+   Shell layout
+   ============================================================ */
+.syfo-app {
+  display: grid;
+  grid-template-columns: var(--rail-w) var(--sidebar-w) 1fr;
+  height: 100vh;
+  background: var(--bg-paper);
+  color: var(--fg-1);
+}
+
+/* ---- Left global rail ---- */
+.syfo-rail {
+  background: var(--bg-sunken);
+  display: flex; flex-direction: column;
+  padding: 14px 0;
+  gap: 2px;
+}
+.syfo-rail-brand {
+  width: 28px; height: 28px; margin: 4px auto 18px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.9;
+}
+.syfo-rail-item {
+  width: 34px; height: 34px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  border: 0; background: transparent;
+  border-radius: var(--radius-sm);
+  color: var(--fg-2); cursor: pointer; position: relative;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.syfo-rail-item:hover { background: rgba(26,22,18,0.04); color: var(--fg-1); }
+.syfo-rail-item.is-active { background: transparent; color: var(--accent); }
+.syfo-rail-item.is-active::before {
+  content: ""; position: absolute; left: -11px; top: 50%;
+  width: 2px; height: 16px; transform: translateY(-50%);
+  background: var(--accent); border-radius: 1px;
+}
+.syfo-rail-item .badge {
+  position: absolute; top: 6px; right: 6px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--bg-sunken);
+}
+.syfo-rail-spacer { flex: 1; }
+
+/* ---- Sidebar (channels/DMs) ---- */
+.syfo-sidebar {
+  background: var(--bg-sunken);
+  display: flex; flex-direction: column;
+  min-width: 0;
+}
+.syfo-sidebar-header {
+  padding: 16px 16px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+}
+.syfo-workspace-pill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 8px; border-radius: var(--radius-sm);
+  cursor: pointer; max-width: 100%; min-width: 0;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.syfo-workspace-pill:hover { background: rgba(26,22,18,0.04); }
+.syfo-workspace-pill .name {
+  font-weight: 600; font-size: 14px; color: var(--fg-1);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.syfo-search {
+  margin: 0 12px 14px;
+  display: flex; align-items: center; gap: 8px;
+  height: 30px; padding: 0 10px; border-radius: var(--radius-sm);
+  background: rgba(26,22,18,0.04); color: var(--fg-3);
+  font-size: 13px; cursor: text;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.syfo-search:hover { background: rgba(26,22,18,0.06); }
+.syfo-search .kbd {
+  margin-left: auto;
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
+}
+.syfo-section-label {
+  position: relative;
+  display: flex; align-items: center;
+  padding: 14px 16px 6px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--fg-3); font-weight: 500;
+  white-space: nowrap;
+}
+.syfo-section-label .actions {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-25%);
+  display: flex; gap: 2px;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.syfo-sidebar:hover .syfo-section-label .actions { opacity: 1; pointer-events: auto; }
+.syfo-section-label .actions button {
+  border: 0; background: rgba(26,22,18,0.04); color: var(--fg-2);
+  width: 18px; height: 18px; border-radius: 4px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.syfo-section-label .actions button:hover { background: rgba(26,22,18,0.08); color: var(--fg-1); }
+
+.syfo-channel-list { display: flex; flex-direction: column; padding: 0 8px 4px; gap: 1px; min-height: 0; overflow-y: auto; }
+.syfo-channel-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 10px; border-radius: var(--radius-sm);
+  font-size: 13.5px; color: var(--fg-1);
+  cursor: pointer; min-width: 0; border: 0; background: transparent;
+  font-family: var(--font-sans); width: 100%; text-align: left;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.syfo-channel-item:hover { background: rgba(26,22,18,0.04); }
+/* Active channel/DM — the item literally extends the content panel into the sidebar */
+.syfo-channel-item.is-active {
+  background: var(--bg-paper);
+  color: var(--accent-strong); font-weight: 500;
+  box-shadow: none;
+}
+.syfo-channel-item .glyph { color: var(--fg-3); width: 14px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
+.syfo-channel-item.is-active .glyph { color: var(--accent); }
+.syfo-channel-item .name { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.syfo-channel-item .count {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  background: transparent; color: var(--accent);
+  padding: 0; min-width: auto; text-align: center;
+  line-height: 14px;
+}
+.syfo-channel-item.is-active .count { color: var(--accent); }
+
+.syfo-dm-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 6px 10px; border-radius: var(--radius-sm);
+  font-size: 13.5px; color: var(--fg-1);
+  cursor: pointer; min-width: 0;
+  border: 0; background: transparent; width: 100%; text-align: left;
+  font-family: var(--font-sans);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.syfo-dm-item:hover { background: rgba(26,22,18,0.04); }
+.syfo-dm-item.is-active {
+  background: var(--bg-paper);
+  color: var(--accent-strong); font-weight: 500;
+  box-shadow: none;
+}
+.syfo-dm-item .desc {
+  color: var(--fg-3); font-size: 12px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.syfo-dm-item .name-wrap { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 8px; }
+.syfo-dm-item .name { font-weight: 500; flex-shrink: 0; }
+
+/* ---- Content panel ---- */
+.syfo-content {
+  display: flex; flex-direction: column;
+  background: var(--bg-paper);
+  min-width: 0;
+}
+.syfo-topbar {
+  height: var(--topbar-h);
+  border-bottom: 1px solid var(--border-1);
+  display: flex; align-items: center; padding: 0 24px;
+  gap: 16px; flex-shrink: 0;
+}
+.syfo-topbar .title-block { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; }
+.syfo-topbar .title { font-size: 17px; font-weight: 600; color: var(--fg-1); letter-spacing: -0.005em; }
+.syfo-topbar .subtitle { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
+.syfo-topbar .actions { display: flex; align-items: center; gap: 8px; }
+
+.syfo-tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--border-1);
+  padding: 0 24px; flex-shrink: 0;
+}
+.syfo-tab {
+  padding: 12px 16px; font-size: 13.5px; color: var(--fg-2);
+  border-bottom: 2px solid transparent;
+  cursor: pointer; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+  margin-bottom: -1px;
+  display: flex; align-items: center; gap: 8px;
+  background: transparent; border-left: 0; border-right: 0; border-top: 0;
+}
+.syfo-tab:hover { color: var(--fg-1); }
+.syfo-tab.is-active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+.syfo-tab.is-active .count { color: var(--accent); }
+.syfo-tab .count {
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
+}
+
+.syfo-panel { flex: 1; min-height: 0; overflow-y: auto; }
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  font-family: var(--font-sans); font-size: 13.5px; font-weight: 500;
+  height: 32px; padding: 0 14px; border-radius: var(--radius-sm);
+  border: 1px solid transparent; background: transparent; color: var(--fg-1);
+  display: inline-flex; align-items: center; gap: 6px;
+  cursor: pointer; line-height: 1;
+  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.btn-primary { background: var(--accent); color: var(--fg-inverse); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:active { background: var(--accent-press); }
+.btn-secondary { background: var(--bg-surface); border-color: var(--border-2); color: var(--fg-1); }
+.btn-secondary:hover { background: var(--bg-sunken); }
+.btn-ghost { color: var(--fg-2); }
+.btn-ghost:hover { background: var(--bg-sunken); color: var(--fg-1); }
+.btn-icon { width: 32px; padding: 0; justify-content: center; }
+.btn-sm { height: 26px; padding: 0 10px; font-size: 12.5px; }
+
+/* ============================================================
+   Chips, dots, avatars
+   ============================================================ */
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 22px; padding: 0 8px; border-radius: var(--radius-xs);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+  text-transform: uppercase; font-weight: 500;
+  background: var(--bg-sunken); color: var(--fg-2);
+  white-space: nowrap;
+}
+.chip-accent  { background: var(--accent-soft); color: var(--accent-strong); }
+.chip-success { background: var(--success-soft); color: var(--success); }
+.chip-warning { background: var(--warning-soft); color: var(--warning); }
+.chip-danger  { background: var(--danger-soft); color: var(--danger); }
+.chip-info    { background: var(--info-soft); color: var(--info); }
+.chip-outline { background: transparent; border: 1px solid var(--border-2); color: var(--fg-2); }
+
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+.avatar {
+  width: 28px; height: 28px; border-radius: var(--radius-xs);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 500; font-size: 12px;
+  background: var(--bg-sunken); color: var(--fg-1); position: relative;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+.avatar.is-agent { background: var(--accent-soft); color: var(--accent-press); }
+.avatar.sm { width: 20px; height: 20px; font-size: 10px; }
+.avatar.lg { width: 40px; height: 40px; font-size: 14px; }
+.avatar.xl { width: 56px; height: 56px; font-size: 18px; border-radius: var(--radius-sm); }
+.avatar > .presence {
+  position: absolute; right: -2px; bottom: -2px;
+  width: 9px; height: 9px; border-radius: 50%;
+  border: 2px solid var(--bg-paper);
+}
+
+/* ============================================================
+   Inputs
+   ============================================================ */
+.input {
+  font-family: var(--font-sans); font-size: 14px;
+  height: 36px; padding: 0 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-2); background: var(--bg-surface); color: var(--fg-1);
+  width: 100%; outline: none;
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.input::placeholder { color: var(--fg-3); }
+.field-label { font-size: 12px; color: var(--fg-2); display: block; margin-bottom: 6px; font-weight: 500; }
+.field-hint  { font-size: 12px; color: var(--fg-3); margin-top: 6px; }
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card {
+  background: var(--bg-surface); border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+}
+.card-pad { padding: 16px 18px; }
+.card-hover { transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out); cursor: pointer; }
+.card-hover:hover { border-color: var(--border-2); background: var(--bg-surface); }
+
+/* ============================================================
+   Misc
+   ============================================================ */
+.divider { height: 1px; background: var(--border-1); }
+.mono { font-family: var(--font-mono); }
+.meta { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
+
+/* Scrollbars (chrome) */
+.syfo-panel::-webkit-scrollbar, .syfo-channel-list::-webkit-scrollbar { width: 10px; }
+.syfo-panel::-webkit-scrollbar-thumb {
+  background: var(--border-1); border-radius: 999px; border: 3px solid var(--bg-paper);
+}
+/* Channel-list scroll thumb */
+.syfo-channel-list::-webkit-scrollbar-thumb {
+  background: rgba(26,22,18,0.10); border-radius: 999px; border: 3px solid var(--bg-sunken);
+}
+.syfo-panel::-webkit-scrollbar-thumb:hover { background: var(--border-2); }
+
+/* Borders into content panel — a single soft rule, no shadow */
+.syfo-content { border-left: 1px solid var(--border-1); position: relative; }
+
+/* ============================================================
+   Search overlay
+   ============================================================ */
+.syfo-search-overlay {
+  position: absolute; inset: 0;
+  background: var(--bg-paper);
+  display: flex; flex-direction: column;
+  z-index: 30;
+  animation: syfoFadeIn 160ms var(--ease-out);
+}
+@keyframes syfoFadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.syfo-search-overlay-bar {
+  border-bottom: 1px solid var(--border-1);
+  padding: 14px 24px;
+}
+.syfo-search-input {
+  max-width: 1080px; margin: 0 auto;
+  display: flex; align-items: center; gap: 12px;
+  height: 44px; padding: 0 14px; border-radius: var(--radius-md);
+  background: var(--bg-surface); border: 1px solid var(--border-2);
+}
+.syfo-search-input:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+/* ============================================================
+   Workspace switcher dropdown
+   ============================================================ */
+.syfo-ws-dropdown {
+  position: absolute;
+  left: calc(var(--rail-w) + 8px); top: 56px;
+  width: 280px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-2);
+  padding: 4px;
+  z-index: 40;
+  animation: syfoFadeIn 120ms var(--ease-out);
+}
+.syfo-ws-item {
+  width: 100%;
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: var(--radius-sm);
+  border: 0; background: transparent; cursor: pointer; text-align: left;
+  color: var(--fg-1);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.syfo-ws-item:hover { background: var(--bg-sunken); }
+
+.syfo-scrim {
+  position: fixed; inset: 0; background: transparent; z-index: 35;
+}
+
+/* ============================================================
+   Mobile shell (used inside iPhone frame)
+   ============================================================ */
+.syfo-phone {
+  background: var(--bg-paper);
+  display: flex; flex-direction: column;
+  height: 100%;
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+}
+.syfo-phone-header {
+  padding: 6px 20px 14px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-shrink: 0;
+}
+.syfo-phone-header .title {
+  font-family: var(--font-serif); font-size: 26px; font-weight: 600;
+  letter-spacing: -0.01em; color: var(--fg-1); line-height: 1.1;
+}
+.syfo-phone-header .subtitle {
+  font-family: var(--font-mono); font-size: 12px; color: var(--fg-3);
+  margin-top: 2px;
+}
+.syfo-phone-body {
+  flex: 1; min-height: 0; overflow-y: auto;
+  padding: 0 16px 16px;
+}
+.syfo-phone-tabbar {
+  display: flex; align-items: stretch; justify-content: space-around;
+  border-top: 1px solid var(--border-1);
+  padding: 6px 8px 8px;
+  background: var(--bg-paper);
+  flex-shrink: 0;
+}
+.syfo-phone-tabbar button {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; padding: 6px 0;
+  border: 0; background: transparent; cursor: pointer;
+  color: var(--fg-3);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em;
+  text-transform: uppercase; font-weight: 500;
+  position: relative;
+}
+.syfo-phone-tabbar button.is-active { color: var(--accent); }
+.syfo-phone-tabbar button.is-active::before {
+  content: ""; position: absolute; top: -7px; left: 50%;
+  width: 22px; height: 2px; border-radius: 1px; background: var(--accent);
+  transform: translateX(-50%);
+}
+
+.syfo-phone-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.syfo-mobile-row {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 8px 4px; border: 0; background: transparent;
+  cursor: pointer; text-align: left; border-radius: var(--radius-sm);
+  color: var(--fg-1);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.syfo-mobile-row:active { background: var(--bg-sunken); }

@@ -1,0 +1,25 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor configs
+.idea/
+.vscode/
+
+# Local Python serving
+__pycache__/
+*.pyc
+
+# Local build outputs (not used by prototype but reserved)
+node_modules/
+dist/
+build/
+.next/
+.cache/
+
+# Logs / scratch
+*.log
+.tmp/
