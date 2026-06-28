@@ -93,6 +93,17 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
 .nav .links a:hover{color:var(--fg-1)}
 .nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu a:not(.btn):active{color:var(--accent)}
+.nav-menu .btn{margin-top:16px;justify-content:center}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
  border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;
  transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap}
@@ -283,6 +294,9 @@ footer .links a:hover{color:var(--fg-1)}
  .steps{grid-template-columns:1fr 1fr}
  .dhero h1{font-size:30px}
  .nav .links{display:none}
+ .nav .navcta{display:none}
+ .nav-toggle{display:inline-flex}
+ .nav.open .nav-menu{display:flex}
 }
 @media(max-width:560px){ .hero h1{font-size:30px} .feats,.cases,.steps{grid-template-columns:1fr} .closing h2{font-size:28px} }
 """
@@ -299,18 +313,28 @@ def head(title, desc, card_marker=""):
 
 def nav(active=""):
     def a(href,label): return f'<a href="{href}">{label}</a>'
+    links = f'{a("index.html#product","产品")}{a("index.html#scenes","能做什么")}{a("cases.html","案例")}{a("how.html","怎么用")}'
+    cta = f'<a class="btn btn-primary" href="{APP}">进入 Syfo <span class="arr">→</span></a>'
+    burger = ('<svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>'
+              '<svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg>')
+    toggle = (f'<button class="nav-toggle" aria-label="菜单" aria-expanded="false" aria-controls="navMenu" '
+              f'onclick="var n=this.closest(\'.nav\');var o=n.classList.toggle(\'open\');this.setAttribute(\'aria-expanded\',o)">{burger}</button>')
     return f"""<header class="nav"><div class="wrap"><div class="row">
  <a class="brand" href="index.html">{LOGO_MARK}<span class="wm">Syfo</span></a>
- <nav class="links">{a("index.html#product","产品")}{a("index.html#scenes","能做什么")}{a("cases.html","案例")}{a("how.html","怎么用")}</nav>
- <div class="right"><a class="btn btn-primary" href="{APP}">进入 Syfo <span class="arr">→</span></a></div>
-</div></div></header>"""
+ <nav class="links">{links}</nav>
+ <div class="right"><a class="btn btn-primary navcta" href="{APP}">进入 Syfo <span class="arr">→</span></a>{toggle}</div>
+</div>
+<div class="nav-menu" id="navMenu">{links}{cta}</div>
+</div></header>"""
 
 def footer():
     return f"""<footer><div class="wrap"><div class="row">
  <a class="brand" href="index.html">{LOGO_MARK}<span class="wm">Syfo</span></a>
  <span class="meta">人和一群 Agent 一起干活的地方。</span>
  <div class="links"><a href="{APP}">app.syfo.ai</a><a href="cases.html">案例</a><a href="how.html">怎么用</a></div>
-</div></div></footer></body></html>"""
+</div></div></footer>
+<script>document.addEventListener('click',function(e){{var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');}});</script>
+</body></html>"""
 
 def case_card(ind,title,desc,tags,slug):
     tg = "".join(f'<span class="tag">{t}</span>' for t in tags)
