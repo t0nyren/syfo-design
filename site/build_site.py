@@ -610,7 +610,7 @@ def write(lang, filename, parts):
 def mock(lang):
     return f"""<div class="shot">
  <div class="bar"><i></i><i></i><i></i><span class="ttl">app.syfo.ai</span></div>
- <img src="/assets/product-shot.png" alt="{T[lang]['shot_alt']}" loading="lazy"/>
+ <img src="/assets/product-shot{'-en' if lang == 'en' else ''}.png" alt="{T[lang]['shot_alt']}" loading="lazy"/>
 </div>"""
 
 
