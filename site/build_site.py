@@ -30,11 +30,18 @@ PREFIX = {"zh": "/", "en": "/en/"}
 
 
 def url(lang, page):
-    """内部链接 -> root-absolute。page 形如 'index.html'、'cases.html#x'、'' (=首页)。"""
+    """内部链接 -> root-absolute clean URL (无 .html)。page 形如 'index.html'、'cases.html#x'、'' (=首页)。
+    文件在磁盘上仍是 *.html；clean URL 由 edge try_files {path}.html 提供。"""
     p = PREFIX[lang]
-    if page in ("", "index.html"):
-        return p if page == "" else p + "index.html"
-    return p + page
+    anchor = ""
+    if "#" in page:
+        page, frag = page.split("#", 1)
+        anchor = "#" + frag
+    if page.endswith(".html"):
+        page = page[:-5]
+    if page in ("", "index"):
+        return p + anchor          # "/" 或 "/en/"
+    return p + page + anchor       # "/cases"、"/en/case-fund" ...
 
 
 # ── 案例数据 (已抽象, 不含具体内容) ────────────────────────────
