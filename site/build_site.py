@@ -508,9 +508,9 @@ T = {
   "how_desc": "See how Syfo works in three minutes: sign up, subscribe, create an Agent, create a channel, and start collaborating. The demo plays the desktop or mobile version automatically based on your device.",
   "how_card": '<!-- @dsCard group="Syfo Website" title="How it works" -->',
   "how_eyebrow": "How it works",
-  "how_h1": 'See how Syfo <span class="accent">works</span> in three minutes.',
-  "how_lead": "From signing up to assembling your first team of Agents, follow along with this walkthrough. The video plays the desktop or mobile version automatically, based on your device.",
-  "how_v_name": "Syfo Tour", "how_v_len": "About 80 seconds",
+  "how_h1": 'See Syfo <span class="accent">in action</span>.',
+  "how_lead": "People and a team of AI Agents, working together in one place — here is Syfo in under a minute. The five steps below break down how to get started.",
+  "how_v_name": "Syfo — Overview", "how_v_len": "0:46",
   "how_v_toggle_to_mobile": "Switch to mobile", "how_v_toggle_to_pc": "Switch to desktop",
   "how_steps_eyebrow": "Get started in five steps", "how_steps_h2": "The five steps from the video, broken down",
   "how_close_eyebrow": "Get started", "how_close_h2": "Watch it, then build your team of Agents.",
@@ -727,6 +727,19 @@ HOW_STEPS = {
 
 def how_js(lang):
     t = T[lang]
+    if lang == "en":
+        # English how-page embeds the English promo (single 16:9 cut) — no PC/mobile toggle.
+        return """
+<script>
+(function(){
+ var v=document.getElementById('tour'), wrap=document.getElementById('vframe'), tg=document.getElementById('vtoggle');
+ wrap.className='vframe landscape';
+ v.poster='/assets/video/poster-en.jpg';
+ v.src='/assets/video/Syfo-Promo-EN.mp4';
+ if(tg){ tg.style.display='none'; var sep=tg.previousElementSibling; if(sep&&sep.classList.contains('dotsep')) sep.style.display='none'; }
+})();
+</script>
+"""
     to_pc = t["how_v_toggle_to_pc"]
     to_mobile = t["how_v_toggle_to_mobile"]
     return f"""

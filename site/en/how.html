@@ -250,13 +250,13 @@ footer .links a:hover{color:var(--fg-1)}
 </div></header>
 <section class="hero" style="padding-bottom:0"><div class="wrap">
  <span class="eyebrow">How it works</span>
- <h1 style="max-width:22ch">See how Syfo <span class="accent">works</span> in three minutes.</h1>
- <p class="lead" style="max-width:48ch">From signing up to assembling your first team of Agents, follow along with this walkthrough. The video plays the desktop or mobile version automatically, based on your device.</p>
+ <h1 style="max-width:22ch">See Syfo <span class="accent">in action</span>.</h1>
+ <p class="lead" style="max-width:48ch">People and a team of AI Agents, working together in one place — here is Syfo in under a minute. The five steps below break down how to get started.</p>
  <div class="vstage">
    <div class="vframe landscape" id="vframe">
      <video id="tour" controls playsinline preload="none"></video>
    </div>
-   <div class="vmeta"><span>Syfo Tour</span><span class="dotsep"></span><span>About 80 seconds</span><span class="dotsep"></span>
+   <div class="vmeta"><span>Syfo — Overview</span><span class="dotsep"></span><span>0:46</span><span class="dotsep"></span>
      <button class="vtoggle" id="vtoggle">Switch to mobile</button></div>
  </div>
 </div></section>
@@ -269,19 +269,11 @@ footer .links a:hover{color:var(--fg-1)}
 
 <script>
 (function(){
- var isMobile = window.matchMedia('(max-width:768px)').matches
-   || /Mobi|Android|iPhone|iPad|iPod|HarmonyOS/i.test(navigator.userAgent);
- var v=document.getElementById('tour'), wrap=document.getElementById('vframe');
- var tg=document.getElementById('vtoggle');
- function load(mobile){
-   wrap.className='vframe '+(mobile?'portrait':'landscape');
-   v.poster = mobile?'/assets/video/poster-mobile.jpg':'/assets/video/poster-pc.jpg';
-   v.src = mobile?'/assets/video/SyfoTour-Mobile.mp4':'/assets/video/SyfoTour-PC.mp4';
-   if(tg) tg.textContent = mobile?'Switch to desktop':'Switch to mobile';
-   wrap.dataset.mobile = mobile?'1':'0';
- }
- load(isMobile);
- if(tg) tg.addEventListener('click',function(){ load(wrap.dataset.mobile!=='1'); var pr=v.play&&v.play(); if(pr&&pr.catch)pr.catch(function(){}); });
+ var v=document.getElementById('tour'), wrap=document.getElementById('vframe'), tg=document.getElementById('vtoggle');
+ wrap.className='vframe landscape';
+ v.poster='/assets/video/poster-en.jpg';
+ v.src='/assets/video/Syfo-Promo-EN.mp4';
+ if(tg){ tg.style.display='none'; var sep=tg.previousElementSibling; if(sep&&sep.classList.contains('dotsep')) sep.style.display='none'; }
 })();
 </script>
 
