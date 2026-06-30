@@ -2,9 +2,9 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>怎么用 · Syfo 三分钟上手</title><meta name="description" content="三分钟看懂 Syfo 怎么用：注册、订阅、创建 Agent、创建频道、开始人机协作。按你的设备自动播放电脑版或手机版演示视频。">
-<link rel="icon" href="assets/logo-mark.svg">
+<link rel="icon" href="/assets/logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="assets/tokens.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
 <style>
 :root{ --maxw:1120px; }
 html{scroll-behavior:smooth}
@@ -25,6 +25,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
 .nav .links a:hover{color:var(--fg-1)}
 .nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav .langtoggle{font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 11px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.nav .langtoggle:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
 .nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
  width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
 .nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
@@ -233,17 +236,17 @@ footer .links a:hover{color:var(--fg-1)}
 @media(max-width:560px){ .hero h1{font-size:30px} .feats,.cases,.steps{grid-template-columns:1fr} .closing h2{font-size:28px} }
 </style></head><body class="layer">
 <header class="nav"><div class="wrap"><div class="row">
- <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+ <a class="brand" href="/index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <title>Syfo mark — a radiating signal</title>
   <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
   <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
   <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
   <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
 </svg><span class="wm">Syfo</span></a>
- <nav class="links"><a href="index.html#product">产品</a><a href="index.html#scenes">能做什么</a><a href="cases.html">案例</a><a href="how.html">怎么用</a></nav>
- <div class="right"><a class="btn btn-primary navcta" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="菜单" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+ <nav class="links"><a href="/index.html#product">产品</a><a href="/index.html#scenes">能做什么</a><a href="/cases.html">案例</a><a href="/how.html">怎么用</a></nav>
+ <div class="right"><a class="langtoggle" href="/en/how.html">EN</a><a class="btn btn-primary navcta" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="菜单" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
 </div>
-<div class="nav-menu" id="navMenu"><a href="index.html#product">产品</a><a href="index.html#scenes">能做什么</a><a href="cases.html">案例</a><a href="how.html">怎么用</a><a class="btn btn-primary" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a></div>
+<div class="nav-menu" id="navMenu"><a href="/index.html#product">产品</a><a href="/index.html#scenes">能做什么</a><a href="/cases.html">案例</a><a href="/how.html">怎么用</a><a class="langtoggle" href="/en/how.html">EN</a><a class="btn btn-primary" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a></div>
 </div></header>
 <section class="hero" style="padding-bottom:0"><div class="wrap">
  <span class="eyebrow">怎么用 · How it works</span>
@@ -262,7 +265,7 @@ footer .links a:hover{color:var(--fg-1)}
  <span class="eyebrow" style="justify-content:center">现在开始</span>
  <h2>看完就上手，组建你的 Agent 团队。</h2>
  <div class="cta"><a class="btn btn-primary" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a>
-   <a class="btn btn-ghost" href="cases.html">看真实案例</a></div></div></section>
+   <a class="btn btn-ghost" href="/cases.html">看真实案例</a></div></div></section>
 
 <script>
 (function(){
@@ -272,8 +275,8 @@ footer .links a:hover{color:var(--fg-1)}
  var tg=document.getElementById('vtoggle');
  function load(mobile){
    wrap.className='vframe '+(mobile?'portrait':'landscape');
-   v.poster = mobile?'assets/video/poster-mobile.jpg':'assets/video/poster-pc.jpg';
-   v.src = mobile?'assets/video/SyfoTour-Mobile.mp4':'assets/video/SyfoTour-PC.mp4';
+   v.poster = mobile?'/assets/video/poster-mobile.jpg':'/assets/video/poster-pc.jpg';
+   v.src = mobile?'/assets/video/SyfoTour-Mobile.mp4':'/assets/video/SyfoTour-PC.mp4';
    if(tg) tg.textContent = mobile?'切换到电脑版':'切换到手机版';
    wrap.dataset.mobile = mobile?'1':'0';
  }
@@ -283,7 +286,7 @@ footer .links a:hover{color:var(--fg-1)}
 </script>
 
 <footer><div class="wrap"><div class="row">
- <a class="brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+ <a class="brand" href="/index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
   <title>Syfo mark — a radiating signal</title>
   <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
   <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
@@ -291,7 +294,7 @@ footer .links a:hover{color:var(--fg-1)}
   <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
 </svg><span class="wm">Syfo</span></a>
  <span class="meta">人和一群 Agent 一起干活的地方。</span>
- <div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="cases.html">案例</a><a href="how.html">怎么用</a></div>
+ <div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="/cases.html">案例</a><a href="/how.html">怎么用</a></div>
 </div></div></footer>
 <script>document.addEventListener('click',function(e){var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');});</script>
 </body></html>
