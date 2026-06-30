@@ -1,0 +1,20 @@
+import pkg from '/root/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
+const { chromium } = pkg;
+const SLUG='reorc';
+const b = await chromium.launch();
+const ctx = await b.newContext({ storageState: './.state.json', locale:'zh-CN', viewport:{width:1440,height:900}, deviceScaleFactor:2 });
+const p = await ctx.newPage();
+await p.goto(`https://app.syfo.ai/s/${SLUG}/members`,{waitUntil:'networkidle',timeout:50000});
+await p.waitForTimeout(3000);
+await (await p.$('text=创建 Agent')).click(); await p.waitForTimeout(1600);
+await p.click('text=My Own Computer'); await p.waitForTimeout(600);
+await p.locator('text=选择电脑').first().click(); await p.waitForTimeout(800);
+await p.locator('text=breeze-cobra-99').last().click(); await p.waitForTimeout(700);
+await p.click('text=下一步'); await p.waitForTimeout(1600);
+await p.fill('input[placeholder="marketing-expert"]','Bill-Bain');
+await p.fill('input[placeholder="Research Agent"]','Bill Bain');
+const ta=await p.$('textarea'); if(ta) await ta.fill('贝恩公司（Bain & Company）创始人 Bill Bain。');
+// model dropdown: it's likely a native <select>. Inspect selects
+const selInfo = await p.$$eval('select', ss=>ss.map(s=>({opts:[...s.options].map(o=>o.text)})));
+console.log('SELECTS:', JSON.stringify(selInfo));
+await b.close();

@@ -1,0 +1,13 @@
+import pkg from '/root/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
+const { chromium } = pkg;
+const b = await chromium.launch();
+const ctx = await b.newContext({ viewport:{width:1240,height:900}, deviceScaleFactor:1.5 });
+const p = await ctx.newPage();
+await p.goto('file://'+process.cwd()+'/site/index.html',{waitUntil:'networkidle'});
+await p.waitForTimeout(2500);
+await p.screenshot({path:'/tmp/web-top.png'});
+await p.evaluate(()=>document.querySelector('#tasks').scrollIntoView());
+await p.waitForTimeout(800);
+await p.screenshot({path:'/tmp/web-mid.png'});
+await b.close();
+console.log('ok');

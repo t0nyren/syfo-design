@@ -1,0 +1,25 @@
+import pkg from '/root/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
+const { chromium } = pkg;
+const SLUG='mini-pc-on-syfo';
+const CH='019f17fa-da4c-73ec-a064-d65ffb247645';
+const b = await chromium.launch();
+const ctx = await b.newContext({ storageState: './.state.json', locale:'zh-CN', viewport:{width:1440,height:900}, deviceScaleFactor:2 });
+const p = await ctx.newPage();
+await p.goto(`https://app.syfo.ai/s/${SLUG}/channel/${CH}`,{waitUntil:'networkidle',timeout:50000});
+await p.waitForTimeout(2500);
+await p.mouse.click(1306, 20);
+await p.waitForTimeout(1200);
+await p.fill('input[placeholder="搜索人或 Agent…"]','导览');
+await p.waitForTimeout(1500);
+// find the row and its button via XPath
+const rowBtn = p.locator('xpath=//*[contains(text(),"导览助手 Lina")]/ancestor::*[self::div or self::li][1]//button').last();
+const cnt = await p.locator('xpath=//*[contains(text(),"导览助手 Lina")]').count();
+console.log('lina rows:', cnt, 'rowBtn count:', await rowBtn.count());
+await rowBtn.click({timeout:5000}).catch(e=>console.log('rowBtn click err', e.message));
+await p.waitForTimeout(2500);
+await p.screenshot({path:'./shots/25-lina-added.png'});
+const t=(await p.innerText('body')).replace(/\n{2,}/g,'\n');
+console.log('added 导览?', t.includes('导览助手 Lina'));
+const m=t.match(/(\d+) 个成员/); console.log('member count:', m&&m[0]);
+const m2=t.match(/(\d+) Agent/); console.log('agent count:', m2&&m2[0]);
+await b.close();

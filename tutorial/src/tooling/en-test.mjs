@@ -1,0 +1,10 @@
+import pkg from '/root/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
+const { chromium } = pkg;
+const b = await chromium.launch();
+const ctx = await b.newContext({ storageState:'./.state.json', locale:'en-US', viewport:{width:1440,height:900}, deviceScaleFactor:2 });
+const p = await ctx.newPage();
+await p.goto('https://app.syfo.ai/s/mini-pc-on-syfo/computers',{waitUntil:'networkidle',timeout:50000});
+await p.waitForTimeout(3500);
+const t=(await p.innerText('body')).replace(/\n{2,}/g,'\n').slice(0,300);
+console.log('UI sample:', t.replace(/\n/g,' '));
+await b.close();

@@ -1,0 +1,10 @@
+import pkg from '/root/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
+const { chromium } = pkg;
+const b = await chromium.launch();
+const ctx = await b.newContext({ storageState:'./.state.json', locale:'en-US', viewport:{width:1440,height:900}, deviceScaleFactor:2 });
+const p = await ctx.newPage();
+await p.goto('https://app.syfo.ai/s/mini-pc-on-syfo/inbox',{waitUntil:'networkidle',timeout:50000});
+await p.waitForTimeout(2800);
+const labels = await p.$$eval('[aria-label]', es=>[...new Set(es.map(e=>e.getAttribute('aria-label')))].filter(l=>/channel|new|create|add|dm|direct/i.test(l)));
+console.log(JSON.stringify(labels));
+await b.close();

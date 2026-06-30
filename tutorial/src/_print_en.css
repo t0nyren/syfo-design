@@ -1,0 +1,28 @@
+
+@page{size:A4;margin:18mm 16mm 16mm;
+  @bottom-center{content:"Syfo Tutorial · " counter(page) " / " counter(pages);
+    font-family:'IBM Plex Mono',monospace;font-size:8.5pt;color:#9A938A}}
+body{font-size:10.4pt;line-height:1.62}
+.wrap{max-width:none}
+nav.toc{display:none}
+.cover{text-align:left;padding:0 0 12pt;border-bottom:1.5pt solid var(--accent);margin-bottom:8pt;page-break-after:always}
+.cover h1{font-size:30pt;line-height:1.1;margin:6pt 0}
+.cover .sub{font-size:13pt;color:var(--fg-2)}
+.cover .meta{margin-top:24pt;font-family:var(--font-mono);font-size:9pt;color:var(--fg-3)}
+.cover .toc-print{margin-top:20pt}
+.cover .toc-print .toc-h{font-family:var(--font-mono);font-size:8.5pt;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);margin-bottom:8pt}
+.cover .toc-print ol{list-style:none;margin:0;columns:2;column-gap:24pt}
+.cover .toc-print li{font-size:10pt;margin:3pt 0;color:#2b2620}
+.cover .toc-print .i{font-family:var(--font-mono);color:var(--accent);margin-right:6pt}
+section.ch{page-break-before:always;padding:0 0 6pt}
+section.ch>h2{font-size:18pt;margin:0 0 2pt;color:var(--fg-1)}
+section.ch>.lede{font-size:11.5pt;color:var(--fg-2);margin-bottom:10pt}
+section.ch .eyebrow{font-size:8pt}
+figure{margin:9pt 0;page-break-inside:avoid}
+figure img{box-shadow:none;border-radius:6px}
+figcaption{font-size:8.6pt}
+.note{page-break-inside:avoid;margin:9pt 0;padding:8pt 11pt}
+.note-b{font-size:9.6pt}
+.step{page-break-inside:avoid}
+.step-fig{page-break-inside:avoid}
+footer{display:none}

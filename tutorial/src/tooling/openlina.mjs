@@ -1,0 +1,17 @@
+import pkg from '/root/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
+const { chromium } = pkg;
+const SLUG='mini-pc-on-syfo';
+const b = await chromium.launch();
+const ctx = await b.newContext({ storageState: './.state.json', locale:'zh-CN', viewport:{width:1440,height:900}, deviceScaleFactor:2 });
+const p = await ctx.newPage();
+await p.goto(`https://app.syfo.ai/s/${SLUG}/members`,{waitUntil:'networkidle',timeout:50000});
+await p.waitForTimeout(3000);
+await p.click('text=导览助手 Lina');
+await p.waitForTimeout(2800);
+console.log('URL:', p.url());
+await p.screenshot({path:'./shots/19-new-agent-profile.png'});
+const t=(await p.innerText('body')).replace(/\n{2,}/g,'\n');
+const idx=t.indexOf('导览助手 Lina', t.indexOf('资料'));
+console.log(t.slice(0,80),'\n---profile---');
+console.log(t.slice(t.indexOf('运行配置')>0?t.indexOf('运行配置')-200:0, (t.indexOf('运行配置')>0?t.indexOf('运行配置')+250:600)));
+await b.close();
