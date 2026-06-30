@@ -5,10 +5,10 @@ every feature across 14 chapters, built from real operations in a live org (mini
 Output as a static website **and** a print-ready PDF, styled with the Syfo design system
 (warm paper + burnt sienna).
 
-Live: <https://syfo-guide.secondlife.today/> (EN: `/en/`)
+Deployed (hidden page) via the official pipeline at **syfo.ai/guide** (EN: `/guide/en`). Source mirror: syfo-guide.secondlife.today.
 
 ## Layout
-- `dist/` — the deployable static site (exactly what's served live):
+- Deployable copy lives under `site/guide/` (served at syfo.ai/guide). This `src/` builds it:
   - `index.html` (中文), `en/index.html` (English), with an EN ↔ 中文 toggle
   - `assets/tokens.css`, `shots/`, `en/shots/`
   - `Syfo-使用教程.pdf`, `Syfo-Tutorial-EN.pdf`
