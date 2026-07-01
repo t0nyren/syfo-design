@@ -15,18 +15,30 @@
 #   - 资源一律 root-absolute："/assets/..."。
 #   - 语言切换器在 nav() 里，指向另一语言的同一页面 (toggle 由 page builder 传入)。
 import os
+import json
 
 HERE = os.path.dirname(__file__)
 EN_DIR = os.path.join(HERE, "en")
 FONTS = ("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700"
          "&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700"
-         "&family=Noto+Serif+SC:wght@400;500;600;700&display=swap")
+         "&family=Noto+Serif+SC:wght@400;500;600;700"
+         "&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700"
+         "&display=swap")
 APP = "https://app.syfo.ai"
 LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg")).read()
 
-LANGS = ["zh", "en"]
-# root-absolute 前缀：zh 在站点根，en 在 /en/ 子目录
-PREFIX = {"zh": "/", "en": "/en/"}
+LANGS = ["zh", "en", "ja", "es"]
+# root-absolute 前缀：zh 在站点根，其余在 /<lang>/ 子目录
+PREFIX = {"zh": "/", "en": "/en/", "ja": "/ja/", "es": "/es/"}
+# 输出目录：zh=站点根，其余=子目录
+DIRS = {"zh": HERE, "en": os.path.join(HERE, "en"),
+        "ja": os.path.join(HERE, "ja"), "es": os.path.join(HERE, "es")}
+# 语言切换器展示名 / 短标签
+LANG_NAMES = {"zh": "中文", "en": "English", "ja": "日本語", "es": "Español"}
+LANG_SHORT = {"zh": "中", "en": "EN", "ja": "JA", "es": "ES"}
+# 日语页面：优先用 Noto Sans JP / Noto Serif JP，避免日文汉字被 SC 字体渲染成中文字形
+JA_FONT_OVERRIDE = ("<style>:root{--font-sans:'Inter','Noto Sans JP','Noto Sans SC',system-ui,sans-serif;"
+                    "--font-serif:'Noto Serif JP','Noto Serif SC',Georgia,serif;}</style>")
 
 
 def url(lang, page):
@@ -180,6 +192,25 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .nav .langtoggle{font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
  border-radius:var(--radius-md);padding:6px 11px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
 .nav .langtoggle:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+/* language switcher (native <details> dropdown) */
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+ font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm);
+ transition:background var(--dur-fast) var(--ease-out)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center}
+.nav-lang .langpop{position:static;box-shadow:none;border:0;padding:8px 0 0;min-width:0}
+.nav-lang .langpop a{padding:12px 2px}
 .nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
  width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
 .nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
@@ -550,11 +581,24 @@ def head(lang, title, desc, card_marker="", toggle_href="/"):
 <link rel="icon" href="/assets/logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
-<style>{CSS}</style></head><body class="layer">"""
+<style>{CSS}</style>{JA_FONT_OVERRIDE if lang == "ja" else ""}</head><body class="layer">"""
 
 
-def nav(lang, toggle_href="/", active=""):
-    """toggle_href: 另一语言的同一页面 (root-absolute)。"""
+def lang_switcher(lang, page):
+    """四语言切换器：原生 <details> 下拉，链接到同一页面的各语言版本 (无 JS 依赖，移动端可用)。"""
+    globe = ('<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+             'stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>'
+             '<path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>')
+    opts = ""
+    for lg in LANGS:
+        cur = ' class="cur"' if lg == lang else ''
+        opts += f'<a href="{url(lg, page)}"{cur}>{LANG_NAMES[lg]}</a>'
+    return (f'<details class="langmenu"><summary>{globe}<span>{LANG_SHORT[lang]}</span></summary>'
+            f'<div class="langpop">{opts}</div></details>')
+
+
+def nav(lang, page="index.html", active=""):
+    """page: 当前页面文件名 (index.html / cases.html / how.html / case-<slug>.html)，供语言切换器指向对应语言的同一页面。"""
     t = T[lang]
     def a(href, label): return f'<a href="{href}">{label}</a>'
     links = (a(url(lang, "index.html#product"), t["nav_product"])
@@ -562,7 +606,7 @@ def nav(lang, toggle_href="/", active=""):
              + a(url(lang, "cases.html"), t["nav_cases"])
              + a(url(lang, "how.html"), t["nav_how"]))
     cta = f'<a class="btn btn-primary" href="{APP}">{t["enter"]} <span class="arr">→</span></a>'
-    lang_toggle = f'<a class="langtoggle" href="{toggle_href}">{t["lang_toggle_label"]}</a>'
+    langsw = lang_switcher(lang, page)
     burger = ('<svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>'
               '<svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg>')
     toggle = (f'<button class="nav-toggle" aria-label="{t["menu_aria"]}" aria-expanded="false" aria-controls="navMenu" '
@@ -570,9 +614,9 @@ def nav(lang, toggle_href="/", active=""):
     return f"""<header class="nav"><div class="wrap"><div class="row">
  <a class="brand" href="{url(lang, "index.html")}">{LOGO_MARK}<span class="wm">Syfo</span></a>
  <nav class="links">{links}</nav>
- <div class="right">{lang_toggle}<a class="btn btn-primary navcta" href="{APP}">{t["enter"]} <span class="arr">→</span></a>{toggle}</div>
+ <div class="right">{langsw}<a class="btn btn-primary navcta" href="{APP}">{t["enter"]} <span class="arr">→</span></a>{toggle}</div>
 </div>
-<div class="nav-menu" id="navMenu">{links}{lang_toggle}{cta}</div>
+<div class="nav-menu" id="navMenu">{links}<div class="nav-lang">{langsw}</div>{cta}</div>
 </div></header>"""
 
 
@@ -597,8 +641,7 @@ def case_card(lang, ind, title, desc, tags, slug):
 
 # ── output helpers ─────────────────────────────────────────────
 def outpath(lang, filename):
-    base = HERE if lang == "zh" else EN_DIR
-    return os.path.join(base, filename)
+    return os.path.join(DIRS[lang], filename)
 
 
 def write(lang, filename, parts):
@@ -607,10 +650,12 @@ def write(lang, filename, parts):
 
 
 # 真实产品界面截图（app.syfo.ai 上一段人与 Agent 的真实对话），外加浏览器边框。
+# 每语言一张本地化截图：product-shot.png(zh) / -en / -ja / -es。
+SHOT_SUFFIX = {"zh": "", "en": "-en", "ja": "-ja", "es": "-es"}
 def mock(lang):
     return f"""<div class="shot">
  <div class="bar"><i></i><i></i><i></i><span class="ttl">app.syfo.ai</span></div>
- <img src="/assets/product-shot{'-en' if lang == 'en' else ''}.png" alt="{T[lang]['shot_alt']}" loading="lazy"/>
+ <img src="/assets/product-shot{SHOT_SUFFIX[lang]}.png" alt="{T[lang]['shot_alt']}" loading="lazy"/>
 </div>"""
 
 
@@ -620,7 +665,7 @@ def build_home(lang):
     other = "en" if lang == "zh" else "zh"
     toggle = url(other, "index.html")
     P = [head(lang, t["home_title"], t["home_desc"], t["home_card"], toggle)]
-    P.append(nav(lang, toggle))
+    P.append(nav(lang, "index.html"))
 
     pillar1_li = "".join(f"<li>{x}</li>" for x in t["pillar1_li"])
     pillar2_li = "".join(f"<li>{x}</li>" for x in t["pillar2_li"])
@@ -693,7 +738,7 @@ def build_cases(lang):
     other = "en" if lang == "zh" else "zh"
     toggle = url(other, "cases.html")
     C = [head(lang, t["cases_title"], t["cases_desc"], t["cases_card"], toggle)]
-    C.append(nav(lang, toggle, "cases"))
+    C.append(nav(lang, "cases.html", "cases"))
     C.append(f"""<section class="casehero"><div class="wrap">
  <span class="eyebrow">{t["cases_eyebrow"]}</span>
  <h1>{t["cases_h1"]}</h1>
@@ -734,17 +779,18 @@ HOW_STEPS = {
 
 def how_js(lang):
     t = T[lang]
-    if lang == "en":
-        # English how-page embeds the English promo (single 16:9 cut) — no PC/mobile toggle.
-        return """
+    if lang in ("en", "ja", "es"):
+        # 非中文 how 页嵌入对应语言的宣传片 (单 16:9 剪辑) — 无 PC/手机切换。
+        suf = {"en": "EN", "ja": "JA", "es": "ES"}[lang]
+        return f"""
 <script>
-(function(){
+(function(){{
  var v=document.getElementById('tour'), wrap=document.getElementById('vframe'), tg=document.getElementById('vtoggle');
  wrap.className='vframe landscape';
- v.poster='/assets/video/poster-en.jpg';
- v.src='/assets/video/Syfo-Promo-EN.mp4';
- if(tg){ tg.style.display='none'; var sep=tg.previousElementSibling; if(sep&&sep.classList.contains('dotsep')) sep.style.display='none'; }
-})();
+ v.poster='/assets/video/poster-{lang}.jpg';
+ v.src='/assets/video/Syfo-Promo-{suf}.mp4';
+ if(tg){{ tg.style.display='none'; var sep=tg.previousElementSibling; if(sep&&sep.classList.contains('dotsep')) sep.style.display='none'; }}
+}})();
 </script>
 """
     to_pc = t["how_v_toggle_to_pc"]
@@ -775,7 +821,7 @@ def build_how(lang):
     other = "en" if lang == "zh" else "zh"
     toggle = url(other, "how.html")
     H = [head(lang, t["how_title"], t["how_desc"], t["how_card"], toggle)]
-    H.append(nav(lang, toggle, "how"))
+    H.append(nav(lang, "how.html", "how"))
     H.append(f"""<section class="hero" style="padding-bottom:0"><div class="wrap">
  <span class="eyebrow">{t["how_eyebrow"]}</span>
  <h1 style="max-width:22ch">{t["how_h1"]}</h1>
@@ -1187,7 +1233,7 @@ def build_detail(lang, slug):
               f"{t['d_desc_prefix']}{title}. {d['sub']}",
               f'<!-- @dsCard group="{"Syfo 官网" if lang=="zh" else "Syfo Website"}" title="{t["d_card_prefix"]}{ind}" -->',
               toggle)]
-    D.append(nav(lang, toggle, "cases"))
+    D.append(nav(lang, f"case-{slug}.html", "cases"))
     D.append(f"""<div class="wrap"><div class="crumb"><a href="{url(lang, "cases.html")}">{t["d_back"]}</a></div>
  <section class="dhero"><div class="ind">{ind}</div>
    <h1>{title}</h1><p class="sub">{d['sub']}</p>
@@ -1223,8 +1269,17 @@ def build_detail(lang, slug):
     write(lang, f"case-{slug}.html", D)
 
 
+# ── 载入 ja / es 翻译 (由 i18n/<lang>.json 提供，zh/en 保持内联) ──
+for _lg in ("ja", "es"):
+    _d = json.load(open(os.path.join(HERE, "i18n", f"{_lg}.json"), encoding="utf-8"))
+    T[_lg] = _d["T"]; CASES[_lg] = _d["CASES"]; SCENES[_lg] = _d["SCENES"]
+    STEPS[_lg] = _d["STEPS"]; RELAY[_lg] = _d["RELAY"]
+    HOW_STEPS[_lg] = _d["HOW_STEPS"]; DETAILS[_lg] = _d["DETAILS"]
+
+
 # ════════════════════════════════════════════ build
-os.makedirs(EN_DIR, exist_ok=True)
+for _d in DIRS.values():
+    os.makedirs(_d, exist_ok=True)
 for lang in LANGS:
     build_home(lang)
     build_cases(lang)
@@ -1232,4 +1287,4 @@ for lang in LANGS:
     for slug in [c[4] for c in CASES[lang]]:
         build_detail(lang, slug)
 
-print("wrote zh (root) + en (en/): index.html + cases.html + how.html + 6 case detail pages each")
+print("wrote zh (root) + en/ + ja/ + es/: index.html + cases.html + how.html + 6 case detail pages each")

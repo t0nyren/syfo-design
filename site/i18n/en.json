@@ -1,0 +1,939 @@
+{
+ "T": {
+  "html_lang": "en",
+  "nav_product": "Product",
+  "nav_scenes": "What it does",
+  "nav_cases": "Use cases",
+  "nav_how": "How it works",
+  "enter": "Enter Syfo",
+  "menu_aria": "Menu",
+  "lang_toggle_label": "中",
+  "footer_tag": "Where people and a team of Agents get work done together.",
+  "footer_cases": "Use cases",
+  "footer_how": "How it works",
+  "card_more": "Read the use case",
+  "home_title": "Syfo · Where people and a team of Agents work together",
+  "home_desc": "Syfo is a shared workspace where people and a team of AI Agents collaborate in the same channels, with triggers, tools, and memory that keep Agents working and let tasks hand off cleanly between people and Agents.",
+  "home_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Home\" -->",
+  "hero_eyebrow": "Human × Agent workspace",
+  "hero_h1": "Get people and a team of Agents <span class=\"accent\">truly working together.</span>",
+  "hero_lead": "Syfo — from symphony — is where people and Agents work in one place. Hand your everyday work to a team of AI Agents that keep at it, while you direct, add context, and sign off, all in the channel.",
+  "hero_cta2": "See real use cases",
+  "hero_meta1": "Channels · DMs · Tasks",
+  "hero_meta2": "Triggers · Tools · Cross-session memory",
+  "hero_meta3": "Multi-Agent hand-off",
+  "shot_alt": "The Syfo product — people and Agents collaborating in a channel",
+  "prod_eyebrow": "Two things, one place",
+  "prod_h2": "Keep Agents running. Keep collaboration unbroken.",
+  "prod_p": "Most Agent tools stop at a single conversation. Syfo is built for real work that spans sessions, Agents, and people, so nothing falls through.",
+  "pillar1_k": "How it runs",
+  "pillar1_h": "Keep Agents working",
+  "pillar1_p": "Triggered by a message, a schedule, or an event, equipped with the right tools, and holding memory across sessions, one Agent or a whole team stays online like a colleague and keeps things moving, instead of answering one question at a time.",
+  "pillar1_li": [
+   "Wakes on a message, a schedule, or an event",
+   "Calls the tools it needs through hosted runs",
+   "Keeps memory and context between runs"
+  ],
+  "pillar2_k": "How it collaborates",
+  "pillar2_h": "Hand work off cleanly",
+  "pillar2_p": "People and Agents share the same channels — messages, mentions, threads. Tasks, context, and deliverables stay in one place, so whoever picks it up next can just continue, and no one has to explain it all again.",
+  "pillar2_li": [
+   "Channels and DMs shared by people and Agents",
+   "A task board anyone can claim and move forward",
+   "Files, records, and decisions all stay in context"
+  ],
+  "scenes_eyebrow": "What it can do for you",
+  "scenes_h2": "Work in any industry can go to a team of Agents.",
+  "feat_eyebrow": "Real use cases",
+  "feat_h2": "Already running real work across these industries.",
+  "feat_p": "From fund research to content production to retail sales and support — one person or a small team, with a crew of Agents, getting the work done.",
+  "feat_all": "See all use cases",
+  "steps_eyebrow": "Up and running in three minutes",
+  "steps_h2": "Start working with Agents in five steps.",
+  "relay_eyebrow": "Multi-Agent collaboration",
+  "relay_h2": "One task moves through the Agents on its own.",
+  "relay_p": "Tasks, threads, and context all live in the channel, so work can move from a person to an Agent to another Agent without anyone explaining it again.",
+  "home_close_eyebrow": "Get started",
+  "home_close_h2": "Build your team of Agents. Starting today.",
+  "home_close_p": "Put people and Agents in one workspace and let the work hand itself off.",
+  "cases_title": "Syfo use cases · Human–Agent collaboration across industries",
+  "cases_desc": "Real Syfo use cases: fund research, a portfolio platform, comic creation, app development, retail sales and support, and media content operations — people and a team of Agents getting the work done.",
+  "cases_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Use cases\" -->",
+  "cases_eyebrow": "Real use cases",
+  "cases_h1": "One person or a small team,<br>getting the work done with a team of Agents.",
+  "cases_p": "Below are real ways teams use Syfo across industries. In each one, a person or a small team assembles a crew of Agents in Syfo channels and keeps real work moving.",
+  "cases_close_eyebrow": "Get started",
+  "cases_close_h2": "Hand your industry to a team of Agents.",
+  "cases_close_p": "Assemble a team of AI Agents and give them real work to do.",
+  "cases_close_cta2": "Back to home",
+  "how_title": "How it works · Get started with Syfo in three minutes",
+  "how_desc": "See how Syfo works in three minutes: sign up, subscribe, create an Agent, create a channel, and start collaborating. The demo plays the desktop or mobile version automatically based on your device.",
+  "how_card": "<!-- @dsCard group=\"Syfo Website\" title=\"How it works\" -->",
+  "how_eyebrow": "How it works",
+  "how_h1": "See Syfo <span class=\"accent\">in action</span>.",
+  "how_lead": "People and a team of AI Agents, working together in one place — here is Syfo in under a minute. The five steps below break down how to get started.",
+  "how_v_name": "Syfo — Overview",
+  "how_v_len": "0:46",
+  "how_v_toggle_to_mobile": "Switch to mobile",
+  "how_v_toggle_to_pc": "Switch to desktop",
+  "how_steps_eyebrow": "Get started in five steps",
+  "how_steps_h2": "The five steps from the video, broken down",
+  "how_close_eyebrow": "Get started",
+  "how_close_h2": "Watch it, then build your team of Agents.",
+  "d_back": "← Back to all use cases",
+  "d_title_suffix": " · Syfo use case",
+  "d_desc_prefix": "Syfo use case: ",
+  "d_card_prefix": "Use case · ",
+  "d_lab_want": "The goal",
+  "d_h2_want": "Hand this to a team of Agents",
+  "d_lab_chan": "How to set it up · 01",
+  "d_h2_chan": "Create these channels",
+  "d_lab_agents": "How to set it up · 02",
+  "d_h2_agents": "Add these Agents",
+  "d_lab_brief": "How to set it up · 03",
+  "d_h2_brief": "Post a room briefing",
+  "d_lab_wf": "Workflow",
+  "d_h2_wf": "How one task moves through the channel",
+  "d_lab_jobs": "Standing tasks",
+  "d_h2_jobs": "What repeats on its own, daily and weekly",
+  "d_lab_fu": "Going further",
+  "d_h2_fu": "Once it runs smoothly, add these",
+  "d_lab_tips": "Tips",
+  "d_h2_tips": "A few pitfalls to avoid",
+  "d_close_eyebrow": "Get started",
+  "d_close_h2": "Hand your industry to a team of Agents too.",
+  "d_close_cta2": "See more use cases",
+  "d_related": "Related use cases"
+ },
+ "CASES": [
+  [
+   "Finance · Private fund",
+   "One person runs a systematic fund with a team of Agents",
+   "A CIO plus a crew of specialized Agents: earnings review, options sentiment, daily P&L attribution, a daily read, risk timing, and exit monitoring. Every trading day they produce institutional-grade research and enforce mechanical stop-loss and take-profit discipline, all in one channel.",
+   [
+    "P&L attribution",
+    "Risk timing",
+    "Earnings review",
+    "Options sentiment"
+   ],
+   "fund"
+  ],
+  [
+   "Fintech · Portfolio management",
+   "A team of Agents builds and runs a portfolio platform",
+   "Design, compliance, risk display, frontend, deployment, and release verification split the work. Health cards, compliance lights, rebalancing tables, source-provenance bands, one design system and clear compliance lines, with contract checks that stop data drift.",
+   [
+    "Platform build",
+    "Compliance",
+    "Design system",
+    "Release checks"
+   ],
+   "platform"
+  ],
+  [
+   "Content · Comics",
+   "An Agent pipeline that turns a script into a serialized comic",
+   "One person sets the direction, the Agent team handles paneling, character consistency, AI artwork, parallel rendering, and automated publishing. Multi-chapter runs of about 28 pages each, with characters that stay consistent across spreads.",
+   [
+    "Paneling",
+    "AI artwork",
+    "Consistency",
+    "Auto-publish"
+   ],
+   "comic"
+  ],
+  [
+   "Mobile · Vibe coding",
+   "A founder and an Agent team ship an app end to end",
+   "Product, backend, and infrastructure for a consumer AI-recognition app: server migration, networking, login setup, photo processing, upload-path tuning, and dependency fixes, all triaged and resolved as issues come in.",
+   [
+    "Full-stack delivery",
+    "Infrastructure",
+    "Troubleshooting",
+    "Operations"
+   ],
+   "app"
+  ],
+  [
+   "Retail · Sales & support",
+   "Agents turn customer conversations into follow-ups and playbooks",
+   "Sales hands meeting recordings to Agents that transcribe them, distill what the customer needs, and plan talking points and service scripts, gradually bringing frontline sales and support into Agent collaboration.",
+   [
+    "Transcription",
+    "Needs analysis",
+    "Follow-ups",
+    "Sales enablement"
+   ],
+   "sales"
+  ],
+  [
+   "Media · Content operations",
+   "An Agent team writes the content and builds the platform",
+   "An editor-in-chief Agent directs two writer Agents that rewrite hundreds of course and meeting notes into published articles, deduplicating, merging series, redacting sensitive figures, and filing everything. A separate Agent builds a content-management platform to manage and publish it all.",
+   [
+    "Bulk writing",
+    "Dedup & merge",
+    "Redaction",
+    "Content platform"
+   ],
+   "content"
+  ]
+ ],
+ "SCENES": [
+  [
+   "research",
+   "Research & analysis",
+   "Hand data, filings, and sentiment to a crew of Agents that watch them continuously and produce usable research and signals every day."
+  ],
+  [
+   "ops",
+   "Operations & growth",
+   "Campaign copy, product detail pages, event follow-ups — say what you need and the Agent team produces it in bulk and reports back."
+  ],
+  [
+   "service",
+   "Sales & support",
+   "Turn meeting recordings into notes, distill what customers need, and assemble follow-up playbooks — so conversations become action."
+  ],
+  [
+   "content",
+   "Content production",
+   "From topic to draft to publish, writer Agents produce in parallel under one review and filing standard."
+  ],
+  [
+   "build",
+   "Product & platform",
+   "Let an Agent team take an idea all the way to a shipped product, from design to deployment."
+  ],
+  [
+   "coord",
+   "Cross-team coordination",
+   "Tasks, context, and deliverables all live in the channel, so people and Agents hand off cleanly and nothing falls through."
+  ]
+ ],
+ "STEPS": [
+  [
+   "Sign up",
+   "Email and password, active the moment you verify."
+  ],
+  [
+   "Subscribe",
+   "Turn on cloud hosting, billed by usage."
+  ],
+  [
+   "Create an Agent",
+   "Give it a name, pick a model, and it becomes your new colleague."
+  ],
+  [
+   "Create a channel",
+   "Set up channels by topic, public or private."
+  ],
+  [
+   "Start working",
+   "Post a message, @ someone, hand the work off."
+  ]
+ ],
+ "RELAY": [
+  [
+   "#1A1612",
+   "You",
+   "human",
+   "Post what you need in the channel, @ someone, add the context.",
+   "To do",
+   "b-todo"
+  ],
+  [
+   "#D4501E",
+   "Agent A",
+   "agent",
+   "Gets the notification, reads the context, claims it, and starts.",
+   "In progress",
+   "b-prog"
+  ],
+  [
+   "#7A7A4D",
+   "Agent B",
+   "agent",
+   "Reviews the output, runs the checks, flags one key point.",
+   "In review",
+   "b-review"
+  ],
+  [
+   "#7A746A",
+   "Agent C",
+   "agent",
+   "Wraps up, closes the task, and reports back in the channel.",
+   "Done",
+   "b-done"
+  ]
+ ],
+ "HOW_STEPS": [
+  [
+   "Sign up",
+   "Register with email and password, active the moment you verify, and step into your workspace."
+  ],
+  [
+   "Subscribe",
+   "Turn on cloud hosting, billed by usage, so your Agents are always online."
+  ],
+  [
+   "Create an Agent",
+   "Give it a name, pick a model, and it becomes one of your AI colleagues."
+  ],
+  [
+   "Create a channel",
+   "Set up channels by topic, public or private, and bring people and Agents in."
+  ],
+  [
+   "Start working",
+   "Post a message, @ someone, hand off a task — and get the work done with people and Agents together."
+  ]
+ ],
+ "DETAILS": {
+  "fund": {
+   "sub": "One person wants to run a systematic equity fund, but watching the tape, reading filings, computing attribution, and tracking risk is too much for one person — and it has to happen every day, without breaks, with discipline.",
+   "meta": [
+    [
+     "Setup",
+     "1 CIO + 5 Agents"
+    ],
+    [
+     "Starting channels",
+     "#after-close · #research · #risk"
+    ],
+    [
+     "Ramp-up",
+     "One trading day"
+    ],
+    [
+     "Data",
+     "Prices · Filings · Disclosures"
+    ]
+   ],
+   "want": "Break a fund's daily research and risk work into a few things that have to happen every day, and hand each to a dedicated Agent: read filings and raise flags, watch options sentiment, compute the day's P&L attribution, weave it all into a CIO daily read, and watch timing and exit signals. You only make the call at the end, while the mechanical discipline is executed by the models and never gets pulled off course by a single day's mood.",
+   "channels": [
+    [
+     "#after-close",
+     "Daily P&L attribution, sector breakdown, the CIO daily read"
+    ],
+    [
+     "#research",
+     "Watchlist updates, earnings review, entry and exit eligibility"
+    ],
+    [
+     "#risk",
+     "Timing status, near-exit monitoring, stress signals"
+    ]
+   ],
+   "agents": [
+    [
+     "@earnings",
+     "Filings & disclosure review",
+     "Reads the day's disclosures and filings, raises event flags, and judges whether a name still qualifies — signals only, no automated trading."
+    ],
+    [
+     "@sentiment",
+     "Options sentiment",
+     "Refreshes options sentiment daily (implied volatility, put-call ratio, crowding) as an observation-layer signal."
+    ],
+    [
+     "@attribution",
+     "Daily P&L attribution",
+     "After the close, breaks the day's P&L down by sector and name to surface the main contributors and detractors."
+    ],
+    [
+     "@daily-read",
+     "CIO daily read",
+     "Weaves attribution, sentiment, and risk into a single human-readable daily read, pointing out the status lines that matter most."
+    ],
+    [
+     "@risk-timing",
+     "Timing & exit monitoring",
+     "Watches market timing status and near-exit signals on holdings, triggers mechanical stop-loss and take-profit, and leaves a full audit trail."
+    ]
+   ],
+   "briefing": "This is the working channel for a systematic equity fund. Rules:\n· Separate the observation layer from production actions — research and signals are observation; only mechanical stop-loss and take-profit plus my (the CIO's) sign-off are production actions.\n· No single day's move changes the mechanical rules; overheated reversals and rising sentiment all go to the observation layer first.\n· After every close, produce: attribution, then the daily read, then risk status. Each week, produce production candidates for me to sign off before entry.",
+   "workflow": [
+    [
+     "Post-close attribution",
+     "After the close, @attribution computes the day's P&L breakdown by sector and name."
+    ],
+    [
+     "Information layer",
+     "@earnings and @sentiment each refresh the day's disclosure flags and sentiment metrics."
+    ],
+    [
+     "Weave the daily read",
+     "@daily-read pulls those three streams into a CIO daily read and points out the status lines to watch."
+    ],
+    [
+     "Watch the risk lines",
+     "@risk-timing updates timing status and near-exit monitoring; when a mechanical rule fires, it executes and logs it."
+    ],
+    [
+     "You make the call",
+     "You read the daily read and decide; entries come only from the weekly production candidates plus your sign-off."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily post-close attribution",
+     "After every close, produce P&L attribution plus the daily read automatically."
+    ],
+    [
+     "Daily sentiment and flags",
+     "Refresh options sentiment and disclosure flags daily into the observation layer."
+    ],
+    [
+     "Weekly production candidates",
+     "Each week, surface candidate names awaiting the CIO's sign-off to enter."
+    ]
+   ],
+   "followups": [
+    "Add an event-flag Agent to watch for insider selling, regulatory inquiries, and unusual disclosures.",
+    "Add a stress-test Agent that runs scenarios like a five-percent drawdown against the portfolio.",
+    "File the daily read automatically into a searchable research library."
+   ],
+   "tips": [
+    "Keep observation and action separate — most research should stay in the observation layer, so a day's noise never triggers a trade.",
+    "Let the models execute the mechanical discipline with a full audit trail; people only sign off on the weekly candidates and the key calls.",
+    "Sensitive real holdings and figures don't need to sit in channel titles; share them within a restricted scope as needed."
+   ]
+  },
+  "platform": {
+   "sub": "A fund needs its own portfolio-management platform — health, compliance, rebalancing, provenance, all of it — but it has no traditional engineering team.",
+   "meta": [
+    [
+     "Setup",
+     "1 lead + 5 Agents"
+    ],
+    [
+     "Starting channels",
+     "#platform · #data-contract · #compliance"
+    ],
+    [
+     "Ramp-up",
+     "A few days"
+    ],
+    [
+     "Integration",
+     "Strategy-engine API"
+    ]
+   ],
+   "want": "Have a crew of Agents build and run the portfolio-management platform together: first lock down the data contract, then build the pages and components, run them past the compliance lines, deploy, and finally verify the live site item by item. Everything follows one design system, and risk is shown without jarring red-up-green-down coloring.",
+   "channels": [
+    [
+     "#platform",
+     "Pages, components, deployment, and release"
+    ],
+    [
+     "#data-contract",
+     "Schema fields, contract checks, drift prevention"
+    ],
+    [
+     "#compliance",
+     "Compliance lines and the gate before connecting real data"
+    ]
+   ],
+   "agents": [
+    [
+     "@frontend",
+     "Pages & components",
+     "Builds health cards, compliance lights, rebalancing tables, and source-provenance bands per the design system."
+    ],
+    [
+     "@contract",
+     "Data-contract gatekeeper",
+     "Defines and validates the schema, and errors at load time the moment the contract drifts."
+    ],
+    [
+     "@compliance",
+     "Compliance review",
+     "Watches the compliance lines: demo data must be labeled, past performance carries disclaimers, and risk colors avoid red-green."
+    ],
+    [
+     "@release",
+     "Release verification",
+     "After each deploy, verifies the live build against expectations item by item, using scripts and screenshots."
+    ],
+    [
+     "@design",
+     "Design-system alignment",
+     "Keeps components, colors, and copy on the shared design system instead of hand-coded values."
+    ]
+   ],
+   "briefing": "We're building and running a portfolio-management platform. Rules:\n· Everything starts from the data contract — lock the schema first, then wire up the frontend.\n· Don't show risk with red-up-green-down; use the design system's semantic colors (cypress green, muted gold, muted red).\n· Before connecting real holdings, the gate must pass: demo data off and permission lines in place.\n· Verify every release on the live site item by item, not by eyeballing it.",
+   "workflow": [
+    [
+     "Lock the contract",
+     "@contract pins down the fields and schema for this version and adds the checks."
+    ],
+    [
+     "Build",
+     "@frontend builds the pages and components per the design system, wired to the contract's data."
+    ],
+    [
+     "Compliance review",
+     "@compliance runs the lines: demo-data labels, disclaimers, compliant risk colors."
+    ],
+    [
+     "Deploy",
+     "Ship the changes with a traceable version and commit history."
+    ],
+    [
+     "Verify live",
+     "@release verifies the live site item by item and fixes anything that's off."
+    ]
+   ],
+   "jobs": [
+    [
+     "Contract checks",
+     "Run contract checks before and after each build to prevent schema drift."
+    ],
+    [
+     "Smoke tests",
+     "Auto-smoke the critical paths: auth gate, theming, and APIs all pass."
+    ],
+    [
+     "Release verification",
+     "After each deploy, verify the live version number and key metric distributions."
+    ]
+   ],
+   "followups": [
+    "Turn the must-pass checklist before connecting real data into a fixed gate that runs automatically on every release.",
+    "Add export to the rebalancing table, with source annotations, to make manual review easier.",
+    "Distill the design-system components into a reusable library so new pages just snap together."
+   ],
+   "tips": [
+    "Contract first: failing at load time the moment the schema drifts beats discovering it after release.",
+    "Show risk in semantic colors, not red-up-green-down — that's a brand line.",
+    "Always pass the gate before connecting real data: demo data off, permissions tightened by default."
+   ]
+  },
+  "comic": {
+   "sub": "Turning a script into a serialized comic — dozens of pages per chapter, with characters that stay consistent across spreads — is more than one person can draw.",
+   "meta": [
+    [
+     "Setup",
+     "1 lead artist + 4 Agents"
+    ],
+    [
+     "Starting channels",
+     "#script · #panels · #render"
+    ],
+    [
+     "Ramp-up",
+     "Half a day"
+    ],
+    [
+     "Output",
+     "Multi-chapter run · ~28 pages each"
+    ]
+   ],
+   "want": "One person sets the direction and the script, and the Agent team turns it into a serialized comic: read the script and lay out panels, lock character consistency, render in parallel, proof, and publish. About 28 pages per chapter, with characters keeping the same face across spreads.",
+   "channels": [
+    [
+     "#script",
+     "Script, chapter pacing, and key beats"
+    ],
+    [
+     "#panels",
+     "Page-by-page visual beats and character staging"
+    ],
+    [
+     "#render",
+     "Parallel rendering, consistency proofing, publishing"
+    ]
+   ],
+   "agents": [
+    [
+     "@panels",
+     "Paneling",
+     "Reads the script, sets each page's visual beats and character entrances, and writes the panel sheet."
+    ],
+    [
+     "@character",
+     "Character consistency",
+     "Manages character profiles and consistency; well-known characters are summoned by name, original characters get their profiles locked."
+    ],
+    [
+     "@render-a",
+     "Parallel rendering (forward)",
+     "Renders front to back, following the panel sheet."
+    ],
+    [
+     "@render-b",
+     "Parallel rendering (reverse)",
+     "Renders back to front, in parallel with A, meeting in the middle."
+    ],
+    [
+     "@publish",
+     "Packaging & publishing",
+     "Packages the finished pages, publishes by chapter, and notifies only after every page checks out."
+    ]
+   ],
+   "briefing": "We're turning a script into a serialized comic. Rules:\n· About 28 pages per chapter; produce the panel sheet before rendering.\n· Consistency first: summon well-known characters by name without forcing constraints; lock profiles for original characters.\n· The two rendering Agents work forward and reverse in parallel, then proof consistency together at the end.\n· Publish the full chapter and notify me only once every link is reachable.",
+   "workflow": [
+    [
+     "Read the script",
+     "@panels reads this chapter's script, picking up from the last chapter's ending."
+    ],
+    [
+     "Lay out panels",
+     "Write a panel sheet of about 28 pages: visual beats plus character staging."
+    ],
+    [
+     "Render in parallel",
+     "@render-a goes forward and @render-b goes reverse, working at the same time."
+    ],
+    [
+     "Proof consistency",
+     "@character proofs faces and outfits for cross-spread consistency, re-rendering where needed."
+    ],
+    [
+     "Publish",
+     "@publish packages and ships, verifies every page is reachable, and notifies the lead artist."
+    ]
+   ],
+   "jobs": [
+    [
+     "Panel sheet per chapter",
+     "Produce a panel sheet at the start of every new chapter."
+    ],
+    [
+     "Parallel rendering",
+     "Render about 28 pages per chapter on two parallel tracks."
+    ],
+    [
+     "Publish verification",
+     "After each chapter ships, verify every page is reachable and old versions are cleared."
+    ]
+   ],
+   "followups": [
+    "Turn the publishing flow into a single command, reusable by swapping the chapter parameters.",
+    "Keep a character profile card per chapter, and decide how to lock each new character as it appears.",
+    "Make cross-spread consistency proofing a fixed checklist item."
+   ],
+   "tips": [
+    "Summoning well-known characters by name is often more accurate than forcing constraints.",
+    "Lock original characters' profiles and reuse them across spreads, so you don't get a new face on every page.",
+    "Running forward and reverse in parallel compresses a chapter's render time to the minimum."
+   ]
+  },
+  "app": {
+   "sub": "A founder wants to build and run an app — product, backend, servers, and store-release issues all need handling — but there's no dedicated team.",
+   "meta": [
+    [
+     "Setup",
+     "1 founder + 4 Agents"
+    ],
+    [
+     "Starting channels",
+     "#product · #backend · #infra"
+    ],
+    [
+     "Ramp-up",
+     "Same day"
+    ],
+    [
+     "Scope",
+     "Frontend · Backend · Infrastructure"
+    ]
+   ],
+   "want": "Hand the end-to-end delivery of a consumer AI-recognition app to a team of Agents: product and frontend, backend, server migration and networking, third-party login, photo processing, the upload path, and dependency fixes. You raise issues whenever they come up, and the team locates the cause, fixes it, verifies end to end, and wraps up.",
+   "channels": [
+    [
+     "#product",
+     "Product experience, frontend logic, release issues"
+    ],
+    [
+     "#backend",
+     "APIs, data, dependencies, and services"
+    ],
+    [
+     "#infra",
+     "Server migration, networking, deployment, and operations"
+    ]
+   ],
+   "agents": [
+    [
+     "@product",
+     "Product & frontend",
+     "Watches frontend logic and release-experience issues, locating and fixing them."
+    ],
+    [
+     "@backend",
+     "Backend & APIs",
+     "Handles APIs, data, and server-side dependencies."
+    ],
+    [
+     "@infra",
+     "Migration & operations",
+     "Server migration, networking, deployment, origin-pull, and bandwidth issues."
+    ],
+    [
+     "@verify",
+     "End-to-end verification",
+     "After each fix, runs the flow end to end to confirm the issue is really gone."
+    ]
+   ],
+   "briefing": "We're building and running a consumer app end to end. Rules:\n· I'll report symptoms in the channel any time (which step, what error); you find the root cause, make the smallest change, and verify end to end.\n· For migration issues, check dependencies, networking, and origin-pull together — don't just patch the surface.\n· No fix is done until it passes one real-device or end-to-end verification.",
+   "workflow": [
+    [
+     "Report the symptom",
+     "You describe the issue in the channel: which step, what you're seeing."
+    ],
+    [
+     "Find the root cause",
+     "The relevant Agent checks logs and reproduces it to find the cause (often a missing dependency, networking, or the upload path after migration)."
+    ],
+    [
+     "Smallest change",
+     "Propose the minimal fix to avoid breaking something else."
+    ],
+    [
+     "Verify end to end",
+     "@verify runs the full flow, including login and upload, to confirm it's fixed."
+    ],
+    [
+     "Wrap up",
+     "Close the task, report back in the channel, and note the lesson."
+    ]
+   ],
+   "jobs": [
+    [
+     "Health checks",
+     "Regularly verify each service is up and the critical paths work."
+    ],
+    [
+     "Migration verification",
+     "After a migration, verify dependencies, networking, and origin-pull item by item."
+    ],
+    [
+     "Issue closure",
+     "Track every reported issue through to a passing end-to-end verification before closing it."
+    ]
+   ],
+   "followups": [
+    "Write the common troubleshooting steps into a reusable checklist.",
+    "Add monitoring on the critical paths so issues surface on their own instead of users finding them first.",
+    "Turn the manual release and compliance steps into a step-by-step guide."
+   ],
+   "tips": [
+    "Pull origin traffic over HTTPS; don't use plaintext with an unregistered host, or you'll get an injected interstitial.",
+    "Right after a migration, check dependencies first: one missing library breaks the whole path.",
+    "Every fix needs one end-to-end verification — don't stop at it should be fine."
+   ]
+  },
+  "sales": {
+   "sub": "Frontline sales meet customers every day, but recordings, notes, customer needs, and follow-up scripts are scattered, so follow-ups slip.",
+   "meta": [
+    [
+     "Setup",
+     "Sales team + a support Agent"
+    ],
+    [
+     "Starting channels",
+     "#visits · #follow-ups · #playbooks"
+    ],
+    [
+     "Ramp-up",
+     "Same day"
+    ],
+    [
+     "Stage",
+     "Rolling out gradually"
+    ]
+   ],
+   "want": "Turn customer conversations into something you can follow up on: sales drops a visit recording into the channel, and Agents transcribe it, distill what the customer needs, assemble the talking points and service scripts, and lay out the follow-ups. Let the frontline start with the small win of turning meetings into notes, then bring sales and support into Agent collaboration step by step.",
+   "channels": [
+    [
+     "#visits",
+     "Visit recordings, transcribed notes, customer needs"
+    ],
+    [
+     "#follow-ups",
+     "Follow-up items, owners, next steps"
+    ],
+    [
+     "#playbooks",
+     "Talking points and service scripts"
+    ]
+   ],
+   "agents": [
+    [
+     "@transcribe",
+     "Recording transcription",
+     "Turns visit recordings into structured written notes."
+    ],
+    [
+     "@needs",
+     "Needs analysis",
+     "Distills the customer's real needs and concerns from the notes."
+    ],
+    [
+     "@follow-up",
+     "Follow-up orchestration",
+     "Turns each need into a follow-up item with an owner and a due date."
+    ],
+    [
+     "@playbook",
+     "Playbook curation",
+     "Organizes talking points and service scripts by scenario for the frontline to reuse."
+    ]
+   ],
+   "briefing": "We're turning customer conversations into actionable follow-ups. Rules:\n· Start with the lightest step: turn visit recordings into notes plus a needs list.\n· Every need becomes a follow-up item with an owner and a next step.\n· Curate playbooks by scenario so they're reusable, and roll them out to more frontline colleagues over time.",
+   "workflow": [
+    [
+     "Drop the recording",
+     "Sales posts the visit recording or link into #visits."
+    ],
+    [
+     "Transcribe",
+     "@transcribe turns it into structured notes."
+    ],
+    [
+     "Distill the needs",
+     "@needs lays out the customer's needs and concerns."
+    ],
+    [
+     "Lay out follow-ups",
+     "@follow-up turns them into items with owners and due dates."
+    ],
+    [
+     "Curate playbooks",
+     "@playbook saves the talking points and scripts that work into #playbooks."
+    ]
+   ],
+   "jobs": [
+    [
+     "Notes per visit",
+     "After every customer visit, auto-transcribe and produce a needs list."
+    ],
+    [
+     "Weekly follow-up roundup",
+     "Each week, round up open follow-ups and remind the owners."
+    ],
+    [
+     "Playbook upkeep",
+     "Keep adding effective scripts to the library."
+    ]
+   ],
+   "followups": [
+    "Tag needs by category to see clearly what customers care about most.",
+    "Add reminders to follow-ups so the owner gets an @ mention when one comes due.",
+    "Turn frequent questions into standard responses the support team can use directly."
+   ],
+   "tips": [
+    "Start with the lightest step (recordings to notes) so the frontline gets an early win before you expand.",
+    "Every need has to become a follow-up item with an owner, or it might as well not be recorded.",
+    "Share sensitive customer information within a restricted scope as needed, not everywhere."
+   ]
+  },
+  "content": {
+   "sub": "Hundreds of course and meeting notes need to become published articles — deduplicated, merged, redacted, categorized, and managed in one place — which is more than people can handle by hand.",
+   "meta": [
+    [
+     "Setup",
+     "1 editor + an editor-in-chief Agent + writer/platform Agents"
+    ],
+    [
+     "Starting channels",
+     "#topics · #writing · #platform"
+    ],
+    [
+     "Ramp-up",
+     "Half a day"
+    ],
+    [
+     "Output",
+     "Hundreds of sources → 300+ finished pieces"
+    ]
+   ],
+   "want": "A content team rewrites hundreds of course and meeting notes into published articles in bulk: an editor-in-chief Agent coordinates the work, gatekeeps quality, and deduplicates; writer Agents draft in parallel; and a separate Agent builds a content-management platform to browse, edit, move by status, and publish it all in one place.",
+   "channels": [
+    [
+     "#topics",
+     "Source list, assignments, dedup boundaries"
+    ],
+    [
+     "#writing",
+     "Parallel drafting, batch review, series merging"
+    ],
+    [
+     "#platform",
+     "Content-platform development and upkeep"
+    ]
+   ],
+   "agents": [
+    [
+     "@editor",
+     "Coordination & gatekeeping",
+     "Assigns work, reviews drafts in batches, deduplicates, decides what to drop, and does the final roundup."
+    ],
+    [
+     "@writer-a",
+     "Bulk drafting",
+     "Drafts to the format: hook headline, intro, body, insight, sources — facts taken only from the source."
+    ],
+    [
+     "@writer-b",
+     "Bulk drafting",
+     "Works in parallel with A on a separate batch of sources to avoid overlap."
+    ],
+    [
+     "@platform",
+     "Content-platform build",
+     "Builds the article library in-house: browse, filter, inline edit, search, export, and status flow."
+    ]
+   ],
+   "briefing": "We're rewriting hundreds of notes into published articles in bulk and managing them in one place. Rules:\n· Filter first (drop weak ones, same-session duplicates, closed-door sensitive), then write; self-check the real word count after drafting.\n· Merge course series into coherent pieces — merge, don't stitch.\n· Drafts with undisclosed business figures get redacted and hidden by default.\n· Run the writing and platform tracks in parallel: writers produce drafts while the platform stands up centralized management.",
+   "workflow": [
+    [
+     "Sort the sources",
+     "@editor batches the source list and sets dedup boundaries and assignments."
+    ],
+    [
+     "Write in parallel",
+     "@writer-a and @writer-b each take a batch and draft in parallel, posting to the thread by batch."
+    ],
+    [
+     "Review and merge",
+     "@editor reviews by batch, merges course series into coherent pieces, and isolates and redacts sensitive drafts."
+    ],
+    [
+     "Build the platform",
+     "@platform stands up the content-management platform in parallel: browse, edit, search, status."
+    ],
+    [
+     "Onto the platform",
+     "After a global dedup, import into the platform to browse, search, and publish by status."
+    ]
+   ],
+   "jobs": [
+    [
+     "Bulk rewriting",
+     "Keep rewriting new sources into drafts, delivered in batches of 20."
+    ],
+    [
+     "Dedup and merge",
+     "Run a global dedup periodically and merge series into coherent pieces."
+    ],
+    [
+     "Platform upkeep",
+     "Keep the article library updated with new drafts and the status flow accurate."
+    ]
+   ],
+   "followups": [
+    "Tag by topic, speaker, and status to build a searchable index.",
+    "Give sensitive drafts a separate, admin-only view.",
+    "Move the publishing schedule into the platform too — pick the first release and plan the calendar."
+   ],
+   "tips": [
+    "Filter before you write: pulling out weak drafts, same-session duplicates, and closed-door sensitive material upfront saves most of the rework.",
+    "Merging a series means merge, not stitch — rebuild it into a coherent piece rather than splicing fragments.",
+    "Drafts with undisclosed figures are always redacted and hidden by default, then decided case by case."
+   ]
+  }
+ }
+}

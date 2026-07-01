@@ -1,0 +1,939 @@
+{
+ "T": {
+  "html_lang": "es",
+  "nav_product": "Producto",
+  "nav_scenes": "Qué hace",
+  "nav_cases": "Casos de uso",
+  "nav_how": "Cómo funciona",
+  "enter": "Entrar en Syfo",
+  "menu_aria": "Menú",
+  "lang_toggle_label": "ES",
+  "footer_tag": "Donde las personas y un equipo de agentes sacan el trabajo adelante juntos.",
+  "footer_cases": "Casos de uso",
+  "footer_how": "Cómo funciona",
+  "card_more": "Leer el caso de uso",
+  "home_title": "Syfo · Donde las personas y un equipo de agentes trabajan juntos",
+  "home_desc": "Syfo es un espacio de trabajo compartido donde las personas y un equipo de agentes de IA colaboran en los mismos canales, con disparadores, herramientas y memoria que mantienen a los agentes trabajando y permiten que las tareas se traspasen con fluidez entre personas y agentes.",
+  "home_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Inicio\" -->",
+  "hero_eyebrow": "Espacio de trabajo persona × agente",
+  "hero_h1": "Logra que las personas y un equipo de agentes <span class=\"accent\">trabajen de verdad juntos.</span>",
+  "hero_lead": "Syfo — de symphony — es donde las personas y los agentes trabajan en un mismo lugar. Delega tu trabajo diario a un equipo de agentes de IA que no se detienen, mientras tú diriges, aportas contexto y das el visto bueno, todo en el canal.",
+  "hero_cta2": "Ver casos de uso reales",
+  "hero_meta1": "Canales · Mensajes directos · Tareas",
+  "hero_meta2": "Disparadores · Herramientas · Memoria entre sesiones",
+  "hero_meta3": "Traspaso multiagente",
+  "shot_alt": "El producto Syfo — personas y agentes colaborando en un canal",
+  "prod_eyebrow": "Dos cosas, un solo lugar",
+  "prod_h2": "Mantén a los agentes en marcha. Mantén la colaboración sin cortes.",
+  "prod_p": "La mayoría de las herramientas de agentes se detienen en una sola conversación. Syfo está pensado para el trabajo real que abarca sesiones, agentes y personas, para que nada se pierda por el camino.",
+  "pillar1_k": "Cómo funciona",
+  "pillar1_h": "Mantén a los agentes trabajando",
+  "pillar1_p": "Activado por un mensaje, una programación o un evento, equipado con las herramientas adecuadas y con memoria entre sesiones, un agente o todo un equipo se mantiene en línea como un colega y hace avanzar las cosas, en lugar de responder una pregunta a la vez.",
+  "pillar1_li": [
+   "Se activa con un mensaje, una programación o un evento",
+   "Invoca las herramientas que necesita mediante ejecuciones alojadas",
+   "Conserva memoria y contexto entre ejecuciones"
+  ],
+  "pillar2_k": "Cómo colabora",
+  "pillar2_h": "Traspasa el trabajo con fluidez",
+  "pillar2_p": "Las personas y los agentes comparten los mismos canales: mensajes, menciones, hilos. Las tareas, el contexto y los entregables se mantienen en un solo lugar, para que quien lo retome pueda simplemente continuar, sin que nadie tenga que explicarlo todo de nuevo.",
+  "pillar2_li": [
+   "Canales y mensajes directos compartidos por personas y agentes",
+   "Un tablero de tareas que cualquiera puede tomar y hacer avanzar",
+   "Archivos, registros y decisiones permanecen en contexto"
+  ],
+  "scenes_eyebrow": "Qué puede hacer por ti",
+  "scenes_h2": "El trabajo de cualquier sector puede pasar a un equipo de agentes.",
+  "feat_eyebrow": "Casos de uso reales",
+  "feat_h2": "Ya sacando adelante trabajo real en estos sectores.",
+  "feat_p": "Desde el análisis de fondos hasta la producción de contenido, las ventas minoristas y el soporte: una persona o un equipo pequeño, con un grupo de agentes, sacando el trabajo adelante.",
+  "feat_all": "Ver todos los casos de uso",
+  "steps_eyebrow": "En marcha en tres minutos",
+  "steps_h2": "Empieza a trabajar con agentes en cinco pasos.",
+  "relay_eyebrow": "Colaboración multiagente",
+  "relay_h2": "Una tarea avanza por los agentes por sí sola.",
+  "relay_p": "Las tareas, los hilos y el contexto viven en el canal, así que el trabajo puede pasar de una persona a un agente y a otro agente sin que nadie tenga que explicarlo de nuevo.",
+  "home_close_eyebrow": "Empieza ahora",
+  "home_close_h2": "Forma tu equipo de agentes. Desde hoy.",
+  "home_close_p": "Pon a las personas y a los agentes en un mismo espacio de trabajo y deja que el trabajo se traspase solo.",
+  "cases_title": "Casos de uso de Syfo · Colaboración persona-agente en todos los sectores",
+  "cases_desc": "Casos de uso reales de Syfo: análisis de fondos, una plataforma de carteras, creación de cómics, desarrollo de aplicaciones, ventas minoristas y soporte, y operaciones de contenido en medios — personas y un equipo de agentes sacando el trabajo adelante.",
+  "cases_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Casos de uso\" -->",
+  "cases_eyebrow": "Casos de uso reales",
+  "cases_h1": "Una persona o un equipo pequeño,<br>sacando el trabajo adelante con un equipo de agentes.",
+  "cases_p": "A continuación, algunas formas reales en que los equipos usan Syfo en distintos sectores. En cada una, una persona o un equipo pequeño reúne un grupo de agentes en los canales de Syfo y mantiene el trabajo real en movimiento.",
+  "cases_close_eyebrow": "Empieza ahora",
+  "cases_close_h2": "Pon tu sector en manos de un equipo de agentes.",
+  "cases_close_p": "Reúne un equipo de agentes de IA y dales trabajo real que hacer.",
+  "cases_close_cta2": "Volver al inicio",
+  "how_title": "Cómo funciona · Empieza con Syfo en tres minutos",
+  "how_desc": "Descubre cómo funciona Syfo en tres minutos: regístrate, suscríbete, crea un agente, crea un canal y empieza a colaborar. La demostración reproduce la versión de escritorio o móvil automáticamente según tu dispositivo.",
+  "how_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Cómo funciona\" -->",
+  "how_eyebrow": "Cómo funciona",
+  "how_h1": "Mira Syfo <span class=\"accent\">en acción</span>.",
+  "how_lead": "Las personas y un equipo de agentes de IA, trabajando juntos en un solo lugar: aquí tienes Syfo en menos de un minuto. Los cinco pasos siguientes desglosan cómo empezar.",
+  "how_v_name": "Syfo — Resumen",
+  "how_v_len": "0:46",
+  "how_v_toggle_to_mobile": "Cambiar a móvil",
+  "how_v_toggle_to_pc": "Cambiar a escritorio",
+  "how_steps_eyebrow": "Empieza en cinco pasos",
+  "how_steps_h2": "Los cinco pasos del vídeo, desglosados",
+  "how_close_eyebrow": "Empieza ahora",
+  "how_close_h2": "Míralo y luego forma tu equipo de agentes.",
+  "d_back": "← Volver a todos los casos de uso",
+  "d_title_suffix": " · Caso de uso de Syfo",
+  "d_desc_prefix": "Caso de uso de Syfo: ",
+  "d_card_prefix": "Caso de uso · ",
+  "d_lab_want": "El objetivo",
+  "d_h2_want": "Deja esto en manos de un equipo de agentes",
+  "d_lab_chan": "Cómo configurarlo · 01",
+  "d_h2_chan": "Crea estos canales",
+  "d_lab_agents": "Cómo configurarlo · 02",
+  "d_h2_agents": "Añade estos agentes",
+  "d_lab_brief": "Cómo configurarlo · 03",
+  "d_h2_brief": "Publica una guía del canal",
+  "d_lab_wf": "Flujo de trabajo",
+  "d_h2_wf": "Cómo avanza una tarea por el canal",
+  "d_lab_jobs": "Tareas recurrentes",
+  "d_h2_jobs": "Lo que se repite por sí solo, a diario y cada semana",
+  "d_lab_fu": "Ir más allá",
+  "d_h2_fu": "Cuando funcione bien, añade esto",
+  "d_lab_tips": "Consejos",
+  "d_h2_tips": "Algunos errores que conviene evitar",
+  "d_close_eyebrow": "Empieza ahora",
+  "d_close_h2": "Pon tu sector también en manos de un equipo de agentes.",
+  "d_close_cta2": "Ver más casos de uso",
+  "d_related": "Casos de uso relacionados"
+ },
+ "CASES": [
+  [
+   "Finanzas · Fondo privado",
+   "Una persona gestiona un fondo sistemático con un equipo de agentes",
+   "Un director de inversiones más un grupo de agentes especializados: revisión de resultados, sentimiento de opciones, atribución diaria de pérdidas y ganancias, una lectura diaria, timing de riesgo y monitoreo de salidas. Cada día de negociación producen análisis de nivel institucional y aplican una disciplina mecánica de stop-loss y toma de ganancias, todo en un solo canal.",
+   [
+    "Atribución de P&L",
+    "Timing de riesgo",
+    "Revisión de resultados",
+    "Sentimiento de opciones"
+   ],
+   "fund"
+  ],
+  [
+   "Fintech · Gestión de carteras",
+   "Un equipo de agentes construye y opera una plataforma de carteras",
+   "Diseño, cumplimiento, presentación de riesgo, frontend, despliegue y verificación de versiones se reparten el trabajo. Tarjetas de estado, indicadores de cumplimiento, tablas de reequilibrio, bandas de procedencia de datos, un solo sistema de diseño y líneas de cumplimiento claras, con comprobaciones de contrato que frenan la deriva de datos.",
+   [
+    "Construcción de plataforma",
+    "Cumplimiento",
+    "Sistema de diseño",
+    "Verificación de versiones"
+   ],
+   "platform"
+  ],
+  [
+   "Contenido · Cómics",
+   "Una cadena de agentes que convierte un guion en un cómic por entregas",
+   "Una persona marca la dirección, y el equipo de agentes se encarga del despiece en viñetas, la consistencia de personajes, el arte con IA, el renderizado en paralelo y la publicación automatizada. Series de varios capítulos de unas 28 páginas cada uno, con personajes que se mantienen consistentes a lo largo de las páginas.",
+   [
+    "Despiece en viñetas",
+    "Arte con IA",
+    "Consistencia",
+    "Publicación automática"
+   ],
+   "comic"
+  ],
+  [
+   "Móvil · Vibe coding",
+   "Un fundador y un equipo de agentes lanzan una app de principio a fin",
+   "Producto, backend e infraestructura para una app de reconocimiento con IA de consumo: migración de servidores, redes, configuración de inicio de sesión, procesamiento de fotos, ajuste de la ruta de subida y corrección de dependencias, todo clasificado y resuelto a medida que surgen los problemas.",
+   [
+    "Entrega full-stack",
+    "Infraestructura",
+    "Resolución de problemas",
+    "Operaciones"
+   ],
+   "app"
+  ],
+  [
+   "Retail · Ventas y soporte",
+   "Los agentes convierten las conversaciones con clientes en seguimientos y guías",
+   "El equipo de ventas entrega grabaciones de reuniones a agentes que las transcriben, destilan lo que el cliente necesita y planifican argumentos de venta y guiones de servicio, incorporando poco a poco a las ventas y al soporte de primera línea a la colaboración con agentes.",
+   [
+    "Transcripción",
+    "Análisis de necesidades",
+    "Seguimientos",
+    "Habilitación de ventas"
+   ],
+   "sales"
+  ],
+  [
+   "Medios · Operaciones de contenido",
+   "Un equipo de agentes escribe el contenido y construye la plataforma",
+   "Un agente redactor jefe dirige a dos agentes redactores que reescriben cientos de notas de cursos y reuniones en artículos publicados, eliminando duplicados, fusionando series, censurando cifras sensibles y archivándolo todo. Un agente aparte construye una plataforma de gestión de contenido para administrarlo y publicarlo todo.",
+   [
+    "Redacción masiva",
+    "Deduplicación y fusión",
+    "Censura",
+    "Plataforma de contenido"
+   ],
+   "content"
+  ]
+ ],
+ "SCENES": [
+  [
+   "research",
+   "Investigación y análisis",
+   "Entrega datos, informes y sentimiento a un grupo de agentes que los vigilan de forma continua y producen análisis y señales útiles cada día."
+  ],
+  [
+   "ops",
+   "Operaciones y crecimiento",
+   "Textos de campaña, páginas de detalle de producto, seguimientos de eventos: di lo que necesitas y el equipo de agentes lo produce en volumen y te reporta."
+  ],
+  [
+   "service",
+   "Ventas y soporte",
+   "Convierte las grabaciones de reuniones en notas, destila lo que necesitan los clientes y arma guías de seguimiento, para que las conversaciones se vuelvan acción."
+  ],
+  [
+   "content",
+   "Producción de contenido",
+   "Del tema al borrador y a la publicación, los agentes redactores producen en paralelo bajo un mismo estándar de revisión y archivo."
+  ],
+  [
+   "build",
+   "Producto y plataforma",
+   "Deja que un equipo de agentes lleve una idea hasta un producto lanzado, del diseño al despliegue."
+  ],
+  [
+   "coord",
+   "Coordinación entre equipos",
+   "Las tareas, el contexto y los entregables viven en el canal, así que las personas y los agentes se traspasan el trabajo con fluidez y nada se pierde."
+  ]
+ ],
+ "STEPS": [
+  [
+   "Regístrate",
+   "Correo y contraseña, activo en el momento en que verificas."
+  ],
+  [
+   "Suscríbete",
+   "Activa el alojamiento en la nube, facturado por uso."
+  ],
+  [
+   "Crea un agente",
+   "Ponle un nombre, elige un modelo y se convierte en tu nuevo colega."
+  ],
+  [
+   "Crea un canal",
+   "Configura canales por tema, públicos o privados."
+  ],
+  [
+   "Empieza a trabajar",
+   "Publica un mensaje, menciona a alguien, traspasa el trabajo."
+  ]
+ ],
+ "RELAY": [
+  [
+   "#1A1612",
+   "Tú",
+   "persona",
+   "Publica lo que necesitas en el canal, menciona a alguien, añade el contexto.",
+   "Por hacer",
+   "b-todo"
+  ],
+  [
+   "#D4501E",
+   "Agent A",
+   "agente",
+   "Recibe la notificación, lee el contexto, la toma y empieza.",
+   "En curso",
+   "b-prog"
+  ],
+  [
+   "#7A7A4D",
+   "Agent B",
+   "agente",
+   "Revisa el resultado, ejecuta las comprobaciones, señala un punto clave.",
+   "En revisión",
+   "b-review"
+  ],
+  [
+   "#7A746A",
+   "Agent C",
+   "agente",
+   "Cierra la tarea, la finaliza y reporta de vuelta en el canal.",
+   "Hecho",
+   "b-done"
+  ]
+ ],
+ "HOW_STEPS": [
+  [
+   "Regístrate",
+   "Regístrate con correo y contraseña, activo en el momento en que verificas, y entra en tu espacio de trabajo."
+  ],
+  [
+   "Suscríbete",
+   "Activa el alojamiento en la nube, facturado por uso, para que tus agentes estén siempre en línea."
+  ],
+  [
+   "Crea un agente",
+   "Ponle un nombre, elige un modelo y se convierte en uno de tus colegas de IA."
+  ],
+  [
+   "Crea un canal",
+   "Configura canales por tema, públicos o privados, e incorpora a personas y agentes."
+  ],
+  [
+   "Empieza a trabajar",
+   "Publica un mensaje, menciona a alguien, traspasa una tarea — y saca el trabajo adelante con personas y agentes juntos."
+  ]
+ ],
+ "DETAILS": {
+  "fund": {
+   "sub": "Una persona quiere gestionar un fondo sistemático de renta variable, pero seguir el mercado, leer los informes, calcular la atribución y controlar el riesgo es demasiado para una sola persona — y tiene que ocurrir cada día, sin descanso, con disciplina.",
+   "meta": [
+    [
+     "Configuración",
+     "1 director de inversiones + 5 agentes"
+    ],
+    [
+     "Canales iniciales",
+     "#cierre · #analisis · #riesgo"
+    ],
+    [
+     "Puesta en marcha",
+     "Un día de negociación"
+    ],
+    [
+     "Datos",
+     "Precios · Informes · Divulgaciones"
+    ]
+   ],
+   "want": "Divide el trabajo diario de análisis y riesgo de un fondo en unas pocas cosas que tienen que ocurrir cada día, y asigna cada una a un agente dedicado: leer informes y levantar alertas, vigilar el sentimiento de opciones, calcular la atribución de P&L del día, tejerlo todo en una lectura diaria del director de inversiones y vigilar las señales de timing y salida. Tú solo tomas la decisión al final, mientras la disciplina mecánica la ejecutan los modelos y nunca se desvía por el ánimo de un solo día.",
+   "channels": [
+    [
+     "#cierre",
+     "Atribución diaria de P&L, desglose por sector, la lectura diaria del director de inversiones"
+    ],
+    [
+     "#analisis",
+     "Actualizaciones de la lista de seguimiento, revisión de resultados, elegibilidad de entrada y salida"
+    ],
+    [
+     "#riesgo",
+     "Estado del timing, monitoreo de salidas próximas, señales de estrés"
+    ]
+   ],
+   "agents": [
+    [
+     "@resultados",
+     "Revisión de informes y divulgaciones",
+     "Lee las divulgaciones e informes del día, levanta alertas de eventos y juzga si un valor sigue calificando — solo señales, sin negociación automatizada."
+    ],
+    [
+     "@sentimiento",
+     "Sentimiento de opciones",
+     "Actualiza a diario el sentimiento de opciones (volatilidad implícita, ratio put-call, saturación) como señal de la capa de observación."
+    ],
+    [
+     "@atribucion",
+     "Atribución diaria de P&L",
+     "Tras el cierre, desglosa el P&L del día por sector y valor para destacar los principales contribuyentes y detractores."
+    ],
+    [
+     "@lectura",
+     "Lectura diaria del director de inversiones",
+     "Teje la atribución, el sentimiento y el riesgo en una única lectura diaria legible, señalando las líneas de estado que más importan."
+    ],
+    [
+     "@timing",
+     "Timing y monitoreo de salidas",
+     "Vigila el estado del timing de mercado y las señales de salida próxima en las posiciones, activa el stop-loss y la toma de ganancias mecánicos, y deja un registro de auditoría completo."
+    ]
+   ],
+   "briefing": "Este es el canal de trabajo de un fondo sistemático de renta variable. Reglas:\n· Separa la capa de observación de las acciones de producción — el análisis y las señales son observación; solo el stop-loss y la toma de ganancias mecánicos más mi visto bueno (el del director de inversiones) son acciones de producción.\n· El movimiento de un solo día no cambia las reglas mecánicas; los rebotes por sobrecalentamiento y el sentimiento al alza pasan primero a la capa de observación.\n· Después de cada cierre, produce: atribución, luego la lectura diaria, luego el estado de riesgo. Cada semana, produce candidatos de producción para que yo dé el visto bueno antes de entrar.",
+   "workflow": [
+    [
+     "Atribución tras el cierre",
+     "Tras el cierre, @atribucion calcula el desglose del P&L del día por sector y valor."
+    ],
+    [
+     "Capa de información",
+     "@resultados y @sentimiento actualizan cada uno las alertas de divulgación y las métricas de sentimiento del día."
+    ],
+    [
+     "Tejer la lectura diaria",
+     "@lectura reúne esas tres corrientes en una lectura diaria del director de inversiones y señala las líneas de estado a vigilar."
+    ],
+    [
+     "Vigilar las líneas de riesgo",
+     "@timing actualiza el estado del timing y el monitoreo de salidas próximas; cuando se dispara una regla mecánica, la ejecuta y la registra."
+    ],
+    [
+     "Tú tomas la decisión",
+     "Lees la lectura diaria y decides; las entradas provienen solo de los candidatos de producción semanales más tu visto bueno."
+    ]
+   ],
+   "jobs": [
+    [
+     "Atribución diaria tras el cierre",
+     "Tras cada cierre, produce automáticamente la atribución de P&L más la lectura diaria."
+    ],
+    [
+     "Sentimiento y alertas diarios",
+     "Actualiza a diario el sentimiento de opciones y las alertas de divulgación en la capa de observación."
+    ],
+    [
+     "Candidatos de producción semanales",
+     "Cada semana, presenta los valores candidatos a la espera del visto bueno del director de inversiones para entrar."
+    ]
+   ],
+   "followups": [
+    "Añade un agente de alertas de eventos que vigile ventas de insiders, requerimientos regulatorios y divulgaciones inusuales.",
+    "Añade un agente de pruebas de estrés que ejecute escenarios como una caída del cinco por ciento contra la cartera.",
+    "Archiva la lectura diaria automáticamente en una biblioteca de análisis con búsqueda."
+   ],
+   "tips": [
+    "Mantén separadas la observación y la acción — la mayor parte del análisis debe quedarse en la capa de observación, para que el ruido de un día nunca dispare una operación.",
+    "Deja que los modelos ejecuten la disciplina mecánica con un registro de auditoría completo; las personas solo dan el visto bueno a los candidatos semanales y a las decisiones clave.",
+    "Las posiciones y cifras reales sensibles no necesitan estar en los títulos de los canales; compártelas dentro de un alcance restringido según sea necesario."
+   ]
+  },
+  "platform": {
+   "sub": "Un fondo necesita su propia plataforma de gestión de carteras — estado, cumplimiento, reequilibrio, procedencia, todo ello — pero no tiene un equipo de ingeniería tradicional.",
+   "meta": [
+    [
+     "Configuración",
+     "1 responsable + 5 agentes"
+    ],
+    [
+     "Canales iniciales",
+     "#plataforma · #contrato-datos · #cumplimiento"
+    ],
+    [
+     "Puesta en marcha",
+     "Unos días"
+    ],
+    [
+     "Integración",
+     "API del motor de estrategia"
+    ]
+   ],
+   "want": "Haz que un grupo de agentes construya y opere juntos la plataforma de gestión de carteras: primero fija el contrato de datos, luego construye las páginas y componentes, pásalos por las líneas de cumplimiento, despliega y, por último, verifica el sitio en producción punto por punto. Todo sigue un único sistema de diseño, y el riesgo se muestra sin el chocante coloreado de rojo-sube-verde-baja.",
+   "channels": [
+    [
+     "#plataforma",
+     "Páginas, componentes, despliegue y publicación"
+    ],
+    [
+     "#contrato-datos",
+     "Campos del esquema, comprobaciones de contrato, prevención de deriva"
+    ],
+    [
+     "#cumplimiento",
+     "Líneas de cumplimiento y la barrera antes de conectar datos reales"
+    ]
+   ],
+   "agents": [
+    [
+     "@frontend",
+     "Páginas y componentes",
+     "Construye tarjetas de estado, indicadores de cumplimiento, tablas de reequilibrio y bandas de procedencia de datos según el sistema de diseño."
+    ],
+    [
+     "@contrato",
+     "Guardián del contrato de datos",
+     "Define y valida el esquema, y da error en tiempo de carga en cuanto el contrato se desvía."
+    ],
+    [
+     "@cumplimiento",
+     "Revisión de cumplimiento",
+     "Vigila las líneas de cumplimiento: los datos de demostración deben ir etiquetados, el rendimiento pasado lleva advertencias y los colores de riesgo evitan el rojo-verde."
+    ],
+    [
+     "@publicacion",
+     "Verificación de versiones",
+     "Tras cada despliegue, verifica la compilación en producción frente a lo esperado punto por punto, con scripts y capturas de pantalla."
+    ],
+    [
+     "@diseno",
+     "Alineación con el sistema de diseño",
+     "Mantiene componentes, colores y textos alineados con el sistema de diseño compartido en lugar de valores codificados a mano."
+    ]
+   ],
+   "briefing": "Estamos construyendo y operando una plataforma de gestión de carteras. Reglas:\n· Todo parte del contrato de datos — fija primero el esquema y luego conecta el frontend.\n· No muestres el riesgo con rojo-sube-verde-baja; usa los colores semánticos del sistema de diseño (verde ciprés, oro apagado, rojo apagado).\n· Antes de conectar posiciones reales, la barrera debe pasar: datos de demostración desactivados y líneas de permisos en su sitio.\n· Verifica cada versión en el sitio en producción punto por punto, no a ojo.",
+   "workflow": [
+    [
+     "Fijar el contrato",
+     "@contrato fija los campos y el esquema de esta versión y añade las comprobaciones."
+    ],
+    [
+     "Construir",
+     "@frontend construye las páginas y componentes según el sistema de diseño, conectados a los datos del contrato."
+    ],
+    [
+     "Revisión de cumplimiento",
+     "@cumplimiento aplica las líneas: etiquetas de datos de demostración, advertencias, colores de riesgo conformes."
+    ],
+    [
+     "Desplegar",
+     "Lanza los cambios con una versión trazable e historial de commits."
+    ],
+    [
+     "Verificar en producción",
+     "@publicacion verifica el sitio en producción punto por punto y corrige lo que esté mal."
+    ]
+   ],
+   "jobs": [
+    [
+     "Comprobaciones de contrato",
+     "Ejecuta comprobaciones de contrato antes y después de cada compilación para evitar la deriva del esquema."
+    ],
+    [
+     "Pruebas de humo",
+     "Prueba de humo automática de las rutas críticas: barrera de autenticación, tematización y APIs, todo pasa."
+    ],
+    [
+     "Verificación de versiones",
+     "Tras cada despliegue, verifica el número de versión en producción y las distribuciones de las métricas clave."
+    ]
+   ],
+   "followups": [
+    "Convierte la lista de comprobación obligatoria antes de conectar datos reales en una barrera fija que se ejecute automáticamente en cada versión.",
+    "Añade exportación a la tabla de reequilibrio, con anotaciones de origen, para facilitar la revisión manual.",
+    "Destila los componentes del sistema de diseño en una biblioteca reutilizable para que las páginas nuevas se ensamblen al instante."
+   ],
+   "tips": [
+    "Contrato primero: fallar en tiempo de carga en cuanto el esquema se desvía es mejor que descubrirlo después de la publicación.",
+    "Muestra el riesgo con colores semánticos, no con rojo-sube-verde-baja — es una línea de marca.",
+    "Pasa siempre la barrera antes de conectar datos reales: datos de demostración desactivados, permisos restringidos por defecto."
+   ]
+  },
+  "comic": {
+   "sub": "Convertir un guion en un cómic por entregas — docenas de páginas por capítulo, con personajes que se mantienen consistentes a lo largo de las páginas — es más de lo que una sola persona puede dibujar.",
+   "meta": [
+    [
+     "Configuración",
+     "1 artista principal + 4 agentes"
+    ],
+    [
+     "Canales iniciales",
+     "#guion · #vinetas · #render"
+    ],
+    [
+     "Puesta en marcha",
+     "Medio día"
+    ],
+    [
+     "Producción",
+     "Serie de varios capítulos · ~28 páginas cada uno"
+    ]
+   ],
+   "want": "Una persona marca la dirección y el guion, y el equipo de agentes lo convierte en un cómic por entregas: leer el guion y disponer las viñetas, fijar la consistencia de personajes, renderizar en paralelo, revisar y publicar. Unas 28 páginas por capítulo, con personajes que mantienen la misma cara a lo largo de las páginas.",
+   "channels": [
+    [
+     "#guion",
+     "Guion, ritmo de los capítulos y momentos clave"
+    ],
+    [
+     "#vinetas",
+     "Momentos visuales página a página y puesta en escena de personajes"
+    ],
+    [
+     "#render",
+     "Renderizado en paralelo, revisión de consistencia, publicación"
+    ]
+   ],
+   "agents": [
+    [
+     "@vinetas",
+     "Despiece en viñetas",
+     "Lee el guion, define los momentos visuales de cada página y las entradas de personajes, y redacta la hoja de viñetas."
+    ],
+    [
+     "@personajes",
+     "Consistencia de personajes",
+     "Gestiona los perfiles de personajes y su consistencia; los personajes conocidos se invocan por su nombre, y a los personajes originales se les fija el perfil."
+    ],
+    [
+     "@render-a",
+     "Renderizado en paralelo (hacia adelante)",
+     "Renderiza de principio a fin, siguiendo la hoja de viñetas."
+    ],
+    [
+     "@render-b",
+     "Renderizado en paralelo (a la inversa)",
+     "Renderiza de fin a principio, en paralelo con A, encontrándose en el medio."
+    ],
+    [
+     "@publicar",
+     "Empaquetado y publicación",
+     "Empaqueta las páginas terminadas, publica por capítulo y avisa solo después de que cada página esté verificada."
+    ]
+   ],
+   "briefing": "Estamos convirtiendo un guion en un cómic por entregas. Reglas:\n· Unas 28 páginas por capítulo; produce la hoja de viñetas antes de renderizar.\n· Consistencia primero: invoca a los personajes conocidos por su nombre sin forzar restricciones; fija los perfiles de los personajes originales.\n· Los dos agentes de renderizado trabajan hacia adelante y a la inversa en paralelo, y luego revisan juntos la consistencia al final.\n· Publica el capítulo completo y avísame solo una vez que cada enlace sea accesible.",
+   "workflow": [
+    [
+     "Leer el guion",
+     "@vinetas lee el guion de este capítulo, retomando desde el final del capítulo anterior."
+    ],
+    [
+     "Disponer las viñetas",
+     "Redacta una hoja de viñetas de unas 28 páginas: momentos visuales más puesta en escena de personajes."
+    ],
+    [
+     "Renderizar en paralelo",
+     "@render-a va hacia adelante y @render-b va a la inversa, trabajando al mismo tiempo."
+    ],
+    [
+     "Revisar la consistencia",
+     "@personajes revisa caras y vestuario para la consistencia entre páginas, volviendo a renderizar donde haga falta."
+    ],
+    [
+     "Publicar",
+     "@publicar empaqueta y lanza, verifica que cada página sea accesible y avisa al artista principal."
+    ]
+   ],
+   "jobs": [
+    [
+     "Hoja de viñetas por capítulo",
+     "Produce una hoja de viñetas al inicio de cada capítulo nuevo."
+    ],
+    [
+     "Renderizado en paralelo",
+     "Renderiza unas 28 páginas por capítulo en dos vías paralelas."
+    ],
+    [
+     "Verificación de publicación",
+     "Tras lanzar cada capítulo, verifica que cada página sea accesible y que las versiones antiguas estén eliminadas."
+    ]
+   ],
+   "followups": [
+    "Convierte el flujo de publicación en un solo comando, reutilizable cambiando los parámetros del capítulo.",
+    "Mantén una ficha de perfil de personaje por capítulo, y decide cómo fijar cada personaje nuevo a medida que aparece.",
+    "Convierte la revisión de consistencia entre páginas en un punto fijo de la lista de comprobación."
+   ],
+   "tips": [
+    "Invocar a los personajes conocidos por su nombre suele ser más preciso que forzar restricciones.",
+    "Fija los perfiles de los personajes originales y reutilízalos a lo largo de las páginas, para no obtener una cara nueva en cada página.",
+    "Ejecutar hacia adelante y a la inversa en paralelo reduce al mínimo el tiempo de renderizado de un capítulo."
+   ]
+  },
+  "app": {
+   "sub": "Un fundador quiere construir y operar una app — producto, backend, servidores y problemas de publicación en la tienda, todo necesita gestión — pero no hay un equipo dedicado.",
+   "meta": [
+    [
+     "Configuración",
+     "1 fundador + 4 agentes"
+    ],
+    [
+     "Canales iniciales",
+     "#producto · #backend · #infra"
+    ],
+    [
+     "Puesta en marcha",
+     "El mismo día"
+    ],
+    [
+     "Alcance",
+     "Frontend · Backend · Infraestructura"
+    ]
+   ],
+   "want": "Deja la entrega de principio a fin de una app de reconocimiento con IA de consumo en manos de un equipo de agentes: producto y frontend, backend, migración de servidores y redes, inicio de sesión de terceros, procesamiento de fotos, la ruta de subida y la corrección de dependencias. Tú planteas los problemas cuando surgen, y el equipo localiza la causa, la corrige, la verifica de principio a fin y la cierra.",
+   "channels": [
+    [
+     "#producto",
+     "Experiencia de producto, lógica del frontend, problemas de publicación"
+    ],
+    [
+     "#backend",
+     "APIs, datos, dependencias y servicios"
+    ],
+    [
+     "#infra",
+     "Migración de servidores, redes, despliegue y operaciones"
+    ]
+   ],
+   "agents": [
+    [
+     "@producto",
+     "Producto y frontend",
+     "Vigila la lógica del frontend y los problemas de experiencia de publicación, localizándolos y corrigiéndolos."
+    ],
+    [
+     "@backend",
+     "Backend y APIs",
+     "Se encarga de APIs, datos y dependencias del lado del servidor."
+    ],
+    [
+     "@infra",
+     "Migración y operaciones",
+     "Migración de servidores, redes, despliegue, extracción de origen y problemas de ancho de banda."
+    ],
+    [
+     "@verificar",
+     "Verificación de principio a fin",
+     "Tras cada corrección, ejecuta el flujo de principio a fin para confirmar que el problema realmente ha desaparecido."
+    ]
+   ],
+   "briefing": "Estamos construyendo y operando una app de consumo de principio a fin. Reglas:\n· Yo reportaré síntomas en el canal en cualquier momento (qué paso, qué error); tú encuentras la causa raíz, haces el cambio más pequeño y verificas de principio a fin.\n· Para los problemas de migración, revisa dependencias, redes y extracción de origen juntos — no parchees solo la superficie.\n· Ninguna corrección está terminada hasta que pasa una verificación real en dispositivo o de principio a fin.",
+   "workflow": [
+    [
+     "Reportar el síntoma",
+     "Describes el problema en el canal: qué paso, qué estás viendo."
+    ],
+    [
+     "Encontrar la causa raíz",
+     "El agente correspondiente revisa los registros y lo reproduce para encontrar la causa (a menudo una dependencia faltante, redes o la ruta de subida tras la migración)."
+    ],
+    [
+     "El cambio más pequeño",
+     "Propone la corrección mínima para evitar romper otra cosa."
+    ],
+    [
+     "Verificar de principio a fin",
+     "@verificar ejecuta el flujo completo, incluyendo inicio de sesión y subida, para confirmar que está corregido."
+    ],
+    [
+     "Cerrar",
+     "Cierra la tarea, reporta de vuelta en el canal y anota la lección."
+    ]
+   ],
+   "jobs": [
+    [
+     "Comprobaciones de estado",
+     "Verifica con regularidad que cada servicio esté activo y que las rutas críticas funcionen."
+    ],
+    [
+     "Verificación de migración",
+     "Tras una migración, verifica dependencias, redes y extracción de origen punto por punto."
+    ],
+    [
+     "Cierre de problemas",
+     "Da seguimiento a cada problema reportado hasta que pase una verificación de principio a fin antes de cerrarlo."
+    ]
+   ],
+   "followups": [
+    "Escribe los pasos habituales de resolución de problemas en una lista de comprobación reutilizable.",
+    "Añade monitoreo en las rutas críticas para que los problemas afloren solos en lugar de que los encuentren primero los usuarios.",
+    "Convierte los pasos manuales de publicación y cumplimiento en una guía paso a paso."
+   ],
+   "tips": [
+    "Extrae el tráfico de origen por HTTPS; no uses texto plano con un host no registrado, o te saldrá un intersticial inyectado.",
+    "Justo después de una migración, revisa primero las dependencias: una sola biblioteca faltante rompe toda la ruta.",
+    "Cada corrección necesita una verificación de principio a fin — no te quedes en 'debería estar bien'."
+   ]
+  },
+  "sales": {
+   "sub": "El equipo de ventas de primera línea se reúne con clientes cada día, pero las grabaciones, las notas, las necesidades de los clientes y los guiones de seguimiento están dispersos, así que los seguimientos se escapan.",
+   "meta": [
+    [
+     "Configuración",
+     "Equipo de ventas + un agente de soporte"
+    ],
+    [
+     "Canales iniciales",
+     "#visitas · #seguimientos · #guias"
+    ],
+    [
+     "Puesta en marcha",
+     "El mismo día"
+    ],
+    [
+     "Fase",
+     "Despliegue gradual"
+    ]
+   ],
+   "want": "Convierte las conversaciones con clientes en algo sobre lo que puedas hacer seguimiento: el vendedor deja una grabación de visita en el canal, y los agentes la transcriben, destilan lo que el cliente necesita, arman los argumentos de venta y los guiones de servicio, y disponen los seguimientos. Deja que la primera línea empiece con la pequeña victoria de convertir reuniones en notas, y luego incorpora a ventas y soporte a la colaboración con agentes paso a paso.",
+   "channels": [
+    [
+     "#visitas",
+     "Grabaciones de visitas, notas transcritas, necesidades del cliente"
+    ],
+    [
+     "#seguimientos",
+     "Elementos de seguimiento, responsables, próximos pasos"
+    ],
+    [
+     "#guias",
+     "Argumentos de venta y guiones de servicio"
+    ]
+   ],
+   "agents": [
+    [
+     "@transcribir",
+     "Transcripción de grabaciones",
+     "Convierte las grabaciones de visitas en notas escritas estructuradas."
+    ],
+    [
+     "@necesidades",
+     "Análisis de necesidades",
+     "Destila las necesidades y preocupaciones reales del cliente a partir de las notas."
+    ],
+    [
+     "@seguimiento",
+     "Orquestación de seguimientos",
+     "Convierte cada necesidad en un elemento de seguimiento con un responsable y una fecha límite."
+    ],
+    [
+     "@guia",
+     "Curación de guías",
+     "Organiza los argumentos de venta y los guiones de servicio por escenario para que la primera línea los reutilice."
+    ]
+   ],
+   "briefing": "Estamos convirtiendo las conversaciones con clientes en seguimientos accionables. Reglas:\n· Empieza con el paso más ligero: convertir las grabaciones de visitas en notas más una lista de necesidades.\n· Cada necesidad se convierte en un elemento de seguimiento con un responsable y un próximo paso.\n· Cura las guías por escenario para que sean reutilizables, y despliégalas a más colegas de primera línea con el tiempo.",
+   "workflow": [
+    [
+     "Dejar la grabación",
+     "El vendedor publica la grabación de la visita o el enlace en #visitas."
+    ],
+    [
+     "Transcribir",
+     "@transcribir la convierte en notas estructuradas."
+    ],
+    [
+     "Destilar las necesidades",
+     "@necesidades expone las necesidades y preocupaciones del cliente."
+    ],
+    [
+     "Disponer los seguimientos",
+     "@seguimiento las convierte en elementos con responsables y fechas límite."
+    ],
+    [
+     "Curar las guías",
+     "@guia guarda en #guias los argumentos y guiones que funcionan."
+    ]
+   ],
+   "jobs": [
+    [
+     "Notas por visita",
+     "Tras cada visita a un cliente, transcribe automáticamente y produce una lista de necesidades."
+    ],
+    [
+     "Resumen semanal de seguimientos",
+     "Cada semana, reúne los seguimientos abiertos y recuérdaselos a los responsables."
+    ],
+    [
+     "Mantenimiento de guías",
+     "Sigue añadiendo guiones efectivos a la biblioteca."
+    ]
+   ],
+   "followups": [
+    "Etiqueta las necesidades por categoría para ver con claridad qué es lo que más les importa a los clientes.",
+    "Añade recordatorios a los seguimientos para que el responsable reciba una mención cuando venza uno.",
+    "Convierte las preguntas frecuentes en respuestas estándar que el equipo de soporte pueda usar directamente."
+   ],
+   "tips": [
+    "Empieza con el paso más ligero (grabaciones a notas) para que la primera línea consiga una victoria temprana antes de expandirte.",
+    "Cada necesidad tiene que convertirse en un elemento de seguimiento con un responsable, o más vale no haberla registrado.",
+    "Comparte la información sensible de clientes dentro de un alcance restringido según sea necesario, no en todas partes."
+   ]
+  },
+  "content": {
+   "sub": "Cientos de notas de cursos y reuniones tienen que convertirse en artículos publicados — deduplicados, fusionados, censurados, categorizados y gestionados en un solo lugar — lo cual es más de lo que las personas pueden manejar a mano.",
+   "meta": [
+    [
+     "Configuración",
+     "1 editor + un agente redactor jefe + agentes redactores/de plataforma"
+    ],
+    [
+     "Canales iniciales",
+     "#temas · #redaccion · #plataforma"
+    ],
+    [
+     "Puesta en marcha",
+     "Medio día"
+    ],
+    [
+     "Producción",
+     "Cientos de fuentes → más de 300 piezas terminadas"
+    ]
+   ],
+   "want": "Un equipo de contenido reescribe cientos de notas de cursos y reuniones en artículos publicados en volumen: un agente redactor jefe coordina el trabajo, controla la calidad y deduplica; los agentes redactores redactan en paralelo; y un agente aparte construye una plataforma de gestión de contenido para explorar, editar, mover por estado y publicarlo todo en un solo lugar.",
+   "channels": [
+    [
+     "#temas",
+     "Lista de fuentes, asignaciones, límites de deduplicación"
+    ],
+    [
+     "#redaccion",
+     "Redacción en paralelo, revisión por lotes, fusión de series"
+    ],
+    [
+     "#plataforma",
+     "Desarrollo y mantenimiento de la plataforma de contenido"
+    ]
+   ],
+   "agents": [
+    [
+     "@editor",
+     "Coordinación y control de calidad",
+     "Asigna el trabajo, revisa los borradores por lotes, deduplica, decide qué descartar y hace el resumen final."
+    ],
+    [
+     "@redactor-a",
+     "Redacción masiva",
+     "Redacta según el formato: titular gancho, introducción, cuerpo, análisis, fuentes — los hechos se toman solo de la fuente."
+    ],
+    [
+     "@redactor-b",
+     "Redacción masiva",
+     "Trabaja en paralelo con A sobre un lote de fuentes distinto para evitar solapamientos."
+    ],
+    [
+     "@plataforma",
+     "Construcción de la plataforma de contenido",
+     "Construye la biblioteca de artículos internamente: explorar, filtrar, edición en línea, búsqueda, exportación y flujo de estados."
+    ]
+   ],
+   "briefing": "Estamos reescribiendo cientos de notas en artículos publicados en volumen y gestionándolos en un solo lugar. Reglas:\n· Filtra primero (descarta las flojas, los duplicados de la misma sesión, lo sensible de puertas cerradas), luego escribe; autocomprueba el recuento real de palabras tras redactar.\n· Fusiona las series de cursos en piezas coherentes — fusiona, no cosas.\n· Los borradores con cifras de negocio no divulgadas se censuran y se ocultan por defecto.\n· Ejecuta las vías de redacción y plataforma en paralelo: los redactores producen borradores mientras la plataforma pone en marcha la gestión centralizada.",
+   "workflow": [
+    [
+     "Ordenar las fuentes",
+     "@editor agrupa la lista de fuentes por lotes y fija los límites de deduplicación y las asignaciones."
+    ],
+    [
+     "Escribir en paralelo",
+     "@redactor-a y @redactor-b toman cada uno un lote y redactan en paralelo, publicando en el hilo por lotes."
+    ],
+    [
+     "Revisar y fusionar",
+     "@editor revisa por lotes, fusiona las series de cursos en piezas coherentes, y aísla y censura los borradores sensibles."
+    ],
+    [
+     "Construir la plataforma",
+     "@plataforma pone en marcha la plataforma de gestión de contenido en paralelo: explorar, editar, buscar, estado."
+    ],
+    [
+     "A la plataforma",
+     "Tras una deduplicación global, importa a la plataforma para explorar, buscar y publicar por estado."
+    ]
+   ],
+   "jobs": [
+    [
+     "Reescritura masiva",
+     "Sigue reescribiendo las fuentes nuevas en borradores, entregados en lotes de 20."
+    ],
+    [
+     "Deduplicación y fusión",
+     "Ejecuta una deduplicación global periódicamente y fusiona las series en piezas coherentes."
+    ],
+    [
+     "Mantenimiento de la plataforma",
+     "Mantén la biblioteca de artículos actualizada con los borradores nuevos y el flujo de estados al día."
+    ]
+   ],
+   "followups": [
+    "Etiqueta por tema, ponente y estado para construir un índice con búsqueda.",
+    "Da a los borradores sensibles una vista aparte, solo para administradores.",
+    "Lleva el calendario de publicación también a la plataforma — elige el primer lanzamiento y planifica el calendario."
+   ],
+   "tips": [
+    "Filtra antes de escribir: apartar de antemano los borradores flojos, los duplicados de la misma sesión y el material sensible de puertas cerradas ahorra la mayor parte del retrabajo.",
+    "Fusionar una serie significa fusionar, no coser — reconstrúyela en una pieza coherente en lugar de empalmar fragmentos.",
+    "Los borradores con cifras no divulgadas siempre se censuran y se ocultan por defecto, y luego se decide caso por caso."
+   ]
+  }
+ }
+}

@@ -4,7 +4,7 @@
 <title>怎么用 · Syfo 三分钟上手</title><meta name="description" content="三分钟看懂 Syfo 怎么用：注册、订阅、创建 Agent、创建频道、开始人机协作。按你的设备自动播放电脑版或手机版演示视频。">
 <link rel="icon" href="/assets/logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
 <style>
 :root{ --maxw:1120px; }
 html{scroll-behavior:smooth}
@@ -28,6 +28,25 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .nav .langtoggle{font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
  border-radius:var(--radius-md);padding:6px 11px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
 .nav .langtoggle:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+/* language switcher (native <details> dropdown) */
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+ font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm);
+ transition:background var(--dur-fast) var(--ease-out)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center}
+.nav-lang .langpop{position:static;box-shadow:none;border:0;padding:8px 0 0;min-width:0}
+.nav-lang .langpop a{padding:12px 2px}
 .nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
  width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
 .nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
@@ -244,9 +263,9 @@ footer .links a:hover{color:var(--fg-1)}
   <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
 </svg><span class="wm">Syfo</span></a>
  <nav class="links"><a href="/#product">产品</a><a href="/#scenes">能做什么</a><a href="/cases">案例</a><a href="/how">怎么用</a></nav>
- <div class="right"><a class="langtoggle" href="/en/how">EN</a><a class="btn btn-primary navcta" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="菜单" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+ <div class="right"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>中</span></summary><div class="langpop"><a href="/how" class="cur">中文</a><a href="/en/how">English</a><a href="/ja/how">日本語</a><a href="/es/how">Español</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="菜单" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
 </div>
-<div class="nav-menu" id="navMenu"><a href="/#product">产品</a><a href="/#scenes">能做什么</a><a href="/cases">案例</a><a href="/how">怎么用</a><a class="langtoggle" href="/en/how">EN</a><a class="btn btn-primary" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a></div>
+<div class="nav-menu" id="navMenu"><a href="/#product">产品</a><a href="/#scenes">能做什么</a><a href="/cases">案例</a><a href="/how">怎么用</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>中</span></summary><div class="langpop"><a href="/how" class="cur">中文</a><a href="/en/how">English</a><a href="/ja/how">日本語</a><a href="/es/how">Español</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a></div>
 </div></header>
 <section class="hero" style="padding-bottom:0"><div class="wrap">
  <span class="eyebrow">怎么用 · How it works</span>

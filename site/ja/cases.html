@@ -1,0 +1,307 @@
+<!-- @dsCard group="Syfo Website" title="活用事例" -->
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Syfo 活用事例 · 業種を越えた人と Agent の協働</title><meta name="description" content="Syfo の実際の活用事例。ファンドの投資調査、ポートフォリオ管理プラットフォーム、漫画制作、アプリ開発、小売の営業とサポート、メディアのコンテンツ運用。人と Agent のチームが一緒に仕事を進めています。">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
+<style>
+:root{ --maxw:1120px; }
+html{scroll-behavior:smooth}
+body{background:var(--bg-paper);color:var(--fg-1);overflow-x:hidden;font-family:var(--font-sans)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.serif{font-family:var(--font-serif)}
+.mono{font-family:var(--font-mono)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+.layer{position:relative;z-index:1}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);
+ background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.nav .links{display:flex;gap:24px;margin-left:8px}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav .langtoggle{font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 11px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.nav .langtoggle:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+/* language switcher (native <details> dropdown) */
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+ font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm);
+ transition:background var(--dur-fast) var(--ease-out)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center}
+.nav-lang .langpop{position:static;box-shadow:none;border:0;padding:8px 0 0;min-width:0}
+.nav-lang .langpop a{padding:12px 2px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu a:not(.btn):active{color:var(--accent)}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
+ border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;
+ transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+.hero{padding:84px 0 60px}
+.hero h1{font-family:var(--font-serif);font-weight:600;font-size:52px;line-height:1.14;
+ letter-spacing:-.02em;margin:22px 0 0;max-width:18ch}
+.hero h1 .accent{color:var(--accent)}
+.hero .lead{font-size:18px;line-height:1.7;color:var(--fg-2);max-width:42ch;margin:22px 0 30px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .meta{margin-top:22px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3);
+ display:flex;gap:16px;flex-wrap:wrap}
+.hero .meta b{color:var(--fg-2);font-weight:500}
+/* product window mock */
+.mock{margin-top:52px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);
+ box-shadow:var(--shadow-3);background:var(--bg-surface)}
+.mock .bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;
+ background:var(--bg-sunken);border-bottom:1px solid var(--border-1)}
+.mock .bar i{width:11px;height:11px;border-radius:50%;background:var(--border-2)}
+.mock .bar .ttl{margin-left:12px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.mock .body{display:grid;grid-template-columns:54px 200px 1fr;min-height:392px}
+.mock .rail{background:var(--accent);display:flex;flex-direction:column;align-items:center;gap:16px;padding:14px 0}
+.mock .rail .av{width:30px;height:30px;border-radius:8px;background:var(--fg-1);color:var(--fg-inverse);
+ display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.mock .rail .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+ color:color-mix(in oklab,var(--fg-inverse) 78%,transparent)}
+.mock .rail .ic.on{background:color-mix(in oklab,#000 14%,transparent);color:var(--fg-inverse)}
+.mock .side{background:var(--bg-sunken);border-right:1px solid var(--border-1);padding:14px 10px}
+.mock .side .h{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+ color:var(--fg-3);padding:6px 8px}
+.mock .side .ch{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:6px;font-size:13px;color:var(--fg-2)}
+.mock .side .ch.sel{background:var(--accent-soft);color:var(--accent-strong);font-weight:500}
+.mock .side .ch .hash{color:var(--fg-3)}
+.mock .side .ch .dot{width:7px;height:7px;border-radius:50%;background:var(--success);margin-left:auto}
+.mock .chat{display:flex;flex-direction:column}
+.mock .chat .top{height:46px;border-bottom:1px solid var(--border-1);display:flex;align-items:center;gap:8px;padding:0 18px;font-weight:600;font-size:14px}
+.mock .chat .top .tag{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);background:var(--bg-sunken);
+ border:1px solid var(--border-1);border-radius:999px;padding:2px 8px;margin-left:auto;letter-spacing:.04em}
+.mock .feed{padding:16px 18px;display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:10px}
+.msg .a{width:30px;height:30px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.msg .c .n{font-size:13px;font-weight:600}
+.msg .c .n .role{font-family:var(--font-mono);font-size:10px;font-weight:400;color:var(--fg-3);margin-left:6px;text-transform:uppercase;letter-spacing:.04em}
+.msg .c .n .t{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);margin-left:6px}
+.msg .c .tx{font-size:13.5px;line-height:1.6;color:var(--fg-1);margin-top:2px;max-width:46ch}
+.taskchip{display:inline-flex;align-items:center;gap:8px;margin-top:7px;font-size:12px;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow-1)}
+.taskchip .st{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;color:var(--warning);background:var(--warning-soft);border-radius:999px;padding:2px 7px}
+.taskchip .st.prog{color:var(--accent-strong);background:var(--accent-soft)}
+section{padding:70px 0;position:relative}
+.sec-head h2{font-family:var(--font-serif);font-weight:600;font-size:32px;line-height:1.2;letter-spacing:-.02em;margin:14px 0 0}
+.sec-head p{font-size:16px;line-height:1.7;color:var(--fg-2);margin:14px 0 0;max-width:50ch}
+.rule{height:1px;background:var(--border-1);border:0;margin:0}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.pillar{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-1)}
+.pillar .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.pillar h3{font-family:var(--font-serif);font-weight:600;font-size:21px;margin:12px 0 0;letter-spacing:-.01em}
+.pillar p{font-size:14.5px;line-height:1.7;color:var(--fg-2);margin:12px 0 0}
+.pillar ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.pillar li{font-size:13.5px;color:var(--fg-1);display:flex;gap:9px;align-items:flex-start;line-height:1.6}
+.pillar li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:8px;flex-shrink:0}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.feat{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:24px;transition:all var(--dur-base) var(--ease-out)}
+.feat:hover{box-shadow:var(--shadow-2);border-color:var(--border-2);transform:translateY(-2px)}
+.feat .ico{width:38px;height:38px;border-radius:var(--radius-md);background:var(--bg-sunken);border:1px solid var(--border-1);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.feat h3{font-size:16px;font-weight:600;margin:16px 0 0}
+.feat p{font-size:13.5px;line-height:1.7;color:var(--fg-2);margin:8px 0 0}
+/* case cards (raft-style) */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.case{display:flex;flex-direction:column;background:var(--bg-surface);border:1px solid var(--border-1);
+ border-radius:var(--radius-lg);padding:24px;transition:all var(--dur-base) var(--ease-out)}
+.case:hover{box-shadow:var(--shadow-2);border-color:var(--border-2);transform:translateY(-2px)}
+.case .ind{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.case h3{font-family:var(--font-serif);font-weight:600;font-size:18px;line-height:1.35;margin:12px 0 0;letter-spacing:-.01em}
+.case p{font-size:13.5px;line-height:1.7;color:var(--fg-2);margin:11px 0 0;flex:1}
+.case .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.case .tag{font-family:var(--font-mono);font-size:11px;color:var(--fg-2);background:var(--bg-sunken);
+ border:1px solid var(--border-1);border-radius:999px;padding:3px 9px}
+.case-more{margin-top:16px;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:6px}
+.case-more .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.case:hover .case-more .arr{transform:translateX(3px)}
+/* real product screenshot frame */
+.shot{margin-top:52px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);box-shadow:var(--shadow-3);background:var(--bg-surface)}
+.shot .bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;background:var(--bg-sunken);border-bottom:1px solid var(--border-1)}
+.shot .bar i{width:11px;height:11px;border-radius:50%;background:var(--border-2)}
+.shot .bar .ttl{margin-left:12px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.shot img{display:block;width:100%;height:auto}
+/* ===== case detail page ===== */
+.crumb{padding:28px 0 0}
+.crumb a{font-size:13px;color:var(--fg-2);font-family:var(--font-mono)}
+.crumb a:hover{color:var(--accent)}
+.dhero{padding:26px 0 8px}
+.dhero .ind{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.dhero h1{font-family:var(--font-serif);font-weight:600;font-size:40px;line-height:1.18;letter-spacing:-.02em;margin:14px 0 0;max-width:20ch}
+.dhero .sub{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:54ch}
+.dmeta{display:flex;flex-wrap:wrap;gap:0;margin:28px 0 0;border:1px solid var(--border-1);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface)}
+.dmeta .m{flex:1;min-width:160px;padding:16px 20px;border-right:1px solid var(--border-1)}
+.dmeta .m:last-child{border-right:0}
+.dmeta .m .k{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-3)}
+.dmeta .m .v{font-size:14px;color:var(--fg-1);margin-top:6px;font-weight:500}
+.dsec{padding:44px 0 0}
+.dsec .lab{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.dsec h2{font-family:var(--font-serif);font-weight:600;font-size:25px;letter-spacing:-.01em;margin:12px 0 0}
+.dsec .body{font-size:15.5px;line-height:1.8;color:var(--fg-2);margin:14px 0 0;max-width:62ch}
+.dsteps{margin:24px 0 0;display:flex;flex-direction:column;gap:2px}
+.dstep{display:flex;gap:18px;padding:20px;border:1px solid var(--border-1);border-radius:var(--radius-lg);background:var(--bg-surface)}
+.dstep + .dstep{margin-top:12px}
+.dstep .num{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);flex-shrink:0;width:28px}
+.dstep h3{font-size:16px;font-weight:600}
+.dstep p{font-size:14px;line-height:1.7;color:var(--fg-2);margin:7px 0 0}
+.dstep.chan{flex-direction:column;gap:6px;padding:18px 22px}
+.dstep.chan .hh{font-family:var(--font-mono);font-size:15px;font-weight:600;color:var(--accent-strong)}
+.dstep.chan p{margin:0}
+.agents{margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.agent{display:flex;gap:11px;align-items:flex-start;padding:14px;border:1px solid var(--border-1);border-radius:var(--radius-md);background:var(--bg-paper)}
+.agent .h{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
+.agent .r{font-size:13px;color:var(--fg-1);font-weight:500;margin-top:2px}
+.agent .d{font-size:12.5px;line-height:1.6;color:var(--fg-2);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.chip-ch{font-family:var(--font-mono);font-size:13px;color:var(--accent-strong);background:var(--accent-soft);border-radius:8px;padding:6px 11px}
+.brief-box{margin:16px 0 0;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-sunken);padding:18px 20px;font-size:14px;line-height:1.75;color:var(--fg-1);white-space:pre-wrap}
+.tips{margin:16px 0 0;display:flex;flex-direction:column;gap:10px}
+.tip{display:flex;gap:10px;font-size:14px;line-height:1.7;color:var(--fg-1)}
+.tip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;flex-shrink:0}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0 0}
+/* ===== how-to / video page ===== */
+.vstage{display:flex;flex-direction:column;align-items:center;margin-top:46px}
+.vframe{position:relative;overflow:hidden;background:#000;box-shadow:var(--shadow-3)}
+.vframe.landscape{width:100%;max-width:940px;aspect-ratio:16/9;border-radius:var(--radius-lg);border:1px solid var(--border-2)}
+.vframe.portrait{width:100%;max-width:332px;aspect-ratio:9/16;border-radius:30px;border:7px solid #1A1612;box-shadow:0 24px 60px rgba(17,19,26,.18)}
+.vframe video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.vmeta{margin-top:18px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3);display:flex;align-items:center;gap:14px}
+.vmeta .dotsep{width:4px;height:4px;border-radius:50%;background:var(--border-2)}
+.vtoggle{font-family:var(--font-mono);font-size:12px;color:var(--accent);cursor:pointer;border:0;background:none;padding:0}
+.vtoggle:hover{text-decoration:underline}
+.howsteps{display:flex;flex-direction:column;gap:0;margin-top:44px;counter-reset:hs}
+.howstep{display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--border-1)}
+.howstep:last-child{border-bottom:1px solid var(--border-1)}
+.howstep .n{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);width:34px;flex-shrink:0;padding-top:2px}
+.howstep h3{font-size:17px;font-weight:600}
+.howstep p{font-size:14.5px;line-height:1.7;color:var(--fg-2);margin:6px 0 0}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.step{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:22px 18px}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--fg-inverse);font-family:var(--font-mono);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:15px;font-weight:600;margin:16px 0 0}
+.step p{font-size:13px;line-height:1.6;color:var(--fg-2);margin:7px 0 0}
+.relay{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);margin-top:40px;padding:30px;box-shadow:var(--shadow-1)}
+.relay .flow{display:flex;align-items:stretch;flex-wrap:wrap}
+.relay .node{flex:1;min-width:150px;padding:6px 14px}
+.relay .node .who{display:flex;align-items:center;gap:9px}
+.relay .node .who .a{width:30px;height:30px;border-radius:7px;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.relay .node .who b{font-size:14px}
+.relay .node .who .role{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);text-transform:uppercase;letter-spacing:.04em}
+.relay .node .act{font-size:13px;line-height:1.6;color:var(--fg-2);margin-top:10px}
+.relay .node .badge{margin-top:10px;display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;border-radius:999px;padding:3px 9px}
+.relay .arrow{display:flex;align-items:center;color:var(--border-2);font-size:20px;padding:0 2px}
+.b-todo{color:var(--info);background:var(--info-soft)}
+.b-prog{color:var(--accent-strong);background:var(--accent-soft)}
+.b-review{color:var(--warning);background:var(--warning-soft)}
+.b-done{color:var(--success);background:var(--success-soft)}
+.closing{text-align:center;padding:92px 0}
+.closing h2{font-family:var(--font-serif);font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1.15;max-width:20ch;margin:18px auto 0}
+.closing p{font-size:17px;color:var(--fg-2);margin:18px auto 0;max-width:40ch;line-height:1.7}
+.closing .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken)}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+/* cases page header */
+.casehero{padding:72px 0 8px}
+.casehero h1{font-family:var(--font-serif);font-weight:600;font-size:42px;letter-spacing:-.02em;margin:18px 0 0;line-height:1.15}
+.casehero p{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:52ch}
+.casegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px 0 0}
+@media(max-width:900px){
+ .hero h1{font-size:38px}
+ .pillars,.feats,.cases,.casegrid,.agents,.related{grid-template-columns:1fr}
+ .feats,.cases,.related{grid-template-columns:1fr 1fr}
+ .steps{grid-template-columns:1fr 1fr}
+ .dhero h1{font-size:30px}
+ .nav .links{display:none}
+ .nav .navcta{display:none}
+ .nav-toggle{display:inline-flex}
+ .nav.open .nav-menu{display:flex}
+}
+@media(max-width:560px){ .hero h1{font-size:30px} .feats,.cases,.steps{grid-template-columns:1fr} .closing h2{font-size:28px} }
+</style><style>:root{--font-sans:'Inter','Noto Sans JP','Noto Sans SC',system-ui,sans-serif;--font-serif:'Noto Serif JP','Noto Serif SC',Georgia,serif;}</style></head><body class="layer">
+<header class="nav"><div class="wrap"><div class="row">
+ <a class="brand" href="/ja/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <nav class="links"><a href="/ja/#product">プロダクト</a><a href="/ja/#scenes">できること</a><a href="/ja/cases">活用事例</a><a href="/ja/how">使い方</a></nav>
+ <div class="right"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>JA</span></summary><div class="langpop"><a href="/cases">中文</a><a href="/en/cases">English</a><a href="/ja/cases" class="cur">日本語</a><a href="/es/cases">Español</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai">Syfo を開く <span class="arr">→</span></a><button class="nav-toggle" aria-label="メニュー" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/ja/#product">プロダクト</a><a href="/ja/#scenes">できること</a><a href="/ja/cases">活用事例</a><a href="/ja/how">使い方</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>JA</span></summary><div class="langpop"><a href="/cases">中文</a><a href="/en/cases">English</a><a href="/ja/cases" class="cur">日本語</a><a href="/es/cases">Español</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai">Syfo を開く <span class="arr">→</span></a></div>
+</div></header>
+<section class="casehero"><div class="wrap">
+ <span class="eyebrow">実際の事例</span>
+ <h1>一人または少人数のチームが、<br>Agent のチームとともに仕事を進める。</h1>
+ <p>以下は、業種を越えて Syfo が実際に使われている例です。どの事例でも、一人または少人数のチームが Syfo のチャンネルに Agent の一団を集め、本物の仕事を前に進めています。</p>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><div class="casegrid"><a class="case" href="/ja/case-fund"><div class="ind">金融 · プライベートファンド</div>
+      <h3>一人が Agent のチームとともにシステマティックなファンドを運用する</h3><p>一人の CIO と、役割を分けた Agent の一団。決算レビュー、オプション需給、日次の損益要因分析、日次の読み解き、リスクのタイミング判断、そして退出モニタリング。取引日ごとに機関投資家水準の調査を生み出し、機械的な損切りと利確の規律を、すべて一つのチャンネルの中で徹底します。</p><div class="tags"><span class="tag">損益要因分析</span><span class="tag">リスクのタイミング</span><span class="tag">決算レビュー</span><span class="tag">オプション需給</span></div>
+      <div class="case-more">事例を読む <span class="arr">→</span></div></a><a class="case" href="/ja/case-platform"><div class="ind">フィンテック · ポートフォリオ管理</div>
+      <h3>Agent のチームがポートフォリオ管理プラットフォームを構築し運用する</h3><p>デザイン、コンプライアンス、リスク表示、フロントエンド、デプロイ、リリース検証で分業。健全性カード、コンプライアンス表示、リバランス表、出所トレースの帯。統一されたデザインシステムと明確なコンプライアンス基準に、データのずれを止めるコントラクトチェックを加えます。</p><div class="tags"><span class="tag">プラットフォーム構築</span><span class="tag">コンプライアンス</span><span class="tag">デザインシステム</span><span class="tag">リリース検証</span></div>
+      <div class="case-more">事例を読む <span class="arr">→</span></div></a><a class="case" href="/ja/case-comic"><div class="ind">コンテンツ · 漫画</div>
+      <h3>脚本を連載漫画に変える Agent のパイプライン</h3><p>一人が方向性を定め、Agent のチームがコマ割り、キャラクターの一貫性、AI 作画、並行レンダリング、自動公開を担います。1 章およそ 28 ページの複数章連載を、見開きをまたいでもキャラクターが一貫したまま仕上げます。</p><div class="tags"><span class="tag">コマ割り</span><span class="tag">AI 作画</span><span class="tag">一貫性</span><span class="tag">自動公開</span></div>
+      <div class="case-more">事例を読む <span class="arr">→</span></div></a><a class="case" href="/ja/case-app"><div class="ind">モバイル · バイブコーディング</div>
+      <h3>創業者と Agent のチームがアプリを端から端まで出荷する</h3><p>AI 認識系の消費者向けアプリの、プロダクト・バックエンド・インフラを一手に。サーバー移行、ネットワーク、ログイン設定、写真処理、アップロード経路の調整、依存関係の修正まで、課題が出るたびに切り分けて解決します。</p><div class="tags"><span class="tag">フルスタック開発</span><span class="tag">インフラ</span><span class="tag">トラブル対応</span><span class="tag">運用</span></div>
+      <div class="case-more">事例を読む <span class="arr">→</span></div></a><a class="case" href="/ja/case-sales"><div class="ind">小売 · 営業とサポート</div>
+      <h3>Agent が顧客との会話をフォローアップとプレイブックに変える</h3><p>営業が商談の録音を Agent に渡すと、文字起こしし、顧客のニーズを抽出し、トークの切り口とサービススクリプトを組み立てます。こうして現場の営業とサポートを、少しずつ Agent との協働に取り込んでいきます。</p><div class="tags"><span class="tag">文字起こし</span><span class="tag">ニーズ分析</span><span class="tag">フォローアップ</span><span class="tag">営業支援</span></div>
+      <div class="case-more">事例を読む <span class="arr">→</span></div></a><a class="case" href="/ja/case-content"><div class="ind">メディア · コンテンツ運用</div>
+      <h3>Agent のチームがコンテンツを書き、プラットフォームを作る</h3><p>編集長 Agent が二人のライター Agent を指揮し、数百件の講座・会議メモを公開記事に書き換えます。重複を除き、シリーズを統合し、機微な数字を伏せ、すべてを整理して保管。別の Agent がコンテンツ管理プラットフォームを構築し、その全体を管理・公開します。</p><div class="tags"><span class="tag">大量執筆</span><span class="tag">重複除去と統合</span><span class="tag">伏せ字処理</span><span class="tag">コンテンツ基盤</span></div>
+      <div class="case-more">事例を読む <span class="arr">→</span></div></a></div></div></section>
+<section class="closing"><div class="wrap">
+ <span class="eyebrow" style="justify-content:center">はじめる</span>
+ <h2>あなたの業種を、Agent のチームに任せる。</h2>
+ <p>AI Agent のチームを編成し、本物の仕事を任せましょう。</p>
+ <div class="cta"><a class="btn btn-primary" href="https://app.syfo.ai">Syfo を開く <span class="arr">→</span></a>
+   <a class="btn btn-ghost" href="/ja/">ホームに戻る</a></div>
+</div></section>
+<footer><div class="wrap"><div class="row">
+ <a class="brand" href="/ja/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <span class="meta">人と Agent のチームが、一緒に仕事を進める場所。</span>
+ <div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="/ja/cases">活用事例</a><a href="/ja/how">使い方</a></div>
+</div></div></footer>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');});</script>
+</body></html>
