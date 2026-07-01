@@ -23,22 +23,36 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700"
          "&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700"
          "&family=Noto+Serif+SC:wght@400;500;600;700"
          "&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700"
+         "&family=Noto+Serif:wght@400;500;600;700"
          "&display=swap")
 APP = "https://app.syfo.ai"
+# 产品目前只有 中/英。非中文页的「进入 Syfo」CTA 指向英文入口。
+# app.syfo.ai 目前只按浏览器语言切换（?lang= 等参数暂被忽略、/en 404）；此 URL 是前向兼容占位，
+# 一旦 app 支持该覆盖参数即自动强制英文，今天无害（非中文浏览器本就 fallback 英文）。
+APP_EN = "https://app.syfo.ai/?lang=en"
 LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg")).read()
 
-LANGS = ["zh", "en", "ja", "es"]
+LANGS = ["zh", "en", "ja", "es", "vi"]
 # root-absolute 前缀：zh 在站点根，其余在 /<lang>/ 子目录
-PREFIX = {"zh": "/", "en": "/en/", "ja": "/ja/", "es": "/es/"}
+PREFIX = {"zh": "/", "en": "/en/", "ja": "/ja/", "es": "/es/", "vi": "/vi/"}
 # 输出目录：zh=站点根，其余=子目录
-DIRS = {"zh": HERE, "en": os.path.join(HERE, "en"),
-        "ja": os.path.join(HERE, "ja"), "es": os.path.join(HERE, "es")}
+DIRS = {lg: (HERE if lg == "zh" else os.path.join(HERE, lg)) for lg in LANGS}
 # 语言切换器展示名 / 短标签
-LANG_NAMES = {"zh": "中文", "en": "English", "ja": "日本語", "es": "Español"}
-LANG_SHORT = {"zh": "中", "en": "EN", "ja": "JA", "es": "ES"}
-# 日语页面：优先用 Noto Sans JP / Noto Serif JP，避免日文汉字被 SC 字体渲染成中文字形
+LANG_NAMES = {"zh": "中文", "en": "English", "ja": "日本語", "es": "Español", "vi": "Tiếng Việt"}
+LANG_SHORT = {"zh": "中", "en": "EN", "ja": "JA", "es": "ES", "vi": "VI"}
+
+
+def app_url(lang):
+    """进入产品的 CTA 目标：中文页→中文 app；其余语言→英文 app 入口。"""
+    return APP if lang == "zh" else APP_EN
+
+
+# 日语页面：优先 Noto Sans/Serif JP，避免日文汉字被 SC 字体渲染成中文字形。
 JA_FONT_OVERRIDE = ("<style>:root{--font-sans:'Inter','Noto Sans JP','Noto Sans SC',system-ui,sans-serif;"
                     "--font-serif:'Noto Serif JP','Noto Serif SC',Georgia,serif;}</style>")
+# 越南语页面：衬线用 Noto Serif(拉丁, 含越南语变音符)，避免 SC 字体缺越南语字形回退到 Georgia。
+VI_FONT_OVERRIDE = ("<style>:root{--font-serif:'Noto Serif','Noto Serif SC',Georgia,serif;}</style>")
+FONT_OVERRIDE = {"ja": JA_FONT_OVERRIDE, "vi": VI_FONT_OVERRIDE}
 
 
 def url(lang, page):
@@ -581,7 +595,7 @@ def head(lang, title, desc, card_marker="", toggle_href="/"):
 <link rel="icon" href="/assets/logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
-<style>{CSS}</style>{JA_FONT_OVERRIDE if lang == "ja" else ""}</head><body class="layer">"""
+<style>{CSS}</style>{FONT_OVERRIDE.get(lang, "")}</head><body class="layer">"""
 
 
 def lang_switcher(lang, page):
@@ -605,7 +619,7 @@ def nav(lang, page="index.html", active=""):
              + a(url(lang, "index.html#scenes"), t["nav_scenes"])
              + a(url(lang, "cases.html"), t["nav_cases"])
              + a(url(lang, "how.html"), t["nav_how"]))
-    cta = f'<a class="btn btn-primary" href="{APP}">{t["enter"]} <span class="arr">→</span></a>'
+    cta = f'<a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>'
     langsw = lang_switcher(lang, page)
     burger = ('<svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>'
               '<svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg>')
@@ -614,7 +628,7 @@ def nav(lang, page="index.html", active=""):
     return f"""<header class="nav"><div class="wrap"><div class="row">
  <a class="brand" href="{url(lang, "index.html")}">{LOGO_MARK}<span class="wm">Syfo</span></a>
  <nav class="links">{links}</nav>
- <div class="right">{langsw}<a class="btn btn-primary navcta" href="{APP}">{t["enter"]} <span class="arr">→</span></a>{toggle}</div>
+ <div class="right">{langsw}<a class="btn btn-primary navcta" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>{toggle}</div>
 </div>
 <div class="nav-menu" id="navMenu">{links}<div class="nav-lang">{langsw}</div>{cta}</div>
 </div></header>"""
@@ -625,7 +639,7 @@ def footer(lang):
     return f"""<footer><div class="wrap"><div class="row">
  <a class="brand" href="{url(lang, "index.html")}">{LOGO_MARK}<span class="wm">Syfo</span></a>
  <span class="meta">{t["footer_tag"]}</span>
- <div class="links"><a href="{APP}">app.syfo.ai</a><a href="{url(lang, "cases.html")}">{t["footer_cases"]}</a><a href="{url(lang, "how.html")}">{t["footer_how"]}</a></div>
+ <div class="links"><a href="{app_url(lang)}">app.syfo.ai</a><a href="{url(lang, "cases.html")}">{t["footer_cases"]}</a><a href="{url(lang, "how.html")}">{t["footer_how"]}</a></div>
 </div></div></footer>
 <script>document.addEventListener('click',function(e){{var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');}});</script>
 </body></html>"""
@@ -651,7 +665,7 @@ def write(lang, filename, parts):
 
 # 真实产品界面截图（app.syfo.ai 上一段人与 Agent 的真实对话），外加浏览器边框。
 # 每语言一张本地化截图：product-shot.png(zh) / -en / -ja / -es。
-SHOT_SUFFIX = {"zh": "", "en": "-en", "ja": "-ja", "es": "-es"}
+SHOT_SUFFIX = {"zh": "", "en": "-en", "ja": "-ja", "es": "-es", "vi": "-vi"}
 def mock(lang):
     return f"""<div class="shot">
  <div class="bar"><i></i><i></i><i></i><span class="ttl">app.syfo.ai</span></div>
@@ -674,7 +688,7 @@ def build_home(lang):
  <span class="eyebrow">{t["hero_eyebrow"]}</span>
  <h1>{t["hero_h1"]}</h1>
  <p class="lead">{t["hero_lead"]}</p>
- <div class="cta"><a class="btn btn-primary" href="{APP}">{t["enter"]} <span class="arr">→</span></a>
+ <div class="cta"><a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>
    <a class="btn btn-ghost" href="{url(lang, "cases.html")}">{t["hero_cta2"]}</a></div>
  <div class="meta"><span><b>{t["hero_meta1"]}</b></span><span><b>{t["hero_meta2"]}</b></span><span><b>{t["hero_meta3"]}</b></span></div>
  {mock(lang)}
@@ -725,7 +739,7 @@ def build_home(lang):
  <span class="eyebrow" style="justify-content:center">{t["home_close_eyebrow"]}</span>
  <h2>{t["home_close_h2"]}</h2>
  <p>{t["home_close_p"]}</p>
- <div class="cta"><a class="btn btn-primary" href="{APP}">{t["enter"]} <span class="arr">→</span></a>
+ <div class="cta"><a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>
    <a class="btn btn-ghost" href="{url(lang, "cases.html")}">{t["hero_cta2"]}</a></div>
 </div></section>""")
     P.append(footer(lang))
@@ -750,7 +764,7 @@ def build_cases(lang):
  <span class="eyebrow" style="justify-content:center">{t["cases_close_eyebrow"]}</span>
  <h2>{t["cases_close_h2"]}</h2>
  <p>{t["cases_close_p"]}</p>
- <div class="cta"><a class="btn btn-primary" href="{APP}">{t["enter"]} <span class="arr">→</span></a>
+ <div class="cta"><a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>
    <a class="btn btn-ghost" href="{url(lang, "index.html")}">{t["cases_close_cta2"]}</a></div>
 </div></section>""")
     C.append(footer(lang))
@@ -779,9 +793,9 @@ HOW_STEPS = {
 
 def how_js(lang):
     t = T[lang]
-    if lang in ("en", "ja", "es"):
+    if lang in ("en", "ja", "es", "vi"):
         # 非中文 how 页嵌入对应语言的宣传片 (单 16:9 剪辑) — 无 PC/手机切换。
-        suf = {"en": "EN", "ja": "JA", "es": "ES"}[lang]
+        suf = {"en": "EN", "ja": "JA", "es": "ES", "vi": "VI"}[lang]
         return f"""
 <script>
 (function(){{
@@ -841,7 +855,7 @@ def build_how(lang):
     H.append(f"""<section class="closing"><div class="wrap">
  <span class="eyebrow" style="justify-content:center">{t["how_close_eyebrow"]}</span>
  <h2>{t["how_close_h2"]}</h2>
- <div class="cta"><a class="btn btn-primary" href="{APP}">{t["enter"]} <span class="arr">→</span></a>
+ <div class="cta"><a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>
    <a class="btn btn-ghost" href="{url(lang, "cases.html")}">{t["hero_cta2"]}</a></div></div></section>""")
     H.append(how_js(lang))
     H.append(footer(lang))
@@ -1259,7 +1273,7 @@ def build_detail(lang, slug):
 <section class="closing"><div class="wrap">
  <span class="eyebrow" style="justify-content:center">{t["d_close_eyebrow"]}</span>
  <h2>{t["d_close_h2"]}</h2>
- <div class="cta"><a class="btn btn-primary" href="{APP}">{t["enter"]} <span class="arr">→</span></a>
+ <div class="cta"><a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>
    <a class="btn btn-ghost" href="{url(lang, "cases.html")}">{t["d_close_cta2"]}</a></div></div></section>
 <div class="band" style="background:var(--bg-sunken);border-top:1px solid var(--border-1)"><section><div class="wrap">
  <div class="lab" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">{t["d_related"]}</div>
@@ -1270,7 +1284,7 @@ def build_detail(lang, slug):
 
 
 # ── 载入 ja / es 翻译 (由 i18n/<lang>.json 提供，zh/en 保持内联) ──
-for _lg in ("ja", "es"):
+for _lg in ("ja", "es", "vi"):
     _d = json.load(open(os.path.join(HERE, "i18n", f"{_lg}.json"), encoding="utf-8"))
     T[_lg] = _d["T"]; CASES[_lg] = _d["CASES"]; SCENES[_lg] = _d["SCENES"]
     STEPS[_lg] = _d["STEPS"]; RELAY[_lg] = _d["RELAY"]
@@ -1287,4 +1301,4 @@ for lang in LANGS:
     for slug in [c[4] for c in CASES[lang]]:
         build_detail(lang, slug)
 
-print("wrote zh (root) + en/ + ja/ + es/: index.html + cases.html + how.html + 6 case detail pages each")
+print("wrote " + " + ".join(PREFIX[l] for l in LANGS) + ": index.html + cases.html + how.html + 6 case detail pages each")

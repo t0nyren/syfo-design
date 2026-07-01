@@ -1,0 +1,939 @@
+{
+ "T": {
+  "html_lang": "vi",
+  "nav_product": "Sản phẩm",
+  "nav_scenes": "Có thể làm gì",
+  "nav_cases": "Tình huống sử dụng",
+  "nav_how": "Cách hoạt động",
+  "enter": "Vào Syfo",
+  "menu_aria": "Menu",
+  "lang_toggle_label": "VI",
+  "footer_tag": "Nơi con người và một đội ngũ Agent cùng hoàn thành công việc.",
+  "footer_cases": "Tình huống sử dụng",
+  "footer_how": "Cách hoạt động",
+  "card_more": "Đọc tình huống sử dụng",
+  "home_title": "Syfo · Nơi con người và một đội ngũ Agent làm việc cùng nhau",
+  "home_desc": "Syfo là một không gian làm việc chung, nơi con người và một đội ngũ Agent AI cộng tác trong cùng các kênh, với trình kích hoạt, công cụ và bộ nhớ giúp các Agent duy trì hoạt động và để công việc bàn giao gọn gàng giữa con người và Agent.",
+  "home_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Trang chủ\" -->",
+  "hero_eyebrow": "Không gian làm việc con người × Agent",
+  "hero_h1": "Để con người và một đội ngũ Agent <span class=\"accent\">thật sự làm việc cùng nhau.</span>",
+  "hero_lead": "Syfo — bắt nguồn từ symphony — là nơi con người và Agent làm việc trong cùng một chỗ. Giao công việc hằng ngày cho một đội ngũ Agent AI luôn kiên trì thực hiện, trong khi bạn chỉ đạo, bổ sung ngữ cảnh và phê duyệt, tất cả ngay trong kênh.",
+  "hero_cta2": "Xem các tình huống thực tế",
+  "hero_meta1": "Kênh · Tin nhắn riêng · Công việc",
+  "hero_meta2": "Trình kích hoạt · Công cụ · Bộ nhớ xuyên phiên",
+  "hero_meta3": "Bàn giao đa Agent",
+  "shot_alt": "Sản phẩm Syfo — con người và Agent cộng tác trong một kênh",
+  "prod_eyebrow": "Hai điều, một nơi",
+  "prod_h2": "Giữ Agent luôn chạy. Giữ sự cộng tác liền mạch.",
+  "prod_p": "Hầu hết công cụ Agent dừng lại ở một cuộc trò chuyện duy nhất. Syfo được xây dựng cho công việc thực trải dài qua nhiều phiên, nhiều Agent và nhiều người, để không có gì bị bỏ sót.",
+  "pillar1_k": "Cách vận hành",
+  "pillar1_h": "Giữ Agent luôn làm việc",
+  "pillar1_p": "Được kích hoạt bởi một tin nhắn, một lịch trình hay một sự kiện, được trang bị đúng công cụ và lưu giữ bộ nhớ xuyên các phiên, một Agent hay cả một đội ngũ luôn trực tuyến như một đồng nghiệp và tiếp tục đẩy công việc tiến lên, thay vì chỉ trả lời từng câu hỏi một.",
+  "pillar1_li": [
+   "Thức dậy khi có tin nhắn, lịch trình hoặc sự kiện",
+   "Gọi các công cụ cần thiết thông qua các lượt chạy được lưu trữ trên nền tảng",
+   "Giữ bộ nhớ và ngữ cảnh giữa các lượt chạy"
+  ],
+  "pillar2_k": "Cách cộng tác",
+  "pillar2_h": "Bàn giao công việc gọn gàng",
+  "pillar2_p": "Con người và Agent chia sẻ cùng các kênh — tin nhắn, nhắc tên, luồng thảo luận. Công việc, ngữ cảnh và sản phẩm bàn giao ở cùng một nơi, để ai tiếp nhận sau có thể tiếp tục ngay, không ai phải giải thích lại từ đầu.",
+  "pillar2_li": [
+   "Kênh và tin nhắn riêng được con người và Agent dùng chung",
+   "Một bảng công việc mà ai cũng có thể nhận và đẩy tiến lên",
+   "Tập tin, hồ sơ và quyết định đều nằm trong ngữ cảnh"
+  ],
+  "scenes_eyebrow": "Có thể làm gì cho bạn",
+  "scenes_h2": "Công việc ở bất kỳ ngành nào cũng có thể giao cho một đội ngũ Agent.",
+  "feat_eyebrow": "Tình huống thực tế",
+  "feat_h2": "Đã đang xử lý công việc thực trong các ngành này.",
+  "feat_p": "Từ nghiên cứu quỹ đến sản xuất nội dung, bán lẻ và hỗ trợ — một người hay một đội nhỏ, cùng một nhóm Agent, hoàn thành công việc.",
+  "feat_all": "Xem tất cả tình huống sử dụng",
+  "steps_eyebrow": "Sẵn sàng trong ba phút",
+  "steps_h2": "Bắt đầu làm việc với Agent qua năm bước.",
+  "relay_eyebrow": "Cộng tác đa Agent",
+  "relay_h2": "Một công việc tự dịch chuyển qua các Agent.",
+  "relay_p": "Công việc, luồng thảo luận và ngữ cảnh đều nằm trong kênh, nên công việc có thể chuyển từ một người sang một Agent rồi sang một Agent khác mà không ai phải giải thích lại.",
+  "home_close_eyebrow": "Bắt đầu",
+  "home_close_h2": "Dựng đội ngũ Agent của bạn. Ngay hôm nay.",
+  "home_close_p": "Đặt con người và Agent vào cùng một không gian làm việc và để công việc tự bàn giao.",
+  "cases_title": "Tình huống sử dụng Syfo · Cộng tác con người–Agent trên nhiều ngành",
+  "cases_desc": "Các tình huống Syfo thực tế: nghiên cứu quỹ, một nền tảng quản lý danh mục, sáng tác truyện tranh, phát triển ứng dụng, bán lẻ và hỗ trợ, và vận hành nội dung truyền thông — con người và một đội ngũ Agent hoàn thành công việc.",
+  "cases_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Tình huống sử dụng\" -->",
+  "cases_eyebrow": "Tình huống thực tế",
+  "cases_h1": "Một người hay một đội nhỏ,<br>hoàn thành công việc cùng một đội ngũ Agent.",
+  "cases_p": "Dưới đây là những cách thực tế các đội ngũ dùng Syfo trong nhiều ngành. Ở mỗi tình huống, một người hay một đội nhỏ tập hợp một nhóm Agent trong các kênh Syfo và giữ cho công việc thực luôn tiến lên.",
+  "cases_close_eyebrow": "Bắt đầu",
+  "cases_close_h2": "Giao ngành của bạn cho một đội ngũ Agent.",
+  "cases_close_p": "Tập hợp một đội ngũ Agent AI và giao cho họ công việc thực để làm.",
+  "cases_close_cta2": "Về trang chủ",
+  "how_title": "Cách hoạt động · Bắt đầu với Syfo trong ba phút",
+  "how_desc": "Xem Syfo hoạt động thế nào trong ba phút: đăng ký, đăng ký gói, tạo một Agent, tạo một kênh và bắt đầu cộng tác. Bản demo tự động phát phiên bản máy tính hoặc di động tùy theo thiết bị của bạn.",
+  "how_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Cách hoạt động\" -->",
+  "how_eyebrow": "Cách hoạt động",
+  "how_h1": "Xem Syfo <span class=\"accent\">trong thực tế</span>.",
+  "how_lead": "Con người và một đội ngũ Agent AI, làm việc cùng nhau trong một nơi — đây là Syfo trong chưa đầy một phút. Năm bước dưới đây phân tích cách bắt đầu.",
+  "how_v_name": "Syfo — Tổng quan",
+  "how_v_len": "0:46",
+  "how_v_toggle_to_mobile": "Chuyển sang di động",
+  "how_v_toggle_to_pc": "Chuyển sang máy tính",
+  "how_steps_eyebrow": "Bắt đầu qua năm bước",
+  "how_steps_h2": "Năm bước trong video, được phân tích",
+  "how_close_eyebrow": "Bắt đầu",
+  "how_close_h2": "Xem xong, rồi dựng đội ngũ Agent của bạn.",
+  "d_back": "← Về tất cả tình huống sử dụng",
+  "d_title_suffix": " · Tình huống sử dụng Syfo",
+  "d_desc_prefix": "Tình huống sử dụng Syfo: ",
+  "d_card_prefix": "Tình huống · ",
+  "d_lab_want": "Mục tiêu",
+  "d_h2_want": "Giao việc này cho một đội ngũ Agent",
+  "d_lab_chan": "Cách thiết lập · 01",
+  "d_h2_chan": "Tạo các kênh này",
+  "d_lab_agents": "Cách thiết lập · 02",
+  "d_h2_agents": "Thêm các Agent này",
+  "d_lab_brief": "Cách thiết lập · 03",
+  "d_h2_brief": "Đăng một bản hướng dẫn kênh",
+  "d_lab_wf": "Quy trình làm việc",
+  "d_h2_wf": "Cách một công việc dịch chuyển qua kênh",
+  "d_lab_jobs": "Công việc định kỳ",
+  "d_h2_jobs": "Những gì tự lặp lại, hằng ngày và hằng tuần",
+  "d_lab_fu": "Đi xa hơn",
+  "d_h2_fu": "Khi đã chạy trơn tru, hãy thêm những mục này",
+  "d_lab_tips": "Mẹo",
+  "d_h2_tips": "Một vài cạm bẫy cần tránh",
+  "d_close_eyebrow": "Bắt đầu",
+  "d_close_h2": "Giao ngành của bạn cho một đội ngũ Agent nữa.",
+  "d_close_cta2": "Xem thêm tình huống sử dụng",
+  "d_related": "Tình huống sử dụng liên quan"
+ },
+ "CASES": [
+  [
+   "Tài chính · Quỹ tư nhân",
+   "Một người điều hành một quỹ hệ thống với một đội ngũ Agent",
+   "Một CIO cùng một nhóm Agent chuyên biệt: rà soát báo cáo lợi nhuận, tâm lý quyền chọn, phân bổ lãi lỗ hằng ngày, một bản đọc hằng ngày, canh thời điểm rủi ro và giám sát thoát vị thế. Mỗi ngày giao dịch, họ tạo ra nghiên cứu cấp tổ chức và thực thi kỷ luật cắt lỗ, chốt lời cơ học, tất cả trong một kênh.",
+   [
+    "Phân bổ lãi lỗ",
+    "Canh thời điểm rủi ro",
+    "Rà soát báo cáo lợi nhuận",
+    "Tâm lý quyền chọn"
+   ],
+   "fund"
+  ],
+  [
+   "Fintech · Quản lý danh mục",
+   "Một đội ngũ Agent xây dựng và vận hành một nền tảng danh mục",
+   "Thiết kế, tuân thủ, hiển thị rủi ro, frontend, triển khai và kiểm tra phát hành cùng chia việc. Thẻ tình trạng, đèn tuân thủ, bảng tái cân bằng, dải nguồn gốc dữ liệu, một hệ thống thiết kế và các lằn ranh tuân thủ rõ ràng, cùng kiểm tra hợp đồng ngăn dữ liệu trôi lệch.",
+   [
+    "Xây nền tảng",
+    "Tuân thủ",
+    "Hệ thống thiết kế",
+    "Kiểm tra phát hành"
+   ],
+   "platform"
+  ],
+  [
+   "Nội dung · Truyện tranh",
+   "Một dây chuyền Agent biến kịch bản thành truyện tranh nhiều kỳ",
+   "Một người định hướng, đội ngũ Agent lo dàn khung, giữ nhất quán nhân vật, vẽ bằng AI, kết xuất song song và xuất bản tự động. Các loạt nhiều chương, mỗi chương khoảng 28 trang, với nhân vật giữ được sự nhất quán qua các trang.",
+   [
+    "Dàn khung",
+    "Vẽ bằng AI",
+    "Nhất quán",
+    "Tự xuất bản"
+   ],
+   "comic"
+  ],
+  [
+   "Di động · Vibe coding",
+   "Một nhà sáng lập và một đội ngũ Agent hoàn thiện một ứng dụng từ đầu đến cuối",
+   "Sản phẩm, backend và hạ tầng cho một ứng dụng nhận diện AI cho người dùng: chuyển máy chủ, cấu hình mạng, thiết lập đăng nhập, xử lý ảnh, tinh chỉnh đường tải lên và sửa phụ thuộc, tất cả được phân loại và xử lý ngay khi phát sinh.",
+   [
+    "Giao hàng full-stack",
+    "Hạ tầng",
+    "Gỡ trục trặc",
+    "Vận hành"
+   ],
+   "app"
+  ],
+  [
+   "Bán lẻ · Bán hàng & hỗ trợ",
+   "Agent biến cuộc trò chuyện với khách thành việc theo dõi và cẩm nang",
+   "Bộ phận bán hàng giao bản ghi âm cuộc gặp cho các Agent để chép lời, chắt lọc nhu cầu khách hàng, và lên ý chính trao đổi cùng kịch bản phục vụ, dần đưa bán hàng và hỗ trợ tuyến đầu vào cộng tác với Agent.",
+   [
+    "Chép lời",
+    "Phân tích nhu cầu",
+    "Theo dõi tiếp",
+    "Hỗ trợ bán hàng"
+   ],
+   "sales"
+  ],
+  [
+   "Truyền thông · Vận hành nội dung",
+   "Một đội ngũ Agent viết nội dung và xây dựng nền tảng",
+   "Một Agent tổng biên tập chỉ đạo hai Agent viết bài, biên tập lại hàng trăm ghi chú khóa học và cuộc họp thành bài viết đã xuất bản, khử trùng lặp, gộp loạt bài, che số liệu nhạy cảm và lưu trữ tất cả. Một Agent riêng xây dựng một nền tảng quản lý nội dung để quản lý và xuất bản mọi thứ.",
+   [
+    "Viết hàng loạt",
+    "Khử trùng lặp & gộp",
+    "Che số liệu",
+    "Nền tảng nội dung"
+   ],
+   "content"
+  ]
+ ],
+ "SCENES": [
+  [
+   "research",
+   "Nghiên cứu & phân tích",
+   "Giao dữ liệu, hồ sơ nộp và tâm lý thị trường cho một nhóm Agent theo dõi liên tục và tạo ra nghiên cứu cùng tín hiệu dùng được mỗi ngày."
+  ],
+  [
+   "ops",
+   "Vận hành & tăng trưởng",
+   "Nội dung chiến dịch, trang chi tiết sản phẩm, theo dõi sau sự kiện — nói điều bạn cần và đội ngũ Agent sẽ tạo ra hàng loạt rồi báo cáo lại."
+  ],
+  [
+   "service",
+   "Bán hàng & hỗ trợ",
+   "Biến bản ghi âm cuộc họp thành ghi chú, chắt lọc nhu cầu khách hàng, và dựng cẩm nang theo dõi tiếp — để cuộc trò chuyện thành hành động."
+  ],
+  [
+   "content",
+   "Sản xuất nội dung",
+   "Từ chủ đề đến bản nháp đến xuất bản, các Agent viết bài sản xuất song song theo cùng một chuẩn duyệt và lưu trữ."
+  ],
+  [
+   "build",
+   "Sản phẩm & nền tảng",
+   "Để một đội ngũ Agent đưa một ý tưởng đi trọn đường tới sản phẩm hoàn chỉnh, từ thiết kế đến triển khai."
+  ],
+  [
+   "coord",
+   "Phối hợp liên nhóm",
+   "Công việc, ngữ cảnh và sản phẩm bàn giao đều nằm trong kênh, nên con người và Agent bàn giao gọn gàng và không gì bị bỏ sót."
+  ]
+ ],
+ "STEPS": [
+  [
+   "Đăng ký",
+   "Email và mật khẩu, kích hoạt ngay khi bạn xác minh."
+  ],
+  [
+   "Đăng ký gói",
+   "Bật lưu trữ trên đám mây, tính phí theo mức dùng."
+  ],
+  [
+   "Tạo một Agent",
+   "Đặt tên, chọn mô hình, và nó trở thành đồng nghiệp mới của bạn."
+  ],
+  [
+   "Tạo một kênh",
+   "Lập kênh theo chủ đề, công khai hoặc riêng tư."
+  ],
+  [
+   "Bắt đầu làm việc",
+   "Đăng một tin nhắn, @ một ai đó, bàn giao công việc."
+  ]
+ ],
+ "RELAY": [
+  [
+   "#1A1612",
+   "Bạn",
+   "người",
+   "Đăng điều bạn cần trong kênh, @ một ai đó, bổ sung ngữ cảnh.",
+   "Cần làm",
+   "b-todo"
+  ],
+  [
+   "#D4501E",
+   "Agent A",
+   "agent",
+   "Nhận thông báo, đọc ngữ cảnh, nhận việc và bắt đầu.",
+   "Đang làm",
+   "b-prog"
+  ],
+  [
+   "#7A7A4D",
+   "Agent B",
+   "agent",
+   "Duyệt kết quả, chạy các bước kiểm tra, nêu một điểm then chốt.",
+   "Đang duyệt",
+   "b-review"
+  ],
+  [
+   "#7A746A",
+   "Agent C",
+   "agent",
+   "Hoàn tất, đóng công việc và báo cáo lại trong kênh.",
+   "Hoàn tất",
+   "b-done"
+  ]
+ ],
+ "HOW_STEPS": [
+  [
+   "Đăng ký",
+   "Đăng ký bằng email và mật khẩu, kích hoạt ngay khi bạn xác minh, và bước vào không gian làm việc của bạn."
+  ],
+  [
+   "Đăng ký gói",
+   "Bật lưu trữ trên đám mây, tính phí theo mức dùng, để các Agent của bạn luôn trực tuyến."
+  ],
+  [
+   "Tạo một Agent",
+   "Đặt tên, chọn mô hình, và nó trở thành một trong những đồng nghiệp AI của bạn."
+  ],
+  [
+   "Tạo một kênh",
+   "Lập kênh theo chủ đề, công khai hoặc riêng tư, và đưa con người cùng Agent vào."
+  ],
+  [
+   "Bắt đầu làm việc",
+   "Đăng một tin nhắn, @ một ai đó, bàn giao một công việc — và hoàn thành công việc cùng con người và Agent."
+  ]
+ ],
+ "DETAILS": {
+  "fund": {
+   "sub": "Một người muốn điều hành một quỹ cổ phiếu hệ thống, nhưng theo dõi bảng giá, đọc hồ sơ nộp, tính phân bổ và theo dõi rủi ro là quá nhiều cho một người — và việc đó phải diễn ra mỗi ngày, không nghỉ, có kỷ luật.",
+   "meta": [
+    [
+     "Thiết lập",
+     "1 CIO + 5 Agent"
+    ],
+    [
+     "Kênh khởi đầu",
+     "#sau-phien · #nghien-cuu · #rui-ro"
+    ],
+    [
+     "Thời gian khởi động",
+     "Một ngày giao dịch"
+    ],
+    [
+     "Dữ liệu",
+     "Giá · Hồ sơ nộp · Công bố thông tin"
+    ]
+   ],
+   "want": "Chia công việc nghiên cứu và rủi ro hằng ngày của một quỹ thành vài việc bắt buộc phải diễn ra mỗi ngày, và giao mỗi việc cho một Agent chuyên trách: đọc hồ sơ nộp và nêu cảnh báo, theo dõi tâm lý quyền chọn, tính phân bổ lãi lỗ trong ngày, đan tất cả thành một bản đọc hằng ngày của CIO, và canh tín hiệu thời điểm cùng thoát vị thế. Bạn chỉ ra quyết định ở phút cuối, còn kỷ luật cơ học do các mô hình thực thi và không bao giờ bị cảm xúc của một ngày kéo lệch hướng.",
+   "channels": [
+    [
+     "#sau-phien",
+     "Phân bổ lãi lỗ hằng ngày, phân tách theo ngành, bản đọc hằng ngày của CIO"
+    ],
+    [
+     "#nghien-cuu",
+     "Cập nhật danh mục theo dõi, rà soát báo cáo lợi nhuận, đủ điều kiện vào và ra"
+    ],
+    [
+     "#rui-ro",
+     "Trạng thái canh thời điểm, giám sát các vị thế gần thoát, tín hiệu căng thẳng"
+    ]
+   ],
+   "agents": [
+    [
+     "@bao-cao",
+     "Rà soát hồ sơ nộp & công bố thông tin",
+     "Đọc các công bố thông tin và hồ sơ nộp trong ngày, nêu cảnh báo sự kiện, và đánh giá một mã còn đủ điều kiện hay không — chỉ tín hiệu, không giao dịch tự động."
+    ],
+    [
+     "@tam-ly",
+     "Tâm lý quyền chọn",
+     "Cập nhật tâm lý quyền chọn hằng ngày (biến động hàm ý, tỷ lệ put-call, độ chen chúc) như một tín hiệu ở lớp quan sát."
+    ],
+    [
+     "@phan-bo",
+     "Phân bổ lãi lỗ hằng ngày",
+     "Sau phiên, phân tách lãi lỗ trong ngày theo ngành và theo mã để làm rõ các yếu tố đóng góp và kéo lùi chính."
+    ],
+    [
+     "@ban-doc",
+     "Bản đọc hằng ngày của CIO",
+     "Đan phân bổ, tâm lý và rủi ro thành một bản đọc hằng ngày dễ đọc, chỉ ra những dòng trạng thái quan trọng nhất."
+    ],
+    [
+     "@canh-rui-ro",
+     "Canh thời điểm & giám sát thoát vị thế",
+     "Theo dõi trạng thái canh thời điểm thị trường và tín hiệu gần thoát trên các vị thế nắm giữ, kích hoạt cắt lỗ và chốt lời cơ học, và để lại dấu vết kiểm toán đầy đủ."
+    ]
+   ],
+   "briefing": "Đây là kênh làm việc của một quỹ cổ phiếu hệ thống. Quy tắc:\n· Tách lớp quan sát khỏi hành động sản xuất — nghiên cứu và tín hiệu là quan sát; chỉ cắt lỗ và chốt lời cơ học cùng chữ ký phê duyệt của tôi (CIO) mới là hành động sản xuất.\n· Không một biến động ngày nào thay đổi các quy tắc cơ học; các cú đảo chiều quá nóng và tâm lý dâng lên đều vào lớp quan sát trước.\n· Sau mỗi phiên đóng cửa, tạo ra: phân bổ, rồi bản đọc hằng ngày, rồi trạng thái rủi ro. Mỗi tuần, tạo ra danh sách ứng viên sản xuất để tôi phê duyệt trước khi vào lệnh.",
+   "workflow": [
+    [
+     "Phân bổ sau phiên",
+     "Sau phiên, @phan-bo tính phân tách lãi lỗ trong ngày theo ngành và theo mã."
+    ],
+    [
+     "Lớp thông tin",
+     "@bao-cao và @tam-ly mỗi bên cập nhật cảnh báo công bố thông tin và chỉ số tâm lý trong ngày."
+    ],
+    [
+     "Đan bản đọc hằng ngày",
+     "@ban-doc kéo ba luồng đó vào một bản đọc hằng ngày của CIO và chỉ ra những dòng trạng thái cần theo dõi."
+    ],
+    [
+     "Canh các lằn ranh rủi ro",
+     "@canh-rui-ro cập nhật trạng thái canh thời điểm và giám sát các vị thế gần thoát; khi một quy tắc cơ học kích hoạt, nó thực thi và ghi lại."
+    ],
+    [
+     "Bạn ra quyết định",
+     "Bạn đọc bản đọc hằng ngày và quyết định; các lệnh vào chỉ đến từ danh sách ứng viên sản xuất hằng tuần cùng chữ ký phê duyệt của bạn."
+    ]
+   ],
+   "jobs": [
+    [
+     "Phân bổ sau phiên hằng ngày",
+     "Sau mỗi phiên, tự động tạo phân bổ lãi lỗ cùng bản đọc hằng ngày."
+    ],
+    [
+     "Tâm lý và cảnh báo hằng ngày",
+     "Cập nhật tâm lý quyền chọn và cảnh báo công bố thông tin mỗi ngày vào lớp quan sát."
+    ],
+    [
+     "Ứng viên sản xuất hằng tuần",
+     "Mỗi tuần, đưa ra các mã ứng viên đang chờ chữ ký phê duyệt của CIO để vào lệnh."
+    ]
+   ],
+   "followups": [
+    "Thêm một Agent cảnh báo sự kiện để theo dõi việc nội bộ bán ra, yêu cầu từ cơ quan quản lý và các công bố thông tin bất thường.",
+    "Thêm một Agent kiểm định căng thẳng chạy các kịch bản như một cú sụt năm phần trăm với danh mục.",
+    "Tự động lưu bản đọc hằng ngày vào một thư viện nghiên cứu có thể tìm kiếm."
+   ],
+   "tips": [
+    "Giữ quan sát và hành động tách biệt — phần lớn nghiên cứu nên ở lại lớp quan sát, để nhiễu của một ngày không bao giờ kích hoạt một lệnh giao dịch.",
+    "Để các mô hình thực thi kỷ luật cơ học với dấu vết kiểm toán đầy đủ; con người chỉ phê duyệt các ứng viên hằng tuần và các quyết định then chốt.",
+    "Các vị thế và số liệu thực nhạy cảm không cần nằm trong tiêu đề kênh; chia sẻ trong phạm vi hạn chế khi cần."
+   ]
+  },
+  "platform": {
+   "sub": "Một quỹ cần nền tảng quản lý danh mục của riêng mình — tình trạng, tuân thủ, tái cân bằng, nguồn gốc, tất cả — nhưng lại không có đội ngũ kỹ thuật truyền thống.",
+   "meta": [
+    [
+     "Thiết lập",
+     "1 người dẫn dắt + 5 Agent"
+    ],
+    [
+     "Kênh khởi đầu",
+     "#nen-tang · #hop-dong-du-lieu · #tuan-thu"
+    ],
+    [
+     "Thời gian khởi động",
+     "Vài ngày"
+    ],
+    [
+     "Tích hợp",
+     "API động cơ chiến lược"
+    ]
+   ],
+   "want": "Để một nhóm Agent cùng xây dựng và vận hành nền tảng quản lý danh mục: trước hết chốt hợp đồng dữ liệu, rồi dựng các trang và thành phần, đưa qua các lằn ranh tuân thủ, triển khai, và cuối cùng kiểm tra trang trực tiếp từng mục một. Mọi thứ theo cùng một hệ thống thiết kế, và rủi ro được hiển thị mà không dùng lối tô màu chói mắt đỏ-lên-xanh-xuống.",
+   "channels": [
+    [
+     "#nen-tang",
+     "Trang, thành phần, triển khai và phát hành"
+    ],
+    [
+     "#hop-dong-du-lieu",
+     "Trường lược đồ, kiểm tra hợp đồng, ngăn trôi lệch"
+    ],
+    [
+     "#tuan-thu",
+     "Các lằn ranh tuân thủ và cửa kiểm soát trước khi kết nối dữ liệu thực"
+    ]
+   ],
+   "agents": [
+    [
+     "@frontend",
+     "Trang & thành phần",
+     "Dựng thẻ tình trạng, đèn tuân thủ, bảng tái cân bằng và dải nguồn gốc dữ liệu theo hệ thống thiết kế."
+    ],
+    [
+     "@hop-dong",
+     "Người gác hợp đồng dữ liệu",
+     "Định nghĩa và kiểm định lược đồ, và báo lỗi ngay khi nạp mỗi khi hợp đồng trôi lệch."
+    ],
+    [
+     "@tuan-thu",
+     "Rà soát tuân thủ",
+     "Canh các lằn ranh tuân thủ: dữ liệu demo phải được gắn nhãn, hiệu suất quá khứ đi kèm miễn trừ trách nhiệm, và màu rủi ro tránh đỏ-xanh."
+    ],
+    [
+     "@phat-hanh",
+     "Kiểm tra phát hành",
+     "Sau mỗi lần triển khai, kiểm tra bản dựng trực tiếp so với kỳ vọng từng mục một, dùng script và ảnh chụp màn hình."
+    ],
+    [
+     "@thiet-ke",
+     "Đồng bộ hệ thống thiết kế",
+     "Giữ thành phần, màu sắc và câu chữ theo hệ thống thiết kế chung thay vì các giá trị viết tay."
+    ]
+   ],
+   "briefing": "Chúng ta đang xây dựng và vận hành một nền tảng quản lý danh mục. Quy tắc:\n· Mọi thứ bắt đầu từ hợp đồng dữ liệu — chốt lược đồ trước, rồi mới nối frontend.\n· Đừng hiển thị rủi ro bằng đỏ-lên-xanh-xuống; dùng các màu ngữ nghĩa của hệ thống thiết kế (xanh bách, vàng trầm, đỏ trầm).\n· Trước khi kết nối vị thế thực, cửa kiểm soát phải qua: tắt dữ liệu demo và có sẵn các lằn ranh phân quyền.\n· Kiểm tra mọi lần phát hành trên trang trực tiếp từng mục một, không nhìn bằng mắt.",
+   "workflow": [
+    [
+     "Chốt hợp đồng",
+     "@hop-dong ghim các trường và lược đồ cho phiên bản này và thêm các bước kiểm tra."
+    ],
+    [
+     "Dựng",
+     "@frontend dựng các trang và thành phần theo hệ thống thiết kế, nối với dữ liệu của hợp đồng."
+    ],
+    [
+     "Rà soát tuân thủ",
+     "@tuan-thu áp dụng các lằn ranh: nhãn dữ liệu demo, miễn trừ trách nhiệm, màu rủi ro hợp quy."
+    ],
+    [
+     "Triển khai",
+     "Phát hành các thay đổi với phiên bản truy vết được và lịch sử commit."
+    ],
+    [
+     "Kiểm tra trực tiếp",
+     "@phat-hanh kiểm tra trang trực tiếp từng mục một và sửa bất cứ điều gì sai lệch."
+    ]
+   ],
+   "jobs": [
+    [
+     "Kiểm tra hợp đồng",
+     "Chạy kiểm tra hợp đồng trước và sau mỗi lần dựng để ngăn lược đồ trôi lệch."
+    ],
+    [
+     "Kiểm tra khói",
+     "Tự kiểm tra khói các đường quan trọng: cửa xác thực, chủ đề giao diện và các API đều qua."
+    ],
+    [
+     "Kiểm tra phát hành",
+     "Sau mỗi lần triển khai, kiểm tra số phiên bản trực tiếp và phân bố các chỉ số then chốt."
+    ]
+   ],
+   "followups": [
+    "Biến danh mục kiểm tra bắt buộc trước khi kết nối dữ liệu thực thành một cửa kiểm soát cố định chạy tự động mỗi lần phát hành.",
+    "Thêm xuất dữ liệu cho bảng tái cân bằng, kèm chú thích nguồn, để việc rà soát thủ công dễ hơn.",
+    "Chắt lọc các thành phần của hệ thống thiết kế thành một thư viện dùng lại được để các trang mới ráp vào là chạy."
+   ],
+   "tips": [
+    "Hợp đồng trước tiên: báo lỗi ngay khi nạp mỗi khi lược đồ trôi lệch tốt hơn là phát hiện sau khi phát hành.",
+    "Hiển thị rủi ro bằng màu ngữ nghĩa, không dùng đỏ-lên-xanh-xuống — đó là một lằn ranh thương hiệu.",
+    "Luôn qua cửa kiểm soát trước khi kết nối dữ liệu thực: tắt dữ liệu demo, siết quyền theo mặc định."
+   ]
+  },
+  "comic": {
+   "sub": "Biến một kịch bản thành truyện tranh nhiều kỳ — hàng chục trang mỗi chương, với nhân vật giữ nhất quán qua các trang — là quá sức vẽ của một người.",
+   "meta": [
+    [
+     "Thiết lập",
+     "1 họa sĩ chính + 4 Agent"
+    ],
+    [
+     "Kênh khởi đầu",
+     "#kich-ban · #khung-tranh · #ket-xuat"
+    ],
+    [
+     "Thời gian khởi động",
+     "Nửa ngày"
+    ],
+    [
+     "Đầu ra",
+     "Loạt nhiều chương · ~28 trang mỗi chương"
+    ]
+   ],
+   "want": "Một người định hướng và viết kịch bản, còn đội ngũ Agent biến nó thành truyện tranh nhiều kỳ: đọc kịch bản và dàn khung tranh, chốt nhất quán nhân vật, kết xuất song song, soát và xuất bản. Khoảng 28 trang mỗi chương, với nhân vật giữ cùng một gương mặt qua các trang.",
+   "channels": [
+    [
+     "#kich-ban",
+     "Kịch bản, nhịp chương và các điểm nhấn"
+    ],
+    [
+     "#khung-tranh",
+     "Nhịp hình ảnh từng trang và dàn cảnh nhân vật"
+    ],
+    [
+     "#ket-xuat",
+     "Kết xuất song song, soát nhất quán, xuất bản"
+    ]
+   ],
+   "agents": [
+    [
+     "@khung-tranh",
+     "Dàn khung",
+     "Đọc kịch bản, định nhịp hình ảnh của mỗi trang và điểm ra mắt nhân vật, và viết bảng khung tranh."
+    ],
+    [
+     "@nhan-vat",
+     "Nhất quán nhân vật",
+     "Quản lý hồ sơ nhân vật và tính nhất quán; nhân vật nổi tiếng được triệu gọi bằng tên, nhân vật gốc được chốt hồ sơ."
+    ],
+    [
+     "@ket-xuat-a",
+     "Kết xuất song song (xuôi)",
+     "Kết xuất từ đầu tới cuối, theo bảng khung tranh."
+    ],
+    [
+     "@ket-xuat-b",
+     "Kết xuất song song (ngược)",
+     "Kết xuất từ cuối tới đầu, song song với A, gặp nhau ở giữa."
+    ],
+    [
+     "@xuat-ban",
+     "Đóng gói & xuất bản",
+     "Đóng gói các trang hoàn thiện, xuất bản theo chương, và chỉ thông báo sau khi mọi trang được kiểm tra."
+    ]
+   ],
+   "briefing": "Chúng ta đang biến một kịch bản thành truyện tranh nhiều kỳ. Quy tắc:\n· Khoảng 28 trang mỗi chương; tạo bảng khung tranh trước khi kết xuất.\n· Nhất quán trước tiên: triệu gọi nhân vật nổi tiếng bằng tên mà không ép ràng buộc; chốt hồ sơ cho nhân vật gốc.\n· Hai Agent kết xuất làm xuôi và ngược song song, rồi cùng soát nhất quán ở cuối.\n· Xuất bản trọn chương và chỉ báo cho tôi khi mọi liên kết đều truy cập được.",
+   "workflow": [
+    [
+     "Đọc kịch bản",
+     "@khung-tranh đọc kịch bản chương này, nối tiếp từ đoạn kết của chương trước."
+    ],
+    [
+     "Dàn khung tranh",
+     "Viết một bảng khung tranh khoảng 28 trang: nhịp hình ảnh cùng dàn cảnh nhân vật."
+    ],
+    [
+     "Kết xuất song song",
+     "@ket-xuat-a đi xuôi và @ket-xuat-b đi ngược, làm cùng lúc."
+    ],
+    [
+     "Soát nhất quán",
+     "@nhan-vat soát gương mặt và trang phục để nhất quán qua các trang, kết xuất lại nơi cần."
+    ],
+    [
+     "Xuất bản",
+     "@xuat-ban đóng gói và phát hành, kiểm tra mọi trang truy cập được, và báo cho họa sĩ chính."
+    ]
+   ],
+   "jobs": [
+    [
+     "Bảng khung tranh mỗi chương",
+     "Tạo một bảng khung tranh ở đầu mỗi chương mới."
+    ],
+    [
+     "Kết xuất song song",
+     "Kết xuất khoảng 28 trang mỗi chương trên hai luồng song song."
+    ],
+    [
+     "Kiểm tra xuất bản",
+     "Sau khi phát hành mỗi chương, kiểm tra mọi trang truy cập được và các phiên bản cũ đã được dọn."
+    ]
+   ],
+   "followups": [
+    "Biến luồng xuất bản thành một lệnh duy nhất, dùng lại được bằng cách đổi tham số chương.",
+    "Giữ một thẻ hồ sơ nhân vật cho mỗi chương, và quyết cách chốt từng nhân vật mới khi xuất hiện.",
+    "Biến việc soát nhất quán qua các trang thành một mục cố định trong danh mục kiểm tra."
+   ],
+   "tips": [
+    "Triệu gọi nhân vật nổi tiếng bằng tên thường chính xác hơn là ép ràng buộc.",
+    "Chốt hồ sơ nhân vật gốc và dùng lại qua các trang, để không có gương mặt mới trên mỗi trang.",
+    "Chạy xuôi và ngược song song rút thời gian kết xuất một chương xuống mức tối thiểu."
+   ]
+  },
+  "app": {
+   "sub": "Một nhà sáng lập muốn xây dựng và vận hành một ứng dụng — sản phẩm, backend, máy chủ và các vấn đề phát hành lên chợ ứng dụng đều cần xử lý — nhưng không có đội ngũ chuyên trách.",
+   "meta": [
+    [
+     "Thiết lập",
+     "1 nhà sáng lập + 4 Agent"
+    ],
+    [
+     "Kênh khởi đầu",
+     "#san-pham · #backend · #ha-tang"
+    ],
+    [
+     "Thời gian khởi động",
+     "Ngay trong ngày"
+    ],
+    [
+     "Phạm vi",
+     "Frontend · Backend · Hạ tầng"
+    ]
+   ],
+   "want": "Giao việc hoàn thiện từ đầu đến cuối một ứng dụng nhận diện AI cho người dùng cho một đội ngũ Agent: sản phẩm và frontend, backend, chuyển máy chủ và cấu hình mạng, đăng nhập bên thứ ba, xử lý ảnh, đường tải lên và sửa phụ thuộc. Bạn nêu vấn đề bất cứ khi nào phát sinh, và đội ngũ tìm nguyên nhân, sửa, kiểm tra từ đầu đến cuối và hoàn tất.",
+   "channels": [
+    [
+     "#san-pham",
+     "Trải nghiệm sản phẩm, logic frontend, các vấn đề phát hành"
+    ],
+    [
+     "#backend",
+     "API, dữ liệu, phụ thuộc và dịch vụ"
+    ],
+    [
+     "#ha-tang",
+     "Chuyển máy chủ, cấu hình mạng, triển khai và vận hành"
+    ]
+   ],
+   "agents": [
+    [
+     "@san-pham",
+     "Sản phẩm & frontend",
+     "Theo dõi logic frontend và các vấn đề trải nghiệm phát hành, tìm và sửa chúng."
+    ],
+    [
+     "@backend",
+     "Backend & API",
+     "Xử lý API, dữ liệu và các phụ thuộc phía máy chủ."
+    ],
+    [
+     "@ha-tang",
+     "Chuyển đổi & vận hành",
+     "Chuyển máy chủ, cấu hình mạng, triển khai, kéo dữ liệu từ nguồn và các vấn đề băng thông."
+    ],
+    [
+     "@kiem-tra",
+     "Kiểm tra từ đầu đến cuối",
+     "Sau mỗi lần sửa, chạy toàn luồng từ đầu đến cuối để xác nhận vấn đề đã thật sự biến mất."
+    ]
+   ],
+   "briefing": "Chúng ta đang xây dựng và vận hành một ứng dụng cho người dùng từ đầu đến cuối. Quy tắc:\n· Tôi sẽ báo triệu chứng trong kênh bất cứ lúc nào (bước nào, lỗi gì); bạn tìm nguyên nhân gốc, thực hiện thay đổi nhỏ nhất, và kiểm tra từ đầu đến cuối.\n· Với vấn đề chuyển đổi, kiểm tra phụ thuộc, cấu hình mạng và kéo dữ liệu từ nguồn cùng nhau — đừng chỉ vá bề mặt.\n· Chưa có bản sửa nào hoàn tất cho tới khi qua được một lần kiểm tra trên thiết bị thực hoặc từ đầu đến cuối.",
+   "workflow": [
+    [
+     "Báo triệu chứng",
+     "Bạn mô tả vấn đề trong kênh: bước nào, bạn đang thấy gì."
+    ],
+    [
+     "Tìm nguyên nhân gốc",
+     "Agent liên quan kiểm tra nhật ký và tái hiện để tìm nguyên nhân (thường là một phụ thuộc bị thiếu, cấu hình mạng, hoặc đường tải lên sau khi chuyển đổi)."
+    ],
+    [
+     "Thay đổi nhỏ nhất",
+     "Đề xuất bản sửa tối thiểu để tránh làm hỏng thứ khác."
+    ],
+    [
+     "Kiểm tra từ đầu đến cuối",
+     "@kiem-tra chạy toàn luồng, gồm cả đăng nhập và tải lên, để xác nhận đã sửa."
+    ],
+    [
+     "Hoàn tất",
+     "Đóng công việc, báo cáo lại trong kênh, và ghi lại bài học."
+    ]
+   ],
+   "jobs": [
+    [
+     "Kiểm tra tình trạng",
+     "Thường xuyên kiểm tra mỗi dịch vụ còn hoạt động và các đường quan trọng còn chạy."
+    ],
+    [
+     "Kiểm tra chuyển đổi",
+     "Sau một lần chuyển đổi, kiểm tra phụ thuộc, cấu hình mạng và kéo dữ liệu từ nguồn từng mục một."
+    ],
+    [
+     "Đóng vấn đề",
+     "Theo dõi mỗi vấn đề được báo cho tới khi qua một lần kiểm tra từ đầu đến cuối rồi mới đóng."
+    ]
+   ],
+   "followups": [
+    "Viết các bước gỡ trục trặc thường gặp thành một danh mục kiểm tra dùng lại được.",
+    "Thêm giám sát trên các đường quan trọng để vấn đề tự lộ diện thay vì để người dùng phát hiện trước.",
+    "Biến các bước phát hành và tuân thủ thủ công thành một hướng dẫn từng bước."
+   ],
+   "tips": [
+    "Kéo lưu lượng từ nguồn qua HTTPS; đừng dùng văn bản thuần với một host chưa đăng ký, kẻo bạn dính một trang chèn xen giữa.",
+    "Ngay sau một lần chuyển đổi, kiểm tra phụ thuộc trước: một thư viện bị thiếu làm hỏng cả đường.",
+    "Mỗi bản sửa cần một lần kiểm tra từ đầu đến cuối — đừng dừng ở 'chắc ổn thôi'."
+   ]
+  },
+  "sales": {
+   "sub": "Bán hàng tuyến đầu gặp khách mỗi ngày, nhưng bản ghi âm, ghi chú, nhu cầu khách hàng và kịch bản theo dõi nằm rải rác, nên việc theo dõi bị bỏ lỡ.",
+   "meta": [
+    [
+     "Thiết lập",
+     "Đội bán hàng + một Agent hỗ trợ"
+    ],
+    [
+     "Kênh khởi đầu",
+     "#gap-khach · #theo-doi · #cam-nang"
+    ],
+    [
+     "Thời gian khởi động",
+     "Ngay trong ngày"
+    ],
+    [
+     "Giai đoạn",
+     "Triển khai dần dần"
+    ]
+   ],
+   "want": "Biến cuộc trò chuyện với khách thành thứ có thể theo dõi tiếp: bán hàng thả một bản ghi âm buổi gặp vào kênh, và các Agent chép lời, chắt lọc nhu cầu khách hàng, dựng ý chính trao đổi cùng kịch bản phục vụ, và bố trí các việc theo dõi. Để tuyến đầu bắt đầu với thắng lợi nhỏ là biến cuộc gặp thành ghi chú, rồi từng bước đưa bán hàng và hỗ trợ vào cộng tác với Agent.",
+   "channels": [
+    [
+     "#gap-khach",
+     "Bản ghi âm buổi gặp, ghi chú đã chép lời, nhu cầu khách hàng"
+    ],
+    [
+     "#theo-doi",
+     "Các việc theo dõi, người phụ trách, bước tiếp theo"
+    ],
+    [
+     "#cam-nang",
+     "Ý chính trao đổi và kịch bản phục vụ"
+    ]
+   ],
+   "agents": [
+    [
+     "@chep-loi",
+     "Chép lời bản ghi âm",
+     "Biến bản ghi âm buổi gặp thành ghi chú văn bản có cấu trúc."
+    ],
+    [
+     "@nhu-cau",
+     "Phân tích nhu cầu",
+     "Chắt lọc nhu cầu thật và mối bận tâm của khách hàng từ ghi chú."
+    ],
+    [
+     "@theo-doi",
+     "Điều phối theo dõi",
+     "Biến mỗi nhu cầu thành một việc theo dõi có người phụ trách và ngày hạn."
+    ],
+    [
+     "@cam-nang",
+     "Biên soạn cẩm nang",
+     "Sắp xếp ý chính trao đổi và kịch bản phục vụ theo tình huống để tuyến đầu dùng lại."
+    ]
+   ],
+   "briefing": "Chúng ta đang biến cuộc trò chuyện với khách thành các việc theo dõi có thể hành động. Quy tắc:\n· Bắt đầu với bước nhẹ nhất: biến bản ghi âm buổi gặp thành ghi chú cùng một danh sách nhu cầu.\n· Mỗi nhu cầu trở thành một việc theo dõi có người phụ trách và một bước tiếp theo.\n· Biên soạn cẩm nang theo tình huống để dùng lại được, và mở rộng dần tới nhiều đồng nghiệp tuyến đầu theo thời gian.",
+   "workflow": [
+    [
+     "Thả bản ghi âm",
+     "Bán hàng đăng bản ghi âm buổi gặp hoặc liên kết vào #gap-khach."
+    ],
+    [
+     "Chép lời",
+     "@chep-loi biến nó thành ghi chú có cấu trúc."
+    ],
+    [
+     "Chắt lọc nhu cầu",
+     "@nhu-cau trình bày nhu cầu và mối bận tâm của khách hàng."
+    ],
+    [
+     "Bố trí việc theo dõi",
+     "@theo-doi biến chúng thành các việc có người phụ trách và ngày hạn."
+    ],
+    [
+     "Biên soạn cẩm nang",
+     "@cam-nang lưu vào #cam-nang những ý chính và kịch bản hiệu quả."
+    ]
+   ],
+   "jobs": [
+    [
+     "Ghi chú mỗi buổi gặp",
+     "Sau mỗi buổi gặp khách, tự động chép lời và tạo một danh sách nhu cầu."
+    ],
+    [
+     "Tổng hợp theo dõi hằng tuần",
+     "Mỗi tuần, tổng hợp các việc theo dõi còn mở và nhắc người phụ trách."
+    ],
+    [
+     "Duy trì cẩm nang",
+     "Tiếp tục thêm các kịch bản hiệu quả vào thư viện."
+    ]
+   ],
+   "followups": [
+    "Gắn nhãn nhu cầu theo hạng mục để thấy rõ điều khách hàng quan tâm nhất.",
+    "Thêm nhắc nhở vào các việc theo dõi để người phụ trách được @ nhắc tên khi đến hạn.",
+    "Biến các câu hỏi thường gặp thành phản hồi chuẩn mà đội hỗ trợ có thể dùng trực tiếp."
+   ],
+   "tips": [
+    "Bắt đầu với bước nhẹ nhất (bản ghi âm thành ghi chú) để tuyến đầu có một thắng lợi sớm trước khi mở rộng.",
+    "Mỗi nhu cầu phải trở thành một việc theo dõi có người phụ trách, nếu không thì ghi lại cũng như không.",
+    "Chia sẻ thông tin khách hàng nhạy cảm trong phạm vi hạn chế khi cần, không phải mọi nơi."
+   ]
+  },
+  "content": {
+   "sub": "Hàng trăm ghi chú khóa học và cuộc họp cần trở thành bài viết đã xuất bản — khử trùng lặp, gộp lại, che số liệu, phân loại và quản lý ở một nơi — vượt quá sức làm thủ công của con người.",
+   "meta": [
+    [
+     "Thiết lập",
+     "1 biên tập viên + một Agent tổng biên tập + các Agent viết bài/nền tảng"
+    ],
+    [
+     "Kênh khởi đầu",
+     "#chu-de · #viet-bai · #nen-tang"
+    ],
+    [
+     "Thời gian khởi động",
+     "Nửa ngày"
+    ],
+    [
+     "Đầu ra",
+     "Hàng trăm nguồn → hơn 300 bài hoàn chỉnh"
+    ]
+   ],
+   "want": "Một đội ngũ nội dung biên tập lại hàng trăm ghi chú khóa học và cuộc họp thành bài viết đã xuất bản theo lô: một Agent tổng biên tập điều phối công việc, gác chất lượng và khử trùng lặp; các Agent viết bài soạn nháp song song; và một Agent riêng xây dựng một nền tảng quản lý nội dung để duyệt, chỉnh sửa, chuyển theo trạng thái và xuất bản tất cả ở một nơi.",
+   "channels": [
+    [
+     "#chu-de",
+     "Danh sách nguồn, phân công, ranh giới khử trùng lặp"
+    ],
+    [
+     "#viet-bai",
+     "Soạn nháp song song, duyệt theo lô, gộp loạt bài"
+    ],
+    [
+     "#nen-tang",
+     "Phát triển và duy trì nền tảng nội dung"
+    ]
+   ],
+   "agents": [
+    [
+     "@bien-tap",
+     "Điều phối & gác cửa",
+     "Phân công công việc, duyệt bản nháp theo lô, khử trùng lặp, quyết định bỏ bài nào, và làm tổng hợp cuối."
+    ],
+    [
+     "@viet-a",
+     "Viết hàng loạt",
+     "Soạn nháp theo định dạng: tiêu đề gây chú ý, mở bài, thân bài, chiêm nghiệm, nguồn — dữ kiện chỉ lấy từ nguồn."
+    ],
+    [
+     "@viet-b",
+     "Viết hàng loạt",
+     "Làm song song với A trên một lô nguồn riêng để tránh trùng lặp."
+    ],
+    [
+     "@nen-tang",
+     "Xây nền tảng nội dung",
+     "Tự xây thư viện bài viết: duyệt, lọc, chỉnh sửa tại chỗ, tìm kiếm, xuất và luồng trạng thái."
+    ]
+   ],
+   "briefing": "Chúng ta đang biên tập lại hàng trăm ghi chú thành bài viết đã xuất bản theo lô và quản lý ở một nơi. Quy tắc:\n· Lọc trước (bỏ bài yếu, bản trùng cùng buổi, nội dung nhạy cảm phòng kín), rồi mới viết; tự kiểm số từ thực sau khi soạn nháp.\n· Gộp các loạt bài khóa học thành bài mạch lạc — gộp, đừng ghép nối.\n· Bản nháp có số liệu kinh doanh chưa công bố sẽ được che và ẩn theo mặc định.\n· Chạy song song hai luồng viết bài và nền tảng: người viết tạo bản nháp trong khi nền tảng dựng nên phần quản lý tập trung.",
+   "workflow": [
+    [
+     "Sắp xếp nguồn",
+     "@bien-tap chia danh sách nguồn theo lô và đặt ranh giới khử trùng lặp cùng phân công."
+    ],
+    [
+     "Viết song song",
+     "@viet-a và @viet-b mỗi bên nhận một lô và soạn nháp song song, đăng vào luồng theo lô."
+    ],
+    [
+     "Duyệt và gộp",
+     "@bien-tap duyệt theo lô, gộp các loạt bài khóa học thành bài mạch lạc, và tách riêng rồi che các bản nháp nhạy cảm."
+    ],
+    [
+     "Xây nền tảng",
+     "@nen-tang dựng nền tảng quản lý nội dung song song: duyệt, chỉnh sửa, tìm kiếm, trạng thái."
+    ],
+    [
+     "Lên nền tảng",
+     "Sau một lần khử trùng lặp toàn cục, nhập vào nền tảng để duyệt, tìm kiếm và xuất bản theo trạng thái."
+    ]
+   ],
+   "jobs": [
+    [
+     "Biên tập lại hàng loạt",
+     "Tiếp tục biên tập nguồn mới thành bản nháp, giao theo lô 20 bài."
+    ],
+    [
+     "Khử trùng lặp và gộp",
+     "Chạy khử trùng lặp toàn cục định kỳ và gộp các loạt bài thành bài mạch lạc."
+    ],
+    [
+     "Duy trì nền tảng",
+     "Giữ thư viện bài viết cập nhật với các bản nháp mới và luồng trạng thái chính xác."
+    ]
+   ],
+   "followups": [
+    "Gắn nhãn theo chủ đề, diễn giả và trạng thái để dựng một chỉ mục tìm kiếm được.",
+    "Cho các bản nháp nhạy cảm một chế độ xem riêng, chỉ dành cho quản trị viên.",
+    "Đưa lịch xuất bản vào nền tảng luôn — chọn bài phát hành đầu tiên và lập kế hoạch cho lịch."
+   ],
+   "tips": [
+    "Lọc trước khi viết: gạt sớm các bản nháp yếu, bản trùng cùng buổi và nội dung nhạy cảm phòng kín giúp tiết kiệm phần lớn công làm lại.",
+    "Gộp một loạt bài nghĩa là gộp, không phải ghép nối — dựng lại thành một bài mạch lạc thay vì chắp các mảnh.",
+    "Bản nháp có số liệu chưa công bố luôn được che và ẩn theo mặc định, rồi quyết định theo từng trường hợp."
+   ]
+  }
+ }
+}
