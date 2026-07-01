@@ -32,7 +32,8 @@ APP = "https://app.syfo.ai"
 APP_EN = "https://app.syfo.ai/?lang=en"
 LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg")).read()
 
-LANGS = ["zh", "en", "ja", "es", "vi"]
+# 顺序即语言切换器的展示顺序 (Tony 指定：英 → 中 → 日 → 西 → 越)。zh 仍是站点根目录。
+LANGS = ["en", "zh", "ja", "es", "vi"]
 # root-absolute 前缀：zh 在站点根，其余在 /<lang>/ 子目录
 PREFIX = {"zh": "/", "en": "/en/", "ja": "/ja/", "es": "/es/", "vi": "/vi/"}
 # 输出目录：zh=站点根，其余=子目录
