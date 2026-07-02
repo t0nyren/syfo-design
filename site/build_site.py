@@ -32,12 +32,14 @@ APP = "https://app.syfo.ai"
 APP_EN = "https://app.syfo.ai/?lang=en"
 LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg")).read()
 
-# 顺序即语言切换器的展示顺序 (Tony 指定：英 → 中 → 日 → 西 → 越)。zh 仍是站点根目录。
+# 顺序即语言切换器的展示顺序 (Tony 指定：英 → 中 → 日 → 西 → 越)。
 LANGS = ["en", "zh", "ja", "es", "vi"]
-# root-absolute 前缀：zh 在站点根，其余在 /<lang>/ 子目录
-PREFIX = {"zh": "/", "en": "/en/", "ja": "/ja/", "es": "/es/", "vi": "/vi/"}
-# 输出目录：zh=站点根，其余=子目录
-DIRS = {lg: (HERE if lg == "zh" else os.path.join(HERE, lg)) for lg in LANGS}
+# 根 / 语言网关：无 cookie/无 Accept-Language 匹配时的兜底语言。
+DEFAULT_LANG = "en"
+# 五语对称：每种语言都在自己的 /<lang>/ 子目录 (含中文 /zh/)，根 / 只做语言网关。
+# 这样静态产物不含「中文无前缀」的特例，secondlife 预览与 prod edge 语义一致，edge 无需任何中文特判。
+PREFIX = {lg: f"/{lg}/" for lg in LANGS}
+DIRS = {lg: os.path.join(HERE, lg) for lg in LANGS}
 # 语言切换器展示名 / 短标签
 LANG_NAMES = {"zh": "中文", "en": "English", "ja": "日本語", "es": "Español", "vi": "Tiếng Việt"}
 LANG_SHORT = {"zh": "中", "en": "EN", "ja": "JA", "es": "ES", "vi": "VI"}
@@ -596,7 +598,9 @@ def head(lang, title, desc, card_marker="", toggle_href="/"):
 <link rel="icon" href="/assets/logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
-<style>{CSS}</style>{FONT_OVERRIDE.get(lang, "")}</head><body class="layer">"""
+<style>{CSS}</style>{FONT_OVERRIDE.get(lang, "")}
+<script>try{{document.cookie="syfo_landing_locale={lang};path=/;max-age=31536000;SameSite=Lax"}}catch(e){{}}</script>
+</head><body class="layer">"""
 
 
 def lang_switcher(lang, page):
@@ -1292,6 +1296,47 @@ for _lg in ("ja", "es", "vi"):
     HOW_STEPS[_lg] = _d["HOW_STEPS"]; DETAILS[_lg] = _d["DETAILS"]
 
 
+# ════════════════════════════════════════════ 根 / 语言网关 (真实静态 index.html，返回 200 不再 503)
+def build_root_gateway():
+    """根 / = 静态语言网关：JS 按 cookie -> Accept-Language 选语言并跳到 /<lang>/；无 JS 时给手选链接。"""
+    js = ("(function(){var S={en:'/en/',zh:'/zh/',ja:'/ja/',es:'/es/',vi:'/vi/'};"
+          "function ck(n){var m=document.cookie.match('(?:^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[1]):''}"
+          "var p=ck('syfo_landing_locale');"
+          "if(!S[p]){var L=navigator.languages||[navigator.language||''];p='';"
+          "for(var i=0;i<L.length&&!p;i++){var x=(L[i]||'').toLowerCase();"
+          "if(x.indexOf('zh')===0)p='zh';else if(x.indexOf('ja')===0)p='ja';"
+          "else if(x.indexOf('es')===0)p='es';else if(x.indexOf('vi')===0)p='vi';"
+          "else if(x.indexOf('en')===0)p='en';}if(!S[p])p='" + DEFAULT_LANG + "';}"
+          "location.replace(S[p]);})();")
+    links = "".join(f'<a href="/{lg}/">{LANG_NAMES[lg]}</a>' for lg in LANGS)
+    html = (f'<!doctype html><html lang="en"><head><meta charset="utf-8">'
+            f'<meta name="viewport" content="width=device-width,initial-scale=1">'
+            f'<title>Syfo</title><meta name="robots" content="noindex,follow">'
+            f'<link rel="icon" href="/assets/logo-mark.svg"><script>{js}</script>'
+            f"<style>body{{font-family:system-ui,-apple-system,'Noto Sans SC',sans-serif;background:#F7F3EA;"
+            f"color:#1A1612;display:flex;min-height:100vh;margin:0;align-items:center;justify-content:center;text-align:center}}"
+            f"a{{color:#D4501E;text-decoration:none;margin:0 10px;font-size:15px}}</style></head>"
+            f'<body><div><p style="font-family:Georgia,serif;font-size:22px;font-weight:600">Syfo</p>'
+            f'<p>{links}</p></div></body></html>')
+    with open(os.path.join(HERE, "index.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+
+
+def build_root_compat():
+    """旧根中文路径 (/cases /how /case-*) -> /zh/... 兼容跳转桩，避免老链接/书签断。"""
+    pages = ["cases.html", "how.html"] + [f"case-{c[4]}.html" for c in CASES["zh"]]
+    for pg in pages:
+        target = "/zh/" + pg[:-5]
+        html = (f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
+                f'<meta name="robots" content="noindex"><link rel="canonical" href="{target}">'
+                f'<meta http-equiv="refresh" content="0;url={target}">'
+                f'<script>try{{document.cookie="syfo_landing_locale=zh;path=/;max-age=31536000;SameSite=Lax"}}catch(e){{}}'
+                f'location.replace("{target}")</script></head>'
+                f'<body><a href="{target}">→ {target}</a></body></html>')
+        with open(os.path.join(HERE, pg), "w", encoding="utf-8") as f:
+            f.write(html)
+
+
 # ════════════════════════════════════════════ build
 for _d in DIRS.values():
     os.makedirs(_d, exist_ok=True)
@@ -1301,5 +1346,8 @@ for lang in LANGS:
     build_how(lang)
     for slug in [c[4] for c in CASES[lang]]:
         build_detail(lang, slug)
+build_root_gateway()
+build_root_compat()
 
-print("wrote " + " + ".join(PREFIX[l] for l in LANGS) + ": index.html + cases.html + how.html + 6 case detail pages each")
+print("wrote " + " + ".join(PREFIX[l] for l in LANGS)
+      + " + root gateway(/) + zh compat stubs: index.html + cases.html + how.html + 6 case detail pages each")
