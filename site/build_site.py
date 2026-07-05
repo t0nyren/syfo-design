@@ -497,6 +497,21 @@ footer .links a:hover{color:var(--fg-1)}
 .casegroup{scroll-margin-top:86px}
 .casegroup .groupt{font-family:var(--font-serif);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;margin:14px 0 0;line-height:1.2}
 .casegroup .groupp{font-size:15.5px;line-height:1.7;color:var(--fg-2);margin:10px 0 0;max-width:62ch}
+.casenav a.on{color:var(--accent);border-color:var(--accent)}
+/* 导航「案例」dropdown（仅配置了 CASE_GROUPS 的语言） */
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:5px}
+.nav-dd .car{font-size:9px;opacity:.65;transform:translateY(1px)}
+.nav-dd::after{content:"";position:absolute;left:-12px;right:-12px;top:100%;height:16px}
+.nav-dd .dd-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);display:none;
+ flex-direction:column;min-width:190px;padding:8px;background:var(--bg-surface);
+ border:1px solid var(--border-1);border-radius:12px;box-shadow:0 12px 32px rgba(26,22,18,.10);z-index:60}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.nav .links .nav-dd .dd-menu a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:8px;white-space:nowrap}
+.nav .links .nav-dd .dd-menu a:hover{background:var(--bg-sunken);color:var(--accent)}
+.nav .links .nav-dd .dd-menu a.dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:11px;border-radius:0 0 8px 8px;color:var(--fg-2);font-size:13px}
+.nav-menu .dd-subs{display:flex;flex-direction:column}
+.nav-menu .dd-subs a:not(.btn){padding-left:20px;font-size:15px;color:var(--fg-2)}
 @media(max-width:900px){
  .hero h1{font-size:38px}
  .pillars,.feats,.cases,.casegrid,.agents,.related{grid-template-columns:1fr}
@@ -520,7 +535,7 @@ T = {
   "lang_toggle_label": "EN",   # zh 页面显示 EN，切到英文
   "footer_tag": "人和一群 Agent 一起干活的地方。",
   "footer_cases": "案例", "footer_how": "怎么用",
-  "card_more": "查看详情",
+  "card_more": "查看详情", "card_more_group": "查看案例", "nav_cases_all": "全部案例",
   # —— 首页 ——
   "home_title": "Syfo · 人和一群 Agent 一起干活的地方",
   "home_desc": "Syfo 是一个共享工作空间，人和一群 AI Agent 在同一批频道里协作——有触发、工具与记忆，让 Agent 持续干活，任务在人和 Agent 之间干净接力。",
@@ -695,10 +710,19 @@ def nav(lang, page="index.html", active=""):
     """page: 当前页面文件名 (index.html / cases.html / how.html / case-<slug>.html)，供语言切换器指向对应语言的同一页面。"""
     t = T[lang]
     def a(href, label): return f'<a href="{href}">{label}</a>'
-    links = (a(url(lang, "index.html#product"), t["nav_product"])
-             + a(url(lang, "index.html#scenes"), t["nav_scenes"])
-             + a(url(lang, "cases.html"), t["nav_cases"])
-             + a(url(lang, "how.html"), t["nav_how"]))
+    groups = CASE_GROUPS.get(lang)
+    if groups:
+        # 「案例」做成 dropdown：列各行业页 + 全部案例；移动端汉堡里平铺子项
+        dd_items = "".join(a(url(lang, f"cases-{g['id']}.html"), g["label"]) for g in groups)
+        cases_desktop = (f'<div class="nav-dd"><a href="{url(lang, "cases.html")}">{t["nav_cases"]} <span class="car">▾</span></a>'
+                         f'<div class="dd-menu">{dd_items}<a class="dd-all" href="{url(lang, "cases.html")}">{t["nav_cases_all"]}</a></div></div>')
+        cases_mobile = a(url(lang, "cases.html"), t["nav_cases"]) + f'<div class="dd-subs">{dd_items}</div>'
+    else:
+        cases_desktop = cases_mobile = a(url(lang, "cases.html"), t["nav_cases"])
+    pre = a(url(lang, "index.html#product"), t["nav_product"]) + a(url(lang, "index.html#scenes"), t["nav_scenes"])
+    post = a(url(lang, "how.html"), t["nav_how"])
+    links = pre + cases_desktop + post
+    links_mobile = pre + cases_mobile + post
     cta = f'<a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>'
     langsw = lang_switcher(lang, page)
     burger = ('<svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>'
@@ -710,7 +734,7 @@ def nav(lang, page="index.html", active=""):
  <nav class="links">{links}</nav>
  <div class="right">{langsw}<a class="btn btn-primary navcta" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>{toggle}</div>
 </div>
-<div class="nav-menu" id="navMenu">{links}<div class="nav-lang">{langsw}</div>{cta}</div>
+<div class="nav-menu" id="navMenu">{links_mobile}<div class="nav-lang">{langsw}</div>{cta}</div>
 </div></header>"""
 
 
@@ -840,21 +864,27 @@ def build_cases(lang):
 </div></section>""")
     groups = CASE_GROUPS.get(lang)
     if groups:
+        # 总览页 = 行业目录：每个行业一张入口卡，点进该行业的案例页
         by_slug = {c[4]: c for c in CASES[lang]}
-        # hero 下的行业锚点导航
-        C.append('<section style="padding-top:0"><div class="wrap"><div class="casenav">'
-         + "".join(f'<a href="#{g["id"]}">{g["label"]}</a>' for g in groups)
-         + '</div></div></section>')
+        gcards = []
         for g in groups:
             cards = [by_slug[s] for s in g["slugs"] if s in by_slug]
             if not cards:
                 continue
-            C.append(f"""<section class="casegroup" id="{g["id"]}" style="padding-top:44px"><div class="wrap">
- <span class="eyebrow">{g["eyebrow"]}</span>
- <h2 class="groupt">{g["label"]}</h2>
- <p class="groupp">{g["p"]}</p>
- <div class="casegrid">{"".join(case_card(lang, *c) for c in cards)}</div>
-</div></section>""")
+            # 行业卡的标签 = 组内各案例行业标签的后半段（「金融投资 · 私募基金」→「私募基金」）
+            subtags = []
+            for c in cards:
+                st = c[0].split("·")[-1].strip()
+                if st not in subtags:
+                    subtags.append(st)
+            tg = "".join(f'<span class="tag">{x}</span>' for x in subtags[:5])
+            if len(subtags) > 5:
+                tg += f'<span class="tag">+{len(subtags)-5}</span>'
+            gcards.append(f"""<a class="case" href="{url(lang, f"cases-{g['id']}.html")}"><div class="ind">{g["eyebrow"]} · {len(cards)} 个案例</div>
+      <h3>{g["label"]}</h3><p>{g["p"]}</p><div class="tags">{tg}</div>
+      <div class="case-more">{t["card_more_group"]} <span class="arr">→</span></div></a>""")
+        C.append('<section style="padding-top:0"><div class="wrap"><div class="casegrid" style="margin-top:8px">'
+                 + "".join(gcards) + '</div></div></section>')
     else:
         C.append('<section style="padding-top:0"><div class="wrap"><div class="casegrid">'
          + "".join(case_card(lang, *c) for c in CASES[lang]) + '</div></div></section>')
@@ -867,6 +897,44 @@ def build_cases(lang):
 </div></section>""")
     C.append(footer(lang))
     write(lang, "cases.html", C)
+
+
+def build_industry(lang, g):
+    """行业案例页：一个行业一页，列该行业全部案例卡；顶部行业胶囊可横跳其他行业。"""
+    t = T[lang]
+    by_slug = {c[4]: c for c in CASES[lang]}
+    cards = [by_slug[s] for s in g["slugs"] if s in by_slug]
+    if not cards:
+        return
+    fname = f"cases-{g['id']}.html"
+    dscard = f'<!-- @dsCard group="Syfo 官网" title="案例 · {g["label"]}" -->'
+    C = [head(lang, f'{g["label"]} · {t["cases_title"]}', g["p"], dscard, url("en" if lang == "zh" else "zh", "cases.html"))]
+    # 行业页各语言未必都有 → 语言切换器退回各语言的案例总览页
+    C.append(nav(lang, "cases.html", "cases"))
+    pill_parts = []
+    for x in CASE_GROUPS[lang]:
+        cls = ' class="on"' if x["id"] == g["id"] else ""
+        pill_parts.append('<a href="' + url(lang, "cases-" + x["id"] + ".html") + '"' + cls + '>' + x["label"] + '</a>')
+    pill_parts.append('<a href="' + url(lang, "cases.html") + '">' + t["nav_cases_all"] + '</a>')
+    pills = "".join(pill_parts)
+    C.append(f"""<section class="casehero" style="padding-bottom:0"><div class="wrap">
+ <div class="crumb" style="margin-bottom:26px"><a href="{url(lang, "cases.html")}">{t["d_back"]}</a></div>
+ <span class="eyebrow">{g["eyebrow"]}</span>
+ <h1>{g["label"]}</h1>
+ <p>{g["p"]}</p>
+ <div class="casenav">{pills}</div>
+</div></section>""")
+    C.append('<section style="padding-top:10px"><div class="wrap"><div class="casegrid">'
+             + "".join(case_card(lang, *c) for c in cards) + '</div></div></section>')
+    C.append(f"""<section class="closing"><div class="wrap">
+ <span class="eyebrow" style="justify-content:center">{t["cases_close_eyebrow"]}</span>
+ <h2>{t["cases_close_h2"]}</h2>
+ <p>{t["cases_close_p"]}</p>
+ <div class="cta"><a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>
+   <a class="btn btn-ghost" href="{url(lang, "index.html")}">{t["cases_close_cta2"]}</a></div>
+</div></section>""")
+    C.append(footer(lang))
+    write(lang, fname, C)
 
 
 # ════════════════════════════════════════════ 怎么用 (视频页)
@@ -1771,7 +1839,13 @@ def build_detail(lang, slug):
     # 语言切换器：该 slug 若未被所有语言收录（如 brand-* 暂只有中文），切换目标退回各语言的案例列表页，避免 404
     sw_page = f"case-{slug}.html" if all(any(x[4] == slug for x in CASES[lg]) for lg in LANGS) else "cases.html"
     D.append(nav(lang, sw_page, "cases"))
-    D.append(f"""<div class="wrap"><div class="crumb"><a href="{url(lang, "cases.html")}">{t["d_back"]}</a></div>
+    # 面包屑：属于某行业分组时回该行业页，否则回全部案例
+    gobj = next((g for g in CASE_GROUPS.get(lang, []) if slug in g["slugs"]), None)
+    if gobj:
+        back_href, back_label = url(lang, f"cases-{gobj['id']}.html"), "← 返回 " + gobj["label"]
+    else:
+        back_href, back_label = url(lang, "cases.html"), t["d_back"]
+    D.append(f"""<div class="wrap"><div class="crumb"><a href="{back_href}">{back_label}</a></div>
  <section class="dhero"><div class="ind">{ind}</div>
    <h1>{title}</h1><p class="sub">{d['sub']}</p>
    <div class="dmeta">{meta}</div>
@@ -1842,7 +1916,8 @@ def build_root_gateway():
 
 def build_root_compat():
     """旧根中文路径 (/cases /how /case-*) -> /zh/... 兼容跳转桩，避免老链接/书签断。"""
-    pages = ["cases.html", "how.html"] + [f"case-{c[4]}.html" for c in CASES["zh"]]
+    pages = (["cases.html", "how.html"] + [f"case-{c[4]}.html" for c in CASES["zh"]]
+             + [f"cases-{g['id']}.html" for g in CASE_GROUPS.get("zh", [])])
     for pg in pages:
         target = "/zh/" + pg[:-5]
         html = (f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
@@ -1861,6 +1936,8 @@ for _d in DIRS.values():
 for lang in LANGS:
     build_home(lang)
     build_cases(lang)
+    for g in CASE_GROUPS.get(lang, []):
+        build_industry(lang, g)
     build_how(lang)
     for slug in [c[4] for c in CASES[lang]]:
         build_detail(lang, slug)
