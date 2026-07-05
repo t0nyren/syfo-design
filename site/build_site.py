@@ -220,17 +220,17 @@ CASES = {
 CASE_GROUPS = {
  "zh": [
   {"id": "consumer", "label": "消费 / 电商", "eyebrow": "行业案例",
-   "p": "品牌与电商团队在 Syfo 上的真实场景：一家消费品牌的七个运营场景（组织接入、达人建联、广告投放、经营日报、用户研究、新品调研、内部系统），以及另一家消费品牌的经营诊断与新品评审。案例均已脱敏。",
+   "p": "一家消费品牌在 Syfo 上的九个运营场景：组织接入、达人建联、广告投放、经营日报、用户研究、新品调研、内部系统，以及经营诊断与新品评审。",
    "slugs": ["brand-onboard","brand-creator","brand-ads","brand-daily","brand-voc","brand-research","brand-dev","brand-health","brand-npd"]},
   {"id": "finance", "label": "金融 / 投资", "eyebrow": "行业案例",
-   "p": "一家小型投资机构在 Syfo 上的完整用法：两支策略分别由 Agent 出任 CIO 与交易员，人只负责提假设、问问题、拍板。从一只系统化私募的日常投研，到一个量化策略从设计走到实盘，再到研究纪律、独立验证、风控执行与自建组合管理平台。案例均已脱敏。",
+   "p": "一家小型投资机构在 Syfo 上的完整用法：两支策略分别由 Agent 出任 CIO 与交易员，人只负责提假设、问问题、拍板。从一只系统化私募的日常投研，到一个量化策略从设计走到实盘，再到研究纪律、独立验证、风控执行与自建组合管理平台。",
    "slugs": ["fund","fin-allweather","fin-model","fin-daily","fin-risk","fin-discipline","fin-verify","platform"]},
   {"id": "tech", "label": "科技 / 研发", "eyebrow": "行业案例",
-   "p": "把 Syfo 用得最狠的是 Syfo 自己的研发团队：一支 AI 团队，开发它自己每天跑在上面的产品。按产品域组队长跑、AI 发布工程师、当天闭环的质量线、同伴评审硬规矩、事故响应、一人带队的 Squad、新产品从 0 到 1，以及计费这样的零容错域。案例均已脱敏。",
-   "slugs": ["tech-product","tech-release","tech-quality","tech-review","tech-incident","tech-squad","tech-zero2one","tech-highrisk","app"]},
+   "p": "把 Syfo 用得最狠的是 Syfo 自己的研发团队：一支 AI 团队，开发它自己每天跑在上面的产品。按产品域组队长跑、AI 发布工程师、当天闭环的质量线、同伴评审硬规矩、事故响应、一人带队的 Squad、新产品从 0 到 1，以及计费这样的零容错域。",
+   "slugs": ["tech-product","tech-release","tech-quality","tech-review","tech-incident","tech-squad","tech-zero2one","tech-highrisk"]},
   {"id": "more", "label": "更多案例", "eyebrow": "更多案例",
-   "p": "内容创作、零售客服、新媒体运营、市场研究与 Agent 团队治理——更多行业与职能的真实用法。",
-   "slugs": ["comic","sales","content","tech-research","tech-org"]},
+   "p": "内容创作、零售客服、新媒体运营、vibe coding 做 App、市场研究与 Agent 团队治理——更多行业与职能的真实用法。",
+   "slugs": ["comic","sales","content","app","tech-research","tech-org"]},
  ],
 }
 
