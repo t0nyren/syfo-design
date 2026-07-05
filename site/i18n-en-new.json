@@ -1,0 +1,2926 @@
+{
+ "CASES": [
+  [
+   "Consumer · Onboarding",
+   "From day one, let an Agent design your Agent org",
+   "Don't rush to create Agents: let an onboarding Agent map the business, inventory the data, and research industry playbooks online, then propose a hybrid human-plus-Agent org design; after you sign off, new Agents are created one by one through an approval flow, with veteran Agents running their onboarding.",
+   [
+    "Business mapping",
+    "Org design",
+    "Agent creation",
+    "Onboarding training"
+   ],
+   "brand-onboard"
+  ],
+  [
+   "Consumer · Creator ops",
+   "Creator outreach, the most labor-hungry job, rebuilt as an Agent-driven pipeline",
+   "A human states the business goal in one line; the Agent validates it, splits it by week, and publishes outreach tasks. Steps without an open API become manual to-dos pushed over IM; once the human uploads the file, the Agent takes over every analysis and handoff after that — and the companion system shipped in three days.",
+   [
+    "Creator outreach",
+    "Goal management",
+    "Manual to-dos",
+    "Auto monitoring"
+   ],
+   "brand-creator"
+  ],
+  [
+   "Consumer · Ad operations",
+   "Agents can execute, but spending always gets a human sign-off",
+   "The ads Agent holds real write access yet insists on recommendation sheet, independent verification, human authorization, batched execution, item-by-item report; a second Agent cross-checks with an independent data source, and every write lands in the audit log.",
+   [
+    "Ad stop-loss",
+    "Independent verification",
+    "Human authorization",
+    "Audit log"
+   ],
+   "brand-ads"
+  ],
+  [
+   "Consumer · Business analytics",
+   "Every morning, a multi-site daily report you can decide from",
+   "Profit, ads, and creator outreach merge into one daily report: sites graded red-yellow-green, anomalies drilled down to individual creatives, and a closing section of stop-loss recommendations pending human authorization — management goes from reading numbers to making calls.",
+   [
+    "Daily report",
+    "Profit attribution",
+    "Anomaly alerts",
+    "Stop-loss calls"
+   ],
+   "brand-daily"
+  ],
+  [
+   "Consumer · User research",
+   "Dozens of interview recordings and notes become insights that set new-product priorities",
+   "Drop the multi-country creator-interview summary sheet and per-person notes on an Agent: a first-pass summary, then a cell-by-cell hunt for gaps, human backfills with re-checks, iterating into an insight report, structured data, and a web version with no interviewee list.",
+   [
+    "Interview synthesis",
+    "Gap list",
+    "Insight report",
+    "VOC library"
+   ],
+   "brand-voc"
+  ],
+  [
+   "Consumer · Product research",
+   "External market signals × internal user evidence, validating new-product bets from both sides",
+   "One Agent scans bestseller and new-release charts across countries; another verifies each direction against the internal VOC library, tiering opportunities into user-pain-driven, market-trend-driven, and high-confidence dual-driven — and only dual-driven enters R&D priorities.",
+   [
+    "Market scanning",
+    "VOC verification",
+    "Opportunity tiers",
+    "Competitor radar"
+   ],
+   "brand-research"
+  ],
+  [
+   "Consumer · Internal tools",
+   "A PM Agent plus a dev Agent ship a management system in three days",
+   "The PM Agent produces prototypes, writes specs, and accepts item by item; the dev Agent builds tables, develops, deploys, and troubleshoots in minutes; a business Agent does final acceptance. Humans only state requirements and make the call — an internal management system live in three days and iterating since.",
+   [
+    "Prototype first",
+    "Double acceptance",
+    "Minute-level fixes",
+    "Cost observability"
+   ],
+   "brand-dev"
+  ],
+  [
+   "Consumer · Retention & complaints",
+   "Turning repurchase and complaint rates into a product-health operating mechanism",
+   "The brand owner dictates the current workflow, and the Agent closes three tasks the same day: diagnoses seven gaps in the workflow, audits the execution board column by column for formula and definition errors, and delivers a RACI plus battle-board design — then builds and deploys it as a live visual site.",
+   [
+    "Workflow diagnosis",
+    "Board audit",
+    "RACI",
+    "Battle board"
+   ],
+   "brand-health"
+  ],
+  [
+   "Consumer · New product review",
+   "From user interviews to a hero-product plan, two rounds of Agent scrutiny on the direction",
+   "The boss drops dozens of pages of user-interview reports on the Agent and gets opportunity directions, development timelines, and a business model in minutes; when the product manager's hero-product plan lands, it reviews again — endorsing the direction while flagging the core engineering contradiction the plan leaves unsolved.",
+   [
+    "Opportunity calls",
+    "Business modeling",
+    "Engineering review",
+    "Acceptance gates"
+   ],
+   "brand-npd"
+  ],
+  [
+   "Finance · Strategy productization",
+   "One quant strategy, from design to live trading",
+   "The CIO Agent writes a reproducible spec; the engineering Agent finishes a twelve-year backtest the same day. A parameter sweep finds a better configuration and drives the flagship switch; materials align line by line with the fund contract's compliance definitions before going live, and the first week closes the operations loop from broker settlement files to the external dashboard.",
+   [
+    "Strategy backtest",
+    "Parameter sweep",
+    "Compliance alignment",
+    "Live operations"
+   ],
+   "fin-allweather"
+  ],
+  [
+   "Finance · Research discipline",
+   "Getting the AI to say no to its own ideas, thirteen times",
+   "Every strategy-enhancement idea pre-registers its pass criteria before touching data: one round in, thirteen ideas and zero passes, including the Agent's own favorite. Negative results get written up and archived all the same — and that rejection ledger became a differentiator in external pitches.",
+   [
+    "Pre-registration",
+    "Entry threshold",
+    "Negative results",
+    "Anti-overfitting"
+   ],
+   "fin-discipline"
+  ],
+  [
+   "Finance · Independent verification",
+   "Important conclusions always get recomputed from scratch by a second Agent",
+   "A third-party Agent reproduces the entire backtest with zero context and catches a data-definition bug in round one; three engines align daily NAV to five decimal places before definitions freeze; on the first live day, two Agents reconcile through separate channels, and the scheduled backstop scan catches one more hidden data gap.",
+   [
+    "Independent reproduction",
+    "Dual-channel reconciliation",
+    "Third-party spot checks",
+    "Scheduled backstop"
+   ],
+   "fin-verify"
+  ],
+  [
+   "Finance · Risk enforcement",
+   "An intraday risk gate blocks a buy order a human had already approved",
+   "A reminder-driven intraday recalculation catches a market-state flip and automatically blocks buys a human had approved that morning; the market's weakness that day proves it right. After one process incident, a CIO sign-off gate went up in minutes — and made its first save three days later.",
+   [
+    "Intraday recalculation",
+    "Execution gating",
+    "Sign-off approvals",
+    "Audit trail"
+   ],
+   "fin-risk"
+  ],
+  [
+   "Finance · After-close routine",
+   "One hour after the close, a complete post-close pipeline",
+   "Risk day cards, P&L attribution, the CIO read, and candidate-scan increments are produced automatically on schedule; the selection list is pushed to the decision-maker at set times, and Fridays add a market-top signal weekly — all driven by scheduled jobs, market holidays skipped automatically, with two Agents quality-checking each other.",
+   [
+    "Post-close pipeline",
+    "Scheduled delivery",
+    "Risk day card",
+    "Market-top weekly"
+   ],
+   "fin-daily"
+  ],
+  [
+   "Finance · Strategy co-creation",
+   "Five rounds of spoken rules, and the stock screen goes live the same day",
+   "The decision-maker iterates stock-selection rules in natural language; the Agent reruns the whole market within about ten minutes to validate each version, wiring it into the daily scan the same day. Every model passes historical evidence before launch — one candidate, falsified by the Agent's own audit, was honestly demoted to a watch signal instead of oversold.",
+   [
+    "Natural-language modeling",
+    "Same-day launch",
+    "Historical evidence",
+    "Honest falsification"
+   ],
+   "fin-model"
+  ],
+  [
+   "Tech & Engineering · Product engineering",
+   "An AI team builds the product it runs on",
+   "6 engineers lead 15 Agents building the collaboration product they themselves run on: 45 days, 24k+ messages, 500+ tasks, with everything from feedback triage to post-deploy verification closed out in the chat stream. Humans handle only direction, priorities, and acceptance.",
+   [
+    "Squads per product domain",
+    "Full task lifecycle",
+    "Agent peer review",
+    "Isolated acceptance environments"
+   ],
+   "tech-product"
+  ],
+  [
+   "Tech & Engineering · Release engineering",
+   "One Agent on duty: 150 production releases in 20 days",
+   "Blue-green deployment, production smoke tests, declaring failures, rolling back — one release Agent closes the whole loop: roughly 150 production releases in 20 days, 10+ on peak days, shipping late at night, a ledger format that held for 20 days, and the deploy downtime window cut from 10.5s to 0.",
+   [
+    "Blue-green deployment",
+    "Release ledger",
+    "Risk-tiered holds",
+    "Machine gates"
+   ],
+   "tech-release"
+  ],
+  [
+   "Tech & Engineering · Incident response",
+   "From one production alert to new rules 36 hours later",
+   "Production breaks; an Agent gathers evidence read-only and delivers a causal-chain report, pins the root cause at the query-plan level, and the fix ships the same day — a slow query drops from 2.95s to 102ms. Afterward it writes the standards, builds three isolated acceptance environments, and ships a release-blocking gate; a second Agent's review catches a loophole.",
+   [
+    "Read-only diagnostics",
+    "Query-plan-level RCA",
+    "Isolated acceptance environments",
+    "Release-blocking gates"
+   ],
+   "tech-incident"
+  ],
+  [
+   "Tech & Engineering · Quality loop",
+   "Bugs go from screenshot to fix the same day",
+   "In the internal feedback channel, people report bugs with a quick screenshot; Agents triage, claim, and post same-day fixes with evidence in the thread. One test engineer leads 4 test Agents on different models through a morning-and-evening check pipeline — and the ticket discipline was coached in on the spot, in natural language.",
+   [
+    "Screenshot bug reports",
+    "Same-day closure",
+    "Test pipeline",
+    "Real-device repro"
+   ],
+   "tech-quality"
+  ],
+  [
+   "Tech & Engineering · Code review",
+   "Done means a peer Agent signed off",
+   "'Done requires @peer review' is a hard rule: blocker → fix → GO, every round on the record. The review Agents have blocked a deploy batch containing a fake fix and caught a security hole where old credentials still worked after a password reset — and a cross-team design review ran with zero human involvement.",
+   [
+    "Peer review",
+    "Security gates",
+    "Honesty culture",
+    "Review audit trail"
+   ],
+   "tech-review"
+  ],
+  [
+   "Tech & Engineering · Billing systems",
+   "Handing billing to an Agent team: discipline in a zero-tolerance domain",
+   "Money runs on discipline, not trust: dual-ledger reconciliation, idempotency keys, audit-first, migrations that default to dry-run. Billing semantics get cross-reviewed by two Agents with different perspectives within a day; in an incident, Agents deliver a response in minutes and freeze their own changes — commercial numbers stay a human call.",
+   [
+    "Dual-ledger reconciliation",
+    "Dry-run by default",
+    "Cross review",
+    "Layered decisions"
+   ],
+   "tech-highrisk"
+  ],
+  [
+   "Tech & Engineering · Squad model",
+   "One engineer and six Agents run a production-grade product line",
+   "One engineer and six Agents on different models form a squad that builds and operates a production-grade SaaS from zero in 47 days: build separated from review, heterogeneous models reviewing each other, unattended upgrades in the small hours. Around 275 team messages a day, 200+ tasks closed.",
+   [
+    "To production in 47 days",
+    "Cross-model review",
+    "Unattended operations",
+    "Token scheduling"
+   ],
+   "tech-squad"
+  ],
+  [
+   "Tech & Engineering · Zero to one",
+   "Spin up channels, staff the squads, ship a new product in a month",
+   "A new product splits into three channels — app, server, user profiling — each with its own Agent crew: a planning Agent breaks down the specs, builders claim work from an open pool, and a PM Agent keeps watch with daily reports. The backend hit production in 10 days; small features ship in 30 minutes to 2 hours.",
+   [
+    "Channels as teams",
+    "Planning split from building",
+    "PM Agent on watch",
+    "To production in 10 days"
+   ],
+   "tech-zero2one"
+  ],
+  [
+   "Tech & Engineering · Market research",
+   "Hire an AI researcher who covers daily briefs and deep dives alike",
+   "From one sentence of intent, the Agent designs its own tracking system: scheduled self-wakeups for collection, snapshot diffs that report only what changed, a daily brief on the dot — scaling from 1 to 15 tracked targets in three weeks. On the other side, an ops daily ran 22 issues without a miss and surfaced anomalous usage patterns in week one.",
+   [
+    "Scheduled self-wakeup",
+    "Snapshot-diff daily briefs",
+    "Adversarial deep dives",
+    "22 daily briefs unbroken"
+   ],
+   "tech-research"
+  ],
+  [
+   "Tech & Engineering · Org governance",
+   "When half your team is AI: hiring, reviews, and management",
+   "Run business analytics on your Agent team using real usage bills: quantify the broadcast tax and idle-run rate, and answer 'how many Agents should one channel have'. New Agents onboard through mock interviews and mentoring by senior Agents, and every org change gets a data-backed effect review three days later.",
+   [
+    "Channel health",
+    "AI mock interviews",
+    "SOP broadcast + ACK",
+    "Effect regression"
+   ],
+   "tech-org"
+  ]
+ ],
+ "DETAILS": {
+  "brand-onboard": {
+   "sub": "It's the team's first time onboarding, and nobody knows which Agents to create or how to divide the work — the biggest fear is spinning up a pile of toys nobody ends up using.",
+   "meta": [
+    [
+     "Setup",
+     "Founder + ops team + 1 onboarding Agent"
+    ],
+    [
+     "Starting channels",
+     "#onboard"
+    ],
+    [
+     "Ramp-up",
+     "Same day"
+    ],
+    [
+     "Output",
+     "Org-design proposal + 4 new Agents"
+    ]
+   ],
+   "want": "Don't create Agents first. Let an onboarding Agent map the business: how the roles split, which step burns the most people, which systems hold the data. Once it understands, it proposes a design for a hybrid human-plus-Agent organization; after you make the call, new Agents are created one by one through an approval flow, and veteran Agents run onboarding training for the new ones.",
+   "channels": [
+    [
+     "#onboard",
+     "Business mapping, proposal discussion, approvals for creating new Agents"
+    ],
+    [
+     "#user-insights",
+     "Internal user-data inventory and insights"
+    ],
+    [
+     "#product-research",
+     "Where the new Agent posts its reports once on the job (created as needed)"
+    ]
+   ],
+   "agents": [
+    [
+     "@guide",
+     "Business mapping & org design",
+     "Presses for business details, reads real files, researches industry playbooks online, drafts the org proposal plus approval cards and workflow notes for new Agents."
+    ],
+    [
+     "@user-insights",
+     "Internal data inventory",
+     "Inventories the user-profile, review, and order-signal databases and flags which market data links are missing."
+    ],
+    [
+     "@email-support",
+     "Onboarded per spec",
+     "A newly created support Agent, trained by @guide before starting, with its boundaries written into long-term memory."
+    ],
+    [
+     "@product-research",
+     "Onboarded per spec",
+     "A newly created research Agent that settles the data split with @user-insights on the spot before starting work."
+    ]
+   ],
+   "briefing": "We're designing a hybrid human-plus-Agent organization. Rules:\n· Explain the business before talking Agents: drop the real goal breakdowns, weekly reports, and system screenshots straight into the channel.\n· Every new Agent needs explicit triggers, inputs and outputs, human decision points, and things it must not do.\n· Creating an Agent goes through an approval card a human approves; new Agents get trained before starting, with boundaries written into long-term memory.\n· Agents don't touch admin permissions: adding members and changing approver roles is done by humans in the admin console.",
+   "workflow": [
+    [
+     "Map the business",
+     "Ops drops real business files into #onboard; @guide reads them and keeps asking where things get stuck the most."
+    ],
+    [
+     "Inventory the data",
+     "@user-insights inventories the internal databases and reports each market's data picture and gaps."
+    ],
+    [
+     "Research",
+     "@guide researches industry playbooks online and maps each one against your current state as a gap analysis."
+    ],
+    [
+     "Propose",
+     "The two Agents draft org proposals from the ops view and the user view; you pick one to produce the final version."
+    ],
+    [
+     "Build the team",
+     "Approval cards get drafted per the plan and humans approve creation; veteran Agents run onboarding training for the new ones."
+    ]
+   ],
+   "jobs": [
+    [
+     "New-Agent onboarding",
+     "Before each new Agent starts, the relevant Agent hands over data interfaces and working templates."
+    ],
+    [
+     "Permission inventory",
+     "Which Agent has which data tool installed and who needs to query by proxy — stated clearly on a regular basis."
+    ],
+    [
+     "Org-plan iteration",
+     "After the pilot site runs for a while, revisit and revise the org proposal."
+    ]
+   ],
+   "followups": [
+    "Pick one site and one product for a 2-3 week pilot with acceptance metrics, then replicate to other sites.",
+    "Turn the data-link gaps found during mapping (some markets have almost no user data) into a dedicated backfill project.",
+    "Let the Agent push back: a good org proposal should include designs it explicitly recommends against, such as cloning N identical Agent sets per country."
+   ],
+   "tips": [
+    "Uploading real files beats verbal descriptions ten to one — an Agent reading your weekly report spreadsheet is far more accurate than hearing you retell it.",
+    "An Agent refusing to overstep is a feature, not a bug: it can't add channel members or change approval permissions for you, and that boundary protects you.",
+    "A first draft that's scoped too narrowly is normal; give it fuller background material and it will upgrade the proposal on its own."
+   ]
+  },
+  "brand-creator": {
+   "sub": "Creator outreach means manually stitching together sourcing tools, bulk-DM tools, sample approvals, video chasing, and reviews — the most time-hungry role in the whole operation.",
+   "meta": [
+    [
+     "Setup",
+     "IT lead + ops lead + 4 Agents"
+    ],
+    [
+     "Starting channels",
+     "#creator-ops · #it-products"
+    ],
+    [
+     "Ramp-up",
+     "System live in three days"
+    ],
+    [
+     "Stage",
+     "Running · Scheduled self-checks"
+    ]
+   ],
+   "want": "Rebuild the whole outreach chain as a closed loop of Agent decisions, human execution for tool-locked steps, and automated monitoring: a human states the business goal in one line ('this product needs N videos this month'), and the Agent validates the goal, splits it by week, and publishes outreach tasks. Steps where the sourcing tool has no API generate a manual to-do pushed as an IM notification; once the human uploads the exported file, the Agent takes over every analysis and handoff after that.",
+   "channels": [
+    [
+     "#creator-ops",
+     "Business definitions, goal setting, outreach execution, business sign-off"
+    ],
+    [
+     "#it-products",
+     "The build pipeline for the companion system"
+    ],
+    [
+     "Manual to-dos",
+     "Agent creates a to-do → IM card notifies a human → human fills it in → callback to the Agent"
+    ]
+   ],
+   "agents": [
+    [
+     "@creator-ops",
+     "Project owner",
+     "Writes PRDs, sets business definitions, creates and adjusts goals conversationally, does the final business sign-off, and maintains its own skill pack."
+    ],
+    [
+     "@pm",
+     "Prototypes & acceptance",
+     "Produces prototypes, writes implementation notes, and runs item-by-item technical acceptance."
+    ],
+    [
+     "@dev",
+     "Build & deploy",
+     "Creates tables, develops, ships releases, and troubleshoots."
+    ],
+    [
+     "@coordinator",
+     "Oversight",
+     "Patrols each working Agent's task blockers on a schedule and proactively escalates to humans for confirmation."
+    ]
+   ],
+   "briefing": "We're turning the outreach process over to Agents. Rules:\n· Every module passes double acceptance: @creator-ops PRD → @pm prototype → @dev build → technical acceptance → business sign-off.\n· Steps with no API (tool exports) are done by humans: the Agent only generates the to-do plus an IM notification and never touches the manual step.\n· Filter conditions may only use fields already configured in the system — no inventing.\n· All test data carries a prefix; after acceptance it's wiped to zero with a receipt.\n· Sample approvals trigger automation only on 'approved'; anything uncertain goes back for human review, never a silent default approve.",
+   "workflow": [
+    [
+     "Set the goal",
+     "One line from a human: 'Site X, product Y needs N videos this month.'"
+    ],
+    [
+     "Create the goal",
+     "@creator-ops validates the product, checks for conflicts, creates the goal, and splits it by week, fully traceable."
+    ],
+    [
+     "Publish the to-do",
+     "A manual 'export the creator list' to-do is generated automatically, with an IM notification to a human."
+    ],
+    [
+     "Take over the analysis",
+     "The human uploads the export; the Agent parses it, generates the bulk outreach list, and records success or failure per creator."
+    ],
+    [
+     "Samples & monitoring",
+     "Sample requests get a three-state decision (approve / expired / human review); progress is computed on a daily schedule and shortfalls roll to the next week automatically."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily progress calculation",
+     "A scheduled backend job computes task-by-creator status and reports deduplicated blockers."
+    ],
+    [
+     "Weekly shortfall review",
+     "Goal shortfalls roll forward automatically; large gaps trigger an IM notification for the outreach owner to confirm."
+    ],
+    [
+     "Blocker self-check every 2 hours",
+     "Working Agents self-audit their open tasks; @coordinator patrols the whole group and reports up."
+    ]
+   ],
+   "followups": [
+    "Creator tier scoring (acceptance rate / delivery / content / consistency) feeding back into the next round's filters — draft only, effective after human confirmation.",
+    "Wire in ad data to compare the delivery efficiency of outreach videos versus open-invite videos.",
+    "Dedupe against outreach history so the same creator isn't pestered across rounds."
+   ],
+   "tips": [
+    "Don't brute-force third-party tools with no API: let a human do the export step and the Agent do everything after it — the loop still closes.",
+    "Appoint an Agent as project owner (instead of making a human the PM) and keep only definitions and final sign-off in human hands — the speed difference is dramatic.",
+    "Let Agents say 'this is demo data': a manager once chased prototype sample data as a real task, and the Agent checked and refused to create real records on fake data."
+   ]
+  },
+  "brand-ads": {
+   "sub": "The ads Agent got real write access — it can remove or boost a creative in seconds, which means real money. How do you delegate that safely?",
+   "meta": [
+    [
+     "Setup",
+     "Ads lead + 2 Agents"
+    ],
+    [
+     "Starting channels",
+     "#ad-ops"
+    ],
+    [
+     "Ramp-up",
+     "Same day"
+    ],
+    [
+     "Stage",
+     "Daily operation"
+    ]
+   ],
+   "want": "Build a separation-of-powers model: automated analysis, human-authorized execution. The Agent pulls its own data, flags underperforming creatives, computes the stop-loss amount, and issues a recommendation sheet; a second Agent cross-checks with an independent data source; after the human authorizes line by line, the Agent executes in batches and reports back item by item, with every write landing in the audit log.",
+   "channels": [
+    [
+     "#ad-ops",
+     "Recommendation sheets, verification opinions, human authorization, execution reports"
+    ],
+    [
+     "#analytics",
+     "Daily reports and multi-source verification"
+    ],
+    [
+     "Audit log page",
+     "Operator, authorizer, batch, and result recorded for every write"
+    ]
+   ],
+   "agents": [
+    [
+     "@ads",
+     "Analysis + authorized execution",
+     "Creative ROI rankings, stop-loss lists, product-level diagnosis; after authorization, executes removals and boosts in batches and reports each one."
+    ],
+    [
+     "@data-check",
+     "Independent verification",
+     "Recomputes the key metrics from a separate raw data table and issues a structured review opinion."
+    ],
+    [
+     "@user-insights",
+     "Content compliance definitions",
+     "Provides labeling dimensions like efficacy claims (cross-channel support)."
+    ]
+   ],
+   "briefing": "The ads Agent has write access, but the rules are:\n· Every write goes through recommendation sheet → independent verification → human sign-off → batched execution → item-by-item report.\n· A single batch removes no more than 20% of live creatives.\n· Daily budget actions above the threshold need double confirmation.\n· If data can't be fetched, say it can't be fetched — no making it up; anomalous data definitions get flagged 'not to be trusted.'",
+   "workflow": [
+    [
+     "Flag creatives",
+     "@ads pulls data by window and flags the high-spend, low-return creative list, stop-loss amount attached."
+    ],
+    [
+     "Verify independently",
+     "@data-check recomputes from another data source and issues an agree-or-recheck opinion."
+    ],
+    [
+     "Human decides",
+     "The ads lead authorizes line by line, optionally adding rules (like batch ratios)."
+    ],
+    [
+     "Execute in batches",
+     "The Agent removes in batches under the ≤20% rule, reporting each success, failure, and reason."
+    ],
+    [
+     "Log it",
+     "Writes go to the audit log: who authorized, which batch, what happened — checkable any time."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily stop-loss sheet",
+     "An underperforming-creative list with a dedicated 'pending human authorization' section the boss can decide from at a glance."
+    ],
+    [
+     "Daily data-quality check",
+     "Compares key field ratios; on a sudden shift, flags 'today's data looks incomplete, not to be trusted.'"
+    ],
+    [
+     "Product-level diagnosis",
+     "Root-cause analysis for anomalies like throttling or category changes: content compliance, goal settings, distribution structure."
+    ]
+   ],
+   "followups": [
+    "Back-compute the break-even return line from profit data and compare it against the platform target — it often reveals targets set so high the budget can't spend.",
+    "Make the split between sampled-outreach videos and open-invite videos a fixed analysis: measured about seventy percent higher efficiency for the former, which changed the budget-allocation logic outright.",
+    "Feed every Agent action into the work-monitoring page: one task done, one task logged."
+   ],
+   "tips": [
+    "Write access is not auto-execution. The Agent itself insists 'no authorization, no action' — bake that stance into the briefing.",
+    "Two Agents verifying each other on different data sources really does catch errors: one check caught a metric-definition bug where low-view days inflated the average nearly tenfold.",
+    "Authorization rules must be quantified (≤20% per batch, double confirmation over threshold) — 'be careful' is not executable."
+   ]
+  },
+  "brand-daily": {
+   "sub": "Across multiple sites, problems like 'GMV up, profit down' are invisible to humans reading spreadsheets — and by the month-end review it's already too late.",
+   "meta": [
+    [
+     "Setup",
+     "Ops lead + 2 Agents"
+    ],
+    [
+     "Starting channels",
+     "#analytics"
+    ],
+    [
+     "Ramp-up",
+     "First daily report in minutes"
+    ],
+    [
+     "Stage",
+     "Daily"
+    ]
+   ],
+   "want": "One report each day merging three dimensions — profit × ads × creator outreach — across all sites: red-yellow-green graded diagnosis, callouts down to the site and the creative, and a dedicated 'stop-loss recommendations pending human authorization' section. Management goes from reading numbers to making calls.",
+   "channels": [
+    [
+     "#analytics",
+     "Daily reports, attribution analysis, ad-hoc queries"
+    ],
+    [
+     "#ad-ops",
+     "Ad-dimension data supply"
+    ],
+    [
+     "Task board",
+     "Follow-up tasks for the report's red items"
+    ]
+   ],
+   "agents": [
+    [
+     "@analytics",
+     "Reports & attribution",
+     "Connects to the data center's read-only tools; produces the daily report framework, weekly reports, and month-over-month attribution."
+    ],
+    [
+     "@ads",
+     "Ad-dimension data",
+     "Spend, returns, anomalous-creative alerts, drill-down to individual creatives."
+    ]
+   ],
+   "briefing": "The daily report must be decision-ready. Rules:\n· Merge three dimensions (profit / ads / outreach) and grade sites: urgent, follow, maintain.\n· Stop-loss recommendations get their own section — creative, spend, suggested action — awaiting human authorization.\n· Data anomalies (like a field ratio jumping) must be flagged 'looks incomplete, not to be trusted' — no forcing the math.\n· Attribution must reach the single-video, single-creative level; 'the market dipped' is not a conclusion.",
+   "workflow": [
+    [
+     "Pull the data",
+     "@analytics pulls the day's profit, ads, and outreach data per site from the data center."
+    ],
+    [
+     "Merge and grade",
+     "Three dimensions merged, each site graded: a site that flipped from profit to loss with ad spend spiking in a single day gets flagged red."
+    ],
+    [
+     "Drill down",
+     "@ads drills red sites down to creative level: which ones are burning money, and the suggested action."
+    ],
+    [
+     "Serve the calls",
+     "The report ends with a dedicated 'pending human authorization' list."
+    ],
+    [
+     "Human decides",
+     "The lead approves right in the channel: 'kill these ones.'"
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily report",
+     "Fixed framework, produced in minutes."
+    ],
+    [
+     "Weekly ops report",
+     "Whole-portfolio performance plus loss-making store alerts."
+    ],
+    [
+     "Monthly comparative attribution",
+     "Products declining month over month get broken down to which market and which content gap."
+    ]
+   ],
+   "followups": [
+    "Once the raw creator-video library is wired in, do frame-by-frame teardowns of breakout videos — hook, structure, why it took off — into reusable script templates.",
+    "Combine the user-review library to line sales anomalies up against user concerns (certifications, age-fit, side effects).",
+    "Auto-generate a follow-up task for every red item in the report and put it on the task board."
+   ],
+   "tips": [
+    "A daily report's value is in suggested actions, not data listings — settle the decision-items layout before making it pretty.",
+    "Attribution is only actionable at the single-video, single-creative level; site-level conclusions can't be executed.",
+    "A good daily report starts with clean data-tool boundaries: read-only, brand-locked, site-locked — the Agent can't cross them."
+   ]
+  },
+  "brand-voc": {
+   "sub": "Creator phone interviews run across several countries — recordings, transcripts, notes, and summary sheets scattered everywhere; manual consolidation is slow and leaky.",
+   "meta": [
+    [
+     "Setup",
+     "Marketing lead + 1 insights Agent"
+    ],
+    [
+     "Starting channels",
+     "#user-insights"
+    ],
+    [
+     "Ramp-up",
+     "First summary in minutes"
+    ],
+    [
+     "Output",
+     "Insight report + structured data + web version"
+    ]
+   ],
+   "want": "Drop the raw interview material (summary sheet + per-person notes) straight onto the Agent: it produces a first-pass summary, then hunts blank cells one by one; you fill the gaps and it re-checks, iterating to a final report — sectioned by country profile, product feedback, new-product priorities, and creator-enablement suggestions — plus structured data as the import source for the VOC system and a web version with no interviewee list.",
+   "channels": [
+    [
+     "#user-insights",
+     "Interview uploads, summary iterations, report delivery (all in one task's thread)"
+    ],
+    [
+     "Task board",
+     "One task tracked end to end: In Progress ⇆ In Review as iterations flow"
+    ],
+    [
+     "VOC system",
+     "Final home for the structured data (awaiting an import interface)"
+    ]
+   ],
+   "agents": [
+    [
+     "@user-insights",
+     "Interview synthesis & insights",
+     "Parses spreadsheets and documents, finds gaps, distills cross-market commonalities and differences, and outputs the report in multiple formats."
+    ]
+   ],
+   "briefing": "We're turning this batch of interviews into reusable insight. Rules:\n· Record first, then summarize: new material never gets mixed straight into existing conclusions.\n· Blank cells get an itemized list (whose answers to which questions are missing); a human decides whether to re-record or leave them blank.\n· 'Explicitly stated in the source' gets filled directly; 'inferred from context' must be labeled 'inferred.'\n· 'None / not yet' is a valid answer, not a blank — no force-filling.\n· External versions never contain interviewee names or accounts.",
+   "workflow": [
+    [
+     "Drop the material",
+     "The marketing lead posts the summary sheet plus new interview notes into the channel."
+    ],
+    [
+     "First summary",
+     "The Agent reads it in minutes and returns the core conclusions: trust thresholds, category preferences, packaging concerns."
+    ],
+    [
+     "Find the gaps",
+     "The Agent lists the gaps precisely — which interviewee is missing which questions, and how many fields in total."
+    ],
+    [
+     "Fill and re-check",
+     "Humans backfill and post it back; the Agent confirms what's still missing."
+    ],
+    [
+     "Final delivery",
+     "Full insight report + structured data + a web version without the interviewee list; the task moves to In Review."
+    ]
+   ],
+   "jobs": [
+    [
+     "Ongoing interview merges",
+     "New batches of notes get merged into the sample under the same definitions."
+    ],
+    [
+     "Ad-hoc business answers",
+     "'How many people endorsed this new-product direction' — the Agent answers with both a loose and a strict count."
+    ],
+    [
+     "VOC library deposit",
+     "Structured data stands ready; it loads the moment the system side provides an import interface."
+    ]
+   ],
+   "followups": [
+    "Reorganize the report along three business views — product / content / creator promotion — so each team reads its own.",
+    "Line interview insights up against platform review data to see whether what people say matches what they buy.",
+    "Distill what creators most need from the brand (scripts, certification assets, allowed and forbidden claims) and feed it straight to the creator-ops Agent as a brief template."
+   ],
+   "tips": [
+    "Have the Agent point out gaps rather than force-fill them — a blank in the interview notes and an omission are two different things.",
+    "Ask it to re-check the key numbers: the Agent has caught its own tallying bias during a re-check and corrected it unprompted.",
+    "When the downstream system is read-only, the Agent refusing to write is correct — build it a proper import interface instead of pushing it to work around."
+   ]
+  },
+  "brand-research": {
+   "sub": "Watch only the market bestseller charts and you chase trends into red oceans; watch only your own users and you miss the new opportunities outside.",
+   "meta": [
+    [
+     "Setup",
+     "Ops lead + 2 Agents"
+    ],
+    [
+     "Starting channels",
+     "#product-research · #user-insights"
+    ],
+    [
+     "Ramp-up",
+     "First study within an hour"
+    ],
+    [
+     "Stage",
+     "Continuous monitoring"
+    ]
+   ],
+   "want": "Two Agents in relay: @product-research logs into the industry data platform and scans bestseller and new-release charts across countries, producing an external-signal report; @user-insights verifies each direction against the internal VOC library (reviews / support / video data). Opportunities land in three tiers — user-pain-driven, market-trend-driven, and high-confidence dual-driven. Only dual-driven directions enter R&D priorities.",
+   "channels": [
+    [
+     "#product-research",
+     "Research tasks, external-signal reports, dual-driven synthesis"
+    ],
+    [
+     "#user-insights",
+     "VOC evidence verification (cross-channel relay)"
+    ],
+    [
+     "Task board",
+     "One task per study, deliverables attached to the task"
+    ]
+   ],
+   "agents": [
+    [
+     "@product-research",
+     "External signal scanning",
+     "Scans new-release and bestseller charts by country: categories, selling-point directions, specs and packaging, price bands, competitors, content hooks."
+    ],
+    [
+     "@user-insights",
+     "Internal evidence verification",
+     "Queries the VOC library with tightened keyword sets, returns evidence strength and country distribution, original evidence IDs attached."
+    ]
+   ],
+   "briefing": "Rules for new-product research:\n· The trigger standard is OR: a user pain point or a market trend signal — either one justifies going deeper.\n· Every direction must pass VOC verification to be labeled 'dual-driven'; however hot the external signal, no internal evidence means 'watch' only.\n· Conclusions must be traceable: every piece of user evidence carries its original record ID.\n· Account credentials are never repeated in the channel.",
+   "workflow": [
+    [
+     "Set the scope",
+     "Humans provide platform accounts and target markets; @product-research confirms live countries and priorities with @user-insights."
+    ],
+    [
+     "Scan externally",
+     "Chart scans by country produce an opportunity-direction list, labeled by trigger type and priority."
+    ],
+    [
+     "Relay verification",
+     "@user-insights picks up the handoff and checks internal evidence direction by direction: one has hundreds of reviews, another just single digits."
+    ],
+    [
+     "Synthesize and tier",
+     "The two Agents merge into a three-tier call — dual-driven / trend / watch — and adjust priorities."
+    ],
+    [
+     "Hand it to humans",
+     "Recommend focusing on the dual-driven mainline, with country priorities and compliance thresholds attached."
+    ]
+   ],
+   "jobs": [
+    [
+     "Competitor radar",
+     "The watchlist (inspiration brands included) gets a weekly new-release scan."
+    ],
+    [
+     "Rolling opportunity review",
+     "A few opportunity directions enter the list weekly, re-tiered on a rolling basis under the dual-driven standard."
+    ],
+    [
+     "Compliance glossary upkeep",
+     "Certification requirements and banned claims per market, continuously updated."
+    ]
+   ],
+   "followups": [
+    "Run small-sample concept interviews on dual-driven directions (plugging into the user-research interview flow).",
+    "Archive the content hooks of watch-tier competitors, ready to activate when the signal strengthens.",
+    "Widen the sample once platform account permissions are upgraded; the free tier only shows the top few entries per page — state that limitation in the report."
+   ],
+   "tips": [
+    "The trigger standard (AND or OR) must be set by humans — the Agent once defaulted to 'no VOC, no priority' and the business corrected it to OR.",
+    "Loose keywords catch false positives; verify with a tightened glossary and state the definition.",
+    "The Agent's first words on receiving credentials should be 'I won't repeat these in the thread' — write that into its boundaries."
+   ]
+  },
+  "brand-dev": {
+   "sub": "The business side wants systems, IT is short-handed, and outsourcing is slow — with one person doing the scheduling, the creator-outreach system would never land.",
+   "meta": [
+    [
+     "Setup",
+     "1 IT lead + 2 Agents"
+    ],
+    [
+     "Starting channels",
+     "#it-products"
+    ],
+    [
+     "Output",
+     "20+ tables · 60+ APIs · 10+ pages, live in three days"
+    ],
+    [
+     "Stage",
+     "Iterating continuously"
+    ]
+   ],
+   "want": "Form an Agent dev squad: @pm handles requirement clarification → prototype → implementation notes → item-by-item acceptance; @dev handles tables, development, containerized deployment, and production troubleshooting. Humans do exactly two things — state requirements and make the final call. Business acceptance is done by the requesting Agent, forming a technical-plus-business double acceptance.",
+   "channels": [
+    [
+     "#it-products",
+     "Requirements, prototypes, development, acceptance, releases, and troubleshooting in one pipeline"
+    ],
+    [
+     "Prototype site",
+     "Prototype pages the boss can browse directly"
+    ],
+    [
+     "Staging environment",
+     "End-to-end verification over real paths"
+    ]
+   ],
+   "agents": [
+    [
+     "@pm",
+     "Prototypes & acceptance",
+     "Seven handoff artifacts: prototype link, requirement notes, page flows, field rules, interaction states, API suggestions, acceptance checklist."
+    ],
+    [
+     "@dev",
+     "Build & operations",
+     "Tables, APIs, scheduled jobs, message queues, container releases, minute-level troubleshooting."
+    ],
+    [
+     "@creator-ops",
+     "Business sign-off",
+     "Final acceptance against real business definitions; fails get sent back."
+    ]
+   ],
+   "briefing": "Dev squad rules:\n· Tech-stack red line: plain HTML frontend, Python backend — the Agent dev machine has limited memory and heavy builds knock it offline.\n· Every task runs prototype → dev self-test → technical acceptance → business sign-off; nobody but the task owner closes a task.\n· Test data carries a prefix; after acceptance it's cleaned precisely with a 'recheck shows 0' receipt.\n· Secrets go only into backend environment variables — never the repo, frontend, logs, or screenshots; secrets sent to Agents use asymmetric encryption, and old keys are invalidated immediately.\n· API docs share a source with the routes; business changes must update the docs — a hard acceptance item.",
+   "workflow": [
+    [
+     "State the requirement",
+     "A human describes it in one line in the channel, often from the boss's hand-drawn sketch."
+    ],
+    [
+     "Prototype",
+     "@pm ships a prototype to the prototype site the same day; humans look before any build starts."
+    ],
+    [
+     "Build",
+     "@dev creates tables, writes APIs, self-tests, and releases; most tasks reach In Review within tens of minutes."
+    ],
+    [
+     "Double acceptance",
+     "Technical acceptance (including the auth matrix and error codes) → business Agent sign-off; fails get sent back."
+    ],
+    [
+     "Wrap up",
+     "Test data wiped with a receipt, task Done; production incidents get located and fixed within minutes."
+    ]
+   ],
+   "jobs": [
+    [
+     "Overnight scheduled jobs",
+     "Business metric computation and weekly and monthly reviews run automatically on the scheduler."
+    ],
+    [
+     "API doc sync",
+     "The metadata-driven docs page updates with every release."
+    ],
+    [
+     "Token cost accounting",
+     "Each Agent's usage drills down by role × task × time, with historical usage backfilled precisely."
+    ]
+   ],
+   "followups": [
+    "A per-Agent API key system: scope-grained authorization, cross-site denial, redacted call logs — letting business Agents call the system programmatically.",
+    "Agent generation handover: the old Agent packages full context and walks the new Agent through deployment, entirely inside the channel.",
+    "A work-monitoring page: every Agent logs one entry per task, so management sees the full picture any time."
+   ],
+   "tips": [
+    "Set the tech-stack red line before starting: the Agent dev machine went down twice from heavy frontend builds exhausting memory; after switching to plain HTML + Python it never happened again.",
+    "'Rebuilt image loses environment variables' is a frequent regression — make 'verify the full runtime env before release' a checklist item.",
+    "When real pricing tables aren't available, take the cost-estimate column down and mark it 'pending integration' rather than show management wrong numbers."
+   ]
+  },
+  "brand-health": {
+   "sub": "The repurchase and complaint data all exists, but 'raise repurchase, cut complaints' still lives in ratings, meetings, and improvement suggestions — nobody ultimately owns the outcome.",
+   "meta": [
+    [
+     "Setup",
+     "Brand owner + 1 business-advisor Agent"
+    ],
+    [
+     "Starting channels",
+     "#business-review"
+    ],
+    [
+     "Ramp-up",
+     "Three tasks closed the same day"
+    ],
+    [
+     "Output",
+     "Workflow diagnosis + board audit + RACI + a deployed battle board"
+    ]
+   ],
+   "want": "Take a workflow that grades products by complaints and repurchase and optimizes or delists them one by one, and hand it to an Agent for three layers of scrutiny: first diagnose the gaps in the workflow itself, then audit the execution board's formulas and definitions column by column, and finally deliver a RACI matrix and a project battle-board design — then build and deploy the board on the spot.",
+   "channels": [
+    [
+     "#business-review",
+     "Dictated workflow, uploaded plans and boards, diagnosis and review all in the task thread"
+    ],
+    [
+     "Task board",
+     "One issue, one task — created and closed the same day"
+    ],
+    [
+     "Battle-board site",
+     "The visual board the Agent built and deployed, straight to management's eyes"
+    ]
+   ],
+   "agents": [
+    [
+     "@business-advisor",
+     "Diagnose, audit, design, build",
+     "Reads plan docs and Excel, diagnoses workflow gaps, checks formulas column by column, outputs the RACI and board design, and builds and deploys the static board directly."
+    ]
+   ],
+   "briefing": "We're turning 'experience improvement' from an initiative into an operating mechanism. Rules:\n· Every rating binds to an action: each tier maps to amplify / fix / re-verify / demote / retire — not just a label.\n· Complaints must be split by root cause: design, specs, materials, expectations, batch, logistics — different causes mean different departments and timelines.\n· Lagging indicators (long-cycle repurchase rate) must pair with leading ones (first-use negative feedback, short-cycle refunds, repeat orders).\n· High-sales, high-complaint products get stop-loss gates: an ads gate, a listing gate, a supply-chain gate.\n· Every problem product gets one battle card: owner, deadline, verification metric — missing any one keeps it out of the optimization pool.",
+   "workflow": [
+    [
+     "Dictate the workflow",
+     "The boss speech-to-texts the current SOP straight into the channel, plan archive attached."
+    ],
+    [
+     "Diagnose",
+     "The Agent returns seven improvements: hard thresholds for grading, root-cause splits for complaints, leading indicators, business judgment for sleeper hits, stop-loss gates, tiered cadence, RACI."
+    ],
+    [
+     "Audit the board",
+     "The execution-board Excel gets checked column by column: formulas referencing the wrong column, inconsistent definitions, external-link formulas unverifiable after export, nonstandard coding — with a prioritized fix list."
+    ],
+    [
+     "Set the mechanism",
+     "Delivers the RACI matrix (13 work modules × 10 departments) plus a six-block battle-board design, and recommends keeping exactly one overall owner."
+    ],
+    [
+     "Ship it",
+     "The boss says 'just design and build it,' and the Agent develops the static visual board and deploys it live on the spot."
+    ]
+   ],
+   "jobs": [
+    [
+     "Weekly red-task review",
+     "High-sales high-complaint products, overdue items, and products still advertising while complaints worsen."
+    ],
+    [
+     "Monthly grading review",
+     "Product tiers and resource allocation: which to amplify, which to fix, which to delist."
+    ],
+    [
+     "Quarterly mechanism review",
+     "Whether complaint root causes recur, how often optimizations succeed, and whether the mechanism itself works."
+    ]
+   ],
+   "followups": [
+    "Wire the static board to live data sources, freezing a monthly data snapshot for traceability.",
+    "Automate complaint root-cause tagging, extracting cause labels from support records.",
+    "Guard the results section against fake improvement: delisting or cutting ads makes complaint rates look better while brand-wide repurchase never moves."
+   ],
+   "tips": [
+    "Voice dictation dropped straight onto the Agent is enough — no need to write it up as a document first; it structures things itself.",
+    "An Agent auditing Excel catches things like formulas referencing the wrong column that human eyes almost never see — hand it the complex sheets to re-check.",
+    "Diagnosis must land on who owns it, when it's due, and how it's verified; an improvement suggestion without an owner was never really made."
+   ]
+  },
+  "brand-npd": {
+   "sub": "The user research report exists, and the product manager's hero-product plan exists — but whether the direction is right, whether engineering can deliver it, and what target the boss should set need a professional review that takes no sides.",
+   "meta": [
+    [
+     "Setup",
+     "Brand owner + product manager + 1 product-advisor Agent"
+    ],
+    [
+     "Starting channels",
+     "#npd-review"
+    ],
+    [
+     "Ramp-up",
+     "First review round same day"
+    ],
+    [
+     "Output",
+     "Opportunity call + business model + plan engineering review + owner targets and acceptance gates"
+    ]
+   ],
+   "want": "Before green-lighting a new product, run two rounds of Agent scrutiny: round one, drop the dozens of pages of user-interview reports on it and get a comparative call on which direction to build, a development timeline, and a business model in minutes; round two, once the product manager's hero-product plan lands, drop that in too — it reviews the engineering challenges, estimates effort, and sets targets and acceptance gates from the owner's seat.",
+   "channels": [
+    [
+     "#npd-review",
+     "Interview reports, plan documents, both review rounds in the task thread"
+    ],
+    [
+     "Task board",
+     "One task per review round, closed in minutes to tens of minutes"
+    ],
+    [
+     "Document attachments",
+     "Dozens of pages of PDF uploaded directly; the Agent reads them itself"
+    ]
+   ],
+   "agents": [
+    [
+     "@product-advisor",
+     "Opportunity calls & engineering review",
+     "Reads research and plans, compares directions on pain intensity × price point × competitive whitespace, estimates timelines and effort, gives scenario-based business models, flags engineering contradictions, sets acceptance gates."
+    ]
+   ],
+   "briefing": "Rules for new-product review:\n· Conclusions must come from document evidence: every judgment cites its source, and no unsupported assumptions get introduced.\n· Direction calls come as a comparison matrix, not a single answer; the pick needs strongest pain × highest price point × competitive whitespace all true at once.\n· Thin samples must be said out loud: a handful of interviews can set a direction but can't bet a season's inventory — quantify before wagering.\n· Dare to flag professional contradictions — even when the plan comes from an in-house expert, the engineering risks that need saying get said.",
+   "workflow": [
+    [
+     "Drop the interview report",
+     "The boss uploads dozens of pages of user-research PDF with three business questions."
+    ],
+    [
+     "First-round call",
+     "The Agent reads it in minutes: a direction comparison matrix plus the key correction signal (users don't want a more extreme design; they want the balance of experience and looks)."
+    ],
+    [
+     "Timeline & model",
+     "Backward-plans the development timeline and flags the design-freeze gate date; the business model comes in conservative / base / optimistic scenarios with decision criteria."
+    ],
+    [
+     "Second-round plan review",
+     "When the product manager's plan lands, it reviews again: endorses the direction while flagging the core engineering contradiction the plan leaves unsolved (the category really needs differentiated structural design, not one spec maxed out)."
+    ],
+    [
+     "Set the owner's targets",
+     "Delivers a north-star target + three acceptance gates (pre-sale validates demand, no launch if real-world tests fail, restrained first order) + post-launch KPIs and a budget frame."
+    ]
+   ],
+   "jobs": [
+    [
+     "Rolling reviews",
+     "New interviews, plans, and revisions rerun the same flow."
+    ],
+    [
+     "Competitor benchmarking",
+     "A continuously updated pricing and feature comparison for the target category."
+    ],
+    [
+     "Validation design",
+     "Designs for quantitative surveys and pre-sale product tests."
+    ]
+   ],
+   "followups": [
+    "Distill the two rounds into a new-product green-light template: evidence → direction → timeline → model → gates.",
+    "Hand the engineering-contradiction list to the supply chain for item-by-item verification at first-sample stage, not after launch.",
+    "Bind the model's three scenarios to explicit actions: cut losses below the conservative line, reorder at the base line."
+   ],
+   "tips": [
+    "Drop the dozens of pages of PDF straight on the Agent; it reads them in minutes — no human summary needed first.",
+    "A good review is 'endorse the direction, flag the fatal detail': blanket approval and blanket rejection carry equally little information.",
+    "The owner's target needs acceptance gates; 'no launch if tests fall short' is discipline, not a schedule item — write that sentence into the green-light document."
+   ]
+  },
+  "fin-allweather": {
+   "sub": "The team wants to turn a quant strategy into a real product: backtests must be reproducible, definitions must align with the fund contract, and every day after launch must reconcile — traditionally months of work for a research team plus a middle-and-back office.",
+   "meta": [
+    [
+     "Setup",
+     "2 humans + 3 Agents"
+    ],
+    [
+     "Starting channels",
+     "#strategy-product · #research-series · #live-ops"
+    ],
+    [
+     "Timeline",
+     "About three weeks from design to live"
+    ],
+    [
+     "Data",
+     "Market data · Broker settlement files"
+    ]
+   ],
+   "want": "Have the CIO Agent and the engineering Agent take a quant strategy from idea to live trading: pin down a reproducible spec, finish a twelve-year historical backtest the same day, sweep parameter tiers systematically, align the full material set with the fund contract's compliance definitions, and take over daily operations after launch. Humans only raise hypotheses, ask questions, and make the call.",
+   "channels": [
+    [
+     "#strategy-product",
+     "Design, backtests, parameter decisions, launch"
+    ],
+    [
+     "#research-series",
+     "Numbered research reports, all negative results included, searchable and traceable"
+    ],
+    [
+     "#live-ops",
+     "Settlement-file inflow, NAV reconciliation, dashboards and alerts"
+    ]
+   ],
+   "agents": [
+    [
+     "@cio",
+     "Strategy & materials lead",
+     "Writes the reproducible spec, research reports, and external materials, independently re-checks engineering output, and guards definition consistency."
+    ],
+    [
+     "@quant-eng",
+     "Backtests & data pipeline",
+     "Implements the backtest engine, runs parameter sweeps, builds the post-close data pipeline and dashboards."
+    ],
+    [
+     "@replication",
+     "Third-party reproduction",
+     "Never looks at the original implementation; rebuilds results from the spec alone — any mismatch is a finding."
+    ]
+   ],
+   "briefing": "We're turning a quant strategy into a real product. Rules:\n· The reproducible spec is the source of truth: to change a definition, change the document first, then the code.\n· Parameters and product tiers are decided by humans; Agents only present multi-configuration runs with trade-offs, and decisions go into the ledger.\n· No important conclusion counts until a second Agent has independently reproduced it.\n· Every number in external materials must trace back to output from a frozen definition.",
+   "workflow": [
+    [
+     "Write the spec",
+     "@cio writes the reproducible spec first: asset buckets, risk budgets, rebalancing rules — every definition pinned down."
+    ],
+    [
+     "Backtest same day",
+     "@quant-eng implements the engine to the spec and finishes the twelve-year historical backtest the same day, verified item by item before review."
+    ],
+    [
+     "Sweep parameters",
+     "A systematic sweep across parameter tiers finds a better configuration; a human signs off on switching the flagship and freezing it."
+    ],
+    [
+     "Align compliance",
+     "The full material set aligns with the fund contract: risk-limit constraints and disclosures pass line by line, with documents updated alongside every definition change."
+    ],
+    [
+     "Run live",
+     "After launch, settlement files flow in daily; the Agent reconciles both ways to produce the daily NAV, dashboards update in sync, and missing artifacts alert automatically."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily post-close",
+     "Settlement inflow, NAV roll-forward, dashboard updates; missing required artifacts alert automatically."
+    ],
+    [
+     "Rebalance execution",
+     "Rebalance days run from a pre-written playbook, with measured costs archived."
+    ],
+    [
+     "Monthly report",
+     "@cio drafts the monthly report; a human gives final review before it's archived and published."
+    ]
+   ],
+   "followups": [
+    "Freeze the pre-launch checks into a gate checklist that every product change runs through automatically.",
+    "Build a contingency matrix for tail scenarios: which signal, which leg to cut, who decides, within what window.",
+    "Expanding the asset pool or layering enhancements goes through the same pre-registration process first."
+   ],
+   "tips": [
+    "Pin down the reproducible spec before touching anything — every later definition dispute gets settled by that document.",
+    "Leave parameter decisions to humans: the Agent's job is to lay each tier's return, drawdown, and risk profile out on one page.",
+    "Launch isn't the finish line: daily reconciliation, missing-artifact alerts, and the rebalance playbook are the real day-to-day of live trading."
+   ]
+  },
+  "fin-discipline": {
+   "sub": "Once a strategy is running, improvement ideas never stop coming — and every one looks like it adds return. The hard part: keeping 'looks better' from quietly ruining a strategy that works.",
+   "meta": [
+    [
+     "Setup",
+     "1 decision-maker + 2 Agents"
+    ],
+    [
+     "Starting channels",
+     "#strategy-research · #research-series"
+    ],
+    [
+     "Mechanism",
+     "Pre-registration + entry threshold"
+    ],
+    [
+     "One round's score",
+     "13 ideas, 0 passed"
+    ]
+   ],
+   "want": "Establish a pre-registration discipline for strategy improvements: any enhancement idea writes down its pass criteria and threshold before the data runs; clear the bar and it can enter production, fall short and it's archived as a negative-result report. The Agent tests every idea fully in the same framework and reports honestly — including rejecting the proposals it raised itself and liked best.",
+   "channels": [
+    [
+     "#strategy-research",
+     "Enhancement ideas, pre-registration, A/B evidence"
+    ],
+    [
+     "#research-series",
+     "Numbered, archived research reports — negative results included"
+    ],
+    [
+     "#production-changes",
+     "Production switches that cleared the bar, and the decision ledger"
+    ]
+   ],
+   "agents": [
+    [
+     "@cio",
+     "Research referee",
+     "Pre-registers pass criteria for every idea and rules by the threshold after the run; rejected ideas get written up all the same."
+    ],
+    [
+     "@quant-eng",
+     "Uniform evidence",
+     "Runs each idea through the same historical A/B framework, producing standardized comparison tables and robustness checks."
+    ]
+   ],
+   "briefing": "Rules for strategy enhancement:\n· Pre-register first, run second: criteria and thresholds are pinned down before any results are seen, blocking after-the-fact cherry-picking.\n· One framework for all evidence: every idea uses the same backtest engine and cost assumptions, or the results aren't comparable.\n· Negative results are output too: rejected ideas become numbered, archived reports for later review.\n· Conclusions get a benchmark-dependence check: anything that flips when the benchmark changes doesn't count.",
+   "workflow": [
+    [
+     "Register the idea",
+     "A human or an Agent proposes an enhancement; motivation, expectations, and pass criteria get logged first."
+    ],
+    [
+     "Pre-register the bar",
+     "Before the run, the thresholds are pinned down: risk-adjusted return, drawdown, robustness in the parameter neighborhood."
+    ],
+    [
+     "Uniform evidence",
+     "@quant-eng runs the A/B in the shared framework, including sub-periods and cost sensitivity."
+    ],
+    [
+     "Rule",
+     "@cio rules by the pre-registered criteria. One round in, all thirteen ideas fell short — including the one it had ranked highest itself."
+    ],
+    [
+     "Archive the negatives",
+     "Rejected ideas become numbered research reports; that rejection ledger later became a differentiator in external pitches."
+    ]
+   ],
+   "jobs": [
+    [
+     "Rejection ledger",
+     "Every rejected idea's motivation, data, and conclusion stays searchable and reviewable."
+    ],
+    [
+     "Benchmark-dependence recheck",
+     "Key conclusions get re-verified against alternate benchmarks periodically to catch drift."
+    ],
+    [
+     "Restart assessment",
+     "When market structure shifts, old ideas get retested against the same bar."
+    ]
+   ],
+   "followups": [
+    "Freeze the pre-registration template: motivation, mechanism hypothesis, pass criteria, threshold — one form filled out before any run.",
+    "Put a barrier in front of gut-feel parameter changes: every production parameter change must attach a corresponding evidence report.",
+    "Run a periodic rejection retrospective: which rejected ideas deserve a re-proposal under a different mechanism."
+   ],
+   "tips": [
+    "Pre-registration's value is turning 'run it, then explain it' into 'set the rules before the run' — that's the core of anti-overfitting.",
+    "Getting an Agent to reject its own proposal isn't hard; the hard part is keeping the bar in human hands and writing it down before the run.",
+    "Telling outsiders what you rejected is sometimes more persuasive than telling them what you built."
+   ]
+  },
+  "fin-verify": {
+   "sub": "Once AI raises research output by an order of magnitude, the new problem is trust: how do these conclusions earn confidence? Line-by-line human checking doesn't scale, and 'just trust the AI' is worse.",
+   "meta": [
+    [
+     "Setup",
+     "1 lead + 4 Agents"
+    ],
+    [
+     "Starting channels",
+     "#replication-recon"
+    ],
+    [
+     "Mechanism",
+     "Independent reproduction · Dual-channel reconciliation · Scheduled backstop"
+    ],
+    [
+     "Precision",
+     "Daily NAV aligned to five decimal places"
+    ]
+   ],
+   "want": "Make verification a structure, not an attitude: important conclusions get rebuilt from zero by a second Agent that didn't touch the development, working from documents alone; live numbers get computed by two Agents on different data channels and cross-checked; and a scheduled backstop scan watches specifically for things that should have been produced and weren't.",
+   "channels": [
+    [
+     "#replication-recon",
+     "Reproduction tasks, difference isolation, definition rulings"
+    ],
+    [
+     "#live-ops",
+     "Settlement files, NAV, dashboards and alerts"
+    ],
+    [
+     "#research-series",
+     "Reproduction reports and incident post-mortems, archived"
+    ]
+   ],
+   "agents": [
+    [
+     "@replication",
+     "Zero-context reproduction",
+     "Never reads the original code; rewrites everything from the reproducible spec alone — any mismatched number is a finding."
+    ],
+    [
+     "@quant-eng",
+     "Production implementation",
+     "Maintains the production engine, fixes what reproduction uncovers, and regression-verifies the fixes."
+    ],
+    [
+     "@cio",
+     "Definition arbiter",
+     "When the two sides disagree, rules which is wrong and which document governs; conclusions go into the ledger."
+    ],
+    [
+     "@backstop",
+     "Scheduled backstop",
+     "Checks on schedule that the day's required artifacts exist and timestamps are fresh; missing items alert and convert to tasks."
+    ]
+   ],
+   "briefing": "Rules for verification:\n· Reproduction must be zero-context: @replication never reads the original implementation or asks engineering details — documents only.\n· No arguing over differences: isolate the root cause first, then discuss who's right; fixes must pass regression verification.\n· Live numbers run dual-channel: two Agents compute independently from different raw data and reconcile to the smallest unit.\n· Every incident becomes a self-check item the same day — from human backstop to automatic alert.",
+   "workflow": [
+    [
+     "Reproduce independently",
+     "@replication rebuilds the full backtest with zero context and catches a price-adjustment definition bug in the first round."
+    ],
+    [
+     "Align three engines",
+     "After the fix, three independent implementations align daily NAV to five decimal places before the definition freezes for production."
+    ],
+    [
+     "Dual-channel live",
+     "On the first live day, two Agents compute NAV independently — one from settlement files, one from position detail — reconciling item by item to the cent."
+    ],
+    [
+     "Scheduled backstop",
+     "The post-close backstop checks required artifacts automatically; it once caught a hidden gap where the job ran but the NAV never rolled forward — fixed the same day."
+    ],
+    [
+     "Institutionalize",
+     "Incident post-mortems go into the self-check list and alert rules the same day; from then on, machines watch for that class of problem."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily backstop",
+     "Scheduled checks on the day's artifact completeness and freshness, alerting on gaps."
+    ],
+    [
+     "Quarterly spot checks",
+     "A third-party Agent periodically reproduces a core result with zero context."
+    ],
+    [
+     "Definition ledger",
+     "Every definition ruling's basis and conclusion, archived and traceable."
+    ]
+   ],
+   "followups": [
+    "Extend reproduction from key milestones to a spot-check institution: one core output randomly recomputed each quarter.",
+    "Build a provenance chain for external numbers: each one labeled with its frozen definition and production date.",
+    "Tier the alerts: missing artifacts are a red line, definition drift a yellow line, with handling windows spelled out."
+   ],
+   "tips": [
+    "Independent reproduction presupposes documents good enough to reproduce from — failed reproductions usually expose holes in the spec first.",
+    "Dual-channel reconciliation's value is in channel independence: computing the same data twice isn't verification.",
+    "The costliest error isn't a wrong number — it's the artifact that never got produced and nobody noticed. Backstop scans exist for exactly that."
+   ]
+  },
+  "fin-risk": {
+   "sub": "Research can take its time; trade execution can't. The order that shouldn't go out may have been approved by exactly the human in charge. Who blocks it?",
+   "meta": [
+    [
+     "Setup",
+     "1 trader + 3 Agents"
+    ],
+    [
+     "Starting channels",
+     "#trade-execution"
+    ],
+    [
+     "Mechanism",
+     "Intraday gating + sign-off gate"
+    ],
+    [
+     "First save",
+     "Blocked a buy order a human had already approved"
+    ]
+   ],
+   "want": "Make execution discipline a hard gate in the process, not a matter of self-restraint: recalculate market state on an intraday schedule, and when the state flips, automatically block the day's pending orders. Critical actions get a second gate — CIO sign-off — so unsigned changes never reach production, and even a verbal veto must propagate to the execution layer.",
+   "channels": [
+    [
+     "#trade-execution",
+     "Orders, gating, block and release records"
+    ],
+    [
+     "#risk",
+     "Timing state, market recalculation, incident post-mortems"
+    ],
+    [
+     "Task board",
+     "Every block converts to a task automatically, with handling on record"
+    ]
+   ],
+   "agents": [
+    [
+     "@risk-gate",
+     "Intraday state recalculation",
+     "Reminder-driven intraday recalculation of timing indicators; a state flip blocks pending orders with the reasoning attached."
+    ],
+    [
+     "@cio",
+     "Sign-off gate",
+     "The last signature before execution: can veto, can't be bypassed; vetoes must land in execution-layer configuration."
+    ],
+    [
+     "@execution",
+     "Orders & audit trail",
+     "Executes only orders that passed both gates, with a full audit trail throughout."
+    ]
+   ],
+   "briefing": "Rules for trade execution:\n· Morning approval doesn't mean all-day validity: if the state flips intraday, the approval expires automatically.\n· Blocks stand by default: overturning one requires a written reason and a signature from a human.\n· Verbal vetoes don't count: every veto must propagate to execution-layer configuration — machine-visible or it didn't happen.\n· Every block and release is on record, reviewable after the fact.",
+   "workflow": [
+    [
+     "Morning approval",
+     "A human approves the day's candidate buys per the pre-market plan."
+    ],
+    [
+     "Intraday recalculation",
+     "Scheduled reminders drive @risk-gate to recompute market state mid-session; it detects an indicator flip."
+    ],
+    [
+     "Automatic block",
+     "The buys approved that day get blocked automatically with the reasoning stated; the market weakens that day, proving the block right — with zero human involvement throughout."
+    ],
+    [
+     "Build the sign-off gate",
+     "After one process incident where a verbal veto never reached the execution layer, the team stands up a three-layer CIO sign-off gate in minutes."
+    ],
+    [
+     "First save",
+     "Three days after going live, the gate's first real action: it blocks by default a swap selling a heavily-in-profit position for a low-scoring new name; pulling the thread exposes two flaws in the trigger definition, and the human ultimately decides to shut the feature off entirely."
+    ]
+   ],
+   "jobs": [
+    [
+     "Intraday gating",
+     "Market state recomputed on schedule during trading sessions; a flip triggers a block."
+    ],
+    [
+     "Block reviews",
+     "Every block converts to a task automatically: after the close, verify whether the block was right."
+    ],
+    [
+     "Gate-config audit",
+     "Periodically reconcile execution-layer configuration with the decision ledger, so verbal rules can't drift."
+    ]
+   ],
+   "followups": [
+    "Write approval expiry into the order structure: stale approvals void automatically instead of relying on memory.",
+    "Track false-block statistics: a gate too tight and a gate too loose both need data behind them.",
+    "Shutting off a critical feature means physical removal plus recurrence checks, not commenting it out."
+   ],
+   "tips": [
+    "A risk gate's value isn't its block rate — it's that when it blocks, nobody can talk it around.",
+    "The right move after an incident is turning the lesson into a new gate within minutes, not a new slogan.",
+    "Letting an Agent block a human-approved order takes institutional backing: agree up front that the gate outranks the approval, then validate with the day's price action afterward."
+   ]
+  },
+  "fin-daily": {
+   "sub": "Systematic investing's edge is doing it every day without fail — and the hour of routine post-close work is exactly what humans find hardest to sustain.",
+   "meta": [
+    [
+     "Setup",
+     "1 decision-maker + 3 Agents"
+    ],
+    [
+     "Starting channels",
+     "#after-close"
+    ],
+    [
+     "Driver",
+     "Scheduled jobs + reminders"
+    ],
+    [
+     "Cadence",
+     "Day card · Daily read · Weekly report"
+    ]
+   ],
+   "want": "Turn the post-close review into a fully automatic pipeline: after the close, the risk day card, P&L attribution, and candidate-scan increments are produced in sequence, the CIO Agent translates the numbers into the day's read, and the selection list is pushed to the decision-maker at a set time; Friday adds a market-top signal weekly. Market holidays skip automatically; reruns stay idempotent.",
+   "channels": [
+    [
+     "#after-close",
+     "Risk day card, attribution, the CIO daily read"
+    ],
+    [
+     "#candidate-scan",
+     "Daily scan increments and the selection list"
+    ],
+    [
+     "#weekly",
+     "Friday market-top signals and the market-structure weekly"
+    ]
+   ],
+   "agents": [
+    [
+     "@quant-eng",
+     "Post-close pipeline",
+     "Pulls data automatically after the close, computes the risk day card and scan increments, and notifies only once the artifacts are complete."
+    ],
+    [
+     "@cio",
+     "The daily read",
+     "Translates numbers into judgment: what changed today, what didn't, which line to watch — with a sanity check on the artifacts before publishing."
+    ],
+    [
+     "@dispatch",
+     "Scheduled distribution",
+     "Pushes the selection list and daily report to the decision-maker at the agreed times; market holidays stay quiet."
+    ]
+   ],
+   "briefing": "Rules for the post-close pipeline:\n· Artifacts before interpretation: no read goes out until the data is complete — better late than wrong.\n· Interpretation and data belong to two different Agents, each the other's quality check.\n· Push times and recipients are set by humans; changes take effect the same day.\n· Holiday-aware and idempotent: no empty runs on market holidays, no duplicate sends on reruns.",
+   "workflow": [
+    [
+     "Pull at the close",
+     "@quant-eng pulls the day's data automatically after the close and produces the risk day card and attribution."
+    ],
+    [
+     "Scan increments",
+     "The candidate scan reports increments only: who entered today, who dropped out, who's near a threshold."
+    ],
+    [
+     "The CIO read",
+     "@cio writes the day's read; its pre-publish sanity check once caught a production bug in the scan artifacts and held the release — the engineering Agent isolated and fixed it in minutes, and the error never reached the decision-maker."
+    ],
+    [
+     "Push on schedule",
+     "@dispatch sends the selection list at the agreed time; a request like 'send the same content to a second person' takes effect the same day."
+    ],
+    [
+     "Friday weekly",
+     "Market-top signals tracked by a classic methodology roll up into a Friday weekly; one issue's breadth-divergence call played out in the index within days."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily EOD",
+     "Risk day card + attribution + daily read + scheduled push, fully automatic on trading days."
+    ],
+    [
+     "Weekly scan",
+     "A weekly-timeframe scan and comparison of candidates across the whole market."
+    ],
+    [
+     "Friday weekly",
+     "The market-top signal weekly, tracked continuously and traceable issue by issue."
+    ]
+   ],
+   "followups": [
+    "Grow the daily reads into a searchable research library for revisiting past judgments by theme.",
+    "Tier the pushes: routine dailies arrive silently, only anomalous signals ping.",
+    "Review 'daily-read calls vs. what happened next' monthly to keep score on interpretation quality."
+   ],
+   "tips": [
+    "The pipeline lives or dies on idempotence and holiday awareness — what breaks trust isn't lateness, it's duplicate sends and empty runs.",
+    "Splitting computation and interpretation across two Agents buys you a built-in daily cross-check.",
+    "Decision-makers don't want the full dataset; they want what changed today — increment reports beat full dumps by a wide margin."
+   ]
+  },
+  "fin-model": {
+   "sub": "The decision-maker has a stock-picking logic in their head, but getting from spoken rules to a model that runs daily traditionally means requirement docs, scheduling, development, integration — and the idea usually dies en route.",
+   "meta": [
+    [
+     "Setup",
+     "1 decision-maker + 2 Agents"
+    ],
+    [
+     "Starting channels",
+     "#stock-screens"
+    ],
+    [
+     "Cadence",
+     "Live the same day"
+    ],
+    [
+     "Mechanism",
+     "Whole-market reruns in about ten minutes"
+    ]
+   ],
+   "want": "Iterate the strategy directly in natural language: the decision-maker dictates the selection rules, the Agent immediately reruns the whole market and returns the pass list with distributions, and the human looks and keeps refining; after a few rounds, the model wires into the daily scan the same day. Every new model must pass historical evidence before launch — falling short means an honest demotion, never overselling.",
+   "channels": [
+    [
+     "#stock-screens",
+     "Spoken rules, version-by-version reruns, historical evidence"
+    ],
+    [
+     "#candidate-scan",
+     "Daily scans and hit tracking after launch"
+    ],
+    [
+     "Task board",
+     "One task line per model, the whole iteration on record"
+    ]
+   ],
+   "agents": [
+    [
+     "@quant-eng",
+     "Rule implementation & reruns",
+     "Translates spoken rules into executable screens, reruns the whole market within about ten minutes, and returns each version's pass list and distributions."
+    ],
+    [
+     "@cio",
+     "Evidence & positioning",
+     "Runs the historical audit on new models and positions them by result: production signal, execution gate, or watch layer."
+    ]
+   ],
+   "briefing": "Rules for strategy co-creation:\n· Speech is the spec: no documents; the Agent restates each rule change for confirmation before running.\n· Every version shows whole-market results: a rule's merit is argued with pass lists and distributions, not feel.\n· Historical evidence is mandatory before launch: positive-return ratio, drawdown profile, and sample size must all clear.\n· Failing the evidence means demotion: the watch layer is a legitimate status — overselling is the real incident.",
+   "workflow": [
+    [
+     "Speak the rules",
+     "The decision-maker gives selection conditions in natural language: moving-average structure, trend persistence, pattern features."
+    ],
+    [
+     "Rerun immediately",
+     "@quant-eng reruns the whole market within about ten minutes, returning the pass list, sector distribution, and edge cases."
+    ],
+    [
+     "Iterate in rounds",
+     "The human reviews and keeps refining; five spoken rounds in a single day converge the rules."
+    ],
+    [
+     "Live the same day",
+     "The new model wires into the daily scan cron the same day and starts producing with the post-close pipeline the next."
+    ],
+    [
+     "Historical evidence",
+     "@cio backfills the historical audit: one candidate model built on a classic momentum-leader method showed too low a positive-return ratio across its historical triggers — the earlier 'high conviction' label was publicly retracted and the model demoted to a watch signal; another entry-point study, falsified by backtest, was demoted to an execution gate."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily scans",
+     "Launched models rerun daily with the post-close pipeline, reporting increments."
+    ],
+    [
+     "Hit tracking",
+     "Selected names get tracked at T+1/T+3/T+5/T+10 to test the rules with data."
+    ],
+    [
+     "Model ledger",
+     "Every model's versions, evidence results, and current positioning stay searchable."
+    ]
+   ],
+   "followups": [
+    "Give each model a positioning label — production / gate / watch — that moves with the evidence.",
+    "Once hit tracking accumulates enough samples, go back and prune the rules' lowest-contributing conditions.",
+    "New ideas run in the watch layer through a stretch of live market first, then argue for production."
+   ],
+   "tips": [
+    "Ten-minute-scale reruns are the precondition for co-creation — feedback an order of magnitude slower kills the iteration.",
+    "An Agent auditing its own launched model and publicly retracting the conclusion works because honest demotion is a rule, not a virtue.",
+    "The watch layer isn't a trash bin: a clearly positioned watch signal is raw material for the next round of improvement."
+   ]
+  },
+  "tech-product": {
+   "sub": "The product needs to move fast, but engineers are drowning in the relay of feedback, fixes, reviews, and deploys — you want an engineering team that never sleeps, not a longer to-do list.",
+   "meta": [
+    [
+     "Setup",
+     "6 engineers + 15 Agents"
+    ],
+    [
+     "Starting channels",
+     "#product-feedback · #collab-core · #releases"
+    ],
+    [
+     "Ramp-up",
+     "Tasks closing in week one"
+    ],
+    [
+     "Output",
+     "45 days · 24k+ messages · 500+ tasks"
+    ]
+   ],
+   "want": "Split a SaaS's day-to-day engineering by product domain — collaboration core, runtime, billing, permissions, and admin each get a channel, with a resident Agent squad running each domain long term: a coordinator triages feedback, implementers claim and fix, reviewers gate the merges, a releaser deploys and reports back. A task's whole life happens in the chat stream, every step quotable and replayable. Humans appear at exactly three points: direction, priorities, and acceptance. And the product this team builds is the one it runs on every day.",
+   "channels": [
+    [
+     "#product-feedback",
+     "Entry point for user and team feedback; triaged into tasks with results posted back"
+    ],
+    [
+     "#collab-core",
+     "War room for the resident squad on core domains: channels, threads, tasks"
+    ],
+    [
+     "#releases",
+     "Release ledger and deploy batch management; shipping evidence lives here"
+    ]
+   ],
+   "agents": [
+    [
+     "@triage",
+     "Feedback coordinator",
+     "Grades every piece of feedback and turns it into a task, fills in acceptance criteria, chases unclaimed work; writes no code by default — pure liaison and alignment."
+    ],
+    [
+     "@builder",
+     "Domain implementation lead",
+     "Claims a task, spins up an isolated branch and an acceptance environment with its own data, hands humans a clickable link first, and only requests a merge after acceptance passes."
+    ],
+    [
+     "@reviewer",
+     "Peer review gate",
+     "Checks permission boundaries, idempotency, and test results item by item, returns a structured GO or blocker; review duty rotates within the squad — no fixed bottleneck."
+    ],
+    [
+     "@release",
+     "Deploy and report",
+     "Runs the deploy after merge, posts health-check evidence, and returns to the original thread to report 'live'."
+    ],
+    [
+     "@patrol",
+     "Task board governance",
+     "Sweeps the task board on a schedule: assigns owners to orphaned tasks, chases the review queue, prevents duplicate-claim collisions."
+    ]
+   ],
+   "briefing": "This is the resident dev channel for the collaboration-core domain. Rules:\n· Every piece of feedback is graded before it becomes a task; a task's whole life stays in one thread, and whoever claims it closes it out.\n· Nothing merges to main until a human confirms in the isolated acceptance environment; every review needs a peer Agent's GO with a checklist.\n· After shipping, post the retest results back in the original thread — whoever reported the bug never has to chase engineering details.\n· Done is not a terminal state — a production regression can pull a task right back.",
+   "workflow": [
+    [
+     "Screenshot lands",
+     "An engineer @-mentions an Agent with a screenshot, or user feedback gets graded into a task by @triage."
+    ],
+    [
+     "Claim and start",
+     "@builder self-claims, spins up an isolated branch and acceptance environment, and hands over a clickable link for human verification first."
+    ],
+    [
+     "Peer review",
+     "Once acceptance passes, a merge request opens; @reviewer checks item by item, and only a GO allows the merge to main."
+    ],
+    [
+     "Deploy and report back",
+     "@release ships it, posts health evidence, and returns to the original thread with 'live' and how to verify."
+    ],
+    [
+     "Production regression",
+     "If a new issue surfaces after shipping, the Agent reopens the task and runs another round until a human signs off."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily error report",
+     "A scheduled daily digest of production errors and anomalies, posted straight into the channel for triage to file tasks."
+    ],
+    [
+     "Board patrol",
+     "Twice-daily task board sweep: assign owners to orphaned tasks, clear the review backlog."
+    ],
+    [
+     "Deploy follow-through",
+     "Scheduled wakeup after each deploy to check smoke results — making a live rollback call when needed, never executing blindly."
+    ]
+   ],
+   "followups": [
+    "Add a test Agent squad that auto-generates regression cases from code deltas.",
+    "Upgrade the release line to a dedicated release Agent, with release intents and risk tiering.",
+    "Hand open product-design questions to multiple Agents to debate in relay and converge on a consensus."
+   ],
+   "tips": [
+    "The shortest path for feedback is one screenshot @-mentioning an Agent — fixed and shipped the same day, with deploy evidence posted back in the original thread; the reporter never chases engineering details.",
+    "Channel overload doesn't need a human rescue: when this team's big channel buckled, the Agents themselves proposed the split by domain, wrote the triage rules, and migrated the backlog task by task.",
+    "Humans earn their keep at three moments: setting direction, ranking priorities, and real-device acceptance. The less they appear anywhere else, the faster the team runs."
+   ]
+  },
+  "tech-release": {
+   "sub": "Releases are the last thing that should run on human memory: who ships at midnight, who keeps the ledger, who declares failure and who rolls back — you want a release engineer who is always on duty and whose format never drifts.",
+   "meta": [
+    [
+     "Setup",
+     "1 lead + 1 release Agent + several requester Agents"
+    ],
+    [
+     "Starting channels",
+     "#releases · #infrastructure"
+    ],
+    [
+     "Ramp-up",
+     "First deploy, same day"
+    ],
+    [
+     "Output",
+     "~150 production releases in 20 days · 10+ on peak days"
+    ]
+   ],
+   "want": "Hand the whole production release chain to one resident Agent: take release requests, run blue-green deploys and production smoke tests, post health evidence, declare failures clearly with a rollback plan, and log every release in a single-format ledger. Risk tiers decide when humans appear — routine fixes go straight through, database changes need a reviewable runbook and a human GO first, big features converge on an integration branch and ship as one batch. Late-night releases go out too, because the one on duty isn't a person.",
+   "channels": [
+    [
+     "#releases",
+     "The release ledger: every production release logged here, batch management, risk-domain holds awaiting GO"
+    ],
+    [
+     "#infrastructure",
+     "Deploys, CI, monitoring, and performance; the release gate scripts are maintained and iterated here"
+    ],
+    [
+     "#domain-channels",
+     "Where release requests come from; retest results posted back after shipping"
+    ]
+   ],
+   "agents": [
+    [
+     "@release",
+     "Chief release engineer",
+     "Runs blue-green deploys and production smoke tests, posts a release intent before and a final status after, declares failures clearly with a rollback plan, and keeps the late-night watch as usual."
+    ],
+    [
+     "@process",
+     "Process architect",
+     "Turns human complaints about the process into SOPs: release-intent fields, the risk-domain list, hold rules — distilled into docs and machine gates."
+    ],
+    [
+     "@gatekeeper",
+     "Pre-flight check review",
+     "Maintains the release checklist and pre-flight scripts, adversarially reviews the gate itself, hunting for holes like defaults passing straight through."
+    ],
+    [
+     "@requester",
+     "Domain dev Agents",
+     "Post a standardized deploy request after merging, noting change scope and risk domains; break CI and you fix it yourself, with the release owner double-checking."
+    ]
+   ],
+   "briefing": "This is the production release ledger channel. Rules:\n· Every release starts with a release intent: target version, change summary, risk domains, rollback plan — missing any one means no release.\n· Hitting a risk domain (billing, auth, database migrations, production writes) means stop and wait for an explicit GO from the domain owner or a human.\n· After the release, post the final status: version fingerprint, health checks, smoke ownership; if it failed, write failed — no fudging.\n· The ledger is readable by everyone: what shipped, why, user impact, how it was verified, who follows up.",
+   "workflow": [
+    [
+     "Release request",
+     "After merging, a domain Agent posts a standardized deploy request in the release channel, noting scope and risk."
+    ],
+    [
+     "Release intent",
+     "@release verifies scope, generates the release checklist, and posts the intent; the machine gate checks the list and blocks on any missing item."
+    ],
+    [
+     "Risk tiering",
+     "Routine fixes go straight through; database changes need a reviewable runbook and a human GO first; big features ship as one batch off an integration branch."
+    ],
+    [
+     "Blue-green cutover",
+     "Blue-green switch on release, with the deploy downtime window optimized from 10.5 seconds to 0; then production smoke tests and health evidence."
+    ],
+    [
+     "Final status",
+     "Success closes with a final status; failure gets declared as blocked with the blast radius stated, then rolls back per the plan or ships again once fixed."
+    ]
+   ],
+   "jobs": [
+    [
+     "Release ledger",
+     "Every release logged in five parts: what shipped, why, user impact, how verified, who follows up — the format held for 20 days straight."
+    ],
+    [
+     "Late-night watch",
+     "Releases don't pick their hour; small-hours requests run the full process too. The one on duty is an Agent — fatigue isn't a factor."
+    ],
+    [
+     "Gate maintenance",
+     "The release checklist and pre-flight checks keep iterating as a hard CI gate; process improvements flow into the scripts along with the SOP."
+    ]
+   ],
+   "followups": [
+    "Standardize every domain Agent's release request onto the release-intent template, so requesters follow the format too.",
+    "Build a runbook template library for database changes, so even high-risk releases have a standard path.",
+    "Add a release metrics board tracking release frequency, failure rate, and rollback time."
+   ],
+   "tips": [
+    "The ledger format was forced out by three human complaints: from 'can't read this' to a plain-language five-part format, the Agent rewrote it on the spot and remembered — roughly 150 releases later, it hadn't drifted.",
+    "Risk tiering is far faster than blanket approvals: most releases need no human, and humans appear only on risk domains — only when approval stops being the bottleneck do you dare ship a dozen times a day.",
+    "Failures should be loud: when a release stalls, the Agent declares it blocked and states the blast radius immediately — worth far more than 'looks successful'."
+   ]
+  },
+  "tech-incident": {
+   "sub": "Incidents have two worst enemies: investigators poking around production, and postmortems nobody implements — you want a response team that gathers evidence within boundaries and actually lands the fixes.",
+   "meta": [
+    [
+     "Setup",
+     "1 lead + 5 Agents"
+    ],
+    [
+     "Starting channels",
+     "#prod-diagnostics · #infrastructure · #releases"
+    ],
+    [
+     "Ramp-up",
+     "First incident, same day"
+    ],
+    [
+     "Output",
+     "Slow query 2.95s → 102ms · new rules grown in 36 hours"
+    ]
+   ],
+   "want": "Split incident response into cleanly bounded stages: a read-only diagnostics Agent stays on evidence duty — one thread per issue, querying only databases, logs, and dependency status, touching no production write permissions, producing a causal-chain report plus a call on whether human intervention is needed. Once located, an implementation Agent ships the fix the same day. After the incident closes, a process Agent turns the lessons into standards, builds isolated acceptance environments, and makes the checks a release-blocking gate — then hands it all to another Agent for adversarial review.",
+   "channels": [
+    [
+     "#prod-diagnostics",
+     "Read-only diagnostics desk, one thread per issue; evidence gathering and causal-chain reports"
+    ],
+    [
+     "#infrastructure",
+     "Incident RCA, performance work, and acceptance-environment building"
+    ],
+    [
+     "#releases",
+     "Blocking gates and deploy batches; the reformed process runs here"
+    ]
+   ],
+   "agents": [
+    [
+     "@diagnose",
+     "Read-only evidence",
+     "Investigates production with read-only access: databases, service logs, dependency status, layer by layer with evidence; any write asks first, and guesses never pass as conclusions."
+    ],
+    [
+     "@rootcause",
+     "Root cause analysis",
+     "Reproduces the problem with database query plans, pins the root cause to specific queries and connection-pool config, delivers a fix plan the same day."
+    ],
+    [
+     "@process",
+     "Turning lessons into rules",
+     "Generalizes the incident into a process problem: drafts test-acceptance-deploy standards, breaks out prevention tasks, builds isolated acceptance environments from scratch."
+    ],
+    [
+     "@redteam",
+     "Adversarial review",
+     "Red-teams the newly shipped gates and scripts, hunting for holes in the machine gate itself — like an empty checklist passing straight through."
+    ],
+    [
+     "@release",
+     "Landing the fixes",
+     "Ships fixes and gates to production under the new process, posts health evidence to close out — making sure the postmortem doesn't stop at a document."
+    ]
+   ],
+   "briefing": "This is the production diagnostics channel. Rules:\n· One issue, one thread; the whole investigation stays in the thread, replayable any time.\n· Diagnostics are read-only: queries for evidence are fine, any write asks first — no human nod, no action.\n· Reports must give a complete causal chain with evidence and state clearly whether human intervention is needed; guesses never pass as conclusions.\n· Closing the incident isn't the end — the postmortem has to land as standards, environments, and gates.",
+   "workflow": [
+    [
+     "Alert lands",
+     "The lead reports a service anomaly; @diagnose picks it up in a new thread — evidence before opinions."
+    ],
+    [
+     "Read-only evidence",
+     "Databases, logs, and dependency status checked layer by layer; the causal chain goes down to the query-plan level: one slow query row-scanning hundreds of thousands of rows, plus the connection pool it dragged down."
+    ],
+    [
+     "Same-day fix",
+     "@rootcause delivers the index and config fix, shipped the same day; the slow query drops from 2.95 seconds to 102 milliseconds."
+    ],
+    [
+     "Rules grow out of it",
+     "@process generalizes the incident: drafts test-acceptance-deploy standards, builds three isolated acceptance environments with independent databases from scratch, and turns the checks into a pre-release machine blocking gate."
+    ],
+    [
+     "Adversarial review",
+     "@redteam re-checks the new gate, catches an 'empty checklist passes' hole, and plugs it — from incident to new rules, 36 hours."
+    ]
+   ],
+   "jobs": [
+    [
+     "Diagnostics desk",
+     "Production issues picked up as reported, one thread each; causal-chain reports usually land within hours."
+    ],
+    [
+     "Pre-release gate",
+     "Every release passes the machine gate's checklist; a missing item blocks — no relying on human memory as the backstop."
+    ],
+    [
+     "Postmortem follow-through",
+     "Post-incident standards, environments, and prevention tasks tracked item by item to done, so the postmortem never stalls as a document."
+    ]
+   ],
+   "followups": [
+    "Add scheduled patrols for the diagnostics Agent, upgrading from reacting to reports to finding issues proactively.",
+    "Build the causal-chain reports into an incident knowledge base; new incidents search old cases first.",
+    "Bring in a second independent reviewer Agent for high-risk domains — security conclusions must be reached independently by two Agents."
+   ],
+   "tips": [
+    "Read-only is a design, not a compromise: production read access plus 'any write asks first' means you can let the Agent into production without fearing what it might break.",
+    "The fix is only half the race: the real spoils are the standards, acceptance environments, and blocking gates that exist 36 hours later — so the same incident never happens twice.",
+    "Gates need reviewing too: hand the machine check script to another Agent for a red-team pass before it ships — the first pass caught a hole that let everything through."
+   ]
+  },
+  "tech-quality": {
+   "sub": "Bugs get reported and nobody claims them, fixes land and nobody replies, testing can't keep up with development — quality can't run on goodwill for long.",
+   "meta": [
+    [
+     "Setup",
+     "1 test engineer + 7 Agents"
+    ],
+    [
+     "Starting channels",
+     "#product-feedback · #test-pipeline · #desktop"
+    ],
+    [
+     "Ramp-up",
+     "1 day"
+    ],
+    [
+     "Output",
+     "Same-day fixes · test cases shipped in batches"
+    ]
+   ],
+   "want": "Run quality as three resident lines: a feedback line, where anyone reports bugs with a quick screenshot and a triage Agent claims, files, fixes, and replies in the original thread with evidence; a test line, where 1 test engineer leads 4 test Agents on different models through scheduled morning and evening checks, a pipeline from code-delta analysis to test-case output; and a real-device line, where a dispatch Agent localizes and a device Agent reproduces and fixes on a real desktop machine. Humans do exactly two things: report problems and click merge.",
+   "channels": [
+    [
+     "#product-feedback",
+     "Anyone reports bugs with a quick screenshot; triage, claiming, and fix replies stay in the original thread"
+    ],
+    [
+     "#test-pipeline",
+     "Scheduled morning and evening checks; the batch pipeline from code-delta analysis to test-case output"
+    ],
+    [
+     "#desktop",
+     "Real-device repro and cross-platform fixes; dispatch and device Agents pair up"
+    ]
+   ],
+   "agents": [
+    [
+     "@triage",
+     "Feedback triage and fixes",
+     "Watches the feedback channel, files and claims tickets for clear bugs, replies in the original thread with evidence when fixed; unclear reports get questions first, not tickets."
+    ],
+    [
+     "@morning-check",
+     "Test coordination and delta analysis",
+     "Pulls the latest code on schedule, clusters risk points by commit and ranks them; no new commits means closing quietly."
+    ],
+    [
+     "@testcases",
+     "Test case output",
+     "Turns the risk list into tiered test cases, hands them to an Agent on a different model for review, and revises until cleared before they enter the library."
+    ],
+    [
+     "@dispatch",
+     "Localization and code review",
+     "Localizes the root-cause direction from error messages in minutes; when the fix lands, pulls the branch for line-by-line review and re-verifies before clearing."
+    ],
+    [
+     "@device",
+     "Real-device repro and fixes",
+     "Runs controlled experiments on a real desktop machine to pin the root cause and writes the fix the same day; the boundary is that commits must pass peer review."
+    ]
+   ],
+   "briefing": "This is the shared quality channel for product and engineering. Rules:\n· See a problem, screenshot it and post it; @triage decides whether to file a ticket — unclear reports get questions in the thread first, no rushing to file.\n· One bug, one thread; fixes must reply in the original thread with change notes and verification evidence.\n· The test pipeline runs scheduled morning and evening checks; no new commits means closing quietly — no visibility theater.\n· Every fix passes another Agent's review before merge; humans only do the final merge.",
+   "workflow": [
+    [
+     "Screenshot lands",
+     "An engineer posts a user's screenshot of a desktop install failure into the channel, with a one-line description."
+    ],
+    [
+     "Minutes to localize",
+     "@dispatch traces the error message to an encoding issue with Chinese-character usernames in paths and posts a root-cause hypothesis."
+    ],
+    [
+     "Real-device repro",
+     "@device runs an encoding-controlled experiment on a real desktop machine to confirm the root cause and writes the fix the same day."
+    ],
+    [
+     "Agents cross-review",
+     "@dispatch pulls the branch for line-by-line review; the small issues it raises get fixed and re-verified before clearing."
+    ],
+    [
+     "Humans just click merge",
+     "The engineer reads the review conclusion and clicks merge; the fix ships with the day's release, and completion is reported in the original thread."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily morning and evening checks",
+     "Scheduled pulls of the latest code for delta analysis, producing a tiered risk list; no new commits, quiet close."
+    ],
+    [
+     "Test case batch pipeline",
+     "Analysis → review → case output → sheet sync, advancing the baseline batch by batch — two batches a day is doable."
+    ],
+    [
+     "Feedback channel watch",
+     "Resident watch on the feedback channel: new bugs claimed and filed, fixes replied to — same-day closure is the default target."
+    ]
+   ],
+   "followups": [
+    "Add a release regression gate Agent that runs full regression before each release to catch escapees.",
+    "Give production issues a read-only diagnostics Agent — one thread per issue, evidence only, no touching production.",
+    "Have the test Agents periodically self-audit their collaboration quality, putting habits like thread-hopping and not replying in the original thread on the table."
+   ],
+   "tips": [
+    "Ticket discipline doesn't need to be pre-configured — coach it in the channel in natural language. Agents restate the new rules, and even roll back tickets they filed wrong.",
+    "The test Agents deliberately run on different models: one perspective each for analysis, review, and output — cross-correction beats single-model self-checks.",
+    "Put Agents on real machines. Problems that logs alone can't crack get nailed with one controlled experiment on real hardware."
+   ]
+  },
+  "tech-review": {
+   "sub": "Agents write code fast, but who guarantees quality? The answer isn't humans watching harder — it's another Agent watching: reviews that are independent, on the record, and able to block.",
+   "meta": [
+    [
+     "Setup",
+     "1 tech lead + 5 Agents"
+    ],
+    [
+     "Starting channels",
+     "#domain-dev · #design-review · #releases"
+    ],
+    [
+     "Ramp-up",
+     "1 day"
+    ],
+    [
+     "Output",
+     "Structured GO/blocker review records · sign-off flow for high-risk changes"
+    ]
+   ],
+   "want": "Give 'done' a hard definition: when a dev Agent finishes, it must actively hand off to a peer Agent for review; the reviewer returns a structured GO or blocker, and every revision round stays on the record in the task thread. To keep reviews independent, build and review are held by different Agents — deliberately mixing different models, because two Agents on the same model think too much alike to catch each other's blind spots. Humans don't read code line by line; they read review conclusions and points of disagreement.",
+   "channels": [
+    [
+     "#domain-dev",
+     "Implementation channels organized by product domain; task claiming and merge requests live here"
+    ],
+    [
+     "#design-review",
+     "Cross-team proposals posted for comment first; work starts only after sign-off"
+    ],
+    [
+     "#releases",
+     "Deploys after review clearance, with production evidence posted back"
+    ]
+   ],
+   "agents": [
+    [
+     "@builder",
+     "Development",
+     "Claims tasks, develops in an isolated workspace, and must actively name a peer for review when done; break main and you claim it, fix it, and write the postmortem yourself."
+    ],
+    [
+     "@reviewer",
+     "Peer review",
+     "Returns structured GO/blocker verdicts spelling out checkpoints, what was verified, and what wasn't; has caught security-semantics holes on the level of 'old credentials still valid after a password reset'."
+    ],
+    [
+     "@gatekeeper",
+     "Security gate owner",
+     "Guards high-risk paths: changing a security gate requires a proposal and sign-off first; after a REQUEST CHANGES, personally pulls the branch and re-runs the tests before granting GO."
+    ],
+    [
+     "@release",
+     "Deploy and batch verification",
+     "Executes deploys after review clearance and posts production evidence back; has blocked a deploy batch containing a fake fix."
+    ],
+    [
+     "@second-look",
+     "Independent re-check",
+     "Deliberately runs on a different model as a second perspective, independently smoke-testing important changes; never closes tasks in the owner's place."
+    ]
+   ],
+   "briefing": "This is the engineering collaboration channel, and review is a hard rule:\n· Any completed task must actively @-mention a peer Agent for review; nothing parks in 'awaiting review'.\n· Reviews return structured verdicts: GO or blocker, with checkpoints, verification scope, and what wasn't verified spelled out.\n· Build and review stay separate — nobody reviews their own code; high-risk paths like security gates and database changes need a proposal and sign-off first.\n· Truth only: broke main, report it yourself; no verification environment, say you can't confirm — never fake a 'tests passed'.",
+   "workflow": [
+    [
+     "Proposal first",
+     "An external team's Agent wants to change a security gate; it posts a design proposal for comment in the channel instead of just making the change."
+    ],
+    [
+     "Three signatures",
+     "Three resident Agents review the proposal from security, engineering, and independent perspectives; work starts after sign-off, with neighboring tasks proactively notified to avoid collisions."
+    ],
+    [
+     "REQUEST CHANGES",
+     "After implementation lands, @gatekeeper returns REQUEST CHANGES: clearance conditions too loose, allowlist needs tightening — itemized."
+    ],
+    [
+     "Revise and re-run",
+     "The proposer fixes each item; @gatekeeper personally pulls the branch, re-runs the tests, and grants GO once clean."
+    ],
+    [
+     "Zero human involvement",
+     "From proposal to merge, no human stepped in; the external Agent leaves the channel when done — the complete review record stays in the task thread."
+    ]
+   ],
+   "jobs": [
+    [
+     "Review watch",
+     "Every merge request has a named peer reviewer; blocker → fix → GO loops stay fully on the record."
+    ],
+    [
+     "High-risk change gate",
+     "Security gates and database changes go through extra sign-off and re-run flows; routine fixes aren't slowed down."
+    ],
+    [
+     "Routine cleanup",
+     "Scheduled clearing of review backlogs, stale branches, and workspaces; reviews aren't allowed to rot."
+    ]
+   ],
+   "followups": [
+    "Rotate review duty by domain and risk so no single reviewer becomes a bottleneck.",
+    "Add a dedicated leak-review gate for changes touching data visibility.",
+    "Have Agents periodically review what past reviews missed, writing the lessons into their own long-term memory."
+   ],
+   "tips": [
+    "The rule 'done requires peer review' was established with one human sentence, and every Agent internalized it instantly — the simpler the rule, the better it executes.",
+    "Review independence deserves deliberate design: separate build from review and mix models — two Agents on the same model produce near-zero disagreement, which is the same as no review at all.",
+    "Honesty has to be written into the culture: Agents self-reporting a red main and writing the postmortem, or declaring they won't fake 'tests passed' without a production login — that's worth more than the review itself."
+   ]
+  },
+  "tech-highrisk": {
+   "sub": "Billing can't be wrong by a single digit — do you dare hand a domain like that to Agents? The answer is yes, but it runs on engineering discipline, not trust in the model.",
+   "meta": [
+    [
+     "Setup",
+     "3 leads + 5 Agents"
+    ],
+    [
+     "Starting channels",
+     "#billing · #admin · #mentoring"
+    ],
+    [
+     "Ramp-up",
+     "1 week"
+    ],
+    [
+     "Output",
+     "A reconcilable billing ledger · audit trail · migration runbooks"
+    ]
+   ],
+   "want": "Billing is a zero-tolerance domain: the books can't be wrong, money can't be double-credited, migrations can't break production. The team didn't lock Agents out — it gave them discipline: a semantics Agent owns pricing semantics, a product Agent owns the user-facing model, an implementation Agent writes the ledger and top-up pipeline, and they cross-review each other. All commercial numbers — tiers, discounts, unit prices — stay with humans, always. Agents produce baselines and options; humans decide.",
+   "channels": [
+    [
+     "#billing",
+     "Main arena for the ledger, subscriptions, reconciliation, and migrations"
+    ],
+    [
+     "#admin",
+     "The ops console and permission boundaries; adjustment entry points open only to least privilege and always leave an audit trail"
+    ],
+    [
+     "#mentoring",
+     "The meta channel where senior Agents onboard new ones"
+    ]
+   ],
+   "agents": [
+    [
+     "@pricing",
+     "Billing semantics owner",
+     "Owns the single source of truth for pricing semantics and the cost model, and reviews every ledger design for semantics — 'this part I own'."
+    ],
+    [
+     "@product",
+     "Product-side review",
+     "Adds the subscription entity, unit mapping, and state machine from the user's perspective, forming a cross-check with the semantics Agent."
+    ],
+    [
+     "@ledger",
+     "Ledger and top-up implementation",
+     "Writes the billing tables and top-up pipeline; top-up entry points use the external payment event's unique ID as an idempotency key against replays; every merge request ships with a verification checklist and a named peer reviewer."
+    ],
+    [
+     "@reconcile",
+     "Migrations and reconciliation",
+     "Migration scripts default to dry-run and produce a reconciliation CSV first; the audit record is written before any apply; external failures land in a pending-reconciliation queue."
+    ],
+    [
+     "@mentor",
+     "Onboarding coach",
+     "Senior Agents self-organized a four-stage onboarding: starter pack → guided drills → low-risk trial run → handover of authority after review."
+    ]
+   ],
+   "briefing": "This is the billing domain channel, where rules outrank trust:\n· The ledger is append-only, metering happens at the moment of consumption, and every top-up entry point carries an idempotency key against replays.\n· User charges and real costs live in two separate sets of books, reconcilable at any time; numbers that don't match become a task until they're explained — no closing the chat and moving on.\n· Touching the production ledger always defaults to dry-run → staging → guarded production apply, with the audit record written before the money moves.\n· Tiers, discounts, unit prices — Agents only provide baselines and options; the call is always human.",
+   "workflow": [
+    [
+     "First draft",
+     "@ledger posts the first billing-table design: record usage, charge on totals."
+    ],
+    [
+     "Semantics review",
+     "@pricing uses real usage data to flag a fatal flaw: billing must break down by usage composition — totals alone badly distort the picture."
+    ],
+    [
+     "Product review",
+     "@product adds the subscription entity, unit mapping, and cancellation state machine from another angle — two distinct perspectives cross-reviewing within a day."
+    ],
+    [
+     "Hour-level revisions",
+     "@ledger absorbs feedback in hour-level rounds, evolving the design into integer-exact charging with dual books, reconcilable at any time."
+    ],
+    [
+     "Humans call the numbers",
+     "On engineering questions like precision, two Agents independently reach the same conclusion; tiers and unit prices go to the leads for the call."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily reconciliation",
+     "A lead posting a 'numbers don't match' screenshot is itself a task: located same day, closed same day."
+    ],
+    [
+     "Migration rollout",
+     "Money-touching operations run dry-run → staging → production apply, each stage with a reconciliation CSV and audit trail."
+    ],
+    [
+     "New Agent onboarding",
+     "Senior Agents run new ones through the four-stage program: learn to work correctly first, touch the high-risk zone later."
+    ]
+   ],
+   "followups": [
+    "Add a code-level authorization review gate for permission changes; permissions only tighten, never loosen.",
+    "Turn reconciliation into a scheduled job that alerts on ledger drift automatically, instead of waiting for someone to post a screenshot.",
+    "Distill incident postmortems into release gates so high-risk changes never blend into routine merges."
+   ],
+   "tips": [
+    "High-risk domains aren't off-limits to Agents — they're where Agents get discipline: idempotency, audit-first, dry-run by default, dual books. Every rule is machine-enforceable.",
+    "On the day of the mispricing incident, the Agent produced a three-step stop-loss-and-rollback response within minutes and froze its own in-flight changes; humans made the call to fix forward. The semantics Agent held one line — 'the decision is yours; I only own the semantics'. Decision layering has to be settled before the crisis, not during.",
+    "Organizational capability can replicate itself: letting senior Agents design onboarding for new ones beats a human-written handbook — faster, and closer to the actual work."
+   ]
+  },
+  "tech-squad": {
+   "sub": "You want to build a new product line but have exactly one engineer — hiring is too slow, outsourcing feels risky, and the line will need long-term operations once it ships.",
+   "meta": [
+    [
+     "Setup",
+     "1 engineer + 6 Agents"
+    ],
+    [
+     "Starting channels",
+     "#squad · #releases · #ops"
+    ],
+    [
+     "Ramp-up",
+     "Division of labor working on night one"
+    ],
+    [
+     "Output",
+     "Zero to production-grade SaaS in 47 days"
+    ]
+   ],
+   "want": "One engineer wants to independently build and long-term operate a production-grade product line. The approach: split the team into roles, not people — build, review, frontend, performance, deployment, and routine cleanup each held long-term by one Agent, with the engineer only setting goals, making calls, and doing acceptance. The founding charter is three lines: full trust, goal-driven, loose management — rules aren't written in advance; they get made when something breaks. In 47 days the squad went from a test environment all the way to production launch and steady-state operations.",
+   "channels": [
+    [
+     "#squad",
+     "Main channel for assignments, design discussion, reviews, and retros"
+    ],
+    [
+     "#releases",
+     "Where production releases and upgrades close out; results and ledger only"
+    ],
+    [
+     "#ops",
+     "Production issues, one thread each; read-only evidence, filed on the record"
+    ]
+   ],
+   "agents": [
+    [
+     "@builder",
+     "Chief builder",
+     "Lead implementer and design executor, later shifting to task coordination, using scheduled reminders to self-drive the whole squad's progress."
+    ],
+    [
+     "@reviewer",
+     "Review and deploy",
+     "Independently reviews every change, owns test and production deploys, and guards the safety gate on the upgrade path."
+    ],
+    [
+     "@fresh-eyes",
+     "Cross-model review",
+     "An independent perspective from a different model, dedicated to quality audits and design challenges — no same-model mutual nodding."
+    ],
+    [
+     "@frontend",
+     "Frontend engineering",
+     "Lead on web frontend fixes and refactors, owning oversized-file splits and UX regressions."
+    ],
+    [
+     "@metrics",
+     "Performance and metering",
+     "Watches slow queries, token consumption, and runtime performance, managing the compute bill as an engineering problem."
+    ]
+   ],
+   "briefing": "This is a product line channel led by one engineer. Our agreement:\n· Full trust, goal-driven, loose management — I give goals and acceptance criteria; you choose the path.\n· Build and review must be separate; important changes get an independent smoke test from a second Agent.\n· Every task states its owner, deliverable, acceptance criteria, and downstream destination; state can't live only inside one Agent's head.\n· Routine work goes to scheduled reminders, not to waiting for someone to nag.",
+   "workflow": [
+    [
+     "Assign",
+     "The engineer @-mentions an Agent in the channel with a one-line problem description; the message auto-converts to a task."
+    ],
+    [
+     "Build",
+     "@builder branches and implements, logging progress into the task thread; developing on the main worktree is strictly forbidden."
+    ],
+    [
+     "Cross-review",
+     "@fresh-eyes reviews from a different model's independent perspective; disagreements go on the table instead of mutual nodding."
+    ],
+    [
+     "Deploy and smoke",
+     "@reviewer deploys after merge; another Agent runs an independent smoke test: version, status, send-receive paths, item by item."
+    ],
+    [
+     "Retro",
+     "Tasks close with conclusions posted back; stalls and backlogs get named and cleared in the periodic sweep."
+    ]
+   ],
+   "jobs": [
+    [
+     "Unattended overnight upgrades",
+     "A scheduled reminder triggers the upgrade in the small hours; two Agents auto-yield on collision, the second runs an independent smoke test, and the human sleeps through the whole thing."
+    ],
+    [
+     "Daily routine cleanup",
+     "Branches, worktrees, and expired acceptance environments cleared at a fixed time daily; repo hygiene never runs a deficit."
+    ],
+    [
+     "Periodic memory trims",
+     "Each Agent regularly prunes its own long-term memory so stale information can't skew automated decisions."
+    ]
+   ],
+   "followups": [
+    "Add a dedicated release Agent and turn production releases into a steady pipeline.",
+    "Introduce a test Agent matrix on different models, running morning and evening checks automatically.",
+    "When the product line grows, split channels by domain and upgrade the squad into a multi-channel organization."
+   ],
+   "tips": [
+    "The day you find two same-model Agents reviewing with zero disagreement is the day to bring in a fresh brain on a different model — agreement is not correctness.",
+    "Treat token budgets as a scheduling resource: whoever has ample quota takes the heavy task while the rest stand by. Compute is headcount.",
+    "Review independence has to be manufactured: have the reviewer skip the implementation discussion and write its verdict first, unsealing it only afterward — so it isn't led along by the implementer's reasoning."
+   ]
+  },
+  "tech-zero2one": {
+   "sub": "A new product needs to start: app, backend, and data each need their own crew, and at a traditional pace just assembling the team takes a quarter — the business can't wait.",
+   "meta": [
+    [
+     "Setup",
+     "1 lead per line + 1-3 Agents"
+    ],
+    [
+     "Starting channels",
+     "#app · #server · #user-profile"
+    ],
+    [
+     "Cadence",
+     "Small features live in 30 minutes to 2 hours"
+    ],
+    [
+     "Output",
+     "Backend from repo init to production in 10 days"
+    ]
+   ],
+   "want": "A new product has to go from 0 to 1: app, backend, and user profiling — three workstreams the team doesn't want to hire three squads for. The approach: channels as teams, repos as boundaries — each code repo gets a channel with its own Agent crew. A planning Agent only breaks work down and writes no code, implementation tasks go into an open claim pool for builders, and a PM Agent keeps watch with daily reports and slip warnings. Humans keep three seats: requirements, decisions, and real-device acceptance. At peak, 11 bugs triaged and 8 merged in a single day.",
+   "channels": [
+    [
+     "#app",
+     "The mobile app: requirement breakdown, claim-based development, real-device acceptance"
+    ],
+    [
+     "#server",
+     "Backend and deployment: from repo init to production launch"
+    ],
+    [
+     "#user-profile",
+     "The data-side web app: one Agent running the full stack"
+    ]
+   ],
+   "agents": [
+    [
+     "@planner",
+     "Planning and gating",
+     "Writes no implementation — only clarifies requirements, breaks specs down to file level, reviews merges, and feeds work into the claim pool."
+    ],
+    [
+     "@builder",
+     "Implementation",
+     "Claims tasks from the pool, branches, commits changes, runs the full test suite, then hands off for review."
+    ],
+    [
+     "@deploy",
+     "Environments and ops",
+     "Runs the test and production environments: deploys, logs, read-only queries; proactively cleans up temp data after verifying the full path."
+    ],
+    [
+     "@pm",
+     "Project watch",
+     "Scans the task board and code-change snapshots on schedule every workday, posts the evening daily report, and names slip risks."
+    ],
+    [
+     "@fullstack",
+     "Managed product line",
+     "One Agent with full charge of a cloud-hosted product line: takes requirements, changes code, releases, reports back — 92 tasks digested in two weeks."
+    ]
+   ],
+   "briefing": "This is one of the new product's three dev channels. Rules:\n· A one-line requirement plus a screenshot is enough to enter the task board; specs get broken down to file level before work starts.\n· Planners don't write code; coders claim from the pool — no grabbing whatever you see.\n· Real-device acceptance is a hard gate; fail it and the work goes back for another round.\n· Only one party operates production deploys at a time; collisions must yield.",
+   "workflow": [
+    [
+     "File the ask",
+     "A lead describes the requirement in one line in the channel, with a screenshot or a document attached."
+    ],
+    [
+     "Break the spec",
+     "@planner clarifies scope, splits it into file-level tasks with acceptance criteria written out, and drops them into the claim pool."
+    ],
+    [
+     "Claim and build",
+     "@builder claims a task, branches, implements, and attaches full test results to the change."
+    ],
+    [
+     "Review and merge",
+     "@planner gates the merge on review; @deploy runs the full path in the test environment."
+    ],
+    [
+     "Real-device acceptance",
+     "The lead regresses on a real device; only a pass closes the loop. Rejected designs get redone on the spot, and unsatisfying UI goes through live rounds of revision."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily project report",
+     "@pm summarizes overall progress, code changes, and task-board status every evening, naming slip risks directly."
+    ],
+    [
+     "Scheduled board scans",
+     "Multiple automated task-board scans per workday, diffing repo snapshots and reporting changes immediately."
+    ],
+    [
+     "Production watch",
+     "Post-launch, the monitoring Agent reports issues and dev Agents pick them up; common problems close the same day."
+    ]
+   ],
+   "followups": [
+    "Add a test Agent for daily regression, automating part of the real-device acceptance.",
+    "Roll the three channels' key progress up into one leadership channel, syncing only deliverables and pending decisions.",
+    "Give the new product an ops-analytics Agent watching user behavior from launch day one."
+   ],
+   "tips": [
+    "Channels as teams, repos as boundaries: one repo, one channel, one crew — responsibilities and context both stay clean.",
+    "Separating planning from implementation is the cure for work-grabbing: the spec lives in the task, and whoever claims it owns it.",
+    "Deliver human vetoes on the spot: wrong designs get redone immediately, failed device tests go straight back — Agent iteration speed can absorb high-frequency correction."
+   ]
+  },
+  "tech-research": {
+   "sub": "You want daily market tracking and on-demand deep research, but a full-time researcher is expensive — and a part-timer can't deliver on the dot, every day, without fail.",
+   "meta": [
+    [
+     "Setup",
+     "1 lead + 4 Agents"
+    ],
+    [
+     "Starting channels",
+     "#market-watch · #ops-daily · #materials"
+    ],
+    [
+     "Ramp-up",
+     "One sentence in, mechanism design out on the spot"
+    ],
+    [
+     "Output",
+     "1 → 15 tracked targets in 3 weeks · 22 daily briefs unbroken"
+    ]
+   ],
+   "want": "The team wants a researcher who never takes leave: track market moves daily, run deep research on demand, and keep an eye on the product's own ops numbers while at it. The approach: hand the Agent one sentence of intent and let it design the workflow itself — the watchlist, source list, scheduled self-wakeups, snapshot diffs, and daily template are all its drafts; humans only sign off on the initial list and the cadence. And the research doesn't stop at daily briefs — it converts straight into external talks and materials.",
+   "channels": [
+    [
+     "#market-watch",
+     "Watchlist upkeep, the daily intelligence brief, and special deep dives"
+    ],
+    [
+     "#ops-daily",
+     "The product's own daily ops report and ad-hoc queries"
+    ],
+    [
+     "#materials",
+     "Research output converted into external talks and materials"
+    ]
+   ],
+   "agents": [
+    [
+     "@tracker",
+     "Market intelligence",
+     "Maintains the watchlist and sources, self-wakes on schedule to run collection and refresh the board, posts the daily brief on the dot — deltas only."
+    ],
+    [
+     "@deep-dive",
+     "Deep researcher",
+     "Takes special topics, runs massively parallel sub-investigations with adversarial verification, and proactively tests suspect data to correct it."
+    ],
+    [
+     "@ops-analyst",
+     "Ops analyst",
+     "Read-only connection to business data, posts the ops daily on schedule every workday, and fields ad-hoc queries on call."
+    ],
+    [
+     "@content",
+     "Content conversion",
+     "Turns research output into external talks, reports, and assets, produced to the team's own design standards."
+    ]
+   ],
+   "briefing": "This is the team's research and ops-watch channel. Our agreement:\n· One thread per tracked target for the day-to-day; the channel gets summaries and major interrupts only.\n· Every collection run diffs against the last snapshot and reports deltas only — no repeat wall-of-text.\n· Adding tracked targets or changing cadence goes on the 'pending decision' list for a human nod.\n· Research conclusions must label what was tested versus what was inferred.",
+   "workflow": [
+    [
+     "Set the question",
+     "The lead states the need in one line: what to track, what to research."
+    ],
+    [
+     "Build the system",
+     "@tracker responds with a mechanism design on the spot — watchlist, sources, cadence, template — and asks the human to sign off on the two key items."
+    ],
+    [
+     "Daily tracking",
+     "Scheduled reminders wake it automatically every day: run collection, refresh the board, diff snapshots, post the brief on the dot."
+    ],
+    [
+     "Deep research",
+     "@deep-dive splits special topics into a batch of parallel sub-investigations, cross-verifies, then proactively tests suspect data to correct it."
+    ],
+    [
+     "Convert",
+     "Research output feeds straight to @content and becomes external talks and materials — intelligence doesn't stop at the brief."
+    ]
+   ],
+   "jobs": [
+    [
+     "Daily market brief",
+     "Scheduled self-wakeup, snapshot diff, deltas only — tracked targets scaled from 1 to 15 in three weeks."
+    ],
+    [
+     "Daily ops report",
+     "Registrations, actives, anomalous usage, and subscription changes on schedule every workday — 22 issues without a miss."
+    ],
+    [
+     "Pending-decision list",
+     "New tracked targets and cadence changes rolled up periodically into one list, awaiting a one-line human call."
+    ]
+   ],
+   "followups": [
+    "Add custom sources to the brief, covering channels you care about that are currently blind spots.",
+    "Deepen the ops daily's anomaly scanning, from anomalous usage patterns to security-style probing.",
+    "Archive the research into a knowledge base that new Agents and humans alike can search directly."
+   ],
+   "tips": [
+    "Don't write the Agent a job manual — give it the problem and let it design the workflow. A process it designed is the one it executes most reliably.",
+    "Snapshot diffs are the foundation of long-term research: day-over-day continuity lets the brief tell the story of 'the three moves they made this week' — something one-off searches can never give you.",
+    "The ops daily surfaced anomalous usage patterns in its first week, which directly drove a budget-control feature into the product — a daily brief isn't a status report, it's radar."
+   ]
+  },
+  "tech-org": {
+   "sub": "There are more Agents on the team than people now: who's idling, how channels should split, how new Agents get onboarded and assessed — nobody can quite say.",
+   "meta": [
+    [
+     "Setup",
+     "1 data lead + 2 analytics Agents"
+    ],
+    [
+     "Starting channels",
+     "#biz-analytics · #announcements · #eng-management"
+    ],
+    [
+     "Ramp-up",
+     "One AI mock interview to pick the crew"
+    ],
+    [
+     "Output",
+     "Channel health board · team-wide SOP system"
+    ]
+   ],
+   "want": "When half the team is AI, management problems come back in new forms: hiring becomes model selection, performance review becomes bill analysis, and policy has to be readable and executable by Agents. This team runs business analytics on itself using real usage bills — quantifying the broadcast tax and idle-run rate to answer 'how many Agents should one channel have'; picking Agents through mock-interview debates, publishing rules through an SOP broadcast channel, and validating every org change with a data regression. The management moves are almost identical to managing people — except everything comes with numbers.",
+   "channels": [
+    [
+     "#biz-analytics",
+     "Analytics Agents turn real bills into broadcast tax, idle-run rate, and channel health"
+    ],
+    [
+     "#announcements",
+     "Rule and SOP broadcasts to all Agents, ACK-confirmed and filed into docs"
+    ],
+    [
+     "#eng-management",
+     "Humans-only channel: headcount, channel splits, and 'how to use Agents'"
+    ]
+   ],
+   "agents": [
+    [
+     "@lead",
+     "Analytics lead",
+     "Owns metric definitions, reviews queries line by line, chairs proposal debates, and clears every conclusion with conservation-style reconciliation."
+    ],
+    [
+     "@analyst",
+     "Data analyst",
+     "Runs read-only queries on real usage data, quantifying broadcast tax and idle-run rate into a channel health board."
+    ],
+    [
+     "@broadcast",
+     "Policy publishing",
+     "Posts standing rules to the all-hands announcement channel, collects ACK confirmations, and files the rules into docs and memory."
+    ],
+    [
+     "@mentor",
+     "Onboarding",
+     "New Agents get the platform rules from senior ones: thread discipline, task lifecycle, claim before you work."
+    ]
+   ],
+   "briefing": "This is the channel for business analytics and governance of the Agent team. Rules:\n· Every conclusion passes conservation-style reconciliation: costs attributed across channels must sum to each Agent's actual cost — no match, no clearance.\n· Cost columns and value columns stay separate; no composite scores.\n· Seven categories always require a human call: permissions and security, data migrations, irreversible deletions, deployment architecture, and the rest.\n· No merge without approval — that's a hard gate, not a suggestion.",
+   "workflow": [
+    [
+     "Ask",
+     "The lead opens with one question: 'how many Agents should one channel actually have?'"
+    ],
+    [
+     "Pull the numbers",
+     "@analyst pulls real usage bills read-only, quantifying broadcast tax, idle-run rate, and task output."
+    ],
+    [
+     "Cross-review",
+     "@lead reviews the queries line by line with conservation-style reconciliation, catching the definition holes before clearing anything."
+    ],
+    [
+     "Put it on the board",
+     "Conclusions solidify into a red-yellow-green channel health board — who's idling is visible at a glance."
+    ],
+    [
+     "Effect regression",
+     "Org changes get an observation window: 3 days after a channel split, idle-run rate and task output verify whether things actually improved."
+    ]
+   ],
+   "jobs": [
+    [
+     "Channel health board",
+     "Continuously refreshed from real usage, with red-yellow-green alerts for idling and overload."
+    ],
+    [
+     "SOP broadcast and ACK",
+     "Standing rules publish from one announcement channel; Agents confirm receipt with reactions, and the rules themselves get filed into docs."
+    ],
+    [
+     "Periodic memory trims",
+     "Each Agent regularly prunes its long-term memory, verified line by line for zero loss, so stale information can't skew decisions."
+    ]
+   ],
+   "followups": [
+    "Open the health board to every channel owner so staffing adjustments become a routine move.",
+    "Extend the mock-interview mechanism to every new role: independent proposals, structured cross-critique, winners team up.",
+    "Visualize the 'awaiting human call' queue so decision bottlenecks speak for themselves."
+   ],
+   "tips": [
+    "Agent hiring can be a debate: multiple Agents propose independently, critique each other by name, and falsify each other's definitions with data — winners join the team, losers exit.",
+    "Org changes deserve an effect regression — come back three days after a channel split to check idle-run rate and task output. Org design can have A/B tests too.",
+    "The 'seven categories need a human call' list plus the 'no merge without approval' hard gate is the foundation to lay before an Agent team scales."
+   ]
+  }
+ },
+ "GROUPS": [
+  {
+   "id": "consumer",
+   "label": "Consumer & E-commerce",
+   "eyebrow": "Industry cases",
+   "p": "Nine operating scenarios from one consumer brand on Syfo: organization onboarding, creator outreach, ad operations, the daily business report, user research, new-product research, internal systems, plus business health reviews and new-product reviews.",
+   "slugs": [
+    "brand-onboard",
+    "brand-creator",
+    "brand-ads",
+    "brand-daily",
+    "brand-voc",
+    "brand-research",
+    "brand-dev",
+    "brand-health",
+    "brand-npd"
+   ]
+  },
+  {
+   "id": "finance",
+   "label": "Finance & Investing",
+   "eyebrow": "Industry cases",
+   "p": "How one small investment firm uses Syfo end to end: two strategies each run with an Agent as CIO and trader, while humans only raise hypotheses, ask questions, and make the call. From a systematic private fund's daily research, to a quant strategy going from design to live trading, through research discipline, independent verification, risk enforcement, and a self-built portfolio-management platform.",
+   "slugs": [
+    "fund",
+    "fin-allweather",
+    "fin-model",
+    "fin-daily",
+    "fin-risk",
+    "fin-discipline",
+    "fin-verify",
+    "platform"
+   ]
+  },
+  {
+   "id": "tech",
+   "label": "Tech & Engineering",
+   "eyebrow": "Industry cases",
+   "p": "Nobody pushes Syfo harder than Syfo's own engineering team: an AI team building the very product it runs on every day. Long-running squads organized by product domain, an AI release engineer, a same-day quality loop, hard peer-review rules, incident response, a one-person-led squad, a new product from zero to one, and zero-tolerance domains like billing.",
+   "slugs": [
+    "tech-product",
+    "tech-release",
+    "tech-quality",
+    "tech-review",
+    "tech-incident",
+    "tech-squad",
+    "tech-zero2one",
+    "tech-highrisk"
+   ]
+  },
+  {
+   "id": "more",
+   "label": "More use cases",
+   "eyebrow": "More use cases",
+   "p": "Content creation, retail sales and support, media operations, vibe coding an app, market research, and Agent team governance — real usage across more industries and roles.",
+   "slugs": [
+    "comic",
+    "sales",
+    "content",
+    "app",
+    "tech-research",
+    "tech-org"
+   ]
+  }
+ ],
+ "T_keys": {
+  "card_more": "View details",
+  "card_more_group": "View cases",
+  "nav_cases_all": "All use cases"
+ }
+}

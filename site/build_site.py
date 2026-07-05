@@ -33,7 +33,7 @@ APP_EN = "https://app.syfo.ai/?lang=en"
 LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg")).read()
 
 # 顺序即语言切换器的展示顺序 (Tony 指定：英 → 中 → 日 → 西 → 越)。
-LANGS = ["en", "zh", "ja", "es", "vi"]
+LANGS = ["en", "zh", "ja", "es", "vi"]  # vi 保留语言，但不做新 25 案例 (Tony 2026-07-05)
 # 根 / 语言网关：无 cookie/无 Accept-Language 匹配时的兜底语言。
 DEFAULT_LANG = "en"
 # 五语对称：每种语言都在自己的 /<lang>/ 子目录 (含中文 /zh/)，根 / 只做语言网关。
@@ -636,6 +636,8 @@ T = {
   "how_close_eyebrow": "现在开始", "how_close_h2": "看完就上手，组建你的 Agent 团队。",
   # —— 案例内页通用 ——
   "d_back": "← 返回全部案例",
+  "d_back_group": "← 返回 {}",
+  "cases_count": "{} 个案例",
   "d_title_suffix": " · Syfo 案例",
   "d_desc_prefix": "Syfo 案例：",
   "d_card_prefix": "案例 · ",
@@ -710,6 +712,8 @@ T = {
   "how_close_eyebrow": "Get started", "how_close_h2": "Watch it, then build your team of Agents.",
   # —— Case detail shared ——
   "d_back": "← Back to all use cases",
+  "d_back_group": "← Back to {}",
+  "cases_count": "{} cases",
   "d_title_suffix": " · Syfo use case",
   "d_desc_prefix": "Syfo use case: ",
   "d_card_prefix": "Use case · ",
@@ -929,7 +933,7 @@ def build_cases(lang):
             tg = "".join(f'<span class="tag">{x}</span>' for x in subtags[:5])
             if len(subtags) > 5:
                 tg += f'<span class="tag">+{len(subtags)-5}</span>'
-            gcards.append(f"""<a class="case" href="{url(lang, f"cases-{g['id']}.html")}"><div class="ind">{g["eyebrow"]} · {len(cards)} 个案例</div>
+            gcards.append(f"""<a class="case" href="{url(lang, f"cases-{g['id']}.html")}"><div class="ind">{g["eyebrow"]} · {t["cases_count"].format(len(cards))}</div>
       <h3>{g["label"]}</h3><p>{g["p"]}</p><div class="tags">{tg}</div>
       <div class="case-more">{t["card_more_group"]} <span class="arr">→</span></div></a>""")
         C.append('<section style="padding-top:0"><div class="wrap"><div class="casegrid" style="margin-top:8px">'
@@ -2210,7 +2214,7 @@ def build_detail(lang, slug):
     # 面包屑：属于某行业分组时回该行业页，否则回全部案例
     gobj = next((g for g in CASE_GROUPS.get(lang, []) if slug in g["slugs"]), None)
     if gobj:
-        back_href, back_label = url(lang, f"cases-{gobj['id']}.html"), "← 返回 " + gobj["label"]
+        back_href, back_label = url(lang, f"cases-{gobj['id']}.html"), t["d_back_group"].format(gobj["label"])
     else:
         back_href, back_label = url(lang, "cases.html"), t["d_back"]
     D.append(f"""<div class="wrap"><div class="crumb"><a href="{back_href}">{back_label}</a></div>
@@ -2248,12 +2252,23 @@ def build_detail(lang, slug):
     write(lang, f"case-{slug}.html", D)
 
 
-# ── 载入 ja / es 翻译 (由 i18n/<lang>.json 提供，zh/en 保持内联) ──
+# ── 载入 ja / es / vi 翻译 (由 i18n/<lang>.json 提供，zh/en 保持内联) ──
+# vi 只有原 6 案例、无 GROUPS → 保持单一网格，不铺新 25 案例 (Tony 2026-07-05)
 for _lg in ("ja", "es", "vi"):
     _d = json.load(open(os.path.join(HERE, "i18n", f"{_lg}.json"), encoding="utf-8"))
     T[_lg] = _d["T"]; CASES[_lg] = _d["CASES"]; SCENES[_lg] = _d["SCENES"]
     STEPS[_lg] = _d["STEPS"]; RELAY[_lg] = _d["RELAY"]
     HOW_STEPS[_lg] = _d["HOW_STEPS"]; DETAILS[_lg] = _d["DETAILS"]
+    if _d.get("GROUPS"):
+        CASE_GROUPS[_lg] = _d["GROUPS"]
+
+# ── en 25 新案例 (2026-07-05 多语言上线)：en 保持内联，此处从合并文件补入 ──
+_en = json.load(open(os.path.join(HERE, "i18n-en-new.json"), encoding="utf-8"))
+CASES["en"] = CASES["en"] + _en["CASES"]
+DETAILS["en"].update(_en["DETAILS"])
+for _k, _v in _en["T_keys"].items():
+    T["en"][_k] = _v
+CASE_GROUPS["en"] = _en["GROUPS"]
 
 
 # ════════════════════════════════════════════ 根 / 语言网关 (真实静态 index.html，返回 200 不再 503)

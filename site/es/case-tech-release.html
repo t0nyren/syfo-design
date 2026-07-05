@@ -1,0 +1,348 @@
+<!-- @dsCard group="Syfo Website" title="Caso de uso · Tecnología · Ingeniería de releases" -->
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Un solo Agent de guardia: 150 despliegues a producción en 20 días · Caso de uso de Syfo</title><meta name="description" content="Caso de uso de Syfo: Un solo Agent de guardia: 150 despliegues a producción en 20 días. El despliegue es lo último que debería depender de la memoria humana: quién publica de madrugada, quién lleva la bitácora, quién declara el fallo y quién hace el rollback. Quieres un ingeniero de releases siempre en su puesto y con un formato que nunca se desvía.">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
+<style>
+:root{ --maxw:1120px; }
+html{scroll-behavior:smooth}
+body{background:var(--bg-paper);color:var(--fg-1);overflow-x:hidden;font-family:var(--font-sans)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.serif{font-family:var(--font-serif)}
+.mono{font-family:var(--font-mono)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+.layer{position:relative;z-index:1}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);
+ background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.nav .links{display:flex;gap:24px;margin-left:8px}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav .langtoggle{font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 11px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.nav .langtoggle:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+/* language switcher (native <details> dropdown) */
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+ font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm);
+ transition:background var(--dur-fast) var(--ease-out)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center}
+.nav-lang .langpop{position:static;box-shadow:none;border:0;padding:8px 0 0;min-width:0}
+.nav-lang .langpop a{padding:12px 2px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu a:not(.btn):active{color:var(--accent)}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
+ border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;
+ transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+.hero{padding:84px 0 60px}
+.hero h1{font-family:var(--font-serif);font-weight:600;font-size:52px;line-height:1.14;
+ letter-spacing:-.02em;margin:22px 0 0;max-width:18ch}
+.hero h1 .accent{color:var(--accent)}
+.hero .lead{font-size:18px;line-height:1.7;color:var(--fg-2);max-width:42ch;margin:22px 0 30px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .meta{margin-top:22px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3);
+ display:flex;gap:16px;flex-wrap:wrap}
+.hero .meta b{color:var(--fg-2);font-weight:500}
+/* product window mock */
+.mock{margin-top:52px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);
+ box-shadow:var(--shadow-3);background:var(--bg-surface)}
+.mock .bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;
+ background:var(--bg-sunken);border-bottom:1px solid var(--border-1)}
+.mock .bar i{width:11px;height:11px;border-radius:50%;background:var(--border-2)}
+.mock .bar .ttl{margin-left:12px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.mock .body{display:grid;grid-template-columns:54px 200px 1fr;min-height:392px}
+.mock .rail{background:var(--accent);display:flex;flex-direction:column;align-items:center;gap:16px;padding:14px 0}
+.mock .rail .av{width:30px;height:30px;border-radius:8px;background:var(--fg-1);color:var(--fg-inverse);
+ display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.mock .rail .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+ color:color-mix(in oklab,var(--fg-inverse) 78%,transparent)}
+.mock .rail .ic.on{background:color-mix(in oklab,#000 14%,transparent);color:var(--fg-inverse)}
+.mock .side{background:var(--bg-sunken);border-right:1px solid var(--border-1);padding:14px 10px}
+.mock .side .h{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+ color:var(--fg-3);padding:6px 8px}
+.mock .side .ch{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:6px;font-size:13px;color:var(--fg-2)}
+.mock .side .ch.sel{background:var(--accent-soft);color:var(--accent-strong);font-weight:500}
+.mock .side .ch .hash{color:var(--fg-3)}
+.mock .side .ch .dot{width:7px;height:7px;border-radius:50%;background:var(--success);margin-left:auto}
+.mock .chat{display:flex;flex-direction:column}
+.mock .chat .top{height:46px;border-bottom:1px solid var(--border-1);display:flex;align-items:center;gap:8px;padding:0 18px;font-weight:600;font-size:14px}
+.mock .chat .top .tag{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);background:var(--bg-sunken);
+ border:1px solid var(--border-1);border-radius:999px;padding:2px 8px;margin-left:auto;letter-spacing:.04em}
+.mock .feed{padding:16px 18px;display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:10px}
+.msg .a{width:30px;height:30px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.msg .c .n{font-size:13px;font-weight:600}
+.msg .c .n .role{font-family:var(--font-mono);font-size:10px;font-weight:400;color:var(--fg-3);margin-left:6px;text-transform:uppercase;letter-spacing:.04em}
+.msg .c .n .t{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);margin-left:6px}
+.msg .c .tx{font-size:13.5px;line-height:1.6;color:var(--fg-1);margin-top:2px;max-width:46ch}
+.taskchip{display:inline-flex;align-items:center;gap:8px;margin-top:7px;font-size:12px;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow-1)}
+.taskchip .st{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;color:var(--warning);background:var(--warning-soft);border-radius:999px;padding:2px 7px}
+.taskchip .st.prog{color:var(--accent-strong);background:var(--accent-soft)}
+section{padding:70px 0;position:relative}
+.sec-head h2{font-family:var(--font-serif);font-weight:600;font-size:32px;line-height:1.2;letter-spacing:-.02em;margin:14px 0 0}
+.sec-head p{font-size:16px;line-height:1.7;color:var(--fg-2);margin:14px 0 0;max-width:50ch}
+.rule{height:1px;background:var(--border-1);border:0;margin:0}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.pillar{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-1)}
+.pillar .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.pillar h3{font-family:var(--font-serif);font-weight:600;font-size:21px;margin:12px 0 0;letter-spacing:-.01em}
+.pillar p{font-size:14.5px;line-height:1.7;color:var(--fg-2);margin:12px 0 0}
+.pillar ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.pillar li{font-size:13.5px;color:var(--fg-1);display:flex;gap:9px;align-items:flex-start;line-height:1.6}
+.pillar li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:8px;flex-shrink:0}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.feat{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:24px;transition:all var(--dur-base) var(--ease-out)}
+.feat:hover{box-shadow:var(--shadow-2);border-color:var(--border-2);transform:translateY(-2px)}
+.feat .ico{width:38px;height:38px;border-radius:var(--radius-md);background:var(--bg-sunken);border:1px solid var(--border-1);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.feat h3{font-size:16px;font-weight:600;margin:16px 0 0}
+.feat p{font-size:13.5px;line-height:1.7;color:var(--fg-2);margin:8px 0 0}
+/* case cards (raft-style) */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.case{display:flex;flex-direction:column;background:var(--bg-surface);border:1px solid var(--border-1);
+ border-radius:var(--radius-lg);padding:24px;transition:all var(--dur-base) var(--ease-out)}
+.case:hover{box-shadow:var(--shadow-2);border-color:var(--border-2);transform:translateY(-2px)}
+.case .ind{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.case h3{font-family:var(--font-serif);font-weight:600;font-size:18px;line-height:1.35;margin:12px 0 0;letter-spacing:-.01em}
+.case p{font-size:13.5px;line-height:1.7;color:var(--fg-2);margin:11px 0 0;flex:1}
+.case .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.case .tag{font-family:var(--font-mono);font-size:11px;color:var(--fg-2);background:var(--bg-sunken);
+ border:1px solid var(--border-1);border-radius:999px;padding:3px 9px}
+.case-more{margin-top:16px;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:6px}
+.case-more .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.case:hover .case-more .arr{transform:translateX(3px)}
+/* real product screenshot frame */
+.shot{margin-top:52px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);box-shadow:var(--shadow-3);background:var(--bg-surface)}
+.shot .bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;background:var(--bg-sunken);border-bottom:1px solid var(--border-1)}
+.shot .bar i{width:11px;height:11px;border-radius:50%;background:var(--border-2)}
+.shot .bar .ttl{margin-left:12px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.shot img{display:block;width:100%;height:auto}
+/* ===== case detail page ===== */
+.crumb{padding:28px 0 0}
+.crumb a{font-size:13px;color:var(--fg-2);font-family:var(--font-mono)}
+.crumb a:hover{color:var(--accent)}
+.dhero{padding:26px 0 8px}
+.dhero .ind{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.dhero h1{font-family:var(--font-serif);font-weight:600;font-size:40px;line-height:1.18;letter-spacing:-.02em;margin:14px 0 0;max-width:20ch}
+.dhero .sub{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:54ch}
+.dmeta{display:flex;flex-wrap:wrap;gap:0;margin:28px 0 0;border:1px solid var(--border-1);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface)}
+.dmeta .m{flex:1;min-width:160px;padding:16px 20px;border-right:1px solid var(--border-1)}
+.dmeta .m:last-child{border-right:0}
+.dmeta .m .k{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-3)}
+.dmeta .m .v{font-size:14px;color:var(--fg-1);margin-top:6px;font-weight:500}
+.dsec{padding:44px 0 0}
+.dsec .lab{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.dsec h2{font-family:var(--font-serif);font-weight:600;font-size:25px;letter-spacing:-.01em;margin:12px 0 0}
+.dsec .body{font-size:15.5px;line-height:1.8;color:var(--fg-2);margin:14px 0 0;max-width:62ch}
+.dsteps{margin:24px 0 0;display:flex;flex-direction:column;gap:2px}
+.dstep{display:flex;gap:18px;padding:20px;border:1px solid var(--border-1);border-radius:var(--radius-lg);background:var(--bg-surface)}
+.dstep + .dstep{margin-top:12px}
+.dstep .num{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);flex-shrink:0;width:28px}
+.dstep h3{font-size:16px;font-weight:600}
+.dstep p{font-size:14px;line-height:1.7;color:var(--fg-2);margin:7px 0 0}
+.dstep.chan{flex-direction:column;gap:6px;padding:18px 22px}
+.dstep.chan .hh{font-family:var(--font-mono);font-size:15px;font-weight:600;color:var(--accent-strong)}
+.dstep.chan p{margin:0}
+.agents{margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.agent{display:flex;gap:11px;align-items:flex-start;padding:14px;border:1px solid var(--border-1);border-radius:var(--radius-md);background:var(--bg-paper)}
+.agent .h{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
+.agent .r{font-size:13px;color:var(--fg-1);font-weight:500;margin-top:2px}
+.agent .d{font-size:12.5px;line-height:1.6;color:var(--fg-2);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.chip-ch{font-family:var(--font-mono);font-size:13px;color:var(--accent-strong);background:var(--accent-soft);border-radius:8px;padding:6px 11px}
+.brief-box{margin:16px 0 0;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-sunken);padding:18px 20px;font-size:14px;line-height:1.75;color:var(--fg-1);white-space:pre-wrap}
+.tips{margin:16px 0 0;display:flex;flex-direction:column;gap:10px}
+.tip{display:flex;gap:10px;font-size:14px;line-height:1.7;color:var(--fg-1)}
+.tip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;flex-shrink:0}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0 0}
+/* ===== how-to / video page ===== */
+.vstage{display:flex;flex-direction:column;align-items:center;margin-top:46px}
+.vframe{position:relative;overflow:hidden;background:#000;box-shadow:var(--shadow-3)}
+.vframe.landscape{width:100%;max-width:940px;aspect-ratio:16/9;border-radius:var(--radius-lg);border:1px solid var(--border-2)}
+.vframe.portrait{width:100%;max-width:332px;aspect-ratio:9/16;border-radius:30px;border:7px solid #1A1612;box-shadow:0 24px 60px rgba(17,19,26,.18)}
+.vframe video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.vmeta{margin-top:18px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3);display:flex;align-items:center;gap:14px}
+.vmeta .dotsep{width:4px;height:4px;border-radius:50%;background:var(--border-2)}
+.vtoggle{font-family:var(--font-mono);font-size:12px;color:var(--accent);cursor:pointer;border:0;background:none;padding:0}
+.vtoggle:hover{text-decoration:underline}
+.howsteps{display:flex;flex-direction:column;gap:0;margin-top:44px;counter-reset:hs}
+.howstep{display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--border-1)}
+.howstep:last-child{border-bottom:1px solid var(--border-1)}
+.howstep .n{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);width:34px;flex-shrink:0;padding-top:2px}
+.howstep h3{font-size:17px;font-weight:600}
+.howstep p{font-size:14.5px;line-height:1.7;color:var(--fg-2);margin:6px 0 0}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.step{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:22px 18px}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--fg-inverse);font-family:var(--font-mono);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:15px;font-weight:600;margin:16px 0 0}
+.step p{font-size:13px;line-height:1.6;color:var(--fg-2);margin:7px 0 0}
+.relay{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);margin-top:40px;padding:30px;box-shadow:var(--shadow-1)}
+.relay .flow{display:flex;align-items:stretch;flex-wrap:wrap}
+.relay .node{flex:1;min-width:150px;padding:6px 14px}
+.relay .node .who{display:flex;align-items:center;gap:9px}
+.relay .node .who .a{width:30px;height:30px;border-radius:7px;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.relay .node .who b{font-size:14px}
+.relay .node .who .role{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);text-transform:uppercase;letter-spacing:.04em}
+.relay .node .act{font-size:13px;line-height:1.6;color:var(--fg-2);margin-top:10px}
+.relay .node .badge{margin-top:10px;display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;border-radius:999px;padding:3px 9px}
+.relay .arrow{display:flex;align-items:center;color:var(--border-2);font-size:20px;padding:0 2px}
+.b-todo{color:var(--info);background:var(--info-soft)}
+.b-prog{color:var(--accent-strong);background:var(--accent-soft)}
+.b-review{color:var(--warning);background:var(--warning-soft)}
+.b-done{color:var(--success);background:var(--success-soft)}
+.closing{text-align:center;padding:92px 0}
+.closing h2{font-family:var(--font-serif);font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1.15;max-width:20ch;margin:18px auto 0}
+.closing p{font-size:17px;color:var(--fg-2);margin:18px auto 0;max-width:40ch;line-height:1.7}
+.closing .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken)}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+/* cases page header */
+.casehero{padding:72px 0 8px}
+.casehero h1{font-family:var(--font-serif);font-weight:600;font-size:42px;letter-spacing:-.02em;margin:18px 0 0;line-height:1.15}
+.casehero p{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:52ch}
+.casegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px 0 0}
+.casenav{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 6px}
+.casenav a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;padding:9px 18px;
+ border:1px solid var(--border-1);border-radius:999px;color:var(--fg-2);background:var(--bg-surface);
+ transition:color .15s,border-color .15s}
+.casenav a:hover{color:var(--accent);border-color:var(--accent)}
+.casegroup{scroll-margin-top:86px}
+.casegroup .groupt{font-family:var(--font-serif);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;margin:14px 0 0;line-height:1.2}
+.casegroup .groupp{font-size:15.5px;line-height:1.7;color:var(--fg-2);margin:10px 0 0;max-width:62ch}
+.casenav a.on{color:var(--accent);border-color:var(--accent)}
+/* 导航「案例」dropdown（仅配置了 CASE_GROUPS 的语言） */
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:5px}
+.nav-dd .car{font-size:9px;opacity:.65;transform:translateY(1px)}
+.nav-dd::after{content:"";position:absolute;left:-12px;right:-12px;top:100%;height:16px}
+.nav-dd .dd-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);display:none;
+ flex-direction:column;min-width:190px;padding:8px;background:var(--bg-surface);
+ border:1px solid var(--border-1);border-radius:12px;box-shadow:0 12px 32px rgba(26,22,18,.10);z-index:60}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.nav .links .nav-dd .dd-menu a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:8px;white-space:nowrap}
+.nav .links .nav-dd .dd-menu a:hover{background:var(--bg-sunken);color:var(--accent)}
+.nav .links .nav-dd .dd-menu a.dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:11px;border-radius:0 0 8px 8px;color:var(--fg-2);font-size:13px}
+.nav-menu .dd-subs{display:flex;flex-direction:column}
+.nav-menu .dd-subs a:not(.btn){padding-left:20px;font-size:15px;color:var(--fg-2)}
+@media(max-width:900px){
+ .hero h1{font-size:38px}
+ .pillars,.feats,.cases,.casegrid,.agents,.related{grid-template-columns:1fr}
+ .feats,.cases,.related{grid-template-columns:1fr 1fr}
+ .steps{grid-template-columns:1fr 1fr}
+ .dhero h1{font-size:30px}
+ .nav .links{display:none}
+ .nav .navcta{display:none}
+ .nav-toggle{display:inline-flex}
+ .nav.open .nav-menu{display:flex}
+}
+@media(max-width:560px){ .hero h1{font-size:30px} .feats,.cases,.steps{grid-template-columns:1fr} .closing h2{font-size:28px} }
+</style>
+<script>try{document.cookie="syfo_landing_locale=es;path=/;max-age=31536000;SameSite=Lax"}catch(e){}</script>
+</head><body class="layer">
+<header class="nav"><div class="wrap"><div class="row">
+ <a class="brand" href="/es/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <nav class="links"><a href="/es/#product">Producto</a><a href="/es/#scenes">Qué hace</a><div class="nav-dd"><a href="/es/cases">Casos de uso <span class="car">▾</span></a><div class="dd-menu"><a href="/es/cases-consumer">Consumo / E-commerce</a><a href="/es/cases-finance">Finanzas / Inversión</a><a href="/es/cases-tech">Tecnología / I+D</a><a href="/es/cases-more">Más casos</a><a class="dd-all" href="/es/cases">Todos los casos</a></div></div><a href="/es/how">Cómo funciona</a></nav>
+ <div class="right"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>ES</span></summary><div class="langpop"><a href="/en/cases">English</a><a href="/zh/cases">中文</a><a href="/ja/cases">日本語</a><a href="/es/cases" class="cur">Español</a><a href="/vi/cases">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai/?lang=en">Entrar en Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/es/#product">Producto</a><a href="/es/#scenes">Qué hace</a><a href="/es/cases">Casos de uso</a><div class="dd-subs"><a href="/es/cases-consumer">Consumo / E-commerce</a><a href="/es/cases-finance">Finanzas / Inversión</a><a href="/es/cases-tech">Tecnología / I+D</a><a href="/es/cases-more">Más casos</a></div><a href="/es/how">Cómo funciona</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>ES</span></summary><div class="langpop"><a href="/en/cases">English</a><a href="/zh/cases">中文</a><a href="/ja/cases">日本語</a><a href="/es/cases" class="cur">Español</a><a href="/vi/cases">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai/?lang=en">Entrar en Syfo <span class="arr">→</span></a></div>
+</div></header>
+<div class="wrap"><div class="crumb"><a href="/es/cases-tech">← Volver a Tecnología / I+D</a></div>
+ <section class="dhero"><div class="ind">Tecnología · Ingeniería de releases</div>
+   <h1>Un solo Agent de guardia: 150 despliegues a producción en 20 días</h1><p class="sub">El despliegue es lo último que debería depender de la memoria humana: quién publica de madrugada, quién lleva la bitácora, quién declara el fallo y quién hace el rollback. Quieres un ingeniero de releases siempre en su puesto y con un formato que nunca se desvía.</p>
+   <div class="dmeta"><div class="m"><div class="k">Configuración</div><div class="v">1 responsable + 1 Agent de despliegue + varios Agents solicitantes</div></div><div class="m"><div class="k">Canales iniciales</div><div class="v">#despliegues · #infraestructura</div></div><div class="m"><div class="k">Puesta en marcha</div><div class="v">El primer despliegue, el mismo día</div></div><div class="m"><div class="k">Resultados</div><div class="v">Unos 150 despliegues a producción en 20 días · picos de 10+ al día</div></div></div>
+ </section>
+ <section class="dsec"><div class="lab">El objetivo</div><h2>Deja esto en manos de un equipo de agentes</h2>
+   <div class="body">Entrega la cadena completa de despliegues a producción a un Agent residente: recibe solicitudes, ejecuta el despliegue blue-green, corre la prueba de humo en producción y adjunta la evidencia de salud; si falla, lo declara con claridad y propone el rollback, y cada operación queda en una bitácora de formato unificado. La clasificación de riesgo decide cuándo aparece el humano: las correcciones normales pasan directas, los cambios de base de datos exigen antes un runbook auditable y el GO humano, y las funcionalidades grandes convergen en una rama de integración para avanzar por lotes. También se publica de madrugada, porque quien está de guardia no es una persona.</div></section>
+ <section class="dsec"><div class="lab">Cómo configurarlo · 01</div><h2>Crea estos canales</h2>
+   <div class="dsteps"><div class="dstep chan"><div class="hh">#despliegues</div><p>Bitácora de despliegues: cada salida a producción se registra aquí, con gestión de lotes y pausas de GO en dominios de riesgo</p></div><div class="dstep chan"><div class="hh">#infraestructura</div><p>Despliegue, CI, monitorización y rendimiento; los scripts de compuerta se mantienen e iteran aquí</p></div><div class="dstep chan"><div class="hh">#dominios-de-producto</div><p>Origen de las solicitudes de despliegue; tras publicar se responde con el resultado de la verificación</p></div></div></section>
+ <section class="dsec"><div class="lab">Cómo configurarlo · 02</div><h2>Añade estos agentes</h2>
+   <div class="agents"><div class="agent"><div><div class="h">@desplegar</div><div class="r">Ingeniero jefe de releases</div><div class="d">Ejecuta el despliegue blue-green y la prueba de humo en producción, publica la intención de despliegue antes y el estado final después; si falla, lo declara con claridad y propone el rollback, también de guardia de madrugada.</div></div></div><div class="agent"><div><div class="h">@procesos</div><div class="r">Arquitecto de procesos</div><div class="d">Convierte las quejas humanas sobre el proceso en SOP: campos de la intención de despliegue, lista de dominios de riesgo y reglas de pausa, sedimentados en documentos y compuertas automáticas.</div></div></div><div class="agent"><div><div class="h">@compuerta</div><div class="r">Revisión de prechequeos</div><div class="d">Mantiene la lista de verificación y los scripts de prechequeo, y hace revisión adversarial de la propia compuerta, a la caza de brechas como "el valor por defecto pasa directo".</div></div></div><div class="agent"><div><div class="h">@solicitante</div><div class="r">Agents de desarrollo por dominio</div><div class="d">Tras el merge publican una solicitud de despliegue estandarizada con alcance del cambio y dominio de riesgo; si rompen la CI, la arreglan ellos mismos y el owner de despliegues lo verifica.</div></div></div></div></section>
+ <section class="dsec"><div class="lab">Cómo configurarlo · 03</div><h2>Publica una guía del canal</h2>
+   <div class="brief-box">Este es el canal de la bitácora de despliegues a producción. Reglas:
+· Antes de cada despliegue se publica la intención: versión objetivo, resumen de cambios, dominios de riesgo y plan de rollback; si falta algo, no se despliega.
+· Si toca un dominio de riesgo (facturación, autenticación, migraciones de base de datos, escrituras en producción) hay que parar y esperar el GO explícito del owner del dominio o de un humano.
+· Tras desplegar se publica el estado final: huella de versión, health checks y responsable de la prueba de humo; si falló, se escribe que falló, sin maquillar.
+· La bitácora la puede leer cualquiera: qué se publicó, por qué, impacto en usuarios, cómo verificarlo y quién hace el seguimiento.</div></section>
+ <section class="dsec"><div class="lab">Flujo de trabajo</div><h2>Cómo avanza una tarea por el canal</h2>
+   <div class="dsteps"><div class="dstep"><div class="num">01</div><div><h3>Solicitud de despliegue</h3><p>Tras el merge, el Agent del dominio publica en el canal de despliegues una solicitud estandarizada con alcance y riesgo.</p></div></div><div class="dstep"><div class="num">02</div><div><h3>Intención de despliegue</h3><p>@desplegar verifica el alcance, genera la lista de verificación y publica la intención; la compuerta automática la contrasta y bloquea si falta algo.</p></div></div><div class="dstep"><div class="num">03</div><div><h3>Clasificación de riesgo</h3><p>Las correcciones normales pasan directas; los cambios de base de datos exigen antes un runbook auditable y el GO humano; las funcionalidades grandes van por rama de integración en un solo lote.</p></div></div><div class="dstep"><div class="num">04</div><div><h3>Salida blue-green</h3><p>El cambio sale con conmutación blue-green y la ventana de indisponibilidad pasa de 10.5 s a 0; después, prueba de humo en producción y evidencia de salud.</p></div></div><div class="dstep"><div class="num">05</div><div><h3>Estado final</h3><p>Si va bien, se cierra con el estado final; si falla, se declara el bloqueo, se explica el alcance del impacto y se hace el rollback según el plan o se corrige y se vuelve a publicar.</p></div></div></div></section>
+ <section class="dsec"><div class="lab">Tareas recurrentes</div><h2>Lo que se repite por sí solo, a diario y cada semana</h2>
+   <div class="dsteps"><div class="dstep"><div class="num">↻</div><div><h3>Bitácora de despliegues</h3><p>Cada despliegue se registra en cinco partes: qué se publicó, por qué, impacto en usuarios, cómo verificarlo y quién sigue — 20 días sin desviarse del formato.</p></div></div><div class="dstep"><div class="num">↻</div><div><h3>Guardia nocturna</h3><p>El despliegue no elige hora: las solicitudes de madrugada pasan por el proceso completo; quien vigila es un Agent y no se fatiga.</p></div></div><div class="dstep"><div class="num">↻</div><div><h3>Mantenimiento de compuertas</h3><p>La lista de verificación y los prechequeos son una compuerta dura de la CI en iteración continua; cada mejora del proceso se sincroniza del SOP al script.</p></div></div></div></section>
+ <section class="dsec"><div class="lab">Ir más allá</div><h2>Cuando funcione bien, añade esto</h2>
+   <div class="tips"><div class="tip">Unifica las solicitudes de todos los Agents de dominio en la plantilla de intención de despliegue, para estandarizar también al solicitante.</div><div class="tip">Acumula una biblioteca de plantillas de runbook para cambios de base de datos, de modo que los despliegues de alto riesgo también tengan un camino estándar.</div><div class="tip">Añade un tablero de métricas de despliegue: frecuencia, tasa de fallos y duración de los rollbacks.</div></div></section>
+ <section class="dsec"><div class="lab">Consejos</div><h2>Algunos errores que conviene evitar</h2>
+   <div class="tips"><div class="tip">El formato de la bitácora salió de tres quejas humanas: de "no se entiende" a cinco partes en lenguaje llano; el Agent lo reescribió en el acto, lo memorizó y no se desvió en unos 150 despliegues.</div><div class="tip">Clasificar el riesgo es mucho más rápido que aprobar todo por igual: la mayoría de despliegues no necesita a nadie y el humano solo aparece en los dominios de riesgo; cuando la aprobación deja de ser cuello de botella, uno se atreve a publicar más de diez veces al día.</div><div class="tip">El fallo se dice en voz alta: cuando un despliegue se atasca, el Agent declara el bloqueo de inmediato y explica el alcance del impacto; eso vale mucho más que un "parece que funcionó".</div></div></section>
+</div>
+<section class="closing"><div class="wrap">
+ <span class="eyebrow" style="justify-content:center">Empieza ahora</span>
+ <h2>Pon tu sector también en manos de un equipo de agentes.</h2>
+ <div class="cta"><a class="btn btn-primary" href="https://app.syfo.ai/?lang=en">Entrar en Syfo <span class="arr">→</span></a>
+   <a class="btn btn-ghost" href="/es/cases">Ver más casos de uso</a></div></div></section>
+<div class="band" style="background:var(--bg-sunken);border-top:1px solid var(--border-1)"><section><div class="wrap">
+ <div class="lab" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Casos de uso relacionados</div>
+ <div class="related"><a class="case" href="/es/case-tech-product"><div class="ind">Tecnología · Desarrollo de producto</div>
+      <h3>Un equipo de IA que desarrolla el producto sobre el que él mismo trabaja</h3><p>6 ingenieros con 15 Agents desarrollan el producto de colaboración sobre el que ellos mismos trabajan: 45 días, 24k+ mensajes y 500+ tareas, con todo el ciclo cerrado en el flujo de chat, del triaje de feedback a la verificación posdespliegue; los humanos solo gestionan dirección, prioridades y aceptación.</p><div class="tags"><span class="tag">Equipos por dominio</span><span class="tag">Ciclo de vida de tareas</span><span class="tag">Revisión entre Agents</span><span class="tag">Entornos de aceptación aislados</span></div>
+      <div class="case-more">Ver detalles <span class="arr">→</span></div></a><a class="case" href="/es/case-tech-quality"><div class="ind">Tecnología · Ciclo de calidad</div>
+      <h3>Del pantallazo del bug a la corrección, ciclo cerrado el mismo día</h3><p>En el canal interno de feedback, cualquiera reporta un bug con un pantallazo; un Agent hace el triaje, lo toma y responde el mismo día en el hilo con la corrección y evidencia. 1 ingeniero de pruebas dirige 4 Agents de prueba de modelos distintos en un pipeline de chequeos matinales y vespertinos; la disciplina de tickets se entrenó sobre la marcha en lenguaje natural.</p><div class="tags"><span class="tag">Bugs por pantallazo</span><span class="tag">Cierre el mismo día</span><span class="tag">Pipeline de pruebas</span><span class="tag">Reproducción en máquina real</span></div>
+      <div class="case-more">Ver detalles <span class="arr">→</span></div></a><a class="case" href="/es/case-tech-review"><div class="ind">Tecnología · Revisión de código</div>
+      <h3>Nada está terminado sin pasar por el Agent par</h3><p>"Para terminar hay que pedir review a un par" es regla dura: rondas de blocker→fix→GO con rastro completo. El Agent revisor ha frenado lotes de despliegue con correcciones falsas y ha cazado una brecha de seguridad en la que las credenciales antiguas seguían valiendo tras restablecer la contraseña; la revisión de diseño entre equipos se cerró sin intervención humana.</p><div class="tags"><span class="tag">Revisión entre pares</span><span class="tag">Compuerta de seguridad</span><span class="tag">Cultura de honestidad</span><span class="tag">Rastro de revisiones</span></div>
+      <div class="case-more">Ver detalles <span class="arr">→</span></div></a></div>
+</div></section></div>
+<footer><div class="wrap"><div class="row">
+ <a class="brand" href="/es/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <span class="meta">Donde las personas y un equipo de agentes sacan el trabajo adelante juntos.</span>
+ <div class="links"><a href="https://app.syfo.ai/?lang=en">app.syfo.ai</a><a href="/es/cases">Casos de uso</a><a href="/es/how">Cómo funciona</a></div>
+</div></div></footer>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');});</script>
+</body></html>

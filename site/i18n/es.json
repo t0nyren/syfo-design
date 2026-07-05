@@ -11,7 +11,7 @@
   "footer_tag": "Donde las personas y un equipo de agentes sacan el trabajo adelante juntos.",
   "footer_cases": "Casos de uso",
   "footer_how": "Cómo funciona",
-  "card_more": "Leer el caso de uso",
+  "card_more": "Ver detalles",
   "home_title": "Syfo · Donde las personas y un equipo de agentes trabajan juntos",
   "home_desc": "Syfo es un espacio de trabajo compartido donde las personas y un equipo de agentes de IA colaboran en los mismos canales, con disparadores, herramientas y memoria que mantienen a los agentes trabajando y permiten que las tareas se traspasen con fluidez entre personas y agentes.",
   "home_card": "<!-- @dsCard group=\"Syfo Website\" title=\"Inicio\" -->",
@@ -103,7 +103,11 @@
   "d_close_eyebrow": "Empieza ahora",
   "d_close_h2": "Pon tu sector también en manos de un equipo de agentes.",
   "d_close_cta2": "Ver más casos de uso",
-  "d_related": "Casos de uso relacionados"
+  "d_related": "Casos de uso relacionados",
+  "card_more_group": "Ver casos",
+  "nav_cases_all": "Todos los casos",
+  "d_back_group": "← Volver a {}",
+  "cases_count": "{} casos"
  },
  "CASES": [
   [
@@ -177,6 +181,306 @@
     "Plataforma de contenido"
    ],
    "content"
+  ],
+  [
+   "Consumo · Incorporación de la organización",
+   "Desde el primer día, deja que un Agent diseñe tu organización de Agents",
+   "No te lances a crear Agents: deja que un Agent de orientación entienda el negocio, haga inventario de los datos e investigue en línea las prácticas del sector, y que luego proponga el diseño de una organización mixta de \"personas + Agents\"; tras el visto bueno humano, los nuevos Agents se crean uno a uno mediante un mecanismo de aprobación y los veteranos se encargan de su formación de incorporación.",
+   [
+    "Estudio del negocio",
+    "Diseño organizativo",
+    "Creación de Agents",
+    "Formación inicial"
+   ],
+   "brand-onboard"
+  ],
+  [
+   "Consumo · Operación de creadores",
+   "Convierte el outreach a creadores, lo que más gente consume, en una línea impulsada por Agents",
+   "La persona da el objetivo de negocio en una frase y el Agent valida el objetivo, lo divide por semanas y publica las tareas de outreach; los pasos sin interfaz abierta generan pendientes manuales enviados por mensajería, la persona devuelve el archivo y el Agent retoma todo el análisis y el flujo posterior; el sistema de soporte sale en tres días.",
+   [
+    "Outreach a creadores",
+    "Gestión de objetivos",
+    "Pendientes manuales",
+    "Monitoreo automático"
+   ],
+   "brand-creator"
+  ],
+  [
+   "Consumo · Publicidad",
+   "El Agent puede ejecutar, pero el dinero siempre lo aprueba una persona",
+   "El Agent de publicidad tiene permisos reales de escritura, pero se atiene a \"propuesta → verificación independiente → autorización humana → ejecución por lotes → reporte uno a uno\"; un segundo Agent verifica en cruzado con una fuente de datos independiente y todas las escrituras quedan en el registro de auditoría.",
+   [
+    "Corte de pérdidas",
+    "Verificación independiente",
+    "Autorización humana",
+    "Registro de auditoría"
+   ],
+   "brand-ads"
+  ],
+  [
+   "Consumo · Análisis de negocio",
+   "Cada mañana, un informe diario multisitio sobre el que decidir directamente",
+   "Beneficio, publicidad y outreach a creadores se combinan en un solo informe diario, con los sitios en semáforo rojo-amarillo-verde, anomalías detalladas hasta el creativo individual y una sección final de \"recomendaciones de corte de pérdidas pendientes de autorización humana\": la dirección pasa de mirar datos a decidir.",
+   [
+    "Informe diario",
+    "Atribución de beneficio",
+    "Alerta de anomalías",
+    "Corte de pérdidas"
+   ],
+   "brand-daily"
+  ],
+  [
+   "Consumo · Investigación de usuarios",
+   "Decenas de grabaciones y notas de entrevistas se convierten en insights que priorizan los nuevos productos",
+   "Entrega al Agent la tabla resumen y las notas individuales de las entrevistas a creadores de varios países: primero saca un resumen inicial, luego busca los huecos celda a celda, la persona completa y él revisa, iterando hasta el informe de insights, los datos estructurados y una versión web sin la lista de nombres.",
+   [
+    "Síntesis de entrevistas",
+    "Lista de huecos",
+    "Informe de insights",
+    "Base VOC"
+   ],
+   "brand-voc"
+  ],
+  [
+   "Consumo · Desarrollo de nuevos productos",
+   "Señales externas de mercado × evidencia interna de usuarios: doble validación de las oportunidades",
+   "Un Agent escanea los rankings de superventas y novedades de varios países y otro verifica cada dirección con la base VOC interna, clasificando las oportunidades en tres niveles: \"impulsada por dolor de usuario / impulsada por tendencia de mercado / doble motor de alta confianza\"; solo el doble motor entra en la prioridad de desarrollo.",
+   [
+    "Escaneo de mercado",
+    "Validación VOC",
+    "Clasificación de oportunidades",
+    "Radar competitivo"
+   ],
+   "brand-research"
+  ],
+  [
+   "Consumo · Sistemas internos",
+   "Dos Agents, producto y desarrollo, lanzan un sistema de gestión en tres días",
+   "El Agent de producto hace el prototipo, escribe la spec y acepta punto por punto; el de desarrollo crea tablas, desarrolla, despliega y resuelve incidencias en minutos; el Agent de negocio hace la aceptación final. La persona solo pide y decide: un sistema interno de gestión en línea en tres días y en iteración continua.",
+   [
+    "Prototipo primero",
+    "Doble aceptación",
+    "Incidencias en minutos",
+    "Costos observables"
+   ],
+   "brand-dev"
+  ],
+  [
+   "Consumo · Recompra y reclamaciones",
+   "Convierte recompra y reclamaciones en un mecanismo de gestión de la salud del producto",
+   "El dueño de la marca dicta su flujo de trabajo actual y el Agent completa tres cosas el mismo día: diagnostica siete carencias del flujo, audita columna a columna las fórmulas y criterios erróneos del tablero de ejecución, y entrega el diseño del RACI y del tablero de mando, desarrollándolo y desplegándolo en el acto como sitio visual.",
+   [
+    "Diagnóstico del flujo",
+    "Auditoría del tablero",
+    "RACI",
+    "Tablero de mando"
+   ],
+   "brand-health"
+  ],
+  [
+   "Consumo · Revisión de nuevos productos",
+   "De las entrevistas al plan del producto estrella: dos rondas de revisión del Agent",
+   "El jefe entrega al Agent decenas de páginas de informes de entrevistas y en minutos obtiene direcciones de oportunidad, plazos de desarrollo y cálculo comercial; cuando llega el plan de producto estrella del product manager, se revisa otra ronda: el Agent valida la dirección y a la vez señala la contradicción de ingeniería central que el plan no resuelve.",
+   [
+    "Direcciones de oportunidad",
+    "Cálculo comercial",
+    "Revisión de ingeniería",
+    "Compuertas de aceptación"
+   ],
+   "brand-npd"
+  ],
+  [
+   "Finanzas · Productización de estrategias",
+   "Una estrategia cuantitativa, del diseño a la operación real",
+   "El Agent CIO escribe el manual reproducible y el Agent de ingeniería corre el mismo día el backtest de doce años; el barrido de parámetros encuentra criterios mejores y motiva el cambio del producto principal; los materiales se alinean punto por punto con los criterios de cumplimiento del contrato del fondo antes de salir a real, y la primera semana cierra el circuito operativo desde las liquidaciones del bróker hasta el tablero externo.",
+   [
+    "Backtest de estrategia",
+    "Barrido de parámetros",
+    "Alineación de cumplimiento",
+    "Operación real"
+   ],
+   "fin-allweather"
+  ],
+  [
+   "Finanzas · Disciplina de investigación",
+   "Haz que la IA diga trece veces \"no\" a sus propias ideas",
+   "Toda idea de mejora de la estrategia prerregistra sus criterios de decisión antes de correr los datos: en una ronda, trece ideas y cero aprobadas, incluida la favorita del propio Agent; los resultados negativos se redactan y archivan igualmente, y ese \"registro de vetos\" acabó siendo un argumento diferencial en las presentaciones externas.",
+   [
+    "Prerregistro",
+    "Umbral de entrada",
+    "Resultados negativos",
+    "Anti-sobreajuste"
+   ],
+   "fin-discipline"
+  ],
+  [
+   "Finanzas · Verificación independiente",
+   "Toda conclusión importante la recalcula desde cero un segundo Agent",
+   "Un Agent tercero replica todo el backtest sin contexto y en la primera ronda caza un bug de criterio de datos; los valores liquidativos diarios de tres motores se alinean hasta la quinta cifra decimal antes de congelar los criterios; el primer día en real, dos Agents concilian por doble canal, y el escaneo de respaldo programado atrapa además un hueco de datos escondido.",
+   [
+    "Replicación independiente",
+    "Conciliación de doble canal",
+    "Muestreo de terceros",
+    "Respaldo programado"
+   ],
+   "fin-verify"
+  ],
+  [
+   "Finanzas · Control de riesgos",
+   "La puerta de riesgo intradía bloquea una compra ya aprobada por una persona",
+   "El recálculo intradía, disparado por recordatorios programados, detecta un giro del estado del mercado y bloquea automáticamente una compra ya aprobada ese día por una persona; la debilidad del mercado ese día le da la razón. Tras un incidente de proceso, en minutos se construye la \"puerta de firma del CIO\", que tres días después bloquea su primera orden mala.",
+   [
+    "Recálculo intradía",
+    "Compuerta de ejecución",
+    "Aprobación con firma",
+    "Trazas de auditoría"
+   ],
+   "fin-risk"
+  ],
+  [
+   "Finanzas · Rutina post-cierre",
+   "Una hora después del cierre, una línea de producción post-cierre completa",
+   "La tarjeta diaria de riesgo, la atribución de resultados, la lectura del CIO y el incremental del escaneo de candidatos salen solos a su hora, la lista de seleccionados se envía puntual al decisor y los viernes se suma un informe semanal de señales de techo de mercado: todo movido por tareas programadas, con los días sin sesión omitidos y dos Agents controlándose mutuamente.",
+   [
+    "Línea post-cierre",
+    "Envío programado",
+    "Tarjeta diaria de riesgo",
+    "Semanal de techo"
+   ],
+   "fin-daily"
+  ],
+  [
+   "Finanzas · Cocreación de estrategias",
+   "Cinco rondas de reglas dictadas y el modelo de selección en línea el mismo día",
+   "El decisor itera las reglas de selección de valores en lenguaje natural y el Agent recorre todo el mercado en unos diez minutos para validar cada versión, conectándola ese mismo día al escaneo diario; antes de salir, cada modelo pasa la evidencia histórica, y un candidato desmentido por la propia auditoría del Agent se degrada con honestidad a señal de observación en vez de venderse.",
+   [
+    "Modelado en lenguaje natural",
+    "En línea el mismo día",
+    "Evidencia histórica",
+    "Falsación honesta"
+   ],
+   "fin-model"
+  ],
+  [
+   "Tecnología · Desarrollo de producto",
+   "Un equipo de IA que desarrolla el producto sobre el que él mismo trabaja",
+   "6 ingenieros con 15 Agents desarrollan el producto de colaboración sobre el que ellos mismos trabajan: 45 días, 24k+ mensajes y 500+ tareas, con todo el ciclo cerrado en el flujo de chat, del triaje de feedback a la verificación posdespliegue; los humanos solo gestionan dirección, prioridades y aceptación.",
+   [
+    "Equipos por dominio",
+    "Ciclo de vida de tareas",
+    "Revisión entre Agents",
+    "Entornos de aceptación aislados"
+   ],
+   "tech-product"
+  ],
+  [
+   "Tecnología · Ingeniería de releases",
+   "Un solo Agent de guardia: 150 despliegues a producción en 20 días",
+   "Despliegue blue-green, pruebas de humo en producción, declaración de fallos y rollback: un Agent de despliegue cierra el ciclo por su cuenta, con unos 150 despliegues a producción en 20 días, picos de 10+ al día, madrugadas incluidas, una bitácora que no pierde el formato en 20 días y una ventana de indisponibilidad reducida de 10.5 s a 0.",
+   [
+    "Despliegue blue-green",
+    "Bitácora de despliegues",
+    "Pausas por nivel de riesgo",
+    "Compuertas automáticas"
+   ],
+   "tech-release"
+  ],
+  [
+   "Tecnología · Respuesta a incidentes",
+   "De una alerta en producción a un nuevo sistema de normas en 36 horas",
+   "Ante un incidente en producción, un Agent recoge evidencia en solo lectura y entrega un informe de cadena causal; la localización a nivel de plan de ejecución permite corregir el mismo día, y una consulta lenta baja de 2.95 s a 102 ms. Después se redactan normas, se montan tres entornos de aceptación aislados y se activa una compuerta de bloqueo; otro Agent la revisa y caza una brecha.",
+   [
+    "Diagnóstico en solo lectura",
+    "RCA a nivel de plan de ejecución",
+    "Entornos de aceptación aislados",
+    "Compuerta de bloqueo de despliegues"
+   ],
+   "tech-incident"
+  ],
+  [
+   "Tecnología · Ciclo de calidad",
+   "Del pantallazo del bug a la corrección, ciclo cerrado el mismo día",
+   "En el canal interno de feedback, cualquiera reporta un bug con un pantallazo; un Agent hace el triaje, lo toma y responde el mismo día en el hilo con la corrección y evidencia. 1 ingeniero de pruebas dirige 4 Agents de prueba de modelos distintos en un pipeline de chequeos matinales y vespertinos; la disciplina de tickets se entrenó sobre la marcha en lenguaje natural.",
+   [
+    "Bugs por pantallazo",
+    "Cierre el mismo día",
+    "Pipeline de pruebas",
+    "Reproducción en máquina real"
+   ],
+   "tech-quality"
+  ],
+  [
+   "Tecnología · Revisión de código",
+   "Nada está terminado sin pasar por el Agent par",
+   "\"Para terminar hay que pedir review a un par\" es regla dura: rondas de blocker→fix→GO con rastro completo. El Agent revisor ha frenado lotes de despliegue con correcciones falsas y ha cazado una brecha de seguridad en la que las credenciales antiguas seguían valiendo tras restablecer la contraseña; la revisión de diseño entre equipos se cerró sin intervención humana.",
+   [
+    "Revisión entre pares",
+    "Compuerta de seguridad",
+    "Cultura de honestidad",
+    "Rastro de revisiones"
+   ],
+   "tech-review"
+  ],
+  [
+   "Tecnología · Sistema de facturación",
+   "Facturación en manos de un equipo de Agents: disciplina en un dominio de tolerancia cero",
+   "El dinero se gestiona con disciplina, no con confianza: doble contabilidad conciliada, claves de idempotencia, auditoría primero y migraciones en dry-run por defecto. Los criterios de facturación pasan en un día por la revisión cruzada de dos Agents con perspectivas distintas; en un incidente, el Agent propone la respuesta en minutos y congela sus cambios por iniciativa propia, y las cifras comerciales las decide una persona.",
+   [
+    "Doble contabilidad conciliada",
+    "Dry-run por defecto",
+    "Revisión cruzada",
+    "Decisiones por niveles"
+   ],
+   "tech-highrisk"
+  ],
+  [
+   "Tecnología · Modo squad",
+   "Un ingeniero con seis Agents saca adelante una línea de producto de nivel productivo",
+   "Un ingeniero y seis Agents de modelos distintos forman un squad que en 47 días construye desde cero y opera un SaaS de nivel productivo: separación entre construcción y revisión, revisión mutua entre modelos heterogéneos y actualizaciones desatendidas de madrugada. Unos 275 mensajes de equipo al día y 200+ tareas cerradas.",
+   [
+    "A producción en 47 días",
+    "Revisión entre modelos distintos",
+    "Operación desatendida",
+    "Turnos por tokens"
+   ],
+   "tech-squad"
+  ],
+  [
+   "Tecnología · De 0 a 1",
+   "Abrir canales, montar el equipo: un producto nuevo en producción en un mes",
+   "Un producto nuevo se divide en tres canales — app, backend y perfiles de usuario — cada uno con su plantilla de Agents: el Agent planificador desglosa los criterios, los builders toman tareas del pool abierto y un Agent PM vigila el informe diario. El backend llega a producción en 10 días y los cambios pequeños salen en 30 minutos a 2 horas.",
+   [
+    "El canal es el equipo",
+    "Planificar e implementar por capas",
+    "Agent PM de guardia",
+    "A producción en 10 días"
+   ],
+   "tech-zero2one"
+  ],
+  [
+   "Tecnología · Investigación de mercado",
+   "Contrata a un investigador de IA que cubre el informe diario y la investigación a fondo",
+   "Con una sola petición, el Agent monta todo el sistema de seguimiento: recolección con autodespertar programado, comparación de snapshots para reportar solo los incrementos y un informe diario puntual; en tres semanas los objetos monitorizados pasan de 1 a 15. En paralelo, el informe diario de operaciones encadena 22 ediciones sin fallar y detecta un patrón de uso anómalo en la primera semana.",
+   [
+    "Autodespertar programado",
+    "Informes por comparación de snapshots",
+    "Investigación adversarial",
+    "22 informes sin interrupción"
+   ],
+   "tech-research"
+  ],
+  [
+   "Tecnología · Gobernanza organizativa",
+   "Cuando la mitad de tu equipo es IA: contratación, evaluación y gestión",
+   "Analiza la operación del equipo de Agents con la factura de uso real: cuantifica el impuesto de difusión y la tasa de ejecuciones en vacío para responder \"cuántos Agents debe tener un canal\". Los Agents nuevos pasan por una entrevista simulada y la mentoría de Agents veteranos, y cada ajuste organizativo se valida con datos tres días después.",
+   [
+    "Salud de canales",
+    "Entrevistas simuladas de IA",
+    "Difusión de SOP + ACK",
+    "Validación con datos"
+   ],
+   "tech-org"
   ]
  ],
  "SCENES": [
@@ -934,6 +1238,2621 @@
     "Fusionar una serie significa fusionar, no coser — reconstrúyela en una pieza coherente en lugar de empalmar fragmentos.",
     "Los borradores con cifras no divulgadas siempre se censuran y se ocultan por defecto, y luego se decide caso por caso."
    ]
+  },
+  "brand-onboard": {
+   "sub": "Es la primera vez que el equipo se incorpora y no sabe qué Agents crear ni cómo repartir el trabajo; lo que más teme es empezar creando un montón de \"juguetes\" que nadie llega a usar.",
+   "meta": [
+    [
+     "Roles",
+     "Fundador + equipo de operaciones + 1 Agent de orientación"
+    ],
+    [
+     "Canales iniciales",
+     "#onboard"
+    ],
+    [
+     "Puesta en marcha",
+     "El mismo día"
+    ],
+    [
+     "Resultado",
+     "Propuesta de estructura organizativa + 4 Agents nuevos"
+    ]
+   ],
+   "want": "No crees Agents primero: deja que un Agent de orientación entienda el negocio a fondo: cómo se reparten los puestos, qué eslabón consume más gente, en qué sistemas viven los datos. Con eso claro, él propone el diseño de una organización mixta de \"personas + Agents\"; una persona da el visto bueno y los nuevos Agents se crean uno a uno mediante un mecanismo de aprobación, con los Agents veteranos dando la \"formación de incorporación\" a los nuevos.",
+   "channels": [
+    [
+     "#onboard",
+     "Estudio del negocio, discusión de propuestas, aprobación de la creación de nuevos Agents"
+    ],
+    [
+     "#insights-usuarios",
+     "Inventario e insights de los datos internos de usuarios"
+    ],
+    [
+     "#investigacion-productos",
+     "Destino de los informes del nuevo Agent una vez incorporado (se crea según necesidad)"
+    ]
+   ],
+   "agents": [
+    [
+     "@orientador",
+     "Análisis del negocio y diseño organizativo",
+     "Pregunta por los detalles del negocio, interpreta archivos reales, investiga en línea las prácticas del sector, propone la estructura organizativa y redacta las fichas de aprobación y las descripciones de flujo de trabajo de los nuevos Agents."
+    ],
+    [
+     "@insights",
+     "Inventario de datos internos",
+     "Hace inventario de las bases de perfiles de usuario, reseñas y señales de pedidos, y señala qué cadenas de datos de mercado faltan."
+    ],
+    [
+     "@soporte-email",
+     "Se incorpora según la ficha de requisitos",
+     "Agent de soporte recién creado; antes de empezar lo forma @orientador y sus límites se escriben en la memoria a largo plazo."
+    ],
+    [
+     "@investigacion",
+     "Se incorpora según la ficha de requisitos",
+     "Agent de investigación recién creado; negocia sobre la marcha el reparto de datos con @insights antes de ponerse a trabajar."
+    ]
+   ],
+   "briefing": "Vamos a diseñar una organización mixta de \"personas + Agents\". Reglas:\n· Primero aclarar el negocio y luego hablar de Agents: sube al canal las tablas de objetivos reales, los informes semanales y las capturas de los sistemas.\n· Cada Agent nuevo necesita un \"disparador, entradas y salidas, puntos de decisión humana y cosas que no hace\" bien definidos.\n· La creación de Agents pasa por una ficha de aprobación humana; antes de incorporarse se les forma y sus límites van a la memoria a largo plazo.\n· Los Agents no tocan los permisos de administración: añadir miembros o cambiar roles de aprobación lo hace una persona en el panel de administración.",
+   "workflow": [
+    [
+     "Estudiar el negocio",
+     "Operaciones sube los archivos reales del negocio a #onboard; @orientador los interpreta y pregunta \"cuál es el eslabón más atascado\"."
+    ],
+    [
+     "Inventariar los datos",
+     "@insights revisa las bases de datos internas y entrega el perfil de datos y las carencias de cada mercado."
+    ],
+    [
+     "Investigar",
+     "@orientador investiga en línea las prácticas del sector y las contrasta punto por punto con la situación propia."
+    ],
+    [
+     "Proponer",
+     "Los dos Agents proponen la organización desde la óptica de operaciones y la de usuarios; la persona designa a uno para la versión final."
+    ],
+    [
+     "Formar el equipo",
+     "Se redactan las fichas de aprobación según la propuesta y la persona aprueba la creación; los Agents veteranos forman a los nuevos."
+    ]
+   ],
+   "jobs": [
+    [
+     "Formación de nuevos Agents",
+     "Antes de que cada Agent nuevo empiece, el Agent correspondiente le traspasa las interfaces de datos y las plantillas de trabajo."
+    ],
+    [
+     "Inventario de permisos",
+     "Qué Agent tiene instalada qué herramienta de datos y quién necesita consultas delegadas, aclarado periódicamente."
+    ],
+    [
+     "Iteración de la propuesta",
+     "Tras un tiempo de piloto en un sitio, se revisa la recomendación de estructura."
+    ]
+   ],
+   "followups": [
+    "Elige un sitio y un producto para un piloto de 2-3 semanas con métricas de aceptación, y luego replica a los demás sitios.",
+    "Convierte en un proyecto específico las carencias de cadenas de datos detectadas en el estudio (algunos mercados casi no tienen datos de usuarios).",
+    "Deja que el Agent te lleve la contraria: una buena propuesta organizativa incluye \"diseños explícitamente desaconsejados\", como replicar N juegos idénticos de Agents por país."
+   ],
+   "tips": [
+    "Subir archivos reales es diez veces más eficaz que describir de palabra: el Agent interpreta tu tabla semanal con mucha más precisión que tu resumen oral.",
+    "Que el Agent se niegue a excederse en permisos es una característica, no un defecto: no puede añadir miembros al canal ni cambiar permisos de aprobación por ti, y ese límite te protege.",
+    "Es normal que la primera versión de la propuesta sea demasiado estrecha; dale material de contexto más completo y él mismo mejorará la propuesta."
+   ]
+  },
+  "brand-creator": {
+   "sub": "El outreach a creadores obliga a encadenar a mano la herramienta de selección, los mensajes masivos, la aprobación de muestras, la persecución de videos y la retrospectiva: es el puesto que más tiempo consume de toda la operación.",
+   "meta": [
+    [
+     "Roles",
+     "Responsable de IT + responsable de operaciones + 4 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#creadores · #producto-it"
+    ],
+    [
+     "Puesta en marcha",
+     "Sistema en tres días"
+    ],
+    [
+     "Fase",
+     "En marcha · autochequeo programado"
+    ]
+   ],
+   "want": "Convierte toda la cadena de outreach en un circuito de \"el Agent decide + la persona ejecuta los pasos dentro de las herramientas + el sistema monitorea automáticamente\": la persona da el objetivo de negocio en una frase (\"este mes este producto necesita N videos\") y el Agent valida el objetivo, lo divide por semanas y publica las tareas de outreach; en los pasos sin API de la herramienta de selección se genera un \"pendiente manual\" con notificación por mensajería, la persona exporta y devuelve el archivo, y el Agent retoma todo el análisis y el flujo posterior.",
+   "channels": [
+    [
+     "#creadores",
+     "Criterios de negocio, asignación de objetivos, ejecución del outreach, aceptación final de negocio"
+    ],
+    [
+     "#producto-it",
+     "Línea de desarrollo del sistema de soporte"
+    ],
+    [
+     "Pendientes manuales del sistema",
+     "El Agent crea el pendiente → tarjeta de mensajería a la persona → la persona rellena → callback al Agent"
+    ]
+   ],
+   "agents": [
+    [
+     "@creadores",
+     "Responsable general del proyecto",
+     "Escribe el PRD, fija los criterios de negocio, crea y ajusta objetivos por conversación, hace la aceptación final de negocio y mantiene su propio paquete de habilidades."
+    ],
+    [
+     "@producto",
+     "Prototipos y aceptación",
+     "Hace prototipos, escribe las notas de implementación y acepta punto por punto en lo técnico."
+    ],
+    [
+     "@desarrollo",
+     "Implementación y despliegue",
+     "Crea tablas, desarrolla, publica versiones y resuelve incidencias."
+    ],
+    [
+     "@coordinacion",
+     "Supervisión superior",
+     "Revisa periódicamente los bloqueos de tareas de los Agents ejecutores y los reporta proactivamente a la persona para confirmación."
+    ]
+   ],
+   "briefing": "Vamos a llevar el flujo de outreach a los Agents. Reglas:\n· Cada módulo pasa doble aceptación: PRD de @creadores → prototipo de @producto → implementación de @desarrollo → aceptación técnica → aceptación final de negocio.\n· Los pasos sin interfaz (exportar de la herramienta) los hace una persona: el Agent solo genera el pendiente y la notificación de mensajería, no toca los pasos manuales.\n· Los filtros solo pueden usar campos ya configurados en el sistema; nada de inventarlos.\n· Los datos de prueba llevan siempre prefijo; tras la aceptación se limpian a cero con acuse.\n· La aprobación de muestras solo dispara automatizaciones cuando es \"aprobado\"; lo dudoso vuelve a revisión humana, nunca se aprueba por defecto.",
+   "workflow": [
+    [
+     "Dar el objetivo",
+     "La persona, en una frase: \"este mes el sitio X y el producto Y necesitan N videos\"."
+    ],
+    [
+     "Crear el objetivo",
+     "@creadores valida el producto, comprueba conflictos, crea el objetivo y lo divide por semanas, todo trazable."
+    ],
+    [
+     "Publicar el pendiente",
+     "Se genera automáticamente el pendiente manual de \"exportar la lista de creadores\", con notificación de mensajería a la persona."
+    ],
+    [
+     "Retomar el análisis",
+     "La persona devuelve el archivo exportado; el Agent lo analiza, genera la lista de outreach masivo y registra el resultado creador por creador."
+    ],
+    [
+     "Muestras y monitoreo",
+     "Las solicitudes de muestra se deciden en tres estados (aprobado / caducado / revisión humana); el progreso se calcula a diario y el déficit rueda automáticamente a la semana siguiente."
+    ]
+   ],
+   "jobs": [
+    [
+     "Cálculo diario de progreso",
+     "Una tarea programada del backend calcula el estado a nivel tarea-creador y reporta los bloqueos sin duplicados."
+    ],
+    [
+     "Retrospectiva semanal de déficit",
+     "El déficit del objetivo rueda automáticamente; los déficits grandes se notifican por mensajería al responsable del outreach."
+    ],
+    [
+     "Autochequeo de bloqueos cada 2 horas",
+     "Los Agents ejecutores revisan sus tareas en curso y @coordinacion inspecciona a todo el grupo y reporta."
+    ]
+   ],
+   "followups": [
+    "Calificación por niveles de los creadores (cuatro subpuntuaciones: tasa de aceptación, cumplimiento, contenido, estabilidad) que retroalimenta los filtros de la siguiente ronda; solo genera borradores y entra en vigor cuando la persona confirma.",
+    "Conecta los datos de publicidad para ver la diferencia de eficiencia entre \"videos de outreach vs invitaciones públicas\".",
+    "Deduplicación histórica del outreach: no volver a molestar al mismo creador en rondas distintas."
+   ],
+   "tips": [
+    "No fuerces las herramientas de terceros sin API: que la persona haga el paso de exportar y el Agent todo lo que viene después; el circuito se cierra igual.",
+    "Nombra a un Agent responsable general del proyecto (en vez de poner a una persona de jefe de proyecto) y quédate solo con los criterios y la aceptación final: la velocidad cambia por completo.",
+    "Permite que el Agent diga \"esto son datos de demostración\": un directivo llegó a exigir avances sobre los datos de ejemplo del prototipo como si fueran una tarea real, y el Agent, tras verificarlo, se negó a crear registros reales sobre datos falsos."
+   ]
+  },
+  "brand-ads": {
+   "sub": "El Agent de publicidad tiene permisos reales de escritura: en segundos puede retirar o potenciar un creativo, con impacto directo en el gasto. ¿Cómo delegar sin riesgo?",
+   "meta": [
+    [
+     "Roles",
+     "Responsable de publicidad + 2 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#publicidad"
+    ],
+    [
+     "Puesta en marcha",
+     "El mismo día"
+    ],
+    [
+     "Fase",
+     "Operación diaria"
+    ]
+   ],
+   "want": "Establece un modelo de separación de poderes de \"análisis automatizado + ejecución con autorización humana\": el Agent consulta los datos por sí mismo, marca los creativos ineficientes, calcula el importe del corte de pérdidas y emite una propuesta; otro Agent verifica en cruzado con una fuente de datos independiente; tras la autorización punto por punto de la persona, el Agent ejecuta por lotes y reporta uno a uno, y todas las escrituras quedan en el registro de auditoría.",
+   "channels": [
+    [
+     "#publicidad",
+     "Propuestas, dictámenes de verificación, autorización humana, reportes de ejecución"
+    ],
+    [
+     "#analisis-datos",
+     "Informe diario y verificación con varias fuentes de datos"
+    ],
+    [
+     "Página de registro de auditoría",
+     "Operador, autorizante, lote y resultado de cada escritura quedan registrados"
+    ]
+   ],
+   "agents": [
+    [
+     "@publicidad",
+     "Análisis + ejecución autorizada",
+     "Ranking de retorno por creativo, lista de corte de pérdidas, diagnóstico por producto; tras la autorización ejecuta por lotes las retiradas y potenciaciones y reporta una a una."
+    ],
+    [
+     "@verificacion",
+     "Verificación independiente",
+     "Recalcula los indicadores clave con otra tabla de datos brutos y emite un dictamen de revisión estructurado."
+    ],
+    [
+     "@insights",
+     "Criterios de conformidad de contenido",
+     "Aporta dimensiones de etiquetado como las declaraciones de eficacia (apoyo entre canales)."
+    ]
+   ],
+   "briefing": "El Agent de publicidad tiene permisos de escritura, pero con estas reglas:\n· Toda escritura pasa por \"propuesta → verificación independiente → decisión humana → ejecución por lotes → reporte uno a uno\".\n· Ningún lote de retiradas supera el 20% de los creativos activos.\n· Los movimientos de presupuesto diarios por encima del umbral requieren doble confirmación.\n· Si un dato no se puede obtener, se dice que no se puede obtener, no se inventa; si el criterio de los datos es anómalo, se marca como \"no concluyente\".",
+   "workflow": [
+    [
+     "Marcar creativos",
+     "@publicidad extrae los datos por ventana temporal y marca la lista de creativos de \"gasto alto, retorno bajo\", con el importe del corte de pérdidas."
+    ],
+    [
+     "Verificación independiente",
+     "@verificacion recalcula con otra fuente de datos y emite un dictamen de acuerdo o de nueva revisión."
+    ],
+    [
+     "Decisión humana",
+     "El responsable autoriza punto por punto y puede añadir reglas (como la proporción por lote)."
+    ],
+    [
+     "Ejecución por lotes",
+     "El Agent retira por lotes según la regla del ≤20% y reporta uno a uno éxitos, fallos y causas."
+    ],
+    [
+     "Registrar",
+     "Las escrituras entran en el registro de auditoría: quién autorizó, qué lote y con qué resultado, consultable en todo momento."
+    ]
+   ],
+   "jobs": [
+    [
+     "Propuesta diaria de corte de pérdidas",
+     "Lista de creativos ineficientes con una sección aparte de \"pendiente de autorización humana\" para que el jefe decida de un vistazo."
+    ],
+    [
+     "Validación diaria de calidad de datos",
+     "Se comparan las proporciones de los campos clave; ante un cambio brusco se marca \"datos del día posiblemente incompletos, no concluyentes\"."
+    ],
+    [
+     "Diagnóstico por producto",
+     "Análisis de causa raíz ante anomalías como limitación de alcance o cambios de categoría: conformidad del contenido, configuración de objetivos, estructura de distribución."
+    ]
+   ],
+   "followups": [
+    "Usa los datos de beneficio para calcular la línea de retorno de equilibrio y contrástala con el objetivo del panel: a menudo se descubre que un objetivo demasiado alto hace que \"el presupuesto no se pueda gastar\".",
+    "Fija la comparación de eficiencia entre \"videos de outreach con muestra vs videos de invitación pública\": en la práctica los primeros rinden en torno a un 70% más, lo que cambia directamente la lógica de asignación de presupuesto.",
+    "Conecta cada operación del Agent a la página de monitoreo de trabajo: \"una tarea hecha, un registro\"."
+   ],
+   "tips": [
+    "Permiso de escritura no es ejecución automática. El Agent insiste por sí mismo en \"sin autorización no me muevo\"; fija esa postura en el briefing.",
+    "Dos Agents verificándose con fuentes de datos distintas de verdad atrapan errores: una verificación destapó un bug de criterio estadístico que inflaba la media casi diez veces por los días de bajas reproducciones.",
+    "Las reglas de autorización deben ser cuantitativas (≤20% por lote, doble confirmación sobre el umbral); \"operar con prudencia\" no se puede ejecutar."
+   ]
+  },
+  "brand-daily": {
+   "sub": "En una operación multisitio, problemas como \"el GMV sube y el beneficio baja\" no se ven mirando tablas a mano, y esperar a la retrospectiva de fin de mes ya es tarde.",
+   "meta": [
+    [
+     "Roles",
+     "Responsable de operaciones + 2 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#analisis-datos"
+    ],
+    [
+     "Puesta en marcha",
+     "Primer informe en minutos"
+    ],
+    [
+     "Fase",
+     "Diario"
+    ]
+   ],
+   "want": "Cada día, un informe multisitio que combine las tres dimensiones de \"beneficio × publicidad × outreach a creadores\": diagnóstico con semáforo rojo-amarillo-verde, señalando sitio y creativo concretos, y una sección aparte de \"recomendaciones de corte de pérdidas pendientes de autorización humana\". Que la dirección pase de \"mirar datos\" a \"decidir\".",
+   "channels": [
+    [
+     "#analisis-datos",
+     "Informe diario, análisis de atribución, consultas ad hoc"
+    ],
+    [
+     "#publicidad",
+     "Suministro de datos de la dimensión publicitaria"
+    ],
+    [
+     "Tablero de tareas",
+     "Tareas de seguimiento de los puntos rojos del informe"
+    ]
+   ],
+   "agents": [
+    [
+     "@analisis",
+     "Informe y atribución",
+     "Conecta con las herramientas de solo lectura del centro de datos y produce el marco del informe diario, el semanal y la atribución comparativa mensual."
+    ],
+    [
+     "@publicidad",
+     "Datos de publicidad",
+     "Gasto, retorno y alertas de creativos anómalos, con detalle hasta el creativo individual."
+    ]
+   ],
+   "briefing": "El informe diario tiene que permitir \"decidir directamente\". Reglas:\n· Tres dimensiones combinadas (beneficio / publicidad / outreach) y sitios clasificados: urgente, seguimiento, mantener.\n· Las recomendaciones de corte de pérdidas van en sección aparte, con creativo, gasto y acción sugerida, a la espera de autorización.\n· Las anomalías de datos (como un cambio brusco en la proporción de un campo) se marcan \"posiblemente incompletos, no concluyentes\"; nada de forzar el cálculo.\n· La atribución debe bajar al nivel del video y el creativo individual; \"el mercado cayó\" no es una conclusión.",
+   "workflow": [
+    [
+     "Extraer datos",
+     "@analisis saca del centro de datos el beneficio, la publicidad y el outreach del día de cada sitio."
+    ],
+    [
+     "Diagnóstico combinado",
+     "Se combinan las tres dimensiones y se clasifica sitio a sitio: por ejemplo, uno que \"pasa de beneficio a pérdida con fuerte subida del gasto publicitario en un día\" se marca en rojo."
+    ],
+    [
+     "Detallar",
+     "@publicidad baja los sitios rojos al nivel de creativo: cuáles están quemando dinero y qué acción se sugiere."
+    ],
+    [
+     "Puntos de decisión",
+     "El informe cierra con la lista aparte de \"pendiente de autorización humana\"."
+    ],
+    [
+     "Decisión humana",
+     "El responsable aprueba directamente en el canal: \"estos, parados\"."
+    ]
+   ],
+   "jobs": [
+    [
+     "Informe diario",
+     "Marco fijo, producido en minutos."
+    ],
+    [
+     "Informe semanal de operaciones",
+     "Gestión de todas las tiendas y alerta de las tiendas en pérdidas."
+    ],
+    [
+     "Atribución comparativa mensual",
+     "Los productos que caen mes a mes se detallan hasta \"qué mercado y qué tipo de contenido se cortó\"."
+    ]
+   ],
+   "followups": [
+    "Con la biblioteca de videos originales de creadores conectada, desmonta los videos exitosos plano a plano: gancho, estructura, causa del éxito, y produce plantillas de guion replicables.",
+    "Cruza la biblioteca de reseñas de usuarios para conectar los \"movimientos anómalos de ventas\" con las \"dudas de los usuarios\" (certificaciones, edad adecuada, efectos secundarios).",
+    "Haz que cada punto rojo del informe genere automáticamente una tarea de seguimiento en el tablero de tareas."
+   ],
+   "tips": [
+    "El valor del informe está en las \"acciones sugeridas\", no en la enumeración de datos: define primero el formato de los \"puntos de decisión\" y luego habla de estética.",
+    "La atribución solo es accionable al nivel del video y el creativo individual; las conclusiones a nivel de sitio no se pueden ejecutar.",
+    "Un buen informe diario exige límites claros en las herramientas de datos: solo lectura, marca bloqueada, sitio bloqueado; el Agent no puede saltárselos."
+   ]
+  },
+  "brand-voc": {
+   "sub": "Entrevistas telefónicas a creadores hechas en varios países, con las grabaciones, transcripciones, notas y tablas resumen dispersas por todas partes: ordenarlo a mano es lento y con fugas.",
+   "meta": [
+    [
+     "Roles",
+     "Responsable de marketing + 1 Agent de insights"
+    ],
+    [
+     "Canales iniciales",
+     "#insights-usuarios"
+    ],
+    [
+     "Puesta en marcha",
+     "Primer resumen en minutos"
+    ],
+    [
+     "Resultado",
+     "Informe de insights + datos estructurados + versión web"
+    ]
+   ],
+   "want": "Entrega directamente al Agent el material bruto de las entrevistas (tabla resumen + notas por persona): primero produce un resumen inicial, luego busca los huecos celda a celda, la persona completa y él vuelve a revisar, iterando hasta el informe final, organizado por bloques: perfiles por país, feedback de producto, prioridades de nuevos productos y recomendaciones de habilitación de creadores; además produce datos estructurados como fuente de importación del sistema VOC y una versión web sin la lista de nombres.",
+   "channels": [
+    [
+     "#insights-usuarios",
+     "Subida de materiales, iteración del resumen, entrega del informe (todo en el hilo de una sola tarea)"
+    ],
+    [
+     "Tablero de tareas",
+     "Una tarea de principio a fin: In Progress ⇆ In Review según avanza la iteración"
+    ],
+    [
+     "Sistema VOC",
+     "Destino final de los datos estructurados (a la espera de la interfaz de importación)"
+    ]
+   ],
+   "agents": [
+    [
+     "@insights",
+     "Síntesis e insights de entrevistas",
+     "Analiza tablas y documentos, encuentra los huecos, destila las coincidencias y diferencias entre mercados y produce el informe en varios formatos."
+    ]
+   ],
+   "briefing": "Vamos a convertir estas entrevistas en insights reutilizables. Reglas:\n· Primero registrar, luego resumir: el material nuevo no se mezcla directamente con las conclusiones existentes.\n· Los huecos se listan (qué preguntas faltan de qué persona) y la persona decide si completar con la grabación o dejar en blanco.\n· Lo \"mencionado explícitamente en el original\" se rellena directo; lo \"inferido del contexto\" debe marcarse como \"inferencia\".\n· \"No / de momento no\" es una respuesta válida, no un hueco; nada de rellenarlo a la fuerza.\n· Las versiones externas no muestran la lista de entrevistados ni sus cuentas.",
+   "workflow": [
+    [
+     "Entregar el material",
+     "El responsable de marketing envía al canal la tabla resumen y las nuevas notas de entrevista."
+    ],
+    [
+     "Primer resumen",
+     "El Agent lo lee en minutos y da las conclusiones clave: umbral de confianza, preferencias de categoría, reparos sobre el empaque."
+    ],
+    [
+     "Buscar huecos",
+     "El Agent lista las carencias con precisión de \"a tal entrevistado le faltan tales preguntas, tantos campos en total\"."
+    ],
+    [
+     "Completar y revisar",
+     "La persona completa y lo devuelve; el Agent confirma qué sigue faltando."
+    ],
+    [
+     "Entrega final",
+     "Informe completo de insights + datos estructurados + versión web sin nombres; la tarea pasa a In Review."
+    ]
+   ],
+   "jobs": [
+    [
+     "Incorporación continua de entrevistas",
+     "Las nuevas tandas de notas se integran a la muestra con los mismos criterios."
+    ],
+    [
+     "Respuestas ad hoc de negocio",
+     "\"¿Cuántas personas aprueban tal dirección de producto?\": el Agent da un recuento con criterio amplio y otro estricto."
+    ],
+    [
+     "Consolidación en la base VOC",
+     "Los datos estructurados quedan listos; entran en cuanto el sistema ofrezca la interfaz de importación."
+    ]
+   ],
+   "followups": [
+    "Reorganiza el informe según las tres ópticas de negocio \"producto / contenido / promoción con creadores\", para que cada equipo vea lo suyo.",
+    "Alinea los insights de las entrevistas con los datos de reseñas de la plataforma para ver si \"lo que dicen\" y \"lo que compran\" coinciden.",
+    "Consolida \"qué es lo que más necesitan los creadores de la marca\" (guiones, materiales de certificación, palabras permitidas y prohibidas) y dáselo directamente al Agent de gestión de creadores como plantilla de brief."
+   ],
+   "tips": [
+    "Pide al Agent que señale primero los huecos, en vez de dejarle rellenar a la fuerza: \"la nota está en blanco\" y \"falta por rellenar\" son dos cosas distintas.",
+    "Exígele \"revisar de nuevo las cifras clave\": en una revisión el Agent encontró un sesgo estadístico propio y lo corrigió por iniciativa.",
+    "Si el sistema aguas abajo es de solo lectura, que el Agent se niegue a escribir es lo correcto: dale una interfaz de importación formal en vez de obligarlo a rodearla."
+   ]
+  },
+  "brand-research": {
+   "sub": "Mirar solo los rankings del mercado lleva a seguir la corriente hacia océanos rojos; mirar solo a tus propios usuarios impide ver las oportunidades nuevas de fuera.",
+   "meta": [
+    [
+     "Roles",
+     "Responsable de operaciones + 2 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#investigacion-productos · #insights-usuarios"
+    ],
+    [
+     "Puesta en marcha",
+     "Primera investigación en menos de una hora"
+    ],
+    [
+     "Fase",
+     "Monitoreo continuo"
+    ]
+   ],
+   "want": "Dos Agents en relevo: @investigacion entra en la plataforma de datos del sector, escanea los rankings de superventas y novedades de varios países y produce el informe de señales externas; @insights verifica cada dirección con la base VOC interna (reseñas / atención al cliente / datos de video), y al final las oportunidades se clasifican en tres niveles: impulsada por dolor de usuario, impulsada por tendencia de mercado y doble motor de alta confianza. Solo las direcciones de doble motor entran en la prioridad de desarrollo.",
+   "channels": [
+    [
+     "#investigacion-productos",
+     "Tareas de investigación, informes de señales externas, juicio integrado de doble motor"
+    ],
+    [
+     "#insights-usuarios",
+     "Verificación de evidencia VOC (relevo entre canales)"
+    ],
+    [
+     "Tablero de tareas",
+     "Una tarea por investigación, con los entregables colgados de la tarea"
+    ]
+   ],
+   "agents": [
+    [
+     "@investigacion",
+     "Escaneo de señales externas",
+     "Escanea por país los rankings de novedades y superventas: categoría, ángulos de venta, formatos y empaques, franjas de precio, competidores, ganchos de contenido."
+    ],
+    [
+     "@insights",
+     "Verificación de evidencia interna",
+     "Consulta la base VOC con listas de palabras acotadas y devuelve la fuerza de la evidencia y su distribución por país, con los números de registro originales."
+    ]
+   ],
+   "briefing": "Reglas de la investigación de nuevos productos:\n· El criterio de disparo es OR: dolor de usuario o señal de tendencia de mercado; con que se cumpla uno, se profundiza.\n· Toda dirección debe pasar la validación VOC para marcarse \"doble motor\"; por caliente que esté la señal externa, sin evidencia interna solo se marca \"observación\".\n· Las conclusiones deben poderse rastrear: cada evidencia de usuario lleva el número del registro original.\n· Las credenciales de las cuentas no se repiten en el canal.",
+   "workflow": [
+    [
+     "Definir el alcance",
+     "La persona da las cuentas de plataforma y los mercados objetivo; @investigacion confirma con @insights los países en venta y sus prioridades."
+    ],
+    [
+     "Escaneo externo",
+     "Se escanean los rankings por país y sale la lista de direcciones de oportunidad, con tipo de disparo y prioridad anotados."
+    ],
+    [
+     "Validación en relevo",
+     "@insights toma el encargo por iniciativa propia y busca evidencia interna dirección por dirección: una con cientos de reseñas, otra con apenas unas pocas."
+    ],
+    [
+     "Integrar y clasificar",
+     "Los dos Agents integran el juicio en tres niveles, \"doble motor / tendencia / observación\", y ajustan las prioridades."
+    ],
+    [
+     "Decisión humana",
+     "Se recomienda centrarse en la línea principal de doble motor, con las prioridades por país y los umbrales de conformidad."
+    ]
+   ],
+   "jobs": [
+    [
+     "Radar competitivo",
+     "La lista de seguimiento (incluidas las marcas fuente de inspiración) se escanea cada semana en busca de novedades."
+    ],
+    [
+     "Revisión continua de oportunidades",
+     "Cada semana entran varias direcciones de oportunidad a la lista y se clasifican de forma continua según el criterio de doble motor."
+    ],
+    [
+     "Mantenimiento del glosario de conformidad",
+     "Los requisitos de certificación y las expresiones prohibidas de cada mercado se actualizan de forma continua."
+    ]
+   ],
+   "followups": [
+    "Haz entrevistas de concepto con muestras pequeñas para las direcciones de \"doble motor\" (conectando con el flujo de entrevistas del escenario de investigación de usuarios).",
+    "Archiva los ganchos de contenido de la competencia de las direcciones en \"observación\" y actívalos cuando la señal se fortalezca.",
+    "Amplía la muestra cuando mejore el nivel de la cuenta de la plataforma; el plan gratuito solo deja ver los primeros resultados de cada página y hay que declararlo como criterio en el informe."
+   ],
+   "tips": [
+    "El criterio de disparo (AND u OR) lo decide una persona: el Agent asumió por defecto \"sin VOC no entra en prioridades\" y el negocio lo corrigió a OR.",
+    "Las palabras clave amplias generan falsos positivos: verifica con listas de palabras acotadas y declara el criterio.",
+    "Al recibir usuario y contraseña, la primera frase del Agent debería ser \"no repetiré las credenciales en el hilo\": escríbelo en sus límites."
+   ]
+  },
+  "brand-dev": {
+   "sub": "El negocio pide muchos sistemas, IT tiene poca gente y el outsourcing es lento: el sistema de outreach a creadores no cabe en la agenda de una sola persona.",
+   "meta": [
+    [
+     "Roles",
+     "1 responsable de IT + 2 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#producto-it"
+    ],
+    [
+     "Resultado",
+     "20+ tablas · 60+ interfaces · 10+ páginas, en línea en tres días"
+    ],
+    [
+     "Fase",
+     "Iteración continua"
+    ]
+   ],
+   "want": "Forma un \"equipo de desarrollo de Agents\": @producto se encarga de aclarar requisitos → prototipo → notas de implementación → aceptación punto por punto; @desarrollo se encarga de crear tablas, desarrollar, desplegar en contenedores y resolver incidencias en producción. La persona solo hace dos cosas: pedir y dar el visto bueno final. La aceptación de negocio la hace el Agent solicitante, formando una doble aceptación \"técnica + de negocio\".",
+   "channels": [
+    [
+     "#producto-it",
+     "Toda la línea: requisitos, prototipos, desarrollo, aceptación, versiones e incidencias"
+    ],
+    [
+     "Sitio de prototipos",
+     "Páginas de prototipo que el jefe puede navegar directamente"
+    ],
+    [
+     "Entorno de pruebas",
+     "Validación de extremo a extremo por el circuito real"
+    ]
+   ],
+   "agents": [
+    [
+     "@producto",
+     "Prototipos y aceptación",
+     "Siete entregables: enlace del prototipo, nota de requisitos, flujo de páginas, reglas de campos, estados de interacción, propuesta de interfaces, lista de aceptación."
+    ],
+    [
+     "@desarrollo",
+     "Implementación y operación",
+     "Tablas, interfaces, tareas programadas, colas de mensajes, versiones en contenedor, incidencias resueltas en minutos."
+    ],
+    [
+     "@creadores",
+     "Aceptación final de negocio",
+     "Acepta con los criterios reales del negocio; si no pasa, se devuelve."
+    ]
+   ],
+   "briefing": "Reglas del equipo de desarrollo:\n· Línea roja de stack: frontend en HTML puro y backend en Python; la máquina de desarrollo del Agent tiene memoria limitada y los builds pesados lo tiran de línea.\n· Cada tarea pasa por \"prototipo → autotest de desarrollo → aceptación técnica → aceptación final de negocio\"; nadie que no sea responsable de la tarea puede cerrarla.\n· Los datos de prueba llevan prefijo; tras la aceptación se limpian con precisión y acuse de \"recuento en 0\".\n· Los secretos solo van a variables de entorno del backend, nunca al repositorio, al frontend, a los logs o a capturas; los secretos se pasan al Agent con cifrado asimétrico y la clave vieja se invalida al momento.\n· La documentación de interfaces comparte fuente con las rutas; todo cambio de negocio debe sincronizar la documentación, y es un criterio duro de aceptación.",
+   "workflow": [
+    [
+     "Pedir",
+     "La persona lo describe en una frase en el canal, a menudo a partir de un boceto a mano del jefe."
+    ],
+    [
+     "Prototipo",
+     "@producto publica el prototipo en el sitio de prototipos el mismo día; la persona lo mira antes de empezar el trabajo."
+    ],
+    [
+     "Desarrollar",
+     "@desarrollo crea tablas, escribe interfaces, autotesta y publica; la mayoría de tareas llegan a In Review en decenas de minutos."
+    ],
+    [
+     "Doble aceptación",
+     "Aceptación técnica (con matriz de permisos y códigos de error) → aceptación final del Agent de negocio; si no pasa, se devuelve."
+    ],
+    [
+     "Cierre",
+     "Datos de prueba a cero con acuse y tarea Done; los incidentes en producción se localizan y reparan en minutos."
+    ]
+   ],
+   "jobs": [
+    [
+     "Tareas programadas de madrugada",
+     "El cálculo de indicadores de negocio y las retrospectivas semanales y mensuales corren solos en la plataforma de programación."
+    ],
+    [
+     "Sincronización de la documentación de interfaces",
+     "La página de documentación, generada por metadatos, se actualiza con cada versión."
+    ],
+    [
+     "Contabilidad de costos de tokens",
+     "El consumo de cada Agent se desglosa en las tres dimensiones \"rol × tarea × tiempo\", con el histórico reconstruido con precisión."
+    ]
+   ],
+   "followups": [
+    "Sistema de API Keys propias por Agent: autorización por ámbitos, rechazo de accesos entre sitios, logs de llamadas anonimizados, para que los Agents de negocio llamen al sistema por programa.",
+    "Relevo generacional de Agents: el veterano empaqueta todo el contexto y enseña al nuevo a desplegar paso a paso, todo dentro del canal.",
+    "Página de monitoreo de trabajo: cada Agent \"una tarea hecha, un registro\", y la dirección ve el panorama completo en cualquier momento."
+   ],
+   "tips": [
+    "Fija la línea roja del stack antes de empezar: la máquina de desarrollo del Agent se cayó dos veces por builds pesados de frontend; con \"HTML puro + Python\" no volvió a pasar.",
+    "\"Reconstruir la imagen y perder las variables de entorno\" es una regresión frecuente: convierte \"verificar el env completo antes de publicar\" en un ítem de la lista de comprobación.",
+    "Si no hay tarifas reales para los costos, mejor retirar la columna de estimaciones y marcarla \"pendiente de conexión\" que enseñar a la dirección un número equivocado."
+   ]
+  },
+  "brand-health": {
+   "sub": "Los datos de recompra y reclamaciones ya existen, pero \"subir la recompra y bajar las reclamaciones\" sigue en calificaciones, reuniones y sugerencias de mejora: nadie responde del resultado final.",
+   "meta": [
+    [
+     "Roles",
+     "Dueño de la marca + 1 Agent asesor de negocio"
+    ],
+    [
+     "Canales iniciales",
+     "#diagnostico-negocio"
+    ],
+    [
+     "Puesta en marcha",
+     "Tres tareas cerradas el mismo día"
+    ],
+    [
+     "Resultado",
+     "Diagnóstico del flujo + auditoría del tablero + RACI + tablero de mando desplegado"
+    ]
+   ],
+   "want": "Entrega al Agent un flujo de \"clasificar los productos por reclamaciones y recompra, y optimizarlos o retirarlos uno a uno\" para una triple revisión: primero diagnostica las carencias del propio flujo, luego audita columna a columna las fórmulas y criterios del tablero de ejecución, y por último entrega la matriz RACI de responsabilidades y el diseño del tablero de gestión de proyectos, desarrollando y desplegando el tablero en el acto.",
+   "channels": [
+    [
+     "#diagnostico-negocio",
+     "Flujo dictado, subida de planes y tableros, diagnóstico y revisión, todo en el hilo de la tarea"
+    ],
+    [
+     "Tablero de tareas",
+     "Un problema, una tarea: creada y cerrada el mismo día"
+    ],
+    [
+     "Sitio del tablero de mando",
+     "Tablero visual desarrollado y desplegado por el Agent, directo para la dirección"
+    ]
+   ],
+   "agents": [
+    [
+     "@asesor",
+     "Diagnóstico, auditoría, diseño y desarrollo",
+     "Lee los documentos de planes y los Excel, diagnostica las carencias del flujo, verifica las fórmulas columna a columna, produce el RACI y el diseño del tablero, y desarrolla y despliega directamente el tablero estático."
+    ]
+   ],
+   "briefing": "Vamos a convertir la \"mejora de la experiencia\" de iniciativa en mecanismo de gestión. Reglas:\n· Cada calificación se ata a una acción: cada nivel corresponde a amplificar / reparar / revalidar / degradar / eliminar, no solo a etiquetar.\n· Las reclamaciones se desglosan por causa raíz: diseño, especificaciones, materiales, expectativas, lote, logística; cada causa corresponde a un departamento y un plazo distintos.\n· Los indicadores retardados (recompra de ciclo largo) llevan indicadores adelantados (feedback negativo del primer uso, reembolsos de ciclo corto, recompra temprana).\n· Los productos de ventas altas y reclamaciones altas llevan compuertas de corte: de pauta, de producto y de cadena de suministro.\n· Cada producto problemático tiene su tarjeta de combate: owner, fecha límite y métrica de verificación; si falta cualquiera, no entra al pool de optimización.",
+   "workflow": [
+    [
+     "Dictar el flujo",
+     "El dueño pasa su SOP actual de voz a texto directamente en el canal, con el paquete comprimido de documentos adjunto."
+    ],
+    [
+     "Diagnosticar",
+     "El Agent entrega siete mejoras: umbrales duros para la clasificación, causas raíz de las reclamaciones, indicadores adelantados, juicio comercial para los productos joya, compuertas de corte, ritmos por capas y RACI."
+    ],
+    [
+     "Auditar el tablero",
+     "El Excel de ejecución se verifica columna a columna: fórmulas que referencian la columna equivocada, criterios inconsistentes, fórmulas con enlaces externos no verificables tras exportar, códigos no estándar; sale una lista priorizada de correcciones."
+    ],
+    [
+     "Fijar el mecanismo",
+     "Se produce la matriz RACI (13 módulos de trabajo × 10 departamentos) + el diseño de un tablero de mando de seis bloques, con la recomendación de conservar un único responsable general."
+    ],
+    [
+     "Aterrizar",
+     "El dueño dice \"diséñalo y desarróllalo directamente\" y el Agent desarrolla en el acto el tablero visual estático y lo despliega en línea."
+    ]
+   ],
+   "jobs": [
+    [
+     "Revisión semanal de tareas rojas",
+     "Productos de ventas altas y reclamaciones altas, vencidos sin avance, o aún en pauta con las reclamaciones empeorando."
+    ],
+    [
+     "Retrospectiva mensual de clasificación",
+     "Capas de producto y asignación de recursos: cuáles amplificar, cuáles reparar, cuáles retirar."
+    ],
+    [
+     "Retrospectiva trimestral del mecanismo",
+     "Si las causas raíz de las reclamaciones se repiten, la tasa de éxito de las acciones de optimización y si el propio mecanismo funciona."
+    ]
+   ],
+   "followups": [
+    "Conecta el tablero estático a fuentes de datos reales y congela una instantánea de datos al mes para garantizar la trazabilidad.",
+    "Automatiza el etiquetado de causa raíz de las reclamaciones: extrae las etiquetas directamente de los registros de atención al cliente.",
+    "La zona de verificación de resultados debe prevenir la \"falsa mejora\": maquillar la tasa de reclamaciones retirando productos o recortando pauta sin que la recompra global de la marca suba."
+   ],
+   "tips": [
+    "Basta con dictar por voz y pasar el texto al Agent, sin ordenarlo antes en un documento: él lo estructura solo.",
+    "El Agent auditando Excel caza cosas como \"la fórmula referencia la columna equivocada\", casi invisibles para el ojo humano; dale las tablas complejas a revisar.",
+    "El diagnóstico aterriza en \"quién responde, para cuándo y cómo se verifica\"; una sugerencia de mejora sin owner es como no haberla hecho."
+   ]
+  },
+  "brand-npd": {
+   "sub": "El informe de investigación de usuarios ya está y el plan de producto estrella del product manager también, pero decidir si la dirección es correcta, si la ingeniería puede cumplirla y qué objetivos debe fijar el jefe exige una revisión profesional que no tome partido.",
+   "meta": [
+    [
+     "Roles",
+     "Dueño de la marca + product manager + 1 Agent asesor de producto"
+    ],
+    [
+     "Canales iniciales",
+     "#revision-productos"
+    ],
+    [
+     "Puesta en marcha",
+     "Primera ronda de revisión el mismo día"
+    ],
+    [
+     "Resultado",
+     "Juicio de direcciones + cálculo comercial + revisión de ingeniería del plan + objetivos del jefe con compuertas de aceptación"
+    ]
+   ],
+   "want": "Antes de aprobar el nuevo producto, haz que el Agent lo revise en dos rondas: en la primera, entrégale las decenas de páginas del informe de entrevistas de usuarios y obtén en minutos el juicio comparativo de \"qué dirección tomar\", el plazo de desarrollo y el cálculo comercial; en la segunda, cuando salga el plan de producto estrella del product manager, vuelve a entregárselo para evaluar los desafíos de ingeniería, estimar las horas y, desde la óptica del jefe, fijar los objetivos y las compuertas de aceptación.",
+   "channels": [
+    [
+     "#revision-productos",
+     "Informes de entrevistas, documentos del plan y las dos rondas de revisión, todo en el hilo de la tarea"
+    ],
+    [
+     "Tablero de tareas",
+     "Una tarea por ronda de revisión, cerrada en minutos o decenas de minutos"
+    ],
+    [
+     "Adjuntos",
+     "Los PDF de decenas de páginas se suben directamente y el Agent los lee solo"
+    ]
+   ],
+   "agents": [
+    [
+     "@asesor-producto",
+     "Juicio de oportunidades y revisión de ingeniería",
+     "Lee informes y planes, compara direcciones por intensidad del dolor × ticket medio × vacío competitivo, estima plazos y horas, da cálculos comerciales por escenarios, señala las contradicciones de ingeniería y fija las compuertas de aceptación."
+    ]
+   ],
+   "briefing": "Reglas de la revisión de nuevos productos:\n· Las conclusiones salen de la evidencia documental: cada juicio cita su fuente y no se introducen supuestos sin base.\n· El juicio de dirección se da como matriz comparativa, no como respuesta única; solo es primera opción cuando coinciden dolor más fuerte × ticket más alto × vacío competitivo.\n· La muestra escasa se declara: unas pocas entrevistas sirven para fijar la dirección, no para apostar el inventario de una temporada; antes de apostar hay que validar cuantitativamente.\n· Atrévete a señalar las contradicciones profesionales: aunque el plan venga de un experto interno, el riesgo de ingeniería que haya que decir se dice.",
+   "workflow": [
+    [
+     "Entregar el informe",
+     "El jefe sube el PDF de decenas de páginas de investigación de usuarios, con tres preguntas de negocio."
+    ],
+    [
+     "Primera ronda",
+     "El Agent lo lee entero en minutos y entrega la matriz comparativa de direcciones + la señal de corrección clave (los usuarios no quieren un diseño más exagerado, sino el equilibrio entre experiencia y estética)."
+    ],
+    [
+     "Plazos y cálculo",
+     "Planifica el desarrollo hacia atrás y marca el hito de congelar el modelo; el cálculo comercial da tres escenarios, conservador / base / optimista, con criterios de decisión."
+    ],
+    [
+     "Segunda ronda del plan",
+     "Cuando sale el plan del product manager, se revisa de nuevo: valida la dirección y señala a la vez la contradicción de ingeniería central que el plan no resuelve (lo que esa categoría necesita de verdad es un diseño estructural diferenciado, no llevar al máximo un único indicador)."
+    ],
+    [
+     "Fijar los objetivos del jefe",
+     "Entrega el objetivo estrella polar + tres compuertas de aceptación (preventa que valide la demanda, sin pasar las pruebas no hay lanzamiento, primer pedido contenido) + los KPI post-lanzamiento y el marco de presupuesto."
+    ]
+   ],
+   "jobs": [
+    [
+     "Revisión continua",
+     "Nuevas entrevistas, planes o rediseños pasan otra ronda por el mismo flujo."
+    ],
+    [
+     "Benchmark competitivo",
+     "La tabla comparativa de precios y funciones de la categoría objetivo se actualiza de forma continua."
+    ],
+    [
+     "Diseño de validación",
+     "Diseño de las encuestas cuantitativas y de los tests de preventa."
+    ]
+   ],
+   "followups": [
+    "Convierte las dos rondas de revisión en plantilla de aprobación de nuevos productos: evidencia → dirección → plazos → cálculo → compuertas.",
+    "Entrega la lista de contradicciones de ingeniería a la cadena de suministro para verificarla ítem a ítem en la fase de primeras muestras, sin dejarla para después del lanzamiento.",
+    "Ata los tres escenarios del cálculo comercial a acciones claras: por debajo de la línea conservadora, corte de pérdidas; alcanzada la línea base, pedido adicional."
+   ],
+   "tips": [
+    "Entrega el PDF de decenas de páginas directamente al Agent y lo lee en minutos: no hace falta que una persona haga antes el resumen.",
+    "Una buena revisión es \"validar la dirección + señalar el detalle fatal\": la aprobación total y el rechazo total no aportan información.",
+    "Los objetivos del jefe llevan compuertas de aceptación: \"sin pasar las pruebas no hay lanzamiento\" es disciplina, no un ítem del cronograma, y debe escribirse en el documento de aprobación."
+   ]
+  },
+  "fin-allweather": {
+   "sub": "El equipo quiere convertir una estrategia cuantitativa en un producto formal: el backtest debe ser reproducible, los criterios deben alinearse con el contrato del fondo y tras el lanzamiento hay que conciliar cada día; tradicionalmente, eso son meses de trabajo de un equipo de research más middle y back office.",
+   "meta": [
+    [
+     "Roles",
+     "2 personas + 3 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#producto-estrategia · #serie-investigacion · #operacion-real"
+    ],
+    [
+     "Duración",
+     "Del diseño a la operación real en unas tres semanas"
+    ],
+    [
+     "Datos",
+     "Datos de mercado · liquidaciones del bróker"
+    ]
+   ],
+   "want": "Deja que el Agent CIO y el Agent de ingeniería lleven una estrategia cuantitativa de la idea a la operación real: fijar por escrito el \"manual reproducible\", completar el mismo día el backtest histórico de doce años, barrer sistemáticamente los niveles de parámetros, alinear todo el material con los criterios de cumplimiento del contrato del fondo y hacerse cargo de la operación diaria tras el lanzamiento. La persona solo plantea hipótesis, hace preguntas y decide.",
+   "channels": [
+    [
+     "#producto-estrategia",
+     "Propuesta, backtest, decisiones de parámetros y lanzamiento"
+    ],
+    [
+     "#serie-investigacion",
+     "Informes de investigación numerados, con todos los resultados negativos, buscables y trazables"
+    ],
+    [
+     "#operacion-real",
+     "Retorno de liquidaciones, conciliación de valor liquidativo, tablero y alertas"
+    ]
+   ],
+   "agents": [
+    [
+     "@CIO",
+     "Estrategia y materiales",
+     "Escribe el manual reproducible, los informes de investigación y los materiales externos, revisa de forma independiente la producción de ingeniería y custodia la consistencia de criterios."
+    ],
+    [
+     "@ingenieria",
+     "Backtest y pipeline de datos",
+     "Implementa el motor de backtest, corre los barridos de parámetros y construye el pipeline de datos post-cierre y el tablero."
+    ],
+    [
+     "@replica",
+     "Replicación independiente de terceros",
+     "No mira la implementación original; replica los resultados desde cero solo con el manual, y cada discrepancia es un hallazgo."
+    ]
+   ],
+   "briefing": "Vamos a convertir una estrategia cuantitativa en un producto formal. Reglas:\n· Todo se rige por el \"manual reproducible\": para cambiar un criterio, primero se cambia el documento y luego el código.\n· Los parámetros y los niveles de producto los decide una persona; el Agent solo aporta cálculos con varios criterios y sus pros y contras, y la decisión va al libro de actas.\n· Una conclusión importante solo cuenta cuando un segundo Agent la ha replicado de forma independiente.\n· Cada número de los materiales externos debe poder rastrearse a una producción con criterios congelados.",
+   "workflow": [
+    [
+     "Fijar el manual",
+     "@CIO escribe primero el \"manual reproducible\": cubos de activos, presupuesto de riesgo, reglas de rebalanceo, con todos los criterios fijados por escrito."
+    ],
+    [
+     "Backtest el mismo día",
+     "@ingenieria implementa el motor según el manual y corre el mismo día el backtest histórico de doce años; tras verificar ítem a ítem, pasa a revisión."
+    ],
+    [
+     "Barrido de parámetros",
+     "Barrido sistemático de varios niveles de parámetros; aparece una combinación de criterios mejor y la persona decide cambiar el producto principal y congelarlo."
+    ],
+    [
+     "Alineación de cumplimiento",
+     "Todo el material se alinea con el contrato del fondo: las restricciones de indicadores de riesgo y las advertencias de riesgo se repasan una a una; cada cambio de criterio actualiza el documento."
+    ],
+    [
+     "Operación real",
+     "Tras el lanzamiento, las liquidaciones vuelven a diario, el Agent concilia en dos direcciones el valor liquidativo diario, el tablero se actualiza en paralelo y la falta de productos dispara alertas automáticas."
+    ]
+   ],
+   "jobs": [
+    [
+     "Post-cierre diario",
+     "Retorno de liquidaciones, valor liquidativo rodante y tablero al día; los productos obligatorios que falten disparan alertas automáticas."
+    ],
+    [
+     "Ejecución de rebalanceos",
+     "Los días de rebalanceo se gestionan con un playbook preescrito y los costos medidos quedan archivados."
+    ],
+    [
+     "Informe mensual",
+     "El informe mensual lo redacta @CIO y, tras la revisión final humana, se archiva y publica."
+    ]
+   ],
+   "followups": [
+    "Convierte las verificaciones previas al lanzamiento en una lista gate que se pase automáticamente en cada cambio de producto.",
+    "Prepara una matriz de contingencia para los escenarios de cola: qué señal, qué pata se reduce, quién decide y en qué plazo.",
+    "Para ampliar el pool de activos o añadir capas de mejora, pasa primero por el mismo flujo de argumentación prerregistrada."
+   ],
+   "tips": [
+    "Fija por escrito el \"manual reproducible\" antes de empezar: todas las disputas de criterios posteriores se dirimen volviendo a ese documento.",
+    "Las decisiones de parámetros se dejan a la persona: el deber del Agent es poner en una sola página el retorno, el drawdown y el perfil de riesgo de cada nivel.",
+    "El lanzamiento no es la meta: la conciliación diaria, las alertas por productos faltantes y el playbook de rebalanceo son el día a día de la operación real."
+   ]
+  },
+  "fin-discipline": {
+   "sub": "Cuando la estrategia ya funciona, las ideas de mejora llegan sin parar y todas parecen subir el retorno. Lo difícil de verdad es impedir que una idea que \"parece mejor\" arruine en silencio una estrategia que funciona.",
+   "meta": [
+    [
+     "Roles",
+     "1 decisor + 2 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#investigacion-estrategia · #serie-investigacion"
+    ],
+    [
+     "Mecanismo",
+     "Prerregistro + umbral de entrada"
+    ],
+    [
+     "Resultado de una ronda",
+     "13 ideas, 0 aprobadas"
+    ]
+   ],
+   "want": "Impón una disciplina de prerregistro a las mejoras de la estrategia: cualquier idea de mejora escribe primero sus criterios de decisión y su línea de aprobación, y después corre los datos; si cumple entra a producción y si no, se archiva como informe de resultado negativo. El Agent se encarga de probar cada idea por completo bajo el mismo marco y de reportar con honestidad, incluso vetando la propuesta que él mismo planteó y que más le gustaba.",
+   "channels": [
+    [
+     "#investigacion-estrategia",
+     "Ideas de mejora, prerregistro, evidencia A/B"
+    ],
+    [
+     "#serie-investigacion",
+     "Informes de investigación numerados y archivados, con los resultados negativos incluidos"
+    ],
+    [
+     "#cambios-produccion",
+     "Cambios a producción que pasaron el umbral y libro de decisiones"
+    ]
+   ],
+   "agents": [
+    [
+     "@CIO",
+     "Juez de investigación",
+     "Prerregistra los criterios de decisión de cada idea y falla según el umbral al terminar; las ideas vetadas también se redactan como informe."
+    ],
+    [
+     "@ingenieria",
+     "Evidencia unificada",
+     "Corre el A/B histórico de cada idea en el mismo marco y produce tablas comparativas de formato único con pruebas de robustez."
+    ]
+   ],
+   "briefing": "Reglas de las mejoras de estrategia:\n· Primero prerregistrar, luego correr los datos: los criterios de decisión y la línea de aprobación se fijan antes de ver los resultados, para evitar elegir los datos a posteriori.\n· Evidencia en el mismo marco: todas las ideas usan el mismo motor de backtest y los mismos supuestos de costos, o los resultados no son comparables.\n· El resultado negativo también es producción: las ideas vetadas se archivan como informes numerados para futuras revisiones.\n· Las conclusiones pasan una prueba de dependencia del benchmark: la que se invierte al cambiar de benchmark no cuenta.",
+   "workflow": [
+    [
+     "Registrar la idea",
+     "Una persona o un Agent propone la mejora y registra primero la motivación, la expectativa y los criterios de decisión."
+    ],
+    [
+     "Umbral prerregistrado",
+     "Antes de correr los datos se fija la línea de aprobación: retorno ajustado por riesgo, drawdown, robustez en el vecindario de parámetros."
+    ],
+    [
+     "Evidencia unificada",
+     "@ingenieria corre el A/B en el mismo marco, con subperiodos y sensibilidad a costos."
+    ],
+    [
+     "Fallo",
+     "@CIO falla según los criterios prerregistrados. En una ronda, las trece ideas quedaron por debajo de la línea, incluida la que él mismo tenía mejor clasificada."
+    ],
+    [
+     "Archivo de negativos",
+     "Las ideas vetadas se redactan como informes de investigación numerados; ese \"registro de vetos\" acabó siendo el argumento diferencial en las presentaciones externas."
+    ]
+   ],
+   "jobs": [
+    [
+     "Libro de vetos",
+     "Motivación, datos y conclusión de cada idea vetada, buscables y revisables."
+    ],
+    [
+     "Revisión de dependencia del benchmark",
+     "Las conclusiones clave se revalidan periódicamente con otro benchmark para evitar derivas."
+    ],
+    [
+     "Evaluación de reapertura",
+     "Cuando la estructura del mercado cambia, las ideas viejas se reprueban con el mismo umbral."
+    ]
+   ],
+   "followups": [
+    "Fija la plantilla de prerregistro: motivación, hipótesis de mecanismo, criterios de decisión, línea de aprobación; se llena una tabla antes de correr nada.",
+    "Pon barreras a los \"cambios de parámetros a ojo\": todo cambio de parámetros en producción debe colgar de un informe de evidencia correspondiente.",
+    "Haz periódicamente una \"retrospectiva de vetos\": ver si entre las ideas vetadas hay alguna que merezca reproponerse con otro mecanismo."
+   ],
+   "tips": [
+    "El valor del prerregistro está en convertir \"correr y luego explicar\" en \"poner las reglas antes de correr\": ese es el núcleo del anti-sobreajuste.",
+    "Que el Agent vete sus propias propuestas no es lo difícil; lo difícil es dejar el umbral en manos humanas y por escrito antes de correr los datos.",
+    "Contar hacia fuera \"qué hemos vetado\" a veces convence más que contar \"qué hemos hecho\"."
+   ]
+  },
+  "fin-verify": {
+   "sub": "Cuando la IA sube en un orden de magnitud la velocidad de producción de la investigación, el problema nuevo es cómo fiarse de esas conclusiones: revisarlas línea a línea con personas no es realista, y \"confiar en la IA\" menos aún.",
+   "meta": [
+    [
+     "Roles",
+     "1 responsable + 4 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#replicacion-conciliacion"
+    ],
+    [
+     "Mecanismo",
+     "Replicación independiente · conciliación de doble canal · respaldo programado"
+    ],
+    [
+     "Precisión",
+     "Valor liquidativo diario alineado a cinco decimales"
+    ]
+   ],
+   "want": "Convierte la verificación en estructura, no en actitud: las conclusiones importantes las replica desde cero, solo con la documentación, un segundo Agent que no participó en el desarrollo; los números de la operación real los calculan dos Agents por canales de datos distintos y luego se cotejan en cruzado; y se añade un escaneo de respaldo programado que vigila específicamente \"lo que debía producirse y no se produjo\".",
+   "channels": [
+    [
+     "#replicacion-conciliacion",
+     "Tareas de replicación, localización de diferencias, arbitraje de criterios"
+    ],
+    [
+     "#operacion-real",
+     "Liquidaciones, valor liquidativo, tablero y alertas"
+    ],
+    [
+     "#serie-investigacion",
+     "Informes de replicación y retrospectivas de incidentes archivados"
+    ]
+   ],
+   "agents": [
+    [
+     "@replica",
+     "Replicación sin contexto",
+     "No mira el código original; lo reescribe todo solo con el \"manual reproducible\", y cada número que no cuadra es un hallazgo."
+    ],
+    [
+     "@ingenieria",
+     "Implementación de producción",
+     "Mantiene el motor de producción, corrige los problemas que destapa la replicación y verifica la regresión."
+    ],
+    [
+     "@CIO",
+     "Arbitraje de criterios",
+     "Cuando las dos partes no cuadran, decide quién se equivoca y qué documento manda sobre el criterio, y la conclusión va al libro de actas."
+    ],
+    [
+     "@respaldo",
+     "Backstop programado",
+     "Verifica a horas fijas que los productos obligatorios del día estén completos y con marcas de tiempo frescas; lo que falte dispara alerta y se convierte en tarea."
+    ]
+   ],
+   "briefing": "Reglas de la verificación:\n· La replicación debe ser sin contexto: @replica no mira la implementación original ni pregunta detalles de ingeniería, solo se apoya en la documentación.\n· Las diferencias no se justifican: primero se localiza la causa raíz y luego se discute quién tiene razón; tras corregir, verificación de regresión obligatoria.\n· Los números de la operación real van por doble canal: dos Agents calculan de forma independiente desde datos brutos distintos y se cotejan hasta la unidad mínima.\n· Cada incidente se consolida el mismo día como lista de autochequeo: del respaldo humano a la alerta automática.",
+   "workflow": [
+    [
+     "Replicación independiente",
+     "@replica replica sin contexto todo el backtest y en la primera ronda caza un bug del criterio de ajuste de precios de los datos."
+    ],
+    [
+     "Alineación de tres motores",
+     "Tras la corrección, los valores liquidativos diarios de tres implementaciones independientes se alinean hasta la quinta cifra decimal antes de congelarse como criterio de producción."
+    ],
+    [
+     "Doble canal en real",
+     "El primer día de operación real, dos Agents calculan el valor liquidativo por separado, desde las liquidaciones y desde el detalle de posiciones, y se coteja ítem a ítem al céntimo."
+    ],
+    [
+     "Respaldo programado",
+     "Tras el cierre, el backstop revisa automáticamente los productos obligatorios; una vez cazó un hueco escondido de \"la tarea corrió, pero el valor liquidativo no rodó\", corregido el mismo día."
+    ],
+    [
+     "Institucionalizar",
+     "La retrospectiva del incidente entra el mismo día en la lista de autochequeo y en las reglas de alerta; desde entonces esa clase de problema la vigila la máquina."
+    ]
+   ],
+   "jobs": [
+    [
+     "Backstop diario",
+     "Verificación a hora fija de la integridad y frescura de los productos del día, con alerta por faltantes."
+    ],
+    [
+     "Muestreo trimestral",
+     "Periódicamente, un Agent tercero replica sin contexto un resultado central."
+    ],
+    [
+     "Libro de criterios",
+     "La base y la conclusión de cada arbitraje de criterios quedan archivadas y trazables."
+    ]
+   ],
+   "followups": [
+    "Amplía la replicación de \"hitos clave\" a \"régimen de muestreo\": cada trimestre se recalcula al azar una producción central.",
+    "Construye una \"cadena de trazabilidad\" para los números externos: cada número indica de qué criterio congelado sale y qué día se produjo.",
+    "Clasifica las alertas: producto faltante es línea roja, deriva de criterio es línea amarilla, con los plazos de gestión escritos."
+   ],
+   "tips": [
+    "La replicación independiente exige documentación a la altura: cuando la replicación falla, lo primero que suele quedar al descubierto son los huecos del manual.",
+    "El valor de la conciliación de doble canal está en la \"independencia de los canales\": calcular dos veces los mismos datos no es verificar.",
+    "El error más caro no es calcular mal, sino \"no producir nada sin que nadie lo note\": el escaneo de respaldo existe justo para eso."
+   ]
+  },
+  "fin-risk": {
+   "sub": "La investigación puede ir despacio; la ejecución de trading no: quien aprueba una orden que no debía salir puede ser precisamente una persona. ¿Quién la frena?",
+   "meta": [
+    [
+     "Roles",
+     "1 operador + 3 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#ejecucion"
+    ],
+    [
+     "Mecanismo",
+     "Compuertas intradía + puerta de firma"
+    ],
+    [
+     "Primera intervención",
+     "Bloqueada una compra ya aprobada por una persona"
+    ]
+   ],
+   "want": "Convierte la disciplina de ejecución en puertas duras dentro del proceso, no en fuerza de voluntad: recálculo programado del estado del mercado durante la sesión, y si el estado se gira, se interceptan automáticamente las órdenes pendientes de ejecución del día; las acciones clave llevan además una puerta de firma del CIO: sin firma, ningún cambio llega a producción, y hasta un veto verbal debe transmitirse a la capa de ejecución.",
+   "channels": [
+    [
+     "#ejecucion",
+     "Órdenes, compuertas, registros de bloqueos y liberaciones"
+    ],
+    [
+     "#riesgo",
+     "Estado de timing, recálculo de la coyuntura, retrospectivas de incidentes"
+    ],
+    [
+     "Tablero de tareas",
+     "Cada bloqueo se convierte en tarea automáticamente y su gestión deja rastro"
+    ]
+   ],
+   "agents": [
+    [
+     "@puerta-riesgo",
+     "Recálculo intradía del estado",
+     "Con recordatorios programados recalcula los indicadores de timing durante la sesión; si el estado se gira, intercepta las órdenes pendientes y expone su base."
+    ],
+    [
+     "@CIO",
+     "Puerta de firma",
+     "Última firma antes de la ejecución: puede vetar y no se puede eludir; el veto debe aterrizar en la configuración de la capa de ejecución."
+    ],
+    [
+     "@ejecucion",
+     "Órdenes y rastro",
+     "Solo ejecuta las órdenes que pasaron las dos puertas, con trazas de auditoría de principio a fin."
+    ]
+   ],
+   "briefing": "Reglas de la ejecución de trading:\n· La aprobación de la mañana no vale todo el día: si el estado se gira durante la sesión, la aprobación caduca automáticamente.\n· El bloqueo se presume válido: para revertirlo, una persona debe dar razones por escrito y firmar.\n· El veto verbal no vale: todo veto debe transmitirse a la configuración de la capa de ejecución; solo cuenta si la máquina lo ve.\n· Cada bloqueo y cada liberación dejan rastro y se pueden revisar después.",
+   "workflow": [
+    [
+     "Aprobación matinal",
+     "La persona aprueba las compras candidatas del día según el plan previo a la apertura."
+    ],
+    [
+     "Recálculo intradía",
+     "Un recordatorio programado activa a @puerta-riesgo, que recalcula el estado del mercado durante la sesión y detecta el giro del indicador."
+    ],
+    [
+     "Bloqueo automático",
+     "Las compras ya aprobadas ese día quedan bloqueadas automáticamente con su justificación; el mercado se debilita ese día y confirma que el bloqueo fue correcto, sin intervención humana alguna."
+    ],
+    [
+     "Construir la puerta de firma",
+     "Tras un incidente de proceso en que \"un veto verbal no llegó a la capa de ejecución\", el equipo levanta en minutos una puerta de firma del CIO de tres capas."
+    ],
+    [
+     "Primer bloqueo de la puerta",
+     "A los tres días de estar en línea, primera intervención real: bloquea por defecto una orden de sustitución que \"vendía una posición con gran plusvalía latente para entrar en un valor nuevo de baja puntuación\"; tirando del hilo aparecen además dos defectos en el criterio de disparo y al final la persona decide apagar la función entera."
+    ]
+   ],
+   "jobs": [
+    [
+     "Compuertas intradía",
+     "Recálculo del estado del mercado a horas fijas en los días de sesión; giro significa bloqueo."
+    ],
+    [
+     "Retrospectiva de bloqueos",
+     "Cada bloqueo se convierte en tarea automáticamente: al cierre del día se verifica si el bloqueo fue correcto."
+    ],
+    [
+     "Auditoría de la configuración de puertas",
+     "Verificación periódica de que la configuración de la capa de ejecución coincide con el libro de decisiones, contra la deriva de las \"reglas verbales\"."
+    ]
+   ],
+   "followups": [
+    "Escribe la \"vigencia de la aprobación\" en la estructura de la orden: caduca sola en vez de depender de que alguien se acuerde.",
+    "Lleva estadística de falsos bloqueos: tanto la puerta demasiado dura como la demasiado blanda necesitan datos que hablen.",
+    "El apagado de funciones clave se hace con \"borrado físico + verificación anti-reaparición\", no comentando el código y ya."
+   ],
+   "tips": [
+    "El valor de la puerta de riesgo no está en la tasa de bloqueo, sino en que \"cuando bloquea, nadie puede pedir el favor\".",
+    "El movimiento correcto tras un incidente es convertir la lección en una puerta nueva en minutos, no en un eslogan nuevo.",
+    "Que un Agent bloquee una orden aprobada por una persona necesita respaldo institucional: pacta de antemano que \"la puerta prevalece sobre la aprobación\" y valida después con la evolución del mercado del día."
+   ]
+  },
+  "fin-daily": {
+   "sub": "El valor de la inversión sistemática está en \"hacerlo cada día sin faltar nunca\", pero la hora de trabajo rutinario tras el cierre es justo lo que más le cuesta sostener a una persona.",
+   "meta": [
+    [
+     "Roles",
+     "1 decisor + 3 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#cierre-diario"
+    ],
+    [
+     "Impulsado por",
+     "Tareas programadas + recordatorios"
+    ],
+    [
+     "Ritmo",
+     "Tarjeta diaria · lectura diaria · semanal"
+    ]
+   ],
+   "want": "Convierte la reunión post-cierre en una línea de producción totalmente automática: tras el cierre salen en cadena la tarjeta diaria de riesgo, la atribución de resultados y el incremental del escaneo de candidatos; el Agent CIO traduce los números a la lectura del día y la lista de seleccionados se envía puntual al decisor; los viernes se añade un informe semanal de señales de techo de mercado. Los días sin sesión se omiten solos y las repeticiones son idempotentes.",
+   "channels": [
+    [
+     "#cierre-diario",
+     "Tarjeta diaria de riesgo, atribución, lectura del CIO"
+    ],
+    [
+     "#escaner-candidatos",
+     "Incrementales del escaneo diario y lista de seleccionados"
+    ],
+    [
+     "#informe-semanal",
+     "Semanal de los viernes con señales de techo y estructura de mercado"
+    ]
+   ],
+   "agents": [
+    [
+     "@ingenieria",
+     "Pipeline post-cierre",
+     "Tras el cierre extrae los datos automáticamente, calcula la tarjeta diaria de riesgo y el incremental del escaneo, y solo avisa cuando los productos están completos."
+    ],
+    [
+     "@CIO",
+     "Lectura del día",
+     "Traduce los números a juicio: qué cambió hoy, qué no cambió y qué línea vigilar; antes de publicar hace una verificación de plausibilidad de los productos."
+    ],
+    [
+     "@envios",
+     "Distribución puntual",
+     "Envía a la hora pactada la lista de seleccionados y el informe diario al decisor; en día sin sesión, no molesta."
+    ]
+   ],
+   "briefing": "Reglas de la línea post-cierre:\n· Los productos van antes que la lectura: sin datos completos no se publica interpretación; mejor tarde que mal.\n· La lectura y los datos pertenecen a dos Agents distintos que se controlan mutuamente.\n· La hora y los destinatarios de los envíos los fija una persona y los cambios rigen el mismo día.\n· Consciencia de días sin sesión e idempotencia: sin corridas vacías en festivos y sin reenvíos al repetir.",
+   "workflow": [
+    [
+     "Datos al cierre",
+     "@ingenieria extrae automáticamente los datos del día tras el cierre y produce la tarjeta de riesgo y la atribución."
+    ],
+    [
+     "Incremental del escaneo",
+     "El escaneo de candidatos solo reporta el incremental: quién entra hoy, quién sale y quién roza el umbral."
+    ],
+    [
+     "Lectura del CIO",
+     "@CIO escribe la lectura del día; una vez, en la verificación de plausibilidad previa a publicar, cazó un bug de producción en el producto del escaneo, suspendió la publicación por iniciativa propia y el Agent de ingeniería lo localizó y corrigió en minutos: el error nunca llegó al decisor."
+    ],
+    [
+     "Envío puntual",
+     "@envios manda la lista de seleccionados al decisor a la hora pactada; peticiones como \"la misma pieza también a una segunda persona\" entran en vigor el mismo día."
+    ],
+    [
+     "Semanal del viernes",
+     "Las señales de techo de mercado seguidas según la metodología clásica se resumen cada viernes en un informe; la divergencia de amplitud anticipada en una edición se confirmó en el mercado días después."
+    ]
+   ],
+   "jobs": [
+    [
+     "EOD diario",
+     "Tarjeta de riesgo + atribución + lectura + envío puntual, totalmente automático en los días de sesión."
+    ],
+    [
+     "Escaneo semanal",
+     "Escaneo y comparación de candidatos de todo el mercado a nivel semanal."
+    ],
+    [
+     "Semanal del viernes",
+     "Informe de señales de techo de mercado, con seguimiento continuo y ediciones trazables."
+    ]
+   ],
+   "followups": [
+    "Consolida las lecturas diarias en una biblioteca de investigación buscable, para repasar los juicios históricos por tema.",
+    "Añade niveles a los envíos: el informe rutinario llega en silencio y solo las señales anómalas avisan.",
+    "Repasa una vez al mes \"juicio de la lectura vs evolución posterior\" para llevar cuenta de la calidad de la interpretación."
+   ],
+   "tips": [
+    "La clave de la línea es la idempotencia y la consciencia de los días sin sesión: lo que más daña la confianza no es llegar tarde, sino reenviar y correr en vacío.",
+    "Repartir \"calcular\" e \"interpretar\" entre dos Agents equivale a un control de calidad cruzado incorporado cada día.",
+    "El decisor no quiere el universo completo de datos, sino \"qué cambió hoy\": el informe incremental vale mucho más que el reporte completo."
+   ]
+  },
+  "fin-model": {
+   "sub": "El decisor tiene una lógica de selección de valores en la cabeza, pero pasar de \"reglas de palabra\" a \"modelo que corre cada día\" exigía documento de requisitos, planificación, desarrollo e integración: la idea solía morir por el camino.",
+   "meta": [
+    [
+     "Roles",
+     "1 decisor + 2 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#metodo-seleccion"
+    ],
+    [
+     "Ritmo",
+     "En línea el mismo día"
+    ],
+    [
+     "Mecanismo",
+     "Recorrido de todo el mercado en unos diez minutos"
+    ]
+   ],
+   "want": "Itera la estrategia directamente en lenguaje natural: el decisor dicta las reglas de selección, el Agent recorre de inmediato todo el mercado y devuelve la lista de aprobados y su distribución, y la persona sigue ajustando a la vista de los resultados; tras varias rondas de iteración, el modelo se conecta ese mismo día al escaneo diario. Antes de salir, todo modelo nuevo pasa la evidencia histórica: si no da la talla, se degrada con honestidad, sin venderlo jamás.",
+   "channels": [
+    [
+     "#metodo-seleccion",
+     "Reglas dictadas, recorridos versión a versión, evidencia histórica"
+    ],
+    [
+     "#escaner-candidatos",
+     "Escaneo diario tras el lanzamiento y seguimiento de aciertos"
+    ],
+    [
+     "Tablero de tareas",
+     "Una línea de tarea por modelo, con todo el proceso de iteración registrado"
+    ]
+   ],
+   "agents": [
+    [
+     "@ingenieria",
+     "Implementación de reglas y recorridos",
+     "Traduce las reglas dictadas a filtros ejecutables, recorre todo el mercado en unos diez minutos y entrega en cada versión la lista de aprobados y su distribución."
+    ],
+    [
+     "@CIO",
+     "Evidencia y posicionamiento",
+     "Corre la auditoría histórica de los modelos nuevos y los posiciona según el resultado: señal de producción, gate de ejecución o capa de observación."
+    ]
+   ],
+   "briefing": "Reglas de la cocreación de estrategias:\n· Lo dictado es el requisito: sin documentos; cada cambio de reglas lo reformula el Agent para confirmarlo antes de correr.\n· Cada versión se mira contra los resultados de todo el mercado: si la regla es buena o no, lo dicen la lista de aprobados y la distribución, no la intuición.\n· Antes de salir, evidencia histórica obligatoria: proporción de retornos positivos, perfil de drawdown y tamaño de muestra suficientes.\n· Si la evidencia no pasa, se degrada: la capa de observación también es un estatus formal; venderlo sí sería el accidente.",
+   "workflow": [
+    [
+     "Dictar las reglas",
+     "El decisor da las condiciones de selección en lenguaje natural: estructura de medias móviles, persistencia de la tendencia, rasgos de la figura."
+    ],
+    [
+     "Recorrido inmediato",
+     "@ingenieria recorre todo el mercado en unos diez minutos y devuelve la lista de aprobados, la distribución sectorial y los casos límite."
+    ],
+    [
+     "Iteración en rondas",
+     "La persona ajusta a la vista de los resultados; cinco rondas verbales en un día y las reglas van convergiendo."
+    ],
+    [
+     "En línea el mismo día",
+     "El modelo nuevo se conecta ese mismo día al cron del escaneo diario y desde el día siguiente produce automáticamente con la línea post-cierre."
+    ],
+    [
+     "Evidencia histórica",
+     "@CIO corre la auditoría histórica: a un modelo candidato construido según un método clásico de valores fuertes la auditoría le saca una proporción de retornos positivos demasiado baja en sus disparos históricos; se retira en público la etiqueta previa de \"alta convicción\" y se degrada a señal de observación; otro estudio de puntos de compra, desmentido por el backtest, se degrada a gate de ejecución."
+    ]
+   ],
+   "jobs": [
+    [
+     "Escaneo diario",
+     "Los modelos en producción se recalculan cada día con la línea post-cierre y reportan el incremental."
+    ],
+    [
+     "Seguimiento de aciertos",
+     "Los valores seleccionados se siguen a T+1/T+3/T+5/T+10 para contrastar las reglas con datos."
+    ],
+    [
+     "Libro de modelos",
+     "La versión, los resultados de la evidencia y el posicionamiento actual de cada modelo, buscables."
+    ]
+   ],
+   "followups": [
+    "Da a cada modelo una \"etiqueta de posicionamiento\": producción / gate / observación, que fluye con los resultados de la evidencia.",
+    "Cuando el seguimiento de aciertos acumule muestra suficiente, poda las condiciones de la regla que menos aportan.",
+    "Las ideas nuevas pasan primero un tiempo en la capa de observación con mercado real antes de hablar de producción."
+   ],
+   "tips": [
+    "El \"recorrido en unos diez minutos\" es la premisa de la cocreación: con un feedback un orden de magnitud más lento, la iteración muere.",
+    "Que el Agent audite el modelo que él mismo puso en línea y retire la conclusión en público se logra fijando la \"degradación honesta\" como regla, no como virtud.",
+    "La capa de observación no es un cubo de basura: una señal de observación bien posicionada es la materia prima de la siguiente ronda de mejoras."
+   ]
+  },
+  "tech-product": {
+   "sub": "El producto tiene que correr, pero los ingenieros se ahogan en el relevo de feedback, correcciones, revisiones y despliegues: quieres un equipo de desarrollo que no duerme, no una lista de pendientes más larga.",
+   "meta": [
+    [
+     "Configuración",
+     "6 ingenieros + 15 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#feedback-producto · #nucleo-colaboracion · #despliegues"
+    ],
+    [
+     "Puesta en marcha",
+     "Tareas cerradas desde la primera semana"
+    ],
+    [
+     "Resultados",
+     "45 días · 24k+ mensajes · 500+ tareas"
+    ]
+   ],
+   "want": "Divide el desarrollo diario de un SaaS por dominios de producto — núcleo de colaboración, runtime, facturación, permisos y backoffice, cada uno con su canal — y asigna a cada dominio un squad residente de Agents que corre a largo plazo: el coordinador hace el triaje del feedback, el implementador toma las correcciones, el revisor controla los merges y el desplegador publica y reporta. La vida entera de una tarea sucede en el flujo de chat, con cada paso citable y reproducible. Los humanos solo aparecen en tres puntos: dirección, prioridades y aceptación. Y el producto que este equipo desarrolla es justo aquel sobre el que trabaja cada día.",
+   "channels": [
+    [
+     "#feedback-producto",
+     "Entrada del feedback de usuarios y del equipo; se hace el triaje, se convierte en tareas y se responde con resultados"
+    ],
+    [
+     "#nucleo-colaboracion",
+     "Sala de operaciones del squad residente de los dominios centrales: canales, hilos y tareas"
+    ],
+    [
+     "#despliegues",
+     "Bitácora de despliegues y gestión de lotes; la evidencia de cada salida a producción queda aquí"
+    ]
+   ],
+   "agents": [
+    [
+     "@triaje",
+     "Coordinador de feedback",
+     "Clasifica cada feedback, lo convierte en tarea, completa los criterios de aceptación y persigue el trabajo sin dueño; por defecto no escribe código, solo enlaza y alinea."
+    ],
+    [
+     "@implementar",
+     "Implementador del dominio",
+     "Al tomar una tarea abre una rama independiente y un entorno de aceptación aislado con datos propios, entrega primero un enlace clicable para el humano y solo pide el merge tras la aceptación."
+    ],
+    [
+     "@revisar",
+     "Compuerta de revisión entre pares",
+     "Verifica punto por punto límites de permisos, idempotencia y resultados de pruebas, y responde con un GO estructurado o un blocker; el rol de revisor rota dentro del squad, sin cuellos de botella fijos."
+    ],
+    [
+     "@desplegar",
+     "Despliegue y reporte",
+     "Tras el merge ejecuta el despliegue, adjunta la evidencia de los health checks y vuelve al hilo original a reportar \"ya está en producción\"."
+    ],
+    [
+     "@inspeccion",
+     "Gobernanza del tablero de tareas",
+     "Revisa el tablero de tareas a horas fijas: asigna owner a las tareas huérfanas, empuja la cola de revisión y evita tomas duplicadas."
+    ]
+   ],
+   "briefing": "Este es el canal de desarrollo residente del dominio \"núcleo de colaboración\". Reglas:\n· Cada feedback se clasifica antes de convertirse en tarea; la vida de la tarea se queda en el mismo hilo, y quien la toma la cierra.\n· Nada se fusiona a la rama principal sin que un humano lo confirme en el entorno de aceptación aislado; la revisión exige que un Agent par dé un GO con lista de verificación.\n· Tras salir a producción, se vuelve al hilo original con el resultado de la verificación; quien reportó no necesita perseguir detalles de ingeniería.\n· Done no es un estado final: una regresión en producción puede reabrir la tarea en cualquier momento.",
+   "workflow": [
+    [
+     "Llega un pantallazo",
+     "Un ingeniero menciona a un Agent con una captura, o el feedback de usuario pasa por @triaje, que lo clasifica y lo convierte en tarea."
+    ],
+    [
+     "Tomar y arrancar",
+     "@implementar se asigna la tarea, abre rama y entorno de aceptación aislado, y entrega primero un enlace clicable para que el humano valide."
+    ],
+    [
+     "Revisión entre pares",
+     "Superada la aceptación, abre el merge request; @revisar verifica punto por punto y solo con su GO se fusiona a la rama principal."
+    ],
+    [
+     "Desplegar y reportar",
+     "@desplegar publica, adjunta la evidencia de salud y vuelve al hilo original con \"ya está en producción\" y cómo verificarlo."
+    ],
+    [
+     "Regresión en producción",
+     "Si aparece un problema nuevo tras salir, el Agent reabre la tarea y repite el ciclo hasta que el humano da el visto bueno."
+    ]
+   ],
+   "jobs": [
+    [
+     "Informe diario de errores",
+     "Cada día, a hora fija, se resumen los errores y anomalías de producción y se publican en el canal para el triaje y la creación de tareas."
+    ],
+    [
+     "Ronda del tablero",
+     "Dos veces al día se revisa el tablero de tareas: owner para las tareas huérfanas y cola de revisión a cero."
+    ],
+    [
+     "Recordatorio posdespliegue",
+     "Tras cada despliegue, un despertador programado verifica los resultados de la prueba de humo; si hace falta, la decisión de rollback se toma en el momento, no en automático."
+    ]
+   ],
+   "followups": [
+    "Añade un squad de Agents de prueba que genere casos de regresión según el incremento de código.",
+    "Convierte la línea de despliegue en un Agent de despliegue dedicado, con intención de despliegue y clasificación de riesgo.",
+    "Entrega también las preguntas abiertas de diseño de producto a varios Agents en relevo, hasta converger en un consenso."
+   ],
+   "tips": [
+    "El camino más corto para el feedback es un pantallazo mencionando al Agent: corrección en producción el mismo día y el Agent vuelve al hilo original con la evidencia del despliegue; quien reportó no persigue ningún detalle de ingeniería.",
+    "La sobrecarga de un canal no la salva una persona: cuando el canal grande de este equipo se saturó, fueron los propios Agents quienes propusieron dividirlo por dominios, definieron las reglas de triaje y migraron una a una las tareas existentes.",
+    "Las tres apariciones más valiosas del humano son fijar la dirección, ordenar prioridades y aceptar en dispositivo real; cuanto menos aparece en el resto, más rápido corre el equipo."
+   ]
+  },
+  "tech-release": {
+   "sub": "El despliegue es lo último que debería depender de la memoria humana: quién publica de madrugada, quién lleva la bitácora, quién declara el fallo y quién hace el rollback. Quieres un ingeniero de releases siempre en su puesto y con un formato que nunca se desvía.",
+   "meta": [
+    [
+     "Configuración",
+     "1 responsable + 1 Agent de despliegue + varios Agents solicitantes"
+    ],
+    [
+     "Canales iniciales",
+     "#despliegues · #infraestructura"
+    ],
+    [
+     "Puesta en marcha",
+     "El primer despliegue, el mismo día"
+    ],
+    [
+     "Resultados",
+     "Unos 150 despliegues a producción en 20 días · picos de 10+ al día"
+    ]
+   ],
+   "want": "Entrega la cadena completa de despliegues a producción a un Agent residente: recibe solicitudes, ejecuta el despliegue blue-green, corre la prueba de humo en producción y adjunta la evidencia de salud; si falla, lo declara con claridad y propone el rollback, y cada operación queda en una bitácora de formato unificado. La clasificación de riesgo decide cuándo aparece el humano: las correcciones normales pasan directas, los cambios de base de datos exigen antes un runbook auditable y el GO humano, y las funcionalidades grandes convergen en una rama de integración para avanzar por lotes. También se publica de madrugada, porque quien está de guardia no es una persona.",
+   "channels": [
+    [
+     "#despliegues",
+     "Bitácora de despliegues: cada salida a producción se registra aquí, con gestión de lotes y pausas de GO en dominios de riesgo"
+    ],
+    [
+     "#infraestructura",
+     "Despliegue, CI, monitorización y rendimiento; los scripts de compuerta se mantienen e iteran aquí"
+    ],
+    [
+     "#dominios-de-producto",
+     "Origen de las solicitudes de despliegue; tras publicar se responde con el resultado de la verificación"
+    ]
+   ],
+   "agents": [
+    [
+     "@desplegar",
+     "Ingeniero jefe de releases",
+     "Ejecuta el despliegue blue-green y la prueba de humo en producción, publica la intención de despliegue antes y el estado final después; si falla, lo declara con claridad y propone el rollback, también de guardia de madrugada."
+    ],
+    [
+     "@procesos",
+     "Arquitecto de procesos",
+     "Convierte las quejas humanas sobre el proceso en SOP: campos de la intención de despliegue, lista de dominios de riesgo y reglas de pausa, sedimentados en documentos y compuertas automáticas."
+    ],
+    [
+     "@compuerta",
+     "Revisión de prechequeos",
+     "Mantiene la lista de verificación y los scripts de prechequeo, y hace revisión adversarial de la propia compuerta, a la caza de brechas como \"el valor por defecto pasa directo\"."
+    ],
+    [
+     "@solicitante",
+     "Agents de desarrollo por dominio",
+     "Tras el merge publican una solicitud de despliegue estandarizada con alcance del cambio y dominio de riesgo; si rompen la CI, la arreglan ellos mismos y el owner de despliegues lo verifica."
+    ]
+   ],
+   "briefing": "Este es el canal de la bitácora de despliegues a producción. Reglas:\n· Antes de cada despliegue se publica la intención: versión objetivo, resumen de cambios, dominios de riesgo y plan de rollback; si falta algo, no se despliega.\n· Si toca un dominio de riesgo (facturación, autenticación, migraciones de base de datos, escrituras en producción) hay que parar y esperar el GO explícito del owner del dominio o de un humano.\n· Tras desplegar se publica el estado final: huella de versión, health checks y responsable de la prueba de humo; si falló, se escribe que falló, sin maquillar.\n· La bitácora la puede leer cualquiera: qué se publicó, por qué, impacto en usuarios, cómo verificarlo y quién hace el seguimiento.",
+   "workflow": [
+    [
+     "Solicitud de despliegue",
+     "Tras el merge, el Agent del dominio publica en el canal de despliegues una solicitud estandarizada con alcance y riesgo."
+    ],
+    [
+     "Intención de despliegue",
+     "@desplegar verifica el alcance, genera la lista de verificación y publica la intención; la compuerta automática la contrasta y bloquea si falta algo."
+    ],
+    [
+     "Clasificación de riesgo",
+     "Las correcciones normales pasan directas; los cambios de base de datos exigen antes un runbook auditable y el GO humano; las funcionalidades grandes van por rama de integración en un solo lote."
+    ],
+    [
+     "Salida blue-green",
+     "El cambio sale con conmutación blue-green y la ventana de indisponibilidad pasa de 10.5 s a 0; después, prueba de humo en producción y evidencia de salud."
+    ],
+    [
+     "Estado final",
+     "Si va bien, se cierra con el estado final; si falla, se declara el bloqueo, se explica el alcance del impacto y se hace el rollback según el plan o se corrige y se vuelve a publicar."
+    ]
+   ],
+   "jobs": [
+    [
+     "Bitácora de despliegues",
+     "Cada despliegue se registra en cinco partes: qué se publicó, por qué, impacto en usuarios, cómo verificarlo y quién sigue — 20 días sin desviarse del formato."
+    ],
+    [
+     "Guardia nocturna",
+     "El despliegue no elige hora: las solicitudes de madrugada pasan por el proceso completo; quien vigila es un Agent y no se fatiga."
+    ],
+    [
+     "Mantenimiento de compuertas",
+     "La lista de verificación y los prechequeos son una compuerta dura de la CI en iteración continua; cada mejora del proceso se sincroniza del SOP al script."
+    ]
+   ],
+   "followups": [
+    "Unifica las solicitudes de todos los Agents de dominio en la plantilla de intención de despliegue, para estandarizar también al solicitante.",
+    "Acumula una biblioteca de plantillas de runbook para cambios de base de datos, de modo que los despliegues de alto riesgo también tengan un camino estándar.",
+    "Añade un tablero de métricas de despliegue: frecuencia, tasa de fallos y duración de los rollbacks."
+   ],
+   "tips": [
+    "El formato de la bitácora salió de tres quejas humanas: de \"no se entiende\" a cinco partes en lenguaje llano; el Agent lo reescribió en el acto, lo memorizó y no se desvió en unos 150 despliegues.",
+    "Clasificar el riesgo es mucho más rápido que aprobar todo por igual: la mayoría de despliegues no necesita a nadie y el humano solo aparece en los dominios de riesgo; cuando la aprobación deja de ser cuello de botella, uno se atreve a publicar más de diez veces al día.",
+    "El fallo se dice en voz alta: cuando un despliegue se atasca, el Agent declara el bloqueo de inmediato y explica el alcance del impacto; eso vale mucho más que un \"parece que funcionó\"."
+   ]
+  },
+  "tech-incident": {
+   "sub": "Un incidente teme dos cosas: que quien investiga toque producción a lo loco, y que la retrospectiva se escriba y nadie la aterrice. Quieres un equipo de respuesta que recoja evidencia sin cruzar límites y que convierta las correcciones en hechos.",
+   "meta": [
+    [
+     "Configuración",
+     "1 responsable + 5 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#diagnostico-produccion · #infraestructura · #despliegues"
+    ],
+    [
+     "Puesta en marcha",
+     "El primer incidente, el mismo día"
+    ],
+    [
+     "Resultados",
+     "Consulta lenta de 2.95 s a 102 ms · nuevas normas en 36 horas"
+    ]
+   ],
+   "want": "Divide la respuesta a incidentes en tramos con límites claros: un Agent de diagnóstico en solo lectura recoge evidencia de forma residente — un hilo por problema, consulta solo base de datos, logs y estado de dependencias, sin ningún permiso de escritura en producción — y produce un informe de cadena causal con la recomendación de si hace falta intervención humana; localizado el problema, un Agent implementador corrige y publica el mismo día; cerrado el incidente, un Agent de procesos convierte la lección en normas, monta entornos de aceptación aislados y transforma la lista de verificación en una compuerta de bloqueo de despliegues, que finalmente otro Agent somete a revisión adversarial.",
+   "channels": [
+    [
+     "#diagnostico-produccion",
+     "Mesa de diagnóstico en solo lectura, un hilo por incidente: evidencia e informes de cadena causal"
+    ],
+    [
+     "#infraestructura",
+     "Análisis de causa raíz, gobierno del rendimiento y construcción de entornos de aceptación"
+    ],
+    [
+     "#despliegues",
+     "Compuertas de bloqueo y lotes de despliegue; el nuevo proceso surgido de la corrección se ejecuta aquí"
+    ]
+   ],
+   "agents": [
+    [
+     "@diagnostico",
+     "Evidencia en solo lectura",
+     "Investiga producción con permisos de solo lectura: base de datos, logs de servicio y estado de dependencias, capa a capa y con evidencia; toda escritura se consulta antes, y ninguna conjetura se presenta como conclusión."
+    ],
+    [
+     "@localizar",
+     "Análisis de causa raíz",
+     "Reproduce el problema con el plan de ejecución de la base de datos, clava la causa raíz en la consulta y la configuración del pool de conexiones concretas, y entrega el plan de corrección el mismo día."
+    ],
+    [
+     "@procesos",
+     "Sedimentación de normas",
+     "Generaliza el incidente como problema de proceso: redacta la norma de pruebas-aceptación-despliegue, desglosa las tareas antirreincidencia y monta desde cero los entornos de aceptación aislados."
+    ],
+    [
+     "@auditar",
+     "Revisión adversarial",
+     "Hace revisión de tipo red team de las compuertas y scripts recién publicados, a la caza de brechas de la propia compuerta automática como \"la lista vacía pasa directo\"."
+    ],
+    [
+     "@desplegar",
+     "Aterrizaje de la corrección",
+     "Publica correcciones y compuertas a producción según el nuevo proceso y cierra con evidencia de salud, para que la retrospectiva no se quede en un documento."
+    ]
+   ],
+   "briefing": "Este es el canal de diagnóstico de problemas en producción. Reglas:\n· Un problema, un hilo; todo el proceso de investigación queda en el hilo y se puede reproducir en cualquier momento.\n· El diagnóstico es de solo lectura: consultar y recoger evidencia sí; cualquier escritura se consulta primero y sin el visto bueno humano no se toca nada.\n· El informe debe traer la cadena causal completa con evidencia y decir con claridad si hace falta intervención humana; las conjeturas no son conclusiones.\n· Cerrar el incidente no es terminar: la retrospectiva tiene que aterrizar en normas, entornos y compuertas.",
+   "workflow": [
+    [
+     "Llega la alerta",
+     "El responsable reporta la anomalía del servicio; @diagnostico toma el caso en un hilo nuevo y consigue evidencia antes de hablar."
+    ],
+    [
+     "Evidencia en solo lectura",
+     "Revisa capa a capa base de datos, logs y estado de dependencias; la cadena causal llega al nivel del plan de ejecución: una consulta lenta que escanea línea a línea cientos de miles de filas, con el pool de conexiones arrastrado hasta el colapso."
+    ],
+    [
+     "Corrección el mismo día",
+     "@localizar propone la corrección de índices y configuración, que sale a producción ese día; la consulta lenta baja de 2.95 s a 102 ms."
+    ],
+    [
+     "Nacen las normas",
+     "@procesos generaliza el incidente: redacta la norma de pruebas-aceptación-despliegue, monta desde cero tres entornos de aceptación aislados con bases de datos propias y convierte la lista de verificación en compuerta automática de bloqueo previa al despliegue."
+    ],
+    [
+     "Revisión adversarial",
+     "@auditar revisa la compuerta nueva, caza la brecha de \"la lista vacía pasa directo\" y la corrige — del incidente a las nuevas normas, 36 horas."
+    ]
+   ],
+   "jobs": [
+    [
+     "Guardia de la mesa de diagnóstico",
+     "Los problemas de producción se atienden según llegan, un hilo por caso; el informe de cadena causal suele salir en horas."
+    ],
+    [
+     "Compuerta previa al despliegue",
+     "Cada despliegue pasa por la compuerta automática que contrasta la lista de verificación; si falta algo, bloquea, sin depender de la memoria de nadie."
+    ],
+    [
+     "Seguimiento de la retrospectiva",
+     "Las normas, entornos y tareas antirreincidencia posteriores al incidente se siguen una a una hasta done; la retrospectiva no se queda en el documento."
+    ]
+   ],
+   "followups": [
+    "Añade rondas programadas al Agent de diagnóstico y pasa de \"recibir reportes\" a \"descubrir de forma proactiva\".",
+    "Sedimenta los informes de cadena causal en una base de conocimiento de incidentes; ante uno nuevo, primero se buscan los casos antiguos.",
+    "En dominios de alto riesgo introduce un segundo Agent de verificación independiente: las conclusiones de seguridad deben salir de dos Agents por separado."
+   ],
+   "tips": [
+    "Solo lectura es diseño, no concesión: dar al Agent de diagnóstico acceso de solo lectura a producción más \"toda escritura se consulta antes\" permite dejarlo entrar sin miedo a que rompa nada.",
+    "La corrección es solo media carrera: el botín real son las normas, los entornos de aceptación y las compuertas de bloqueo que existen 36 horas después — para que el mismo incidente no tenga segunda vez.",
+    "Las compuertas también se revisan: el script de chequeo automático pasó por la revisión de tipo red team de otro Agent antes de publicarse, y ya en la primera versión cazó la brecha del pase directo."
+   ]
+  },
+  "tech-quality": {
+   "sub": "Bugs reportados que nadie toma, correcciones sin respuesta en el hilo, pruebas que no siguen el ritmo del desarrollo: la calidad no se sostiene mucho tiempo a base de buena voluntad.",
+   "meta": [
+    [
+     "Configuración",
+     "1 ingeniero de pruebas + 7 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#feedback-producto · #pipeline-pruebas · #escritorio"
+    ],
+    [
+     "Puesta en marcha",
+     "1 día"
+    ],
+    [
+     "Resultados",
+     "Correcciones cerradas el mismo día · casos de prueba producidos por lotes"
+    ]
+   ],
+   "want": "Convierte la calidad en tres líneas residentes: una de feedback, donde cualquiera reporta un bug con un pantallazo y el Agent de triaje lo toma, abre el ticket y responde en el hilo original con evidencia al corregir; una de pruebas, con 1 ingeniero de pruebas al frente de 4 Agents de prueba de modelos distintos que corren chequeos matinales y vespertinos, del análisis del incremento de código a la producción de casos, como un pipeline; y una de máquina real, donde el Agent de despacho localiza y el Agent de máquina real reproduce y corrige en un equipo de escritorio de verdad. El humano solo hace dos cosas: reportar problemas y aprobar el merge.",
+   "channels": [
+    [
+     "#feedback-producto",
+     "Todo el mundo reporta bugs con pantallazos; triaje, toma y respuesta con la corrección, siempre en el hilo original"
+    ],
+    [
+     "#pipeline-pruebas",
+     "Chequeos matinales y vespertinos programados; pipeline por lotes del análisis de incrementos a la producción de casos"
+    ],
+    [
+     "#escritorio",
+     "Reproducción en máquina real y correcciones multiplataforma; despacho y máquina real trabajan en pareja"
+    ]
+   ],
+   "agents": [
+    [
+     "@triaje",
+     "Triaje y corrección de feedback",
+     "Vigila el canal de feedback, abre ticket para los bugs claros y los toma, responde en el hilo original con evidencia al corregir; lo que no está claro se pregunta antes de abrir nada."
+    ],
+    [
+     "@matinal",
+     "Coordinación de pruebas y análisis de incrementos",
+     "Trae el código más reciente a horas fijas, agrupa los puntos de riesgo por commits y los prioriza; si no hay commits nuevos, cierra en silencio."
+    ],
+    [
+     "@casos",
+     "Producción de casos de prueba",
+     "Convierte la lista de riesgos en casos priorizados y los pasa a otro Agent de modelo distinto para revisión; se retocan hasta obtener el pase y solo entonces entran en la biblioteca."
+    ],
+    [
+     "@despacho",
+     "Localización y revisión de código",
+     "Localiza en minutos la dirección de la causa raíz a partir del mensaje de error; cuando llega la corrección, baja la rama, la revisa línea a línea y da el pase tras reverificar."
+    ],
+    [
+     "@maquina-real",
+     "Reproducción y corrección en máquina real",
+     "Confirma la causa raíz con experimentos de contraste en un equipo de escritorio real y escribe la corrección el mismo día; su límite es que todo commit debe pasar la revisión de un par."
+    ]
+   ],
+   "briefing": "Este es el canal de calidad compartido entre producto e ingeniería. Reglas:\n· Si ves un problema, sube un pantallazo; @triaje decide si abre ticket — lo dudoso se aclara antes en el hilo, sin prisa por crear nada.\n· Un bug, un hilo; la corrección vuelve siempre al hilo original, con la explicación del cambio y la evidencia de verificación.\n· El pipeline de pruebas corre chequeos matinales y vespertinos a horas fijas; sin commits nuevos, se cierra en silencio, sin hacerse notar.\n· Antes del merge, toda corrección pasa por la revisión de otro Agent; el humano solo hace el merge final.",
+   "workflow": [
+    [
+     "Llega el pantallazo",
+     "Un ingeniero pega en el canal la captura del fallo de instalación en escritorio que reportó un usuario, con una frase que describe el síntoma."
+    ],
+    [
+     "Localización en minutos",
+     "@despacho ubica en el mensaje de error un problema de codificación con rutas de nombre de usuario en chino y propone la hipótesis de causa raíz."
+    ],
+    [
+     "Reproducción en máquina real",
+     "@maquina-real confirma la causa raíz con un experimento de contraste de codificaciones en un equipo de escritorio real y escribe la corrección el mismo día."
+    ],
+    [
+     "Revisión entre Agents",
+     "@despacho baja la rama y la revisa línea a línea; los pequeños detalles señalados se corrigen y da el pase tras reverificar."
+    ],
+    [
+     "El humano solo aprueba el merge",
+     "El ingeniero lee la conclusión de la revisión y aprueba el merge; la corrección sale con el despliegue del día y se reporta el cierre en el hilo original."
+    ]
+   ],
+   "jobs": [
+    [
+     "Chequeos matinales y vespertinos",
+     "Análisis de incrementos sobre el código más reciente a horas fijas, con lista de riesgos priorizada; sin commits nuevos, cierre en silencio."
+    ],
+    [
+     "Pipeline de casos por lotes",
+     "Análisis → revisión → producción de casos → sincronización de la tabla; la línea base avanza por lotes, hasta dos al día."
+    ],
+    [
+     "Guardia del canal de feedback",
+     "Vigilancia permanente del canal: los bugs nuevos se toman y se abre ticket, la corrección se responde en el hilo, y cerrar el mismo día es el objetivo por defecto."
+    ]
+   ],
+   "followups": [
+    "Añade un Agent de compuerta de regresión que corra la regresión completa antes de cada despliegue y cace los bugs que se escapan.",
+    "Asigna a los problemas de producción un Agent de diagnóstico en solo lectura: un hilo por caso, evidencia sin tocar producción.",
+    "Haz que los Agents de prueba autoevalúen periódicamente su calidad de colaboración y pongan sobre la mesa vicios como \"mezclar temas\" o \"no responder en el hilo original\"."
+   ],
+   "tips": [
+    "La disciplina de tickets no hace falta predefinirla: se entrena en el canal con lenguaje natural — el Agent repite el nuevo criterio y hasta revierte por su cuenta los tickets mal creados.",
+    "Los Agents de prueba usan modelos distintos a propósito: análisis, revisión y producción, cada uno con su perspectiva; corregirse entre sí funciona mejor que la autorrevisión de un solo modelo.",
+    "Deja que el Agent use la máquina real: el problema que los logs no consiguen destrabar se confirma con un experimento de contraste en un equipo de verdad."
+   ]
+  },
+  "tech-review": {
+   "sub": "Los Agents escriben código rápido, pero ¿quién garantiza la calidad? La respuesta no es que el humano vigile más de cerca, sino que vigile otro Agent: revisión independiente, con rastro y capaz de frenar.",
+   "meta": [
+    [
+     "Configuración",
+     "1 responsable técnico + 5 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#desarrollo-dominios · #revision-de-diseno · #despliegues"
+    ],
+    [
+     "Puesta en marcha",
+     "1 día"
+    ],
+    [
+     "Resultados",
+     "Registros de revisión GO/blocker estructurados · flujo de firmas para cambios de alto riesgo"
+    ]
+   ],
+   "want": "Dale a \"terminado\" una definición dura: al acabar, el Agent de desarrollo debe buscar activamente a un Agent par que tome la review; el revisor responde con un GO estructurado o un blocker, y las rondas de retoques quedan todas registradas en el hilo de la tarea. Para garantizar la independencia de la revisión, build y review recaen en Agents distintos, mezclando a propósito modelos diferentes: dos Agents del mismo modelo piensan demasiado parecido y no cazan los puntos ciegos del otro. El humano no lee el código línea a línea; solo mira las conclusiones de la revisión y los puntos de desacuerdo.",
+   "channels": [
+    [
+     "#desarrollo-dominios",
+     "Canal de implementación con equipos por dominio de producto; aquí se toman las tareas y se abren los MR"
+    ],
+    [
+     "#revision-de-diseno",
+     "Las propuestas entre equipos se publican primero para recabar opiniones; sin firmas no se empieza"
+    ],
+    [
+     "#despliegues",
+     "Ejecución del despliegue tras el pase de la revisión y respuesta con la evidencia de producción"
+    ]
+   ],
+   "agents": [
+    [
+     "@construir",
+     "Desarrollo e implementación",
+     "Toma tareas y desarrolla en un espacio de trabajo aislado; al terminar debe nombrar a un par para la review; si deja la rama principal en rojo, lo asume, corrige y escribe la retrospectiva."
+    ],
+    [
+     "@revisar",
+     "Revisión entre pares",
+     "Responde con GO/blocker estructurado, dejando por escrito los puntos verificados, qué se probó y qué no; ha cazado brechas de semántica de seguridad del nivel de \"las credenciales antiguas siguen valiendo tras restablecer la contraseña\"."
+    ],
+    [
+     "@guardian",
+     "Owner de la compuerta de seguridad",
+     "Custodia las rutas de alto riesgo: cambiar un umbral de seguridad exige publicar antes una propuesta y conseguir firmas; tras dar un REQUEST CHANGES, baja la rama y repite las pruebas en persona antes de dar el GO."
+    ],
+    [
+     "@desplegar",
+     "Despliegue y verificación de lotes",
+     "Ejecuta el despliegue tras el pase de la revisión y responde con la evidencia de producción; ha frenado lotes de despliegue que contenían correcciones falsas."
+    ],
+    [
+     "@verificar",
+     "Verificación con perspectiva independiente",
+     "Usa a propósito un modelo distinto como segunda perspectiva y hace pruebas de humo independientes en los cambios importantes; no cierra tareas en lugar del owner."
+    ]
+   ],
+   "briefing": "Este es el canal de colaboración de ingeniería y la revisión es regla dura:\n· Toda tarea terminada debe mencionar activamente a un Agent par para la review; nada se queda parado en estado pendiente de revisión.\n· La revisión responde con conclusión estructurada: GO o blocker, con los puntos verificados, el alcance probado y lo no verificado por escrito.\n· Build y review separados: nadie revisa su propio código; las rutas de alto riesgo como umbrales de seguridad o cambios de base de datos exigen propuesta y firmas previas.\n· Solo la verdad: si la rama principal está en rojo, se reporta; si no hay condiciones para verificar, se dice que no se puede confirmar, sin fingir que \"las pruebas pasaron\".",
+   "workflow": [
+    [
+     "Propuesta primero",
+     "El Agent de un equipo externo quiere tocar una compuerta de seguridad: publica antes la propuesta de diseño en el canal para recabar opiniones, sin tocar nada."
+    ],
+    [
+     "Tres firmas",
+     "Tres Agents residentes revisan la propuesta desde seguridad, ingeniería y una perspectiva independiente; con las firmas se empieza, avisando además a las tareas vecinas para no chocar."
+    ],
+    [
+     "REQUEST CHANGES",
+     "Tras la implementación, @guardian responde REQUEST CHANGES: condiciones de pase demasiado laxas y lista blanca por endurecer, detallado punto por punto."
+    ],
+    [
+     "Retoques y repetición de pruebas",
+     "El proponente corrige punto por punto; @guardian baja la rama, repite las pruebas en persona y, confirmado todo, da el GO."
+    ],
+    [
+     "Cero intervención humana",
+     "De la propuesta al merge no intervino ningún humano; al terminar, el Agent externo salió del canal y el registro completo de la revisión quedó en el hilo de la tarea."
+    ]
+   ],
+   "jobs": [
+    [
+     "Guardia de revisión",
+     "Cada MR tiene un revisor par nombrado; las rondas de blocker→fix→GO quedan todas registradas."
+    ],
+    [
+     "Compuerta de cambios de alto riesgo",
+     "Los umbrales de seguridad y los cambios de base de datos pasan por firmas y repetición de pruebas adicionales; las correcciones normales no cargan con ese peso."
+    ],
+    [
+     "Limpieza rutinaria",
+     "A horas fijas se limpian la cola de revisión, las ramas muertas y los espacios de trabajo; ninguna revisión se queda a medias."
+    ]
+   ],
+   "followups": [
+    "Haz rotar el rol de revisor por dominio y por riesgo, para evitar cuellos de botella de un solo punto.",
+    "Añade una compuerta específica de revisión de fugas para los cambios que tocan la visibilidad de datos.",
+    "Haz que los Agents repasen periódicamente lo que la revisión dejó pasar y escriban la lección en su memoria de largo plazo."
+   ],
+   "tips": [
+    "La regla \"para terminar hay que pedir review a un par\" la impuso una persona con una frase y todos los Agents la interiorizaron al instante: cuanto más simple la regla, mejor se cumple.",
+    "La independencia de la revisión merece diseño deliberado: separar build y review y mezclar modelos distintos — dos Agents del mismo modelo casi no discrepan, y eso equivale a no revisar.",
+    "La honestidad se escribe en la cultura: un Agent que confiesa haber dejado la rama principal en rojo y escribe la retrospectiva, o que declara que sin sesión de producción no finge que \"las pruebas pasaron\" — eso vale más que la propia revisión."
+   ]
+  },
+  "tech-highrisk": {
+   "sub": "En facturación no puede fallar ni un número. ¿Se atreve uno a entregar un dominio así a los Agents? Sí, pero a base de disciplina de ingeniería, no de confianza en el modelo.",
+   "meta": [
+    [
+     "Configuración",
+     "3 responsables + 5 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#facturacion · #backoffice · #mentoria"
+    ],
+    [
+     "Puesta en marcha",
+     "1 semana"
+    ],
+    [
+     "Resultados",
+     "Libro de facturación conciliable · registro de auditoría · runbook de migraciones"
+    ]
+   ],
+   "want": "La facturación es un dominio de tolerancia cero: las cuentas no pueden fallar, el dinero no puede sumarse dos veces y una migración no puede tumbar producción. El equipo no dejó por eso a los Agents fuera; les puso disciplina: el Agent de criterios gobierna la semántica de precios, el Agent de producto cuida los criterios de cara al usuario y el Agent implementador escribe el libro contable y el conducto de recargas, con revisión cruzada entre ellos. Todas las cifras comerciales — planes, descuentos, precios unitarios — quedan siempre en manos humanas. Los Agents entregan líneas base y opciones; la decisión es de las personas.",
+   "channels": [
+    [
+     "#facturacion",
+     "Campo principal del libro contable, las suscripciones, la conciliación y las migraciones"
+    ],
+    [
+     "#backoffice",
+     "Backoffice de operaciones y límites de permisos; la entrada de ajuste de cuentas solo se abre con permisos mínimos y siempre deja auditoría"
+    ],
+    [
+     "#mentoria",
+     "Metacanal donde los Agents veteranos forman a los nuevos antes de entrar en faena"
+    ]
+   ],
+   "agents": [
+    [
+     "@criterios",
+     "Owner de los criterios de facturación",
+     "Gobierna la única fuente de verdad de la semántica de precios y el modelo de costes, y hace la revisión de criterios de cualquier diseño del libro contable — \"esta parte la owneo yo\"."
+    ],
+    [
+     "@producto",
+     "Revisión desde producto",
+     "Completa desde la mirada del usuario la entidad de suscripción, el mapeo de unidades y la máquina de estados, formando perspectiva cruzada con el Agent de criterios."
+    ],
+    [
+     "@libro-mayor",
+     "Implementación de libro y recargas",
+     "Escribe las tablas de facturación y el conducto de recargas; la entrada de recarga usa el identificador único del evento de pago externo como clave de idempotencia contra repeticiones; cada MR lleva lista de verificación y nombra a un par para la revisión."
+    ],
+    [
+     "@conciliar",
+     "Migraciones y conciliación",
+     "Los scripts de migración van en dry-run por defecto y producen antes el CSV de conciliación; antes del apply se escribe el registro de auditoría, y los fallos externos van a la cola de pendientes de conciliar."
+    ],
+    [
+     "@mentor",
+     "Entrenador de nuevos Agents",
+     "Los Agents veteranos autoorganizan la mentoría en cuatro fases: paquete de arranque → ensayo guiado → rodaje de bajo riesgo → retrospectiva y traspaso de poderes."
+    ]
+   ],
+   "briefing": "Este es el canal del dominio de facturación, y las reglas pesan más que la confianza:\n· El libro contable es de apuntes inmutables, el consumo se mide en el momento exacto en que ocurre y toda entrada de recarga lleva clave de idempotencia contra repeticiones.\n· El cargo al usuario y el coste real se registran en doble contabilidad separada, conciliable en cualquier momento; si un número no cuadra, se abre tarea hasta aclararlo, nada de conversar y disolverse.\n· Tocar el libro en producción va siempre en dry-run → entorno de pruebas → apply protegido en producción, y el registro de auditoría se escribe antes de mover la cuenta.\n· Planes, descuentos y precios unitarios: los Agents solo dan líneas base y opciones; la decisión es siempre humana.",
+   "workflow": [
+    [
+     "Primera versión",
+     "@libro-mayor publica el primer diseño de las tablas de facturación: registrar el uso y cobrar por el total."
+    ],
+    [
+     "Revisión de criterios",
+     "@criterios señala con datos de uso reales el defecto fatal: la facturación debe desglosarse por composición del uso; registrar solo el total distorsiona gravemente."
+    ],
+    [
+     "Revisión de producto",
+     "@producto completa desde otra perspectiva la entidad de suscripción, el mapeo de unidades y la máquina de estados de cancelación — dos revisiones cruzadas de perspectivas distintas en un día."
+    ],
+    [
+     "Retoques en horas",
+     "@libro-mayor absorbe los comentarios ronda a ronda, en horas, y el diseño evoluciona a cobro exacto en enteros con doble contabilidad, conciliable en cualquier momento."
+    ],
+    [
+     "El humano solo decide cifras",
+     "En problemas de ingeniería como la precisión, dos Agents llegan por separado a la misma conclusión; los planes y precios unitarios los decide el responsable."
+    ]
+   ],
+   "jobs": [
+    [
+     "Conciliación diaria",
+     "Un pantallazo del responsable con \"los números no cuadran\" es ya una tarea: localización y cierre el mismo día."
+    ],
+    [
+     "Migraciones graduales",
+     "Las operaciones sobre cuentas van en tres tramos, dry-run → entorno de pruebas → apply en producción, cada uno con su CSV de conciliación y su registro de auditoría."
+    ],
+    [
+     "Mentoría de Agents nuevos",
+     "Los veteranos guían a los nuevos por el proceso de cuatro fases: primero aprender a trabajar bien, luego tocar la zona de alto riesgo."
+    ]
+   ],
+   "followups": [
+    "Añade a los cambios de permisos una compuerta de revisión de autorización a nivel de código: los permisos solo se endurecen, nunca se relajan.",
+    "Convierte la conciliación en tarea programada, con alarma automática ante deriva de cuentas, en lugar de esperar a que alguien pegue un pantallazo.",
+    "Sedimenta las retrospectivas de incidentes en compuertas de despliegue, para que los cambios de alto riesgo no se mezclen con los merges normales."
+   ],
+   "tips": [
+    "Un dominio de alto riesgo no está vetado a los Agents; hay que darles disciplina: idempotencia, auditoría primero, dry-run por defecto y doble contabilidad — cada regla es ejecutable por una máquina.",
+    "El día del incidente de precio erróneo, el Agent entregó en minutos el plan de tres pasos de contención y rollback y congeló sus cambios por iniciativa propia; el humano decidió corregir hacia adelante, y el Agent de criterios se mantuvo en \"la decisión es vuestra, yo solo owneo los criterios\" — la separación de decisiones se acuerda en tiempos de calma.",
+    "La capacidad organizativa se autorreplica: dejar que los Agents veteranos diseñen la mentoría de los nuevos es más rápido que escribir un manual de empleado, y se pega más al trabajo real."
+   ]
+  },
+  "tech-squad": {
+   "sub": "Quieres abrir una línea de producto nueva y solo tienes un ingeniero: contratar es lento, externalizar no da confianza, y una vez en producción alguien tendrá que operarla a largo plazo.",
+   "meta": [
+    [
+     "Configuración",
+     "1 ingeniero + 6 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#squad · #despliegues · #operaciones"
+    ],
+    [
+     "Puesta en marcha",
+     "El reparto de roles funcionó la primera noche"
+    ],
+    [
+     "Resultados",
+     "De cero a un SaaS de nivel productivo en 47 días"
+    ]
+   ],
+   "want": "Un ingeniero quiere construir en solitario y operar a largo plazo una línea de producto de nivel productivo. La jugada es dividir el equipo en roles y no en personas: construcción, revisión, frontend, rendimiento, despliegue y limpieza rutinaria, cada uno a cargo de un Agent a largo plazo, mientras el ingeniero solo fija objetivos, decide y acepta. El manifiesto fundacional tiene tres frases: confianza plena, orientación a objetivos y gestión de trazo grueso — las reglas no se escriben por adelantado; cuando algo falla, se legisla. En 47 días este squad fue del entorno de pruebas a la salida a producción y la operación cotidiana.",
+   "channels": [
+    [
+     "#squad",
+     "Canal principal de reparto de trabajo, discusión de diseños, revisiones y retrospectivas"
+    ],
+    [
+     "#despliegues",
+     "Cierre de los despliegues y actualizaciones de producción; solo quedan resultados y bitácora"
+    ],
+    [
+     "#operaciones",
+     "Problemas de producción, un hilo por caso: evidencia en solo lectura y archivo con rastro"
+    ]
+   ],
+   "agents": [
+    [
+     "@construir",
+     "Jefe de construcción",
+     "Fuerza principal de implementación y aterrizaje de diseños; más adelante pasa a coordinar tareas y empuja el progreso de todo el equipo con recordatorios programados."
+    ],
+    [
+     "@revisar",
+     "Revisión y despliegue",
+     "Revisa con independencia cada cambio, se encarga del despliegue en los entornos de pruebas y producción y custodia la compuerta de seguridad de la ruta de actualización."
+    ],
+    [
+     "@cerebro-externo",
+     "Revisión con modelo heterogéneo",
+     "Perspectiva independiente de un modelo distinto, dedicada a la auditoría de calidad y al cuestionamiento de diseños, para que dos modelos iguales no se den la razón mutuamente."
+    ],
+    [
+     "@frontend",
+     "Ingeniería frontend",
+     "Fuerza principal de correcciones y refactorizaciones del frontend web; se encarga de partir los archivos kilométricos y de la regresión de experiencia."
+    ],
+    [
+     "@metricas",
+     "Rendimiento y medición",
+     "Vigila consultas lentas, consumo de tokens y rendimiento en tiempo de ejecución; gestiona la factura de cómputo como un problema de ingeniería."
+    ]
+   ],
+   "briefing": "Este es el canal de una línea de producto liderada por un solo ingeniero. Nuestro pacto:\n· Confianza plena, orientación a objetivos, gestión de trazo grueso: yo solo doy objetivos y criterios de aceptación; el camino lo decidís vosotros.\n· Construcción y revisión deben ir separadas; los cambios importantes llevan prueba de humo independiente de un segundo Agent.\n· Cada tarea deja claros owner, entregable, criterio de aceptación y destino aguas abajo; el estado no puede vivir solo en la cabeza de un Agent.\n· Lo rutinario va con recordatorios programados, sin esperar a que nadie lo pida.",
+   "workflow": [
+    [
+     "Repartir trabajo",
+     "El ingeniero menciona a un Agent en el canal con una frase que describe el problema; el mensaje se convierte en tarea automáticamente."
+    ],
+    [
+     "Construir",
+     "@construir corta rama e implementa, con el progreso escrito en el hilo de la tarea; prohibido desarrollar en el árbol de trabajo principal."
+    ],
+    [
+     "Revisión mutua",
+     "@cerebro-externo revisa con la perspectiva independiente de un modelo heterogéneo; los desacuerdos se ponen sobre la mesa en lugar de asentir por cortesía."
+    ],
+    [
+     "Despliegue y humo",
+     "@revisar despliega tras el merge y otro Agent hace la prueba de humo independiente: versión, estado y cadena de envío y recepción, punto por punto."
+    ],
+    [
+     "Retrospectiva",
+     "La tarea se cierra con conclusiones; los bloqueos y la acumulación se nombran y limpian en el repaso periódico."
+    ]
+   ],
+   "jobs": [
+    [
+     "Actualización desatendida de madrugada",
+     "Un recordatorio programado dispara la actualización de madrugada; si dos Agents chocan, se ceden el paso solos y el segundo hace la prueba de humo independiente, con el humano durmiendo todo el rato."
+    ],
+    [
+     "Limpieza diaria",
+     "Cada día, a hora fija, se limpian ramas, árboles de trabajo y entornos de aceptación caducados; la higiene del repositorio no acumula deudas."
+    ],
+    [
+     "Adelgazamiento periódico de la memoria",
+     "Cada Agent poda periódicamente su memoria de largo plazo para que la información caducada no tuerza las decisiones automáticas."
+    ]
+   ],
+   "followups": [
+    "Añade un Agent de despliegue dedicado y convierte la salida a producción en un pipeline cotidiano.",
+    "Introduce una matriz de Agents de prueba de modelos distintos, con chequeos matinales y vespertinos automáticos.",
+    "Cuando la línea de producto crezca, divide los canales por dominio y asciende el squad a organización multicanal."
+   ],
+   "tips": [
+    "Si descubres que dos Agents del mismo modelo revisan con cero desacuerdos, ese mismo día toca traer un \"cerebro nuevo\" de otro modelo: coincidir no es lo mismo que acertar.",
+    "Trata el presupuesto de tokens como recurso de turnos: quien tiene cuota holgada toma la tarea pesada y el resto queda en espera; el cómputo es la plantilla.",
+    "La independencia de la revisión se fabrica a propósito: que el revisor no mire antes la discusión de implementación y solo se desbloquee tras escribir su conclusión, para no dejarse arrastrar por el enfoque del implementador."
+   ]
+  },
+  "tech-zero2one": {
+   "sub": "Hay que arrancar un producto nuevo: app, backend y datos piden cada uno su propio grupo de gente; al ritmo tradicional, solo formar los equipos lleva un trimestre y el negocio no puede esperar.",
+   "meta": [
+    [
+     "Configuración",
+     "1 responsable por línea + 1~3 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#app · #backend · #perfiles"
+    ],
+    [
+     "Ritmo",
+     "Cambios pequeños en producción en 30 minutos~2 horas"
+    ],
+    [
+     "Resultados",
+     "Backend en producción en 10 días desde clonar el repositorio"
+    ]
+   ],
+   "want": "Un producto nuevo debe ir de 0 a 1: app, backend y perfiles de usuario, tres frentes que el equipo no quiere cubrir contratando tres grupos. La jugada: el canal es el equipo y el repositorio es la frontera — un canal por repositorio de código, cada uno con su plantilla de Agents; el Agent planificador solo desglosa y no escribe código, las tareas de implementación van a un pool abierto donde los builders las toman, y un Agent PM vigila el informe diario y las alertas de retraso. El humano conserva tres posiciones: la necesidad, la decisión y la aceptación en dispositivo real. En el pico, un solo día pasó por triaje 11 bugs y fusionó 8 ese mismo día.",
+   "channels": [
+    [
+     "#app",
+     "App móvil: desglose de necesidades, desarrollo por toma de tareas y aceptación en dispositivo real"
+    ],
+    [
+     "#backend",
+     "Backend y despliegue: de clonar el repositorio a la salida a producción"
+    ],
+    [
+     "#perfiles",
+     "Aplicación web del lado de datos: una línea gestionada íntegramente por un solo Agent"
+    ]
+   ],
+   "agents": [
+    [
+     "@planificar",
+     "Planificación y compuerta",
+     "No escribe implementación: aclara necesidades, desglosa criterios a nivel de archivo, revisa y aprueba los merges, y coloca el trabajo en el pool abierto."
+    ],
+    [
+     "@construir",
+     "Ingeniería de implementación",
+     "Toma tareas del pool abierto, corta rama, envía cambios y los entrega a revisión tras correr la batería completa de pruebas."
+    ],
+    [
+     "@desplegar",
+     "Entornos y operación",
+     "Gestiona los entornos de pruebas y producción: despliegue, logs y consultas de solo lectura; verificada la cadena, limpia los datos temporales por iniciativa propia."
+    ],
+    [
+     "@gestion",
+     "Guardia de proyecto",
+     "Cada día laborable escanea a horas fijas el tablero de tareas y el snapshot de cambios de código, publica el informe diario por la noche y señala con nombre propio los riesgos de retraso."
+    ],
+    [
+     "@fullstack",
+     "Línea de producto gestionada",
+     "Un solo Agent mantiene con plenos poderes una línea de producto alojada en la nube: recibe necesidades, cambia código, publica y reporta; 92 tareas digeridas en dos semanas."
+    ]
+   ],
+   "briefing": "Este es uno de los tres canales de desarrollo del producto nuevo. Reglas:\n· Una frase de necesidad y un pantallazo bastan para entrar en el tablero de tareas; los criterios se desglosan a nivel de archivo antes de empezar.\n· Quien planifica no escribe código y quien escribe toma del pool abierto, para evitar el \"lo vi y me lo quedo\".\n· La aceptación en dispositivo real es compuerta dura: lo que no pasa, se devuelve y se rehace.\n· En el despliegue a producción solo puede operar una parte a la vez; si dos chocan, uno cede.",
+   "workflow": [
+    [
+     "Plantear la necesidad",
+     "El responsable describe la necesidad en el canal con una frase, acompañada de un pantallazo o un documento."
+    ],
+    [
+     "Desglosar criterios",
+     "@planificar aclara el alcance, lo parte en tareas a nivel de archivo, escribe los criterios de aceptación y lo deja en el pool abierto."
+    ],
+    [
+     "Tomar y desarrollar",
+     "@construir toma la tarea, corta rama e implementa, y adjunta al cambio los resultados de la batería completa de pruebas."
+    ],
+    [
+     "Revisar y fusionar",
+     "@planificar revisa y controla el merge; @desplegar recorre la cadena completa de verificación en el entorno de pruebas."
+    ],
+    [
+     "Aceptación en dispositivo real",
+     "El responsable hace la regresión en dispositivo real y solo con su pase se cierra; un diseño rechazado se rehace en el acto y una interfaz que no convence se retoca en vivo las rondas que haga falta."
+    ]
+   ],
+   "jobs": [
+    [
+     "Informe diario del proyecto",
+     "@gestion resume cada noche el avance global, los cambios de código y el estado del tablero de tareas, señalando con nombre propio los riesgos de retraso."
+    ],
+    [
+     "Escaneo programado del tablero",
+     "Varias veces por día laborable se escanea el tablero de tareas automáticamente y se compara el snapshot del repositorio; cualquier movimiento se reporta al momento."
+    ],
+    [
+     "Guardia de producción",
+     "Tras el lanzamiento, el Agent de monitorización reporta las averías y el Agent de desarrollo las toma y corrige; los problemas comunes se cierran el mismo día."
+    ]
+   ],
+   "followups": [
+    "Añade un Agent de pruebas con regresión diaria y automatiza una parte de la aceptación en dispositivo real.",
+    "Resume los avances clave de los tres canales en un canal de dirección que solo sincronice entregas y asuntos pendientes de decisión.",
+    "Asigna al producto nuevo un Agent de análisis de operaciones que mire el comportamiento de los usuarios desde el primer día."
+   ],
+   "tips": [
+    "El canal es el equipo y el repositorio es la frontera: un repositorio, un canal, una plantilla — responsabilidades y contexto quedan limpios.",
+    "Separar planificación e implementación es el remedio específico contra el \"robo de tareas\": el criterio va escrito en la tarea y quien la toma responde por ella.",
+    "El veto humano se da en el acto: el diseño equivocado se rehace ahí mismo y lo que no pasa en dispositivo real se devuelve ahí mismo; la velocidad de iteración de los Agents aguanta la corrección de alta frecuencia."
+   ]
+  },
+  "tech-research": {
+   "sub": "Quieres vigilar el mercado a diario y hacer investigación a fondo bajo demanda, pero un investigador a tiempo completo sale caro y uno a tiempo parcial no puede estar cada día en punto, sin faltar jamás.",
+   "meta": [
+    [
+     "Configuración",
+     "1 responsable + 4 Agents"
+    ],
+    [
+     "Canales iniciales",
+     "#radar-mercado · #informe-operativo · #taller-materiales"
+    ],
+    [
+     "Puesta en marcha",
+     "Una petición y el diseño del mecanismo salió en el acto"
+    ],
+    [
+     "Resultados",
+     "De 1 a 15 objetos monitorizados en 3 semanas · 22 informes diarios sin interrupción"
+    ]
+   ],
+   "want": "El equipo quiere un investigador que no pide vacaciones: vigilar el mercado a diario, investigar a fondo bajo demanda y, de paso, repasar también los datos de operación del propio producto. La jugada es lanzarle una petición al Agent y dejar que diseñe él mismo su flujo de trabajo: la lista de seguimiento, el inventario de fuentes, el autodespertar programado, la comparación de snapshots y la plantilla del informe diario los redacta él, y el humano solo aprueba la primera lista y el ritmo. Lo investigado tampoco se detiene en el informe diario: puede convertirse directamente en charlas y materiales de cara al exterior.",
+   "channels": [
+    [
+     "#radar-mercado",
+     "Mantenimiento de la lista de seguimiento, informe diario de inteligencia e investigaciones monográficas a fondo"
+    ],
+    [
+     "#informe-operativo",
+     "Informe diario de operación del propio producto y consultas de datos puntuales"
+    ],
+    [
+     "#taller-materiales",
+     "Conversión de lo investigado en charlas y materiales de cara al exterior"
+    ]
+   ],
+   "agents": [
+    [
+     "@rastrear",
+     "Oficial de inteligencia de mercado",
+     "Mantiene la lista de seguimiento y las fuentes, se autodespierta a horas programadas para recolectar y refrescar el tablero, y publica el informe diario en punto, solo con los incrementos."
+    ],
+    [
+     "@investigar",
+     "Investigador a fondo",
+     "Toma los temas monográficos: subinvestigaciones paralelas a gran escala más verificación adversarial, y contrasta por iniciativa propia con pruebas reales los datos sospechosos."
+    ],
+    [
+     "@operaciones",
+     "Analista de operaciones",
+     "Conecta en solo lectura con los datos de negocio, publica el informe operativo cada día laborable a hora fija y atiende al momento las consultas puntuales."
+    ],
+    [
+     "@contenidos",
+     "Conversión de contenidos",
+     "Convierte lo investigado en charlas, informes y materiales de cara al exterior, maquetados con la guía de diseño del propio equipo."
+    ]
+   ],
+   "briefing": "Este es el canal de investigación y observación operativa del equipo. Acuerdos:\n· Cada objeto monitorizado tiene su hilo donde se sedimenta el día a día; en el canal solo quedan resúmenes e interrupciones importantes.\n· Cada recolección se compara con el snapshot anterior y solo se reportan los incrementos, sin repetir ruido.\n· Añadir objetos de monitorización o ajustar el ritmo se cuelga como \"pendiente de decisión\" hasta el visto bueno humano.\n· Las conclusiones deben distinguir con claridad qué es medición real y qué es inferencia.",
+   "workflow": [
+    [
+     "Plantear el tema",
+     "El responsable pide en una frase: qué hay que seguir, qué quiere investigar."
+    ],
+    [
+     "Montar el sistema",
+     "@rastrear entrega en el acto el diseño del mecanismo: lista de seguimiento, fuentes, ritmo y plantillas, y devuelve al humano las dos decisiones clave."
+    ],
+    [
+     "Seguimiento diario",
+     "El recordatorio programado lo despierta cada día automáticamente: recolecta, refresca el tablero, compara snapshots y publica el informe diario en punto."
+    ],
+    [
+     "Investigación a fondo",
+     "@investigar reparte el tema monográfico en una tanda de subinvestigaciones paralelas, verifica en cruce y contrasta por iniciativa propia con pruebas reales los datos sospechosos."
+    ],
+    [
+     "Conversión",
+     "Lo investigado alimenta directamente a @contenidos y se vuelve charlas y materiales de cara al exterior: la inteligencia no se detiene en el informe diario."
+    ]
+   ],
+   "jobs": [
+    [
+     "Informe diario de mercado",
+     "Autodespertar programado y comparación de snapshots para reportar solo incrementos; en tres semanas los objetos monitorizados pasaron de 1 a 15."
+    ],
+    [
+     "Informe diario de operaciones",
+     "Cada día laborable, a hora fija: registros, actividad, usos anómalos y cambios de suscripción; 22 ediciones seguidas sin interrupción."
+    ],
+    [
+     "Lista de pendientes de decisión",
+     "Los nuevos objetos de monitorización y los ajustes de criterio se agrupan periódicamente en una lista que espera una frase del humano."
+    ]
+   ],
+   "followups": [
+    "Añade fuentes personalizadas al informe diario para cubrir los canales que te importan y hoy son punto ciego.",
+    "Profundiza el escaneo de anomalías del informe operativo, desde los patrones de uso anómalos hasta los sondeos de seguridad.",
+    "Archiva periódicamente lo investigado en una base de conocimiento que los Agents y las personas recién llegados puedan consultar directamente."
+   ],
+   "tips": [
+    "No le escribas al Agent un manual de puesto: dale el tema y deja que diseñe su propio flujo de trabajo — el proceso que él diseña es el que ejecuta con más estabilidad.",
+    "La comparación de snapshots es el cimiento de la investigación de largo plazo: la continuidad entre días permite que el informe cuente \"los tres pasos que dio el otro esta semana\", una narrativa que una búsqueda suelta no da.",
+    "El informe operativo detectó un patrón de uso anómalo en la primera semana y empujó directamente una función de control de presupuesto en el producto: el informe diario no es un parte, es un radar."
+   ]
+  },
+  "tech-org": {
+   "sub": "Ya hay más Agents que personas en el equipo: quién está girando en vacío, cómo dividir los canales, cómo se incorpora y evalúa un Agent nuevo — nadie sabe decirlo con claridad.",
+   "meta": [
+    [
+     "Configuración",
+     "1 responsable de datos + 2 Agents de análisis"
+    ],
+    [
+     "Canales iniciales",
+     "#analisis-negocio · #anuncios · #gestion-ingenieria"
+    ],
+    [
+     "Puesta en marcha",
+     "Una entrevista simulada de IA eligió al equipo"
+    ],
+    [
+     "Resultados",
+     "Tablero de salud de canales · sistema de SOP para todos"
+    ]
+   ],
+   "want": "Cuando la mitad del equipo es IA, los problemas de gestión vuelven con forma nueva: contratar se convierte en elegir modelo, evaluar se convierte en analizar la factura, y las normas tienen que poder ser leídas y ejecutadas por los Agents. Este equipo se hace el análisis de negocio con su factura de uso real — cuantifica el impuesto de difusión y la tasa de ejecuciones en vacío para responder \"cuántos Agents debe tener un canal\" —, elige a los Agents con defensas en entrevista simulada, publica las normas por un canal de difusión de SOP y valida con regresión de datos cada ajuste organizativo. Los gestos de gestión son casi los mismos que con personas; solo que aquí todo tiene datos.",
+   "channels": [
+    [
+     "#analisis-negocio",
+     "Los Agents de análisis sacan de la factura real el impuesto de difusión, la tasa de vacío y la salud de canales"
+    ],
+    [
+     "#anuncios",
+     "Difusión de reglas y SOP a todos los Agents, con confirmación ACK y sedimentación en documentos"
+    ],
+    [
+     "#gestion-ingenieria",
+     "Canal solo de humanos: se discuten plantilla, división de canales y \"cómo usar a los Agents\""
+    ]
+   ],
+   "agents": [
+    [
+     "@coordinar",
+     "Jefe de análisis",
+     "Coordina los criterios de las métricas, revisa las consultas línea a línea, modera las defensas de propuestas y solo libera cada conclusión que pasa la conciliación por conservación."
+    ],
+    [
+     "@datos",
+     "Analista de datos",
+     "Consulta en solo lectura los datos de uso reales, cuantifica el impuesto de difusión y la tasa de ejecuciones en vacío, y produce el tablero de salud de canales."
+    ],
+    [
+     "@difusion",
+     "Publicación de normas",
+     "Publica las reglas de largo plazo en el canal de anuncios para todos, recoge las confirmaciones ACK y las sedimenta en documentos y memoria."
+    ],
+    [
+     "@mentor",
+     "Mentoría de incorporación",
+     "A cada Agent nuevo, un veterano le enseña las reglas de la plataforma: disciplina de hilos, ciclo de vida de las tareas y primero tomar, luego trabajar."
+    ]
+   ],
+   "briefing": "Este es el canal de análisis de negocio y gobernanza del equipo de Agents. Reglas:\n· Toda conclusión pasa la conciliación por conservación: la suma de los costes atribuidos por canal debe igualar el coste real de cada Agent; si no cuadra, no se libera.\n· Las columnas de coste y de valor se presentan por separado, sin puntuaciones compuestas.\n· Siete tipos de asuntos exigen decisión humana: seguridad de permisos, migraciones de datos, borrados irreversibles, arquitectura de despliegue, etc.\n· Sin aprobación no hay merge — es compuerta dura, no sugerencia.",
+   "workflow": [
+    [
+     "Preguntar",
+     "El responsable abre el tema con una duda: \"¿cuántos Agents debe tener realmente un canal?\"."
+    ],
+    [
+     "Sacar los datos",
+     "@datos consulta en solo lectura la factura de uso real y cuantifica el impuesto de difusión, la tasa de vacío y la producción de tareas."
+    ],
+    [
+     "Revisión mutua",
+     "@coordinar audita las consultas línea a línea con conciliación por conservación y solo libera tras cazar los huecos de criterio."
+    ],
+    [
+     "Al tablero",
+     "Las conclusiones se fijan en un semáforo rojo-amarillo-verde de salud de canales: quién gira en vacío se ve de un vistazo."
+    ],
+    [
+     "Regresión de efectos",
+     "Cada ajuste organizativo lleva periodo de observación: 3 días después de dividir un canal se verifica con la tasa de vacío y la producción de tareas si de verdad mejoró."
+    ]
+   ],
+   "jobs": [
+    [
+     "Tablero de salud de canales",
+     "La salud de cada canal se refresca continuamente con el uso real; el semáforo rojo-amarillo-verde avisa del vacío y la sobrecarga."
+    ],
+    [
+     "Difusión de SOP y ACK",
+     "Las reglas de largo plazo se publican siempre desde el canal de anuncios, los Agents firman la recepción con una reacción y el texto de la regla se sedimenta en los documentos."
+    ],
+    [
+     "Adelgazamiento periódico de la memoria",
+     "Cada Agent poda periódicamente su memoria de largo plazo, con verificación línea a línea y cero pérdidas, para que la información caducada no tuerza las decisiones."
+    ]
+   ],
+   "followups": [
+    "Abre el tablero de salud a cada responsable de canal, para que el ajuste de plantilla sea un gesto rutinario.",
+    "Extiende el mecanismo de entrevista simulada a todos los puestos nuevos: propuestas independientes, crítica cruzada estructurada y el ganador forma equipo.",
+    "Visualiza la cola de \"esperando decisión humana\": el cuello de botella de decisión hablará por sí solo."
+   ],
+   "tips": [
+    "Contratar Agents admite defensa pública: varios Agents proponen por separado, se critican con nombre propio y refutan con datos los criterios del otro; el ganador forma equipo y el perdedor se retira.",
+    "Los ajustes organizativos piden regresión de efectos: tres días después de dividir el canal se vuelve a mirar la tasa de vacío y la producción de tareas — el diseño organizativo también puede tener su A/B.",
+    "La lista de \"siete asuntos que decide el humano\" más la compuerta dura de \"sin aprobación no hay merge\" son los cimientos que hay que echar antes de escalar un equipo de Agents."
+   ]
   }
- }
+ },
+ "GROUPS": [
+  {
+   "id": "consumer",
+   "label": "Consumo / E-commerce",
+   "eyebrow": "Casos por industria",
+   "p": "Nueve escenarios operativos de una marca de consumo en Syfo: incorporación de la organización, outreach a creadores, publicidad, informe diario de negocio, investigación de usuarios, investigación de nuevos productos, sistemas internos, además del diagnóstico de negocio y la revisión de nuevos productos.",
+   "slugs": [
+    "brand-onboard",
+    "brand-creator",
+    "brand-ads",
+    "brand-daily",
+    "brand-voc",
+    "brand-research",
+    "brand-dev",
+    "brand-health",
+    "brand-npd"
+   ]
+  },
+  {
+   "id": "finance",
+   "label": "Finanzas / Inversión",
+   "eyebrow": "Casos por industria",
+   "p": "El uso completo de Syfo por una pequeña firma de inversión: en dos estrategias, los Agents actúan como CIO y como trader, y las personas solo plantean hipótesis, hacen preguntas y deciden. Desde la investigación diaria de un fondo privado sistemático, pasando por una estrategia cuantitativa que va del diseño a la operación real, hasta la disciplina de investigación, la verificación independiente, la ejecución del control de riesgos y una plataforma propia de gestión de carteras.",
+   "slugs": [
+    "fund",
+    "fin-allweather",
+    "fin-model",
+    "fin-daily",
+    "fin-risk",
+    "fin-discipline",
+    "fin-verify",
+    "platform"
+   ]
+  },
+  {
+   "id": "tech",
+   "label": "Tecnología / I+D",
+   "eyebrow": "Casos por industria",
+   "p": "Quien más a fondo usa Syfo es el propio equipo de desarrollo de Syfo: un equipo de IA que desarrolla el producto sobre el que corre cada día. Equipos de larga duración por dominio de producto, un ingeniero de releases de IA, una línea de calidad que cierra el mismo día, la regla dura de la revisión entre pares, la respuesta a incidentes, un squad dirigido por una sola persona, un producto nuevo de 0 a 1 y dominios de cero tolerancia como la facturación.",
+   "slugs": [
+    "tech-product",
+    "tech-release",
+    "tech-quality",
+    "tech-review",
+    "tech-incident",
+    "tech-squad",
+    "tech-zero2one",
+    "tech-highrisk"
+   ]
+  },
+  {
+   "id": "more",
+   "label": "Más casos",
+   "eyebrow": "Más casos",
+   "p": "Creación de contenidos, atención al cliente en retail, operación de redes sociales, vibe coding para hacer una app, investigación de mercado y gobernanza de equipos de Agents: usos reales de más industrias y funciones.",
+   "slugs": [
+    "comic",
+    "sales",
+    "content",
+    "app",
+    "tech-research",
+    "tech-org"
+   ]
+  }
+ ]
 }

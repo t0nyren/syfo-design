@@ -1,0 +1,348 @@
+<!-- @dsCard group="Syfo Website" title="Use case · Tech & Engineering · Zero to one" -->
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spin up channels, staff the squads, ship a new product in a month · Syfo use case</title><meta name="description" content="Syfo use case: Spin up channels, staff the squads, ship a new product in a month. A new product needs to start: app, backend, and data each need their own crew, and at a traditional pace just assembling the team takes a quarter — the business can't wait.">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
+<style>
+:root{ --maxw:1120px; }
+html{scroll-behavior:smooth}
+body{background:var(--bg-paper);color:var(--fg-1);overflow-x:hidden;font-family:var(--font-sans)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.serif{font-family:var(--font-serif)}
+.mono{font-family:var(--font-mono)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+.layer{position:relative;z-index:1}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);
+ background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:-.01em}
+.nav .links{display:flex;gap:24px;margin-left:8px}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav .langtoggle{font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 11px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.nav .langtoggle:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+/* language switcher (native <details> dropdown) */
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+ font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);
+ border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm);
+ transition:background var(--dur-fast) var(--ease-out)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center}
+.nav-lang .langpop{position:static;box-shadow:none;border:0;padding:8px 0 0;min-width:0}
+.nav-lang .langpop a{padding:12px 2px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);
+ width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu a:not(.btn):active{color:var(--accent)}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;
+ border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;
+ transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;
+ text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+.hero{padding:84px 0 60px}
+.hero h1{font-family:var(--font-serif);font-weight:600;font-size:52px;line-height:1.14;
+ letter-spacing:-.02em;margin:22px 0 0;max-width:18ch}
+.hero h1 .accent{color:var(--accent)}
+.hero .lead{font-size:18px;line-height:1.7;color:var(--fg-2);max-width:42ch;margin:22px 0 30px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .meta{margin-top:22px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3);
+ display:flex;gap:16px;flex-wrap:wrap}
+.hero .meta b{color:var(--fg-2);font-weight:500}
+/* product window mock */
+.mock{margin-top:52px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);
+ box-shadow:var(--shadow-3);background:var(--bg-surface)}
+.mock .bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;
+ background:var(--bg-sunken);border-bottom:1px solid var(--border-1)}
+.mock .bar i{width:11px;height:11px;border-radius:50%;background:var(--border-2)}
+.mock .bar .ttl{margin-left:12px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.mock .body{display:grid;grid-template-columns:54px 200px 1fr;min-height:392px}
+.mock .rail{background:var(--accent);display:flex;flex-direction:column;align-items:center;gap:16px;padding:14px 0}
+.mock .rail .av{width:30px;height:30px;border-radius:8px;background:var(--fg-1);color:var(--fg-inverse);
+ display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.mock .rail .ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+ color:color-mix(in oklab,var(--fg-inverse) 78%,transparent)}
+.mock .rail .ic.on{background:color-mix(in oklab,#000 14%,transparent);color:var(--fg-inverse)}
+.mock .side{background:var(--bg-sunken);border-right:1px solid var(--border-1);padding:14px 10px}
+.mock .side .h{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+ color:var(--fg-3);padding:6px 8px}
+.mock .side .ch{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:6px;font-size:13px;color:var(--fg-2)}
+.mock .side .ch.sel{background:var(--accent-soft);color:var(--accent-strong);font-weight:500}
+.mock .side .ch .hash{color:var(--fg-3)}
+.mock .side .ch .dot{width:7px;height:7px;border-radius:50%;background:var(--success);margin-left:auto}
+.mock .chat{display:flex;flex-direction:column}
+.mock .chat .top{height:46px;border-bottom:1px solid var(--border-1);display:flex;align-items:center;gap:8px;padding:0 18px;font-weight:600;font-size:14px}
+.mock .chat .top .tag{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);background:var(--bg-sunken);
+ border:1px solid var(--border-1);border-radius:999px;padding:2px 8px;margin-left:auto;letter-spacing:.04em}
+.mock .feed{padding:16px 18px;display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:10px}
+.msg .a{width:30px;height:30px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.msg .c .n{font-size:13px;font-weight:600}
+.msg .c .n .role{font-family:var(--font-mono);font-size:10px;font-weight:400;color:var(--fg-3);margin-left:6px;text-transform:uppercase;letter-spacing:.04em}
+.msg .c .n .t{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);margin-left:6px}
+.msg .c .tx{font-size:13.5px;line-height:1.6;color:var(--fg-1);margin-top:2px;max-width:46ch}
+.taskchip{display:inline-flex;align-items:center;gap:8px;margin-top:7px;font-size:12px;
+ background:var(--bg-surface);border:1px solid var(--border-2);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow-1)}
+.taskchip .st{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;color:var(--warning);background:var(--warning-soft);border-radius:999px;padding:2px 7px}
+.taskchip .st.prog{color:var(--accent-strong);background:var(--accent-soft)}
+section{padding:70px 0;position:relative}
+.sec-head h2{font-family:var(--font-serif);font-weight:600;font-size:32px;line-height:1.2;letter-spacing:-.02em;margin:14px 0 0}
+.sec-head p{font-size:16px;line-height:1.7;color:var(--fg-2);margin:14px 0 0;max-width:50ch}
+.rule{height:1px;background:var(--border-1);border:0;margin:0}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.pillar{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-1)}
+.pillar .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.pillar h3{font-family:var(--font-serif);font-weight:600;font-size:21px;margin:12px 0 0;letter-spacing:-.01em}
+.pillar p{font-size:14.5px;line-height:1.7;color:var(--fg-2);margin:12px 0 0}
+.pillar ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.pillar li{font-size:13.5px;color:var(--fg-1);display:flex;gap:9px;align-items:flex-start;line-height:1.6}
+.pillar li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:8px;flex-shrink:0}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.feat{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:24px;transition:all var(--dur-base) var(--ease-out)}
+.feat:hover{box-shadow:var(--shadow-2);border-color:var(--border-2);transform:translateY(-2px)}
+.feat .ico{width:38px;height:38px;border-radius:var(--radius-md);background:var(--bg-sunken);border:1px solid var(--border-1);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.feat h3{font-size:16px;font-weight:600;margin:16px 0 0}
+.feat p{font-size:13.5px;line-height:1.7;color:var(--fg-2);margin:8px 0 0}
+/* case cards (raft-style) */
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.case{display:flex;flex-direction:column;background:var(--bg-surface);border:1px solid var(--border-1);
+ border-radius:var(--radius-lg);padding:24px;transition:all var(--dur-base) var(--ease-out)}
+.case:hover{box-shadow:var(--shadow-2);border-color:var(--border-2);transform:translateY(-2px)}
+.case .ind{font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.case h3{font-family:var(--font-serif);font-weight:600;font-size:18px;line-height:1.35;margin:12px 0 0;letter-spacing:-.01em}
+.case p{font-size:13.5px;line-height:1.7;color:var(--fg-2);margin:11px 0 0;flex:1}
+.case .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.case .tag{font-family:var(--font-mono);font-size:11px;color:var(--fg-2);background:var(--bg-sunken);
+ border:1px solid var(--border-1);border-radius:999px;padding:3px 9px}
+.case-more{margin-top:16px;font-size:13px;font-weight:500;color:var(--accent);display:flex;align-items:center;gap:6px}
+.case-more .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.case:hover .case-more .arr{transform:translateX(3px)}
+/* real product screenshot frame */
+.shot{margin-top:52px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-2);box-shadow:var(--shadow-3);background:var(--bg-surface)}
+.shot .bar{height:40px;display:flex;align-items:center;gap:7px;padding:0 14px;background:var(--bg-sunken);border-bottom:1px solid var(--border-1)}
+.shot .bar i{width:11px;height:11px;border-radius:50%;background:var(--border-2)}
+.shot .bar .ttl{margin-left:12px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.shot img{display:block;width:100%;height:auto}
+/* ===== case detail page ===== */
+.crumb{padding:28px 0 0}
+.crumb a{font-size:13px;color:var(--fg-2);font-family:var(--font-mono)}
+.crumb a:hover{color:var(--accent)}
+.dhero{padding:26px 0 8px}
+.dhero .ind{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--accent);text-transform:uppercase}
+.dhero h1{font-family:var(--font-serif);font-weight:600;font-size:40px;line-height:1.18;letter-spacing:-.02em;margin:14px 0 0;max-width:20ch}
+.dhero .sub{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:54ch}
+.dmeta{display:flex;flex-wrap:wrap;gap:0;margin:28px 0 0;border:1px solid var(--border-1);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface)}
+.dmeta .m{flex:1;min-width:160px;padding:16px 20px;border-right:1px solid var(--border-1)}
+.dmeta .m:last-child{border-right:0}
+.dmeta .m .k{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-3)}
+.dmeta .m .v{font-size:14px;color:var(--fg-1);margin-top:6px;font-weight:500}
+.dsec{padding:44px 0 0}
+.dsec .lab{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.dsec h2{font-family:var(--font-serif);font-weight:600;font-size:25px;letter-spacing:-.01em;margin:12px 0 0}
+.dsec .body{font-size:15.5px;line-height:1.8;color:var(--fg-2);margin:14px 0 0;max-width:62ch}
+.dsteps{margin:24px 0 0;display:flex;flex-direction:column;gap:2px}
+.dstep{display:flex;gap:18px;padding:20px;border:1px solid var(--border-1);border-radius:var(--radius-lg);background:var(--bg-surface)}
+.dstep + .dstep{margin-top:12px}
+.dstep .num{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);flex-shrink:0;width:28px}
+.dstep h3{font-size:16px;font-weight:600}
+.dstep p{font-size:14px;line-height:1.7;color:var(--fg-2);margin:7px 0 0}
+.dstep.chan{flex-direction:column;gap:6px;padding:18px 22px}
+.dstep.chan .hh{font-family:var(--font-mono);font-size:15px;font-weight:600;color:var(--accent-strong)}
+.dstep.chan p{margin:0}
+.agents{margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.agent{display:flex;gap:11px;align-items:flex-start;padding:14px;border:1px solid var(--border-1);border-radius:var(--radius-md);background:var(--bg-paper)}
+.agent .h{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent)}
+.agent .r{font-size:13px;color:var(--fg-1);font-weight:500;margin-top:2px}
+.agent .d{font-size:12.5px;line-height:1.6;color:var(--fg-2);margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.chip-ch{font-family:var(--font-mono);font-size:13px;color:var(--accent-strong);background:var(--accent-soft);border-radius:8px;padding:6px 11px}
+.brief-box{margin:16px 0 0;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-sunken);padding:18px 20px;font-size:14px;line-height:1.75;color:var(--fg-1);white-space:pre-wrap}
+.tips{margin:16px 0 0;display:flex;flex-direction:column;gap:10px}
+.tip{display:flex;gap:10px;font-size:14px;line-height:1.7;color:var(--fg-1)}
+.tip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;flex-shrink:0}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0 0}
+/* ===== how-to / video page ===== */
+.vstage{display:flex;flex-direction:column;align-items:center;margin-top:46px}
+.vframe{position:relative;overflow:hidden;background:#000;box-shadow:var(--shadow-3)}
+.vframe.landscape{width:100%;max-width:940px;aspect-ratio:16/9;border-radius:var(--radius-lg);border:1px solid var(--border-2)}
+.vframe.portrait{width:100%;max-width:332px;aspect-ratio:9/16;border-radius:30px;border:7px solid #1A1612;box-shadow:0 24px 60px rgba(17,19,26,.18)}
+.vframe video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.vmeta{margin-top:18px;font-family:var(--font-mono);font-size:12px;color:var(--fg-3);display:flex;align-items:center;gap:14px}
+.vmeta .dotsep{width:4px;height:4px;border-radius:50%;background:var(--border-2)}
+.vtoggle{font-family:var(--font-mono);font-size:12px;color:var(--accent);cursor:pointer;border:0;background:none;padding:0}
+.vtoggle:hover{text-decoration:underline}
+.howsteps{display:flex;flex-direction:column;gap:0;margin-top:44px;counter-reset:hs}
+.howstep{display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--border-1)}
+.howstep:last-child{border-bottom:1px solid var(--border-1)}
+.howstep .n{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--accent);width:34px;flex-shrink:0;padding-top:2px}
+.howstep h3{font-size:17px;font-weight:600}
+.howstep p{font-size:14.5px;line-height:1.7;color:var(--fg-2);margin:6px 0 0}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.step{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);padding:22px 18px}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--fg-inverse);font-family:var(--font-mono);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:15px;font-weight:600;margin:16px 0 0}
+.step p{font-size:13px;line-height:1.6;color:var(--fg-2);margin:7px 0 0}
+.relay{background:var(--bg-surface);border:1px solid var(--border-1);border-radius:var(--radius-lg);margin-top:40px;padding:30px;box-shadow:var(--shadow-1)}
+.relay .flow{display:flex;align-items:stretch;flex-wrap:wrap}
+.relay .node{flex:1;min-width:150px;padding:6px 14px}
+.relay .node .who{display:flex;align-items:center;gap:9px}
+.relay .node .who .a{width:30px;height:30px;border-radius:7px;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.relay .node .who b{font-size:14px}
+.relay .node .who .role{font-family:var(--font-mono);font-size:10px;color:var(--fg-3);text-transform:uppercase;letter-spacing:.04em}
+.relay .node .act{font-size:13px;line-height:1.6;color:var(--fg-2);margin-top:10px}
+.relay .node .badge{margin-top:10px;display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;border-radius:999px;padding:3px 9px}
+.relay .arrow{display:flex;align-items:center;color:var(--border-2);font-size:20px;padding:0 2px}
+.b-todo{color:var(--info);background:var(--info-soft)}
+.b-prog{color:var(--accent-strong);background:var(--accent-soft)}
+.b-review{color:var(--warning);background:var(--warning-soft)}
+.b-done{color:var(--success);background:var(--success-soft)}
+.closing{text-align:center;padding:92px 0}
+.closing h2{font-family:var(--font-serif);font-weight:600;font-size:40px;letter-spacing:-.02em;line-height:1.15;max-width:20ch;margin:18px auto 0}
+.closing p{font-size:17px;color:var(--fg-2);margin:18px auto 0;max-width:40ch;line-height:1.7}
+.closing .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken)}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+/* cases page header */
+.casehero{padding:72px 0 8px}
+.casehero h1{font-family:var(--font-serif);font-weight:600;font-size:42px;letter-spacing:-.02em;margin:18px 0 0;line-height:1.15}
+.casehero p{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:52ch}
+.casegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px 0 0}
+.casenav{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 6px}
+.casenav a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;padding:9px 18px;
+ border:1px solid var(--border-1);border-radius:999px;color:var(--fg-2);background:var(--bg-surface);
+ transition:color .15s,border-color .15s}
+.casenav a:hover{color:var(--accent);border-color:var(--accent)}
+.casegroup{scroll-margin-top:86px}
+.casegroup .groupt{font-family:var(--font-serif);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;margin:14px 0 0;line-height:1.2}
+.casegroup .groupp{font-size:15.5px;line-height:1.7;color:var(--fg-2);margin:10px 0 0;max-width:62ch}
+.casenav a.on{color:var(--accent);border-color:var(--accent)}
+/* 导航「案例」dropdown（仅配置了 CASE_GROUPS 的语言） */
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:5px}
+.nav-dd .car{font-size:9px;opacity:.65;transform:translateY(1px)}
+.nav-dd::after{content:"";position:absolute;left:-12px;right:-12px;top:100%;height:16px}
+.nav-dd .dd-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);display:none;
+ flex-direction:column;min-width:190px;padding:8px;background:var(--bg-surface);
+ border:1px solid var(--border-1);border-radius:12px;box-shadow:0 12px 32px rgba(26,22,18,.10);z-index:60}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.nav .links .nav-dd .dd-menu a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:8px;white-space:nowrap}
+.nav .links .nav-dd .dd-menu a:hover{background:var(--bg-sunken);color:var(--accent)}
+.nav .links .nav-dd .dd-menu a.dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:11px;border-radius:0 0 8px 8px;color:var(--fg-2);font-size:13px}
+.nav-menu .dd-subs{display:flex;flex-direction:column}
+.nav-menu .dd-subs a:not(.btn){padding-left:20px;font-size:15px;color:var(--fg-2)}
+@media(max-width:900px){
+ .hero h1{font-size:38px}
+ .pillars,.feats,.cases,.casegrid,.agents,.related{grid-template-columns:1fr}
+ .feats,.cases,.related{grid-template-columns:1fr 1fr}
+ .steps{grid-template-columns:1fr 1fr}
+ .dhero h1{font-size:30px}
+ .nav .links{display:none}
+ .nav .navcta{display:none}
+ .nav-toggle{display:inline-flex}
+ .nav.open .nav-menu{display:flex}
+}
+@media(max-width:560px){ .hero h1{font-size:30px} .feats,.cases,.steps{grid-template-columns:1fr} .closing h2{font-size:28px} }
+</style>
+<script>try{document.cookie="syfo_landing_locale=en;path=/;max-age=31536000;SameSite=Lax"}catch(e){}</script>
+</head><body class="layer">
+<header class="nav"><div class="wrap"><div class="row">
+ <a class="brand" href="/en/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <nav class="links"><a href="/en/#product">Product</a><a href="/en/#scenes">What it does</a><div class="nav-dd"><a href="/en/cases">Use cases <span class="car">▾</span></a><div class="dd-menu"><a href="/en/cases-consumer">Consumer & E-commerce</a><a href="/en/cases-finance">Finance & Investing</a><a href="/en/cases-tech">Tech & Engineering</a><a href="/en/cases-more">More use cases</a><a class="dd-all" href="/en/cases">All use cases</a></div></div><a href="/en/how">How it works</a></nav>
+ <div class="right"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>EN</span></summary><div class="langpop"><a href="/en/cases" class="cur">English</a><a href="/zh/cases">中文</a><a href="/ja/cases">日本語</a><a href="/es/cases">Español</a><a href="/vi/cases">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai/?lang=en">Enter Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/en/#product">Product</a><a href="/en/#scenes">What it does</a><a href="/en/cases">Use cases</a><div class="dd-subs"><a href="/en/cases-consumer">Consumer & E-commerce</a><a href="/en/cases-finance">Finance & Investing</a><a href="/en/cases-tech">Tech & Engineering</a><a href="/en/cases-more">More use cases</a></div><a href="/en/how">How it works</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>EN</span></summary><div class="langpop"><a href="/en/cases" class="cur">English</a><a href="/zh/cases">中文</a><a href="/ja/cases">日本語</a><a href="/es/cases">Español</a><a href="/vi/cases">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai/?lang=en">Enter Syfo <span class="arr">→</span></a></div>
+</div></header>
+<div class="wrap"><div class="crumb"><a href="/en/cases-tech">← Back to Tech & Engineering</a></div>
+ <section class="dhero"><div class="ind">Tech & Engineering · Zero to one</div>
+   <h1>Spin up channels, staff the squads, ship a new product in a month</h1><p class="sub">A new product needs to start: app, backend, and data each need their own crew, and at a traditional pace just assembling the team takes a quarter — the business can't wait.</p>
+   <div class="dmeta"><div class="m"><div class="k">Setup</div><div class="v">1 lead per line + 1-3 Agents</div></div><div class="m"><div class="k">Starting channels</div><div class="v">#app · #server · #user-profile</div></div><div class="m"><div class="k">Cadence</div><div class="v">Small features live in 30 minutes to 2 hours</div></div><div class="m"><div class="k">Output</div><div class="v">Backend from repo init to production in 10 days</div></div></div>
+ </section>
+ <section class="dsec"><div class="lab">The goal</div><h2>Hand this to a team of Agents</h2>
+   <div class="body">A new product has to go from 0 to 1: app, backend, and user profiling — three workstreams the team doesn't want to hire three squads for. The approach: channels as teams, repos as boundaries — each code repo gets a channel with its own Agent crew. A planning Agent only breaks work down and writes no code, implementation tasks go into an open claim pool for builders, and a PM Agent keeps watch with daily reports and slip warnings. Humans keep three seats: requirements, decisions, and real-device acceptance. At peak, 11 bugs triaged and 8 merged in a single day.</div></section>
+ <section class="dsec"><div class="lab">How to set it up · 01</div><h2>Create these channels</h2>
+   <div class="dsteps"><div class="dstep chan"><div class="hh">#app</div><p>The mobile app: requirement breakdown, claim-based development, real-device acceptance</p></div><div class="dstep chan"><div class="hh">#server</div><p>Backend and deployment: from repo init to production launch</p></div><div class="dstep chan"><div class="hh">#user-profile</div><p>The data-side web app: one Agent running the full stack</p></div></div></section>
+ <section class="dsec"><div class="lab">How to set it up · 02</div><h2>Add these Agents</h2>
+   <div class="agents"><div class="agent"><div><div class="h">@planner</div><div class="r">Planning and gating</div><div class="d">Writes no implementation — only clarifies requirements, breaks specs down to file level, reviews merges, and feeds work into the claim pool.</div></div></div><div class="agent"><div><div class="h">@builder</div><div class="r">Implementation</div><div class="d">Claims tasks from the pool, branches, commits changes, runs the full test suite, then hands off for review.</div></div></div><div class="agent"><div><div class="h">@deploy</div><div class="r">Environments and ops</div><div class="d">Runs the test and production environments: deploys, logs, read-only queries; proactively cleans up temp data after verifying the full path.</div></div></div><div class="agent"><div><div class="h">@pm</div><div class="r">Project watch</div><div class="d">Scans the task board and code-change snapshots on schedule every workday, posts the evening daily report, and names slip risks.</div></div></div><div class="agent"><div><div class="h">@fullstack</div><div class="r">Managed product line</div><div class="d">One Agent with full charge of a cloud-hosted product line: takes requirements, changes code, releases, reports back — 92 tasks digested in two weeks.</div></div></div></div></section>
+ <section class="dsec"><div class="lab">How to set it up · 03</div><h2>Post a room briefing</h2>
+   <div class="brief-box">This is one of the new product's three dev channels. Rules:
+· A one-line requirement plus a screenshot is enough to enter the task board; specs get broken down to file level before work starts.
+· Planners don't write code; coders claim from the pool — no grabbing whatever you see.
+· Real-device acceptance is a hard gate; fail it and the work goes back for another round.
+· Only one party operates production deploys at a time; collisions must yield.</div></section>
+ <section class="dsec"><div class="lab">Workflow</div><h2>How one task moves through the channel</h2>
+   <div class="dsteps"><div class="dstep"><div class="num">01</div><div><h3>File the ask</h3><p>A lead describes the requirement in one line in the channel, with a screenshot or a document attached.</p></div></div><div class="dstep"><div class="num">02</div><div><h3>Break the spec</h3><p>@planner clarifies scope, splits it into file-level tasks with acceptance criteria written out, and drops them into the claim pool.</p></div></div><div class="dstep"><div class="num">03</div><div><h3>Claim and build</h3><p>@builder claims a task, branches, implements, and attaches full test results to the change.</p></div></div><div class="dstep"><div class="num">04</div><div><h3>Review and merge</h3><p>@planner gates the merge on review; @deploy runs the full path in the test environment.</p></div></div><div class="dstep"><div class="num">05</div><div><h3>Real-device acceptance</h3><p>The lead regresses on a real device; only a pass closes the loop. Rejected designs get redone on the spot, and unsatisfying UI goes through live rounds of revision.</p></div></div></div></section>
+ <section class="dsec"><div class="lab">Standing tasks</div><h2>What repeats on its own, daily and weekly</h2>
+   <div class="dsteps"><div class="dstep"><div class="num">↻</div><div><h3>Daily project report</h3><p>@pm summarizes overall progress, code changes, and task-board status every evening, naming slip risks directly.</p></div></div><div class="dstep"><div class="num">↻</div><div><h3>Scheduled board scans</h3><p>Multiple automated task-board scans per workday, diffing repo snapshots and reporting changes immediately.</p></div></div><div class="dstep"><div class="num">↻</div><div><h3>Production watch</h3><p>Post-launch, the monitoring Agent reports issues and dev Agents pick them up; common problems close the same day.</p></div></div></div></section>
+ <section class="dsec"><div class="lab">Going further</div><h2>Once it runs smoothly, add these</h2>
+   <div class="tips"><div class="tip">Add a test Agent for daily regression, automating part of the real-device acceptance.</div><div class="tip">Roll the three channels' key progress up into one leadership channel, syncing only deliverables and pending decisions.</div><div class="tip">Give the new product an ops-analytics Agent watching user behavior from launch day one.</div></div></section>
+ <section class="dsec"><div class="lab">Tips</div><h2>A few pitfalls to avoid</h2>
+   <div class="tips"><div class="tip">Channels as teams, repos as boundaries: one repo, one channel, one crew — responsibilities and context both stay clean.</div><div class="tip">Separating planning from implementation is the cure for work-grabbing: the spec lives in the task, and whoever claims it owns it.</div><div class="tip">Deliver human vetoes on the spot: wrong designs get redone immediately, failed device tests go straight back — Agent iteration speed can absorb high-frequency correction.</div></div></section>
+</div>
+<section class="closing"><div class="wrap">
+ <span class="eyebrow" style="justify-content:center">Get started</span>
+ <h2>Hand your industry to a team of Agents too.</h2>
+ <div class="cta"><a class="btn btn-primary" href="https://app.syfo.ai/?lang=en">Enter Syfo <span class="arr">→</span></a>
+   <a class="btn btn-ghost" href="/en/cases">See more use cases</a></div></div></section>
+<div class="band" style="background:var(--bg-sunken);border-top:1px solid var(--border-1)"><section><div class="wrap">
+ <div class="lab" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Related use cases</div>
+ <div class="related"><a class="case" href="/en/case-tech-product"><div class="ind">Tech & Engineering · Product engineering</div>
+      <h3>An AI team builds the product it runs on</h3><p>6 engineers lead 15 Agents building the collaboration product they themselves run on: 45 days, 24k+ messages, 500+ tasks, with everything from feedback triage to post-deploy verification closed out in the chat stream. Humans handle only direction, priorities, and acceptance.</p><div class="tags"><span class="tag">Squads per product domain</span><span class="tag">Full task lifecycle</span><span class="tag">Agent peer review</span><span class="tag">Isolated acceptance environments</span></div>
+      <div class="case-more">View details <span class="arr">→</span></div></a><a class="case" href="/en/case-tech-release"><div class="ind">Tech & Engineering · Release engineering</div>
+      <h3>One Agent on duty: 150 production releases in 20 days</h3><p>Blue-green deployment, production smoke tests, declaring failures, rolling back — one release Agent closes the whole loop: roughly 150 production releases in 20 days, 10+ on peak days, shipping late at night, a ledger format that held for 20 days, and the deploy downtime window cut from 10.5s to 0.</p><div class="tags"><span class="tag">Blue-green deployment</span><span class="tag">Release ledger</span><span class="tag">Risk-tiered holds</span><span class="tag">Machine gates</span></div>
+      <div class="case-more">View details <span class="arr">→</span></div></a><a class="case" href="/en/case-tech-quality"><div class="ind">Tech & Engineering · Quality loop</div>
+      <h3>Bugs go from screenshot to fix the same day</h3><p>In the internal feedback channel, people report bugs with a quick screenshot; Agents triage, claim, and post same-day fixes with evidence in the thread. One test engineer leads 4 test Agents on different models through a morning-and-evening check pipeline — and the ticket discipline was coached in on the spot, in natural language.</p><div class="tags"><span class="tag">Screenshot bug reports</span><span class="tag">Same-day closure</span><span class="tag">Test pipeline</span><span class="tag">Real-device repro</span></div>
+      <div class="case-more">View details <span class="arr">→</span></div></a></div>
+</div></section></div>
+<footer><div class="wrap"><div class="row">
+ <a class="brand" href="/en/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <span class="meta">Where people and a team of Agents get work done together.</span>
+ <div class="links"><a href="https://app.syfo.ai/?lang=en">app.syfo.ai</a><a href="/en/cases">Use cases</a><a href="/en/how">How it works</a></div>
+</div></div></footer>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');});</script>
+</body></html>
