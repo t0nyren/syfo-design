@@ -241,6 +241,14 @@ footer .links a:hover{color:var(--fg-1)}
 .casehero h1{font-family:var(--font-serif);font-weight:600;font-size:42px;letter-spacing:-.02em;margin:18px 0 0;line-height:1.15}
 .casehero p{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:52ch}
 .casegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px 0 0}
+.casenav{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 6px}
+.casenav a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;padding:9px 18px;
+ border:1px solid var(--border-1);border-radius:999px;color:var(--fg-2);background:var(--bg-surface);
+ transition:color .15s,border-color .15s}
+.casenav a:hover{color:var(--accent);border-color:var(--accent)}
+.casegroup{scroll-margin-top:86px}
+.casegroup .groupt{font-family:var(--font-serif);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;margin:14px 0 0;line-height:1.2}
+.casegroup .groupp{font-size:15.5px;line-height:1.7;color:var(--fg-2);margin:10px 0 0;max-width:62ch}
 @media(max-width:900px){
  .hero h1{font-size:38px}
  .pillars,.feats,.cases,.casegrid,.agents,.related{grid-template-columns:1fr}

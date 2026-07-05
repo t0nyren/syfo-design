@@ -140,6 +140,26 @@ CASES = {
  ],
 }
 
+# ── 案例页分组 + 顶部行业导航 ──────────────────────────────────
+# 配了 CASE_GROUPS 的语言：案例页按行业分组渲染，hero 下出锚点导航；未配置的语言保持单一网格。
+# slugs 顺序即组内卡片顺序；一个 slug 只应属于一个组。
+CASE_GROUPS = {
+ "zh": [
+  {"id": "consumer", "label": "消费 / 电商", "eyebrow": "行业案例",
+   "p": "同一家品牌电商团队接入 Syfo 后的七个真实场景：从组织接入、达人建联、广告投放，到经营日报、用户研究、新品调研与内部系统研发。案例已做脱敏处理。",
+   "slugs": ["brand-onboard","brand-creator","brand-ads","brand-daily","brand-voc","brand-research","brand-dev"]},
+  {"id": "finance", "label": "金融 / 投资", "eyebrow": "行业案例",
+   "p": "一位 CIO 带一支 Agent 团队跑系统化私募，一支 Agent 团队自建并运营组合管理平台——金融团队在 Syfo 上的两种用法。",
+   "slugs": ["fund","platform"]},
+  {"id": "tech", "label": "科技 / 研发", "eyebrow": "行业案例",
+   "p": "从产品、后端到基础设施，一个创始人加一支 Agent 团队端到端交付一款 App。",
+   "slugs": ["app"]},
+  {"id": "more", "label": "更多案例", "eyebrow": "更多案例",
+   "p": "内容创作、零售客服、新媒体运营——更多行业的真实用法。",
+   "slugs": ["comic","sales","content"]},
+ ],
+}
+
 # ── 场景能力 (能为你做什么) ────────────────────────────────────
 SCENES = {
  "zh": [
@@ -444,6 +464,14 @@ footer .links a:hover{color:var(--fg-1)}
 .casehero h1{font-family:var(--font-serif);font-weight:600;font-size:42px;letter-spacing:-.02em;margin:18px 0 0;line-height:1.15}
 .casehero p{font-size:17px;line-height:1.7;color:var(--fg-2);margin:16px 0 0;max-width:52ch}
 .casegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:40px 0 0}
+.casenav{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 6px}
+.casenav a{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;padding:9px 18px;
+ border:1px solid var(--border-1);border-radius:999px;color:var(--fg-2);background:var(--bg-surface);
+ transition:color .15s,border-color .15s}
+.casenav a:hover{color:var(--accent);border-color:var(--accent)}
+.casegroup{scroll-margin-top:86px}
+.casegroup .groupt{font-family:var(--font-serif);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;margin:14px 0 0;line-height:1.2}
+.casegroup .groupp{font-size:15.5px;line-height:1.7;color:var(--fg-2);margin:10px 0 0;max-width:62ch}
 @media(max-width:900px){
  .hero h1{font-size:38px}
  .pillars,.feats,.cases,.casegrid,.agents,.related{grid-template-columns:1fr}
@@ -503,9 +531,6 @@ T = {
   "cases_eyebrow": "真实案例",
   "cases_h1": "一个人或一支小团队，<br>带着一群 Agent 把活干完。",
   "cases_p": "下面是各行各业的真实用法。每个案例都是一个人或一支小团队，在 Syfo 频道里组起一支 Agent 团队，持续推进真实业务。",
-  "cases_group_brand_eyebrow": "行业案例",
-  "cases_group_brand_h1": "品牌 / 电商",
-  "cases_group_brand_p": "同一家品牌电商团队接入 Syfo 后的七个真实场景：从组织接入、达人建联、广告投放，到经营日报、用户研究、新品调研与内部系统研发。案例已做脱敏处理。",
   "cases_close_eyebrow": "现在开始", "cases_close_h2": "把你的行业，交给一支 Agent 团队。",
   "cases_close_p": "组建一支 AI Agent 团队，把真正的业务交给它们。",
   "cases_close_cta2": "回到首页",
@@ -788,18 +813,26 @@ def build_cases(lang):
  <h1>{t["cases_h1"]}</h1>
  <p>{t["cases_p"]}</p>
 </div></section>""")
-    base = [c for c in CASES[lang] if not c[4].startswith("brand-")]
-    brand = [c for c in CASES[lang] if c[4].startswith("brand-")]
-    C.append('<section style="padding-top:0"><div class="wrap"><div class="casegrid">'
-     + "".join(case_card(lang, *c) for c in base) + '</div></div></section>')
-    if brand:  # 行业案例分组（目前仅中文收录，slug 前缀 brand-）
-        C.append(f"""<section class="casehero" style="padding-top:56px"><div class="wrap">
- <span class="eyebrow">{t["cases_group_brand_eyebrow"]}</span>
- <h1 style="font-size:clamp(26px,3.4vw,36px)">{t["cases_group_brand_h1"]}</h1>
- <p>{t["cases_group_brand_p"]}</p>
+    groups = CASE_GROUPS.get(lang)
+    if groups:
+        by_slug = {c[4]: c for c in CASES[lang]}
+        # hero 下的行业锚点导航
+        C.append('<section style="padding-top:0"><div class="wrap"><div class="casenav">'
+         + "".join(f'<a href="#{g["id"]}">{g["label"]}</a>' for g in groups)
+         + '</div></div></section>')
+        for g in groups:
+            cards = [by_slug[s] for s in g["slugs"] if s in by_slug]
+            if not cards:
+                continue
+            C.append(f"""<section class="casegroup" id="{g["id"]}" style="padding-top:44px"><div class="wrap">
+ <span class="eyebrow">{g["eyebrow"]}</span>
+ <h2 class="groupt">{g["label"]}</h2>
+ <p class="groupp">{g["p"]}</p>
+ <div class="casegrid">{"".join(case_card(lang, *c) for c in cards)}</div>
 </div></section>""")
+    else:
         C.append('<section style="padding-top:0"><div class="wrap"><div class="casegrid">'
-     + "".join(case_card(lang, *c) for c in brand) + '</div></div></section>')
+         + "".join(case_card(lang, *c) for c in CASES[lang]) + '</div></div></section>')
     C.append(f"""<section class="closing"><div class="wrap">
  <span class="eyebrow" style="justify-content:center">{t["cases_close_eyebrow"]}</span>
  <h2>{t["cases_close_h2"]}</h2>
@@ -1475,8 +1508,14 @@ def build_detail(lang, slug):
     jobs = "".join(f'<div class="dstep"><div class="num">↻</div><div><h3>{ti}</h3><p>{p}</p></div></div>' for ti, p in d["jobs"])
     fus = "".join(f'<div class="tip">{x}</div>' for x in d["followups"])
     tips = "".join(f'<div class="tip">{x}</div>' for x in d["tips"])
-    grp = slug.startswith("brand-")
-    related = [x[4] for x in CASES[lang] if x[4] != slug and x[4].startswith("brand-") == grp][:3]
+    # 相关案例：优先同分组（CASE_GROUPS），不足 3 个再从其余案例补齐
+    my_group = next((g["slugs"] for g in CASE_GROUPS.get(lang, []) if slug in g["slugs"]), None)
+    if my_group:
+        related = [s for s in my_group if s != slug]
+        related += [x[4] for x in CASES[lang] if x[4] != slug and x[4] not in related]
+    else:
+        related = [x[4] for x in CASES[lang] if x[4] != slug]
+    related = related[:3]
     rel = "".join(case_card(lang, *next(y for y in CASES[lang] if y[4] == s)) for s in related)
 
     D = [head(lang, f"{title}{t['d_title_suffix']}",
