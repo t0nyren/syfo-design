@@ -16,6 +16,7 @@
 #   - 语言切换器在 nav() 里，指向另一语言的同一页面 (toggle 由 page builder 传入)。
 import os
 import json
+import runpy
 
 HERE = os.path.dirname(__file__)
 EN_DIR = os.path.join(HERE, "en")
@@ -30,7 +31,7 @@ APP = "https://app.syfo.ai"
 # app.syfo.ai 目前只按浏览器语言切换（?lang= 等参数暂被忽略、/en 404）；此 URL 是前向兼容占位，
 # 一旦 app 支持该覆盖参数即自动强制英文，今天无害（非中文浏览器本就 fallback 英文）。
 APP_EN = "https://app.syfo.ai/?lang=en"
-LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg")).read()
+LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg"), encoding="utf-8").read()
 
 # 顺序即语言切换器的展示顺序 (Tony 指定：英 → 中 → 日 → 西 → 越)。
 LANGS = ["en", "zh", "ja", "es", "vi"]  # vi 保留语言，但不做新 25 案例 (Tony 2026-07-05)
@@ -43,6 +44,7 @@ DIRS = {lg: os.path.join(HERE, lg) for lg in LANGS}
 # 语言切换器展示名 / 短标签
 LANG_NAMES = {"zh": "中文", "en": "English", "ja": "日本語", "es": "Español", "vi": "Tiếng Việt"}
 LANG_SHORT = {"zh": "中", "en": "EN", "ja": "JA", "es": "ES", "vi": "VI"}
+DOCS_LABELS = {"zh": "文档", "en": "Docs", "ja": "ドキュメント", "es": "Docs", "vi": "Tài liệu"}
 
 
 def app_url(lang):
@@ -71,6 +73,18 @@ def url(lang, page):
     if page in ("", "index"):
         return p + anchor          # "/" 或 "/en/"
     return p + page + anchor       # "/cases"、"/en/case-fund" ...
+
+
+def docs_url(page="index.html", lang="zh"):
+    anchor = ""
+    if "#" in page:
+        page, frag = page.split("#", 1)
+        anchor = "#" + frag
+    if page in ("", "index", "index.html"):
+        return f"/{lang}/docs/" + anchor
+    if page.endswith(".html"):
+        return f"/{lang}/docs/" + page + anchor
+    return f"/{lang}/docs/" + page + ".html" + anchor
 
 
 # ── 案例数据 (已抽象, 不含具体内容) ────────────────────────────
@@ -256,11 +270,11 @@ SCENES = {
 
 STEPS = {
  "zh": [
- ("注册登录","邮箱加密码，验证即激活。"),
+ ("注册登录","邮箱加密码，验证即激活。", docs_url("getting-started.html")),
  ("订阅套餐","开通云托管，按用量计费。"),
- ("创建 Agent","起个名字、选个模型，它就是你的新同事。"),
- ("创建频道","按主题建频道，可公开或私密。"),
- ("开始协作","发消息、@、把活接力下去。"),
+ ("创建 Agent","起个名字、选个模型，它就是你的新同事。", docs_url("first-agent.html")),
+ ("创建频道","按主题建频道，可公开或私密。", docs_url("channels.html")),
+ ("开始协作","发消息、@、把活接力下去。", docs_url("getting-started.html#first-message")),
  ],
  "en": [
  ("Sign up","Email and password, active the moment you verify."),
@@ -543,6 +557,7 @@ footer .links a:hover{color:var(--fg-1)}
  border:1px solid var(--border-1);border-radius:999px;color:var(--fg-2);background:var(--bg-surface);
  transition:color .15s,border-color .15s}
 .casenav a:hover{color:var(--accent);border-color:var(--accent)}
+.docsnav a{white-space:nowrap}
 .casegroup{scroll-margin-top:86px}
 .casegroup .groupt{font-family:var(--font-serif);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;margin:14px 0 0;line-height:1.2}
 .casegroup .groupp{font-size:15.5px;line-height:1.7;color:var(--fg-2);margin:10px 0 0;max-width:62ch}
@@ -572,18 +587,25 @@ footer .links a:hover{color:var(--fg-1)}
  .nav-toggle{display:inline-flex}
  .nav.open .nav-menu{display:flex}
 }
-@media(max-width:560px){ .hero h1{font-size:30px} .feats,.cases,.steps{grid-template-columns:1fr} .closing h2{font-size:28px} }
+@media(max-width:560px){
+ .hero h1{font-size:30px}
+ .feats,.cases,.steps{grid-template-columns:1fr}
+ .closing h2{font-size:28px}
+ .docsnav{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;margin-right:-24px;scrollbar-width:none}
+ .docsnav::-webkit-scrollbar{display:none}
+ .docsnav a{flex:0 0 auto;padding:8px 14px}
+}
 """
 
 # ── 页面内联文案 (per-language) ────────────────────────────────
 T = {
  "zh": {
   "html_lang": "zh-CN",
-  "nav_product": "产品", "nav_scenes": "能做什么", "nav_cases": "案例", "nav_how": "怎么用",
+  "nav_product": "产品", "nav_scenes": "能做什么", "nav_cases": "案例", "nav_how": "怎么用", "nav_docs": "文档",
   "enter": "进入 Syfo", "menu_aria": "菜单",
   "lang_toggle_label": "EN",   # zh 页面显示 EN，切到英文
   "footer_tag": "人和一群 Agent 一起干活的地方。",
-  "footer_cases": "案例", "footer_how": "怎么用",
+  "footer_cases": "案例", "footer_how": "怎么用", "footer_docs": "文档",
   "card_more": "查看详情", "card_more_group": "查看案例", "nav_cases_all": "全部案例",
   # —— 首页 ——
   "home_title": "Syfo · 人和一群 Agent 一起干活的地方",
@@ -633,6 +655,7 @@ T = {
   "how_v_name": "Syfo Tour", "how_v_len": "约 80 秒",
   "how_v_toggle_to_mobile": "切换到手机版", "how_v_toggle_to_pc": "切换到电脑版",
   "how_steps_eyebrow": "五步上手", "how_steps_h2": "视频里的五步，拆开看",
+  "how_more_eyebrow": "继续了解", "how_more_h2": "需要更详细的操作说明？",
   "how_close_eyebrow": "现在开始", "how_close_h2": "看完就上手，组建你的 Agent 团队。",
   # —— 案例内页通用 ——
   "d_back": "← 返回全部案例",
@@ -773,7 +796,7 @@ def nav(lang, page="index.html", active=""):
     else:
         cases_desktop = cases_mobile = a(url(lang, "cases.html"), t["nav_cases"])
     pre = a(url(lang, "index.html#product"), t["nav_product"]) + a(url(lang, "index.html#scenes"), t["nav_scenes"])
-    post = a(url(lang, "how.html"), t["nav_how"])
+    post = a(url(lang, "how.html"), t["nav_how"]) + a(docs_url(lang=lang), t.get("nav_docs", DOCS_LABELS[lang]))
     links = pre + cases_desktop + post
     links_mobile = pre + cases_mobile + post
     cta = f'<a class="btn btn-primary" href="{app_url(lang)}">{t["enter"]} <span class="arr">→</span></a>'
@@ -796,7 +819,7 @@ def footer(lang):
     return f"""<footer><div class="wrap"><div class="row">
  <a class="brand" href="{url(lang, "index.html")}">{LOGO_MARK}<span class="wm">Syfo</span></a>
  <span class="meta">{t["footer_tag"]}</span>
- <div class="links"><a href="{app_url(lang)}">app.syfo.ai</a><a href="{url(lang, "cases.html")}">{t["footer_cases"]}</a><a href="{url(lang, "how.html")}">{t["footer_how"]}</a></div>
+ <div class="links"><a href="{app_url(lang)}">app.syfo.ai</a><a href="{url(lang, "cases.html")}">{t["footer_cases"]}</a><a href="{url(lang, "how.html")}">{t["footer_how"]}</a><a href="{docs_url(lang=lang)}">{t.get("footer_docs", DOCS_LABELS[lang])}</a></div>
 </div></div></footer>
 <script>document.addEventListener('click',function(e){{var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');}});</script>
 </body></html>"""
@@ -810,13 +833,246 @@ def case_card(lang, ind, title, desc, tags, slug):
       <div class="case-more">{t["card_more"]} <span class="arr">→</span></div></a>"""
 
 
+def step_card(i, item):
+    ti, d = item[0], item[1]
+    link = item[2] if len(item) > 2 else ""
+    more = f'<a class="case-more" href="{link}">了解详情 <span class="arr">→</span></a>' if link else ''
+    return f'<div class="step"><div class="n">{i+1}</div><h3>{ti}</h3><p>{d}</p>{more}</div>'
+
+
+DOCS_NAV = [
+    ("文档首页", "index.html"),
+    ("什么是 Syfo", "what-is-syfo.html"),
+    ("快速上手", "getting-started.html"),
+    ("创建 Agent", "first-agent.html"),
+    ("频道与协作", "channels.html"),
+    ("Skill 集成", "skills.html"),
+    ("团队落地", "team-playbook.html"),
+    ("最佳实践", "best-practices.html"),
+    ("常见问题", "faq.html"),
+]
+
+
+def docs_nav(active):
+    items = []
+    for label, page in DOCS_NAV:
+        cls = ' class="on"' if page == active else ""
+        items.append(f'<a{cls} href="{docs_url(page)}">{label}</a>')
+    return '<div class="casenav docsnav">' + "".join(items) + "</div>"
+
+
+def docs_card(title, desc, href):
+    return f"""<a class="case" href="{href}">
+      <div class="ind">Syfo Docs</div><h3>{title}</h3><p>{desc}</p>
+      <div class="case-more">查看文档 <span class="arr">→</span></div></a>"""
+
+
+def docs_step(num, title, minutes, bullets, link_label="", link_href=""):
+    lis = "".join(f"<li>{b}</li>" for b in bullets)
+    link = f'<div class="case-more"><a href="{link_href}">{link_label} <span class="arr">→</span></a></div>' if link_label and link_href else ""
+    return f"""<div class="pillar"><div class="k">步骤 {num} · 预计 {minutes}</div>
+      <h3>{title}</h3><ul>{lis}</ul>{link}</div>"""
+
+
+def docs_page(filename, title, desc, eyebrow, h1, lead, body, cta_label="", cta_href=""):
+    cta = f'<div class="cta"><a class="btn btn-primary" href="{cta_href}">{cta_label} <span class="arr">→</span></a></div>' if cta_label and cta_href else ""
+    parts = [head("zh", title, desc), nav("zh", "index.html")]
+    parts.append(f"""<section class="hero" style="padding-bottom:28px"><div class="wrap">
+ <span class="eyebrow">{eyebrow}</span>
+ <h1 style="max-width:18ch">{h1}</h1>
+ <p class="lead" style="max-width:50ch">{lead}</p>{cta}
+ {docs_nav(filename)}
+</div></section>""")
+    parts.extend(body)
+    parts.append(footer("zh"))
+    write("zh", f"docs/{filename}", parts)
+
+
+def build_docs_zh():
+    generator = os.path.abspath(os.path.join(HERE, "..", "scripts", "generate_syfo_docs_zh.py"))
+    if os.path.exists(generator):
+        runpy.run_path(generator, run_name="__main__")
+        return
+
+    docs_page(
+        "index.html",
+        "Syfo 文档",
+        "从注册到团队落地，一步步把 Syfo 用起来。",
+        "Syfo 文档",
+        "从注册到团队落地的完整指南",
+        "跟着步骤走，5 分钟完成你的第一次人机协作。",
+        [
+            '<section><div class="wrap"><div class="sec-head"><span class="eyebrow">上手路径</span><h2>先跑通一次，再扩展到团队。</h2></div><div class="cases">'
+            + docs_card("快速上手", "注册、创建组织、发出第一条 @Agent 消息。", docs_url("getting-started.html"))
+            + docs_card("创建第一个 Agent", "选模型、配 Runtime、让 Agent 上线。", docs_url("first-agent.html"))
+            + docs_card("频道与协作", "建频道、拉人和 Agent、用任务推进工作。", docs_url("channels.html"))
+            + '</div><div style="margin-top:18px"><a class="btn btn-ghost" href="https://syfo.ai/guide">完整图文教程 <span class="arr">→</span></a></div></div></section>',
+            '<section id="next" style="padding-top:30px"><div class="wrap"><div class="sec-head"><span class="eyebrow">快捷入口</span><h2>按你现在的问题继续看。</h2></div><div class="howsteps">'
+            '<a class="howstep" href="' + docs_url("faq.html") + '"><div class="n">01</div><div><h3>常见问题</h3><p>Agent 使用、安全与权限说明。</p></div></a>'
+            '<a class="howstep" href="' + docs_url("skills.html") + '"><div class="n">02</div><div><h3>Skill / MCP 集成</h3><p>了解如何让 Agent 接入工具和能力。</p></div></a>'
+            '<a class="howstep" href="https://app.syfo.ai"><div class="n">03</div><div><h3>进入 Syfo</h3><p>打开产品，开始组建你的 Agent 团队。</p></div></a>'
+            '</div></div></section>',
+        ],
+        "5 分钟快速上手",
+        docs_url("getting-started.html"),
+    )
+
+    docs_page(
+        "getting-started.html",
+        "快速上手 · 5 分钟完成第一次协作",
+        "跟完 4 步，在频道里 @Agent 并收到回复。",
+        "快速上手",
+        "5 分钟，从零到第一次人机协作",
+        "跟完这 4 步，你就会知道 Syfo 怎么用。",
+        [
+            '<section><div class="wrap"><div class="pillars">'
+            + docs_step("1", "注册并创建组织", "1 分钟", [
+                '访问 <a href="https://app.syfo.ai">app.syfo.ai</a>，用邮箱注册。',
+                "验证邮箱后进入工作空间。",
+                "新用户会自动创建一个组织；受邀用户点邀请链接直接加入。",
+            ])
+            + docs_step("2", "创建你的第一个 Agent", "1 分钟", [
+                "点击左侧栏「+」→「创建 Agent」。",
+                "给 Agent 起个名字，比如「小助手」。",
+                "选择模型；运行环境推荐 Syfo Cloud，让 Agent 24 小时在线。",
+            ], "想了解更多 Agent 配置？", docs_url("first-agent.html"))
+            + docs_step("3", "建一个频道，把 Agent 拉进来", "1 分钟", [
+                "点击左侧栏「+」→「创建频道」。",
+                "起个名字，比如「测试频道」。",
+                "在频道设置里邀请刚创建的 Agent。",
+            ])
+            + docs_step("4", "@Agent，开始协作", "1 分钟", [
+                '在频道里输入：<code>@小助手 帮我写一段自我介绍</code>。',
+                "Agent 会收到消息、开始工作、在频道里回复你。",
+                "这就是 Syfo 的第一次人机协作：人在频道里给目标，Agent 在同一个上下文里完成任务并回报。",
+            ])
+            + '</div></div></section>',
+            '<section id="first-message" style="padding-top:20px"><div class="wrap"><div class="sec-head"><span class="eyebrow">Aha Moment</span><h2>看到 Agent 在频道里回复，你就跑通了。</h2><p>接下来可以创建更多 Agent、按主题建立频道，或把真实项目拆成任务交给团队推进。</p></div><div class="cta"><a class="btn btn-primary" href="' + docs_url("first-agent.html") + '">创建更多 Agent <span class="arr">→</span></a><a class="btn btn-ghost" href="' + docs_url("channels.html") + '">了解频道与任务</a><a class="btn btn-ghost" href="/zh/cases">看真实案例</a></div></div></section>',
+        ],
+    )
+
+    docs_page(
+        "first-agent.html",
+        "创建你的第一个 Agent",
+        "10 分钟，让一个能干活的 AI 同事上线。",
+        "Agent",
+        "创建你的第一个 Agent",
+        "一个 Agent 是能在频道里接收消息、执行任务、回报结果的 AI 同事。",
+        [
+            '<section><div class="wrap"><div class="sec-head"><span class="eyebrow">它能做什么</span><h2>先让一个 Agent 真的开始工作。</h2></div><div class="feats">'
+            '<div class="feat"><div class="ico">' + IC["chat"] + '</div><h3>自动响应</h3><p>收到 @ 消息后自动响应，在频道里理解上下文。</p></div>'
+            '<div class="feat"><div class="ico">' + IC["build"] + '</div><h3>使用工具</h3><p>写文档、查数据、调 API，把任务做成结果。</p></div>'
+            '<div class="feat"><div class="ico">' + IC["task"] + '</div><h3>回报进度</h3><p>在频道里同步进度、交付产物，并保留记录。</p></div>'
+            '</div></div></section>',
+            '<section><div class="wrap"><div class="howsteps">'
+            '<div class="howstep"><div class="n">01</div><div><h3>新建 Agent</h3><p>左侧栏「+」→「创建 Agent」。填写名称和描述。名称要好记，比如「研究员小王」；描述写清楚职责，比如「负责每日行业资讯整理和竞品动态跟踪」。</p></div></div>'
+            '<div class="howstep"><div class="n">02</div><div><h3>选择模型和运行环境</h3><p>Claude Sonnet 推荐用于大多数任务；Claude Opus 适合复杂分析；Claude Haiku 适合快速简单对话。运行环境推荐 Syfo Cloud，24 小时在线，不依赖你的电脑；本地电脑适合使用本机工具和登录态。</p></div></div>'
+            '<div class="howstep"><div class="n">03</div><div><h3>邀请 Agent 到频道</h3><p>进入你想让 Agent 工作的频道，打开频道设置，邀请刚创建的 Agent。加入后，它可以看到频道里的上下文。</p></div></div>'
+            '<div class="howstep"><div class="n">04</div><div><h3>试一下</h3><p>在频道里 @ 你的 Agent，给它一个简单任务，观察它的回复和工作过程。</p></div></div>'
+            '</div><div class="cta" style="margin-top:28px"><a class="btn btn-primary" href="' + docs_url("channels.html") + '">了解频道与协作 <span class="arr">→</span></a><a class="btn btn-ghost" href="' + docs_url() + '">回到文档首页</a></div></div></section>',
+        ],
+    )
+
+    docs_page(
+        "channels.html",
+        "频道与协作",
+        "人和 Agent 在同一个地方工作，用频道组织、用任务推进。",
+        "Channels",
+        "频道与协作",
+        "人和 Agent 在同一个地方工作，用频道组织、用任务推进。",
+        [
+            '<section><div class="wrap"><div class="sec-head"><span class="eyebrow">频道</span><h2>频道是工作发生的地方。</h2><p>一个频道 = 一个主题 / 一个项目 / 一条业务线。公开频道组织内可见，私密频道仅受邀成员可见。</p></div><div class="feats">'
+            '<div class="feat"><div class="ico">' + IC["chat"] + '</div><h3>发消息和 @</h3><p>把人和 Agent 放在同一个上下文里沟通。</p></div>'
+            '<div class="feat"><div class="ico">' + IC["task"] + '</div><h3>转成任务</h3><p>把消息转成任务，跟踪从待办到完成的状态。</p></div>'
+            '<div class="feat"><div class="ico">' + IC["people"] + '</div><h3>沉淀交付物</h3><p>文件、讨论、决策和结果都留在频道里。</p></div>'
+            '</div></div></section>',
+            '<section><div class="wrap"><div class="sec-head"><span class="eyebrow">任务</span><h2>让工作有始有终。</h2><p>任何一条消息都可以转成任务。任务生命周期是：待办 → 进行中 → 评审中 → 完成。人和 Agent 都可以认领任务、推进状态、交付结果。</p></div><div class="relay"><div class="flow"><div class="node"><div class="who"><div class="a" style="background:#1A1612">1</div><div><b>待办</b><div class="role">todo</div></div></div><div class="act">把需求放进任务板。</div></div><div class="arrow">→</div><div class="node"><div class="who"><div class="a" style="background:#D4501E">2</div><div><b>进行中</b><div class="role">in progress</div></div></div><div class="act">人或 Agent 认领并推进。</div></div><div class="arrow">→</div><div class="node"><div class="who"><div class="a" style="background:#7A7A4D">3</div><div><b>评审中</b><div class="role">review</div></div></div><div class="act">检查结果和交付物。</div></div><div class="arrow">→</div><div class="node"><div class="who"><div class="a" style="background:#7A746A">4</div><div><b>完成</b><div class="role">done</div></div></div><div class="act">结果留在频道上下文里。</div></div></div></div></div></section>',
+            '<section><div class="wrap"><div class="sec-head"><span class="eyebrow">多 Agent 协作</span><h2>一个频道里可以有多个 Agent，各司其职。</h2><p>Agent A 负责调研和整理，Agent B 负责执行和产出，Agent C 负责检查和验收。任务在人和 Agent 之间流转，像一支真正的团队。</p></div><div class="howsteps"><div class="howstep"><div class="n">DM</div><div><h3>私聊</h3><p>你也可以和 Agent 一对一私聊，适合临时问题、个人任务和敏感信息。默认只有 Agent 的创建者可以私聊它；如需开放，由创建者在设置里配置。</p></div></div></div><div class="cta" style="margin-top:28px"><a class="btn btn-primary" href="/zh/cases">看真实案例 <span class="arr">→</span></a><a class="btn btn-ghost" href="' + docs_url("faq.html") + '">常见问题</a><a class="btn btn-ghost" href="' + docs_url() + '">回到文档首页</a></div></div></section>',
+        ],
+    )
+
+    docs_page(
+        "skills.html",
+        "Skill / MCP 集成",
+        "让 Agent 接入工具、数据和外部能力。",
+        "Skill",
+        "让 Agent 不只会聊天，还能使用工具",
+        "Skill 是给 Agent 的能力包。它把操作方法、命令、API 或业务流程封装起来，让 Agent 在需要时按规则调用。",
+        [
+            '<section><div class="wrap"><div class="sec-head"><span class="eyebrow">使用场景</span><h2>什么时候需要 Skill？</h2></div><div class="feats">'
+            '<div class="feat"><div class="ico">' + IC["build"] + '</div><h3>开发与运维</h3><p>让 Agent 使用 CLI、脚本、仓库和部署工具完成工程任务。</p></div>'
+            '<div class="feat"><div class="ico">' + IC["research"] + '</div><h3>数据与分析</h3><p>把内部数据查询、BI、CRM 或 SaaS API 封装成可调用能力。</p></div>'
+            '<div class="feat"><div class="ico">' + IC["coord"] + '</div><h3>团队流程</h3><p>把审批、日报、客户跟进、发布检查等流程变成可复用 SOP。</p></div>'
+            '</div></div></section>',
+            '<section><div class="wrap"><div class="howsteps">'
+            '<div class="howstep"><div class="n">01</div><div><h3>先定义任务边界</h3><p>写清楚这个 Skill 解决什么问题、什么时候使用、不能做什么。好 Skill 的价值在于边界清楚，而不是功能堆得多。</p></div></div>'
+            '<div class="howstep"><div class="n">02</div><div><h3>接入工具或知识</h3><p>可以是本地命令、HTTP API、MCP 服务、数据查询脚本，也可以是一套操作手册。Agent 会根据 Skill 说明决定何时调用。</p></div></div>'
+            '<div class="howstep"><div class="n">03</div><div><h3>放到真实频道里试用</h3><p>把 Agent 邀请到频道，用真实任务测试 Skill 是否能稳定完成工作，并把失败边界写回说明。</p></div></div>'
+            '</div><div class="cta" style="margin-top:28px"><a class="btn btn-primary" href="' + docs_url("first-agent.html") + '">先创建 Agent <span class="arr">→</span></a><a class="btn btn-ghost" href="https://syfo-docs.tool.reorc.cloud/skill.html">查看原 Skill 安装说明</a></div></div></section>',
+        ],
+    )
+
+    docs_page(
+        "team-playbook.html",
+        "团队落地指南",
+        "从个人试用扩展到团队协作。",
+        "Team Playbook",
+        "把 Syfo 放进团队的日常工作",
+        "不要一开始就追求全量自动化。先选一个真实、低风险、重复发生的工作流，让人和 Agent 在同一个频道里跑通。",
+        [
+            '<section><div class="wrap"><div class="pillars">'
+            + docs_step("1", "选一个真实场景", "30 分钟", [
+                "优先选有明确输入和输出的工作：日报、客户资料整理、问题排查、竞品跟踪、需求梳理。",
+                "避免一开始就选高风险、强权限、结论不可复核的任务。",
+                "把成功标准写进频道置顶或第一条任务里。",
+            ])
+            + docs_step("2", "按角色组 Agent", "30 分钟", [
+                "一个 Agent 负责执行，一个 Agent 负责检查，必要时再加一个 Agent 做总结。",
+                "每个 Agent 的描述只写职责和边界，不要把所有事都交给一个万能 Agent。",
+                "把 Agent 邀请到同一个项目频道，让上下文集中沉淀。",
+            ])
+            + docs_step("3", "用任务板收口", "持续", [
+                "把可交付的消息转成任务，明确状态、负责人和验收标准。",
+                "Agent 交付后由人或另一个 Agent 复核，再关闭任务。",
+                "每周回看完成任务，把高频模式沉淀成 Skill 或 SOP。",
+            ])
+            + '</div></div></section>',
+            '<section style="padding-top:20px"><div class="wrap"><div class="sec-head"><span class="eyebrow">推荐起点</span><h2>先从这三类团队工作试起。</h2></div><div class="cases">'
+            + docs_card("研发协作", "需求拆解、代码检查、发布复盘、事故跟进。", "/zh/cases-tech")
+            + docs_card("运营增长", "活动素材、商品页、客户问题、数据口径整理。", "/zh/cases-consumer")
+            + docs_card("投研分析", "日报、归因、财报审阅、风险提示。", "/zh/cases-finance")
+            + '</div></div></section>',
+        ],
+    )
+
+    docs_page(
+        "faq.html",
+        "常见问题",
+        "Agent 使用、权限、安全和日常协作问题。",
+        "FAQ",
+        "常见问题",
+        "这里先放新用户最容易卡住的问题。更细的安全、Agent 和功能说明会在后续版本继续迁入。",
+        [
+            '<section><div class="wrap"><div class="howsteps">'
+            '<div class="howstep"><div class="n">01</div><div><h3>Syfo 和普通 Chatbot 有什么区别？</h3><p>Syfo 不是一次性对话工具，而是让人和 Agent 在频道、任务、线程里长期协作。Agent 能被 @ 唤醒，读取上下文，认领任务并回报结果。</p></div></div>'
+            '<div class="howstep"><div class="n">02</div><div><h3>Agent 能看到哪些内容？</h3><p>Agent 能看到它所在频道或私聊里的上下文。私密频道只对受邀成员和受邀 Agent 可见。敏感信息建议放在明确权限边界内处理。</p></div></div>'
+            '<div class="howstep"><div class="n">03</div><div><h3>什么时候用频道，什么时候用私聊？</h3><p>团队共同可见、需要沉淀上下文的工作放频道；临时问题、个人任务或敏感沟通可以用私聊。长期项目不建议只放在 DM 里。</p></div></div>'
+            '<div class="howstep"><div class="n">04</div><div><h3>一个频道里应该放几个 Agent？</h3><p>轻任务通常 1 个 Agent 就够。固定项目可以放多个 Agent，但要明确分工、权限和成本：谁执行、谁检查、谁总结。</p></div></div>'
+            '<div class="howstep"><div class="n">05</div><div><h3>Agent 出错怎么办？</h3><p>把问题留在任务线程里，要求 Agent 解释依据、补充验证或交给另一个 Agent 复核。关键业务不要只依赖单次回答，应保留人类验收。</p></div></div>'
+            '</div><div class="cta" style="margin-top:28px"><a class="btn btn-primary" href="' + docs_url("getting-started.html") + '">重新走一遍快速上手 <span class="arr">→</span></a><a class="btn btn-ghost" href="https://syfo-docs.tool.reorc.cloud/faq/">查看完整 FAQ</a></div></div></section>',
+        ],
+    )
+
+
 # ── output helpers ─────────────────────────────────────────────
 def outpath(lang, filename):
     return os.path.join(DIRS[lang], filename)
 
 
 def write(lang, filename, parts):
-    with open(outpath(lang, filename), "w", encoding="utf-8") as f:
+    path = outpath(lang, filename)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts))
 
 
@@ -877,7 +1133,7 @@ def build_home(lang):
 
     P.append(f'<section id="how"><div class="wrap"><div class="sec-head"><span class="eyebrow">{t["steps_eyebrow"]}</span>'
      f'<h2>{t["steps_h2"]}</h2></div><div class="steps">'
-     + "".join(f'<div class="step"><div class="n">{i+1}</div><h3>{ti}</h3><p>{d}</p></div>' for i, (ti, d) in enumerate(STEPS[lang]))
+     + "".join(step_card(i, item) for i, item in enumerate(STEPS[lang]))
      + '</div></div></section>')
 
     nodes = []
@@ -1071,6 +1327,12 @@ def build_how(lang):
      f'<h2>{t["how_steps_h2"]}</h2></div><div class="howsteps">'
      + "".join(f'<div class="howstep"><div class="n">{i+1:02d}</div><div><h3>{ti}</h3><p>{d}</p></div></div>' for i, (ti, d) in enumerate(HOW_STEPS[lang]))
      + '</div></div></section>')
+    if lang == "zh":
+        H.append(f'''<section style="padding-top:30px"><div class="wrap"><div class="sec-head"><span class="eyebrow">{t["how_more_eyebrow"]}</span><h2>{t["how_more_h2"]}</h2></div><div class="howsteps">
+ <a class="howstep" href="{docs_url()}"><div class="n">01</div><div><h3>产品文档</h3><p>从注册到团队落地的完整指南。</p></div></a>
+ <a class="howstep" href="https://syfo.ai/guide"><div class="n">02</div><div><h3>完整图文教程</h3><p>14 章图文教程，带真实截图。</p></div></a>
+ <a class="howstep" href="{docs_url()}#next"><div class="n">03</div><div><h3>下一步</h3><p>创建 Agent、建频道、发出第一条 @ 消息。</p></div></a>
+</div></div></section>''')
     H.append(f"""<section class="closing"><div class="wrap">
  <span class="eyebrow" style="justify-content:center">{t["how_close_eyebrow"]}</span>
  <h2>{t["how_close_h2"]}</h2>
@@ -2324,6 +2586,7 @@ for lang in LANGS:
     build_how(lang)
     for slug in [c[4] for c in CASES[lang]]:
         build_detail(lang, slug)
+build_docs_zh()
 build_root_gateway()
 build_root_compat()
 

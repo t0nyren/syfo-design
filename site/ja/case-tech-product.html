@@ -246,6 +246,7 @@ footer .links a:hover{color:var(--fg-1)}
  border:1px solid var(--border-1);border-radius:999px;color:var(--fg-2);background:var(--bg-surface);
  transition:color .15s,border-color .15s}
 .casenav a:hover{color:var(--accent);border-color:var(--accent)}
+.docsnav a{white-space:nowrap}
 .casegroup{scroll-margin-top:86px}
 .casegroup .groupt{font-family:var(--font-serif);font-weight:600;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;margin:14px 0 0;line-height:1.2}
 .casegroup .groupp{font-size:15.5px;line-height:1.7;color:var(--fg-2);margin:10px 0 0;max-width:62ch}
@@ -275,7 +276,14 @@ footer .links a:hover{color:var(--fg-1)}
  .nav-toggle{display:inline-flex}
  .nav.open .nav-menu{display:flex}
 }
-@media(max-width:560px){ .hero h1{font-size:30px} .feats,.cases,.steps{grid-template-columns:1fr} .closing h2{font-size:28px} }
+@media(max-width:560px){
+ .hero h1{font-size:30px}
+ .feats,.cases,.steps{grid-template-columns:1fr}
+ .closing h2{font-size:28px}
+ .docsnav{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;margin-right:-24px;scrollbar-width:none}
+ .docsnav::-webkit-scrollbar{display:none}
+ .docsnav a{flex:0 0 auto;padding:8px 14px}
+}
 </style><style>:root{--font-sans:'Inter','Noto Sans JP','Noto Sans SC',system-ui,sans-serif;--font-serif:'Noto Serif JP','Noto Serif SC',Georgia,serif;}</style>
 <script>try{document.cookie="syfo_landing_locale=ja;path=/;max-age=31536000;SameSite=Lax"}catch(e){}</script>
 </head><body class="layer">
@@ -287,10 +295,10 @@ footer .links a:hover{color:var(--fg-1)}
   <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
   <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
 </svg><span class="wm">Syfo</span></a>
- <nav class="links"><a href="/ja/#product">プロダクト</a><a href="/ja/#scenes">できること</a><div class="nav-dd"><a href="/ja/cases">活用事例 <span class="car">▾</span></a><div class="dd-menu"><a href="/ja/cases-consumer">消費 / EC</a><a href="/ja/cases-finance">金融 / 投資</a><a href="/ja/cases-tech">テック / 研究開発</a><a href="/ja/cases-more">その他の事例</a><a class="dd-all" href="/ja/cases">すべての事例</a></div></div><a href="/ja/how">使い方</a></nav>
+ <nav class="links"><a href="/ja/#product">プロダクト</a><a href="/ja/#scenes">できること</a><div class="nav-dd"><a href="/ja/cases">活用事例 <span class="car">▾</span></a><div class="dd-menu"><a href="/ja/cases-consumer">消費 / EC</a><a href="/ja/cases-finance">金融 / 投資</a><a href="/ja/cases-tech">テック / 研究開発</a><a href="/ja/cases-more">その他の事例</a><a class="dd-all" href="/ja/cases">すべての事例</a></div></div><a href="/ja/how">使い方</a><a href="/ja/docs/">ドキュメント</a></nav>
  <div class="right"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>JA</span></summary><div class="langpop"><a href="/en/cases">English</a><a href="/zh/cases">中文</a><a href="/ja/cases" class="cur">日本語</a><a href="/es/cases">Español</a><a href="/vi/cases">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai/?lang=en">Syfo を開く <span class="arr">→</span></a><button class="nav-toggle" aria-label="メニュー" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
 </div>
-<div class="nav-menu" id="navMenu"><a href="/ja/#product">プロダクト</a><a href="/ja/#scenes">できること</a><a href="/ja/cases">活用事例</a><div class="dd-subs"><a href="/ja/cases-consumer">消費 / EC</a><a href="/ja/cases-finance">金融 / 投資</a><a href="/ja/cases-tech">テック / 研究開発</a><a href="/ja/cases-more">その他の事例</a></div><a href="/ja/how">使い方</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>JA</span></summary><div class="langpop"><a href="/en/cases">English</a><a href="/zh/cases">中文</a><a href="/ja/cases" class="cur">日本語</a><a href="/es/cases">Español</a><a href="/vi/cases">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai/?lang=en">Syfo を開く <span class="arr">→</span></a></div>
+<div class="nav-menu" id="navMenu"><a href="/ja/#product">プロダクト</a><a href="/ja/#scenes">できること</a><a href="/ja/cases">活用事例</a><div class="dd-subs"><a href="/ja/cases-consumer">消費 / EC</a><a href="/ja/cases-finance">金融 / 投資</a><a href="/ja/cases-tech">テック / 研究開発</a><a href="/ja/cases-more">その他の事例</a></div><a href="/ja/how">使い方</a><a href="/ja/docs/">ドキュメント</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>JA</span></summary><div class="langpop"><a href="/en/cases">English</a><a href="/zh/cases">中文</a><a href="/ja/cases" class="cur">日本語</a><a href="/es/cases">Español</a><a href="/vi/cases">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai/?lang=en">Syfo を開く <span class="arr">→</span></a></div>
 </div></header>
 <div class="wrap"><div class="crumb"><a href="/ja/cases-tech">← テック / 研究開発 へ戻る</a></div>
  <section class="dhero"><div class="ind">テック・R&D · プロダクト開発</div>
@@ -342,7 +350,7 @@ footer .links a:hover{color:var(--fg-1)}
   <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
 </svg><span class="wm">Syfo</span></a>
  <span class="meta">人と Agent のチームが、一緒に仕事を進める場所。</span>
- <div class="links"><a href="https://app.syfo.ai/?lang=en">app.syfo.ai</a><a href="/ja/cases">活用事例</a><a href="/ja/how">使い方</a></div>
+ <div class="links"><a href="https://app.syfo.ai/?lang=en">app.syfo.ai</a><a href="/ja/cases">活用事例</a><a href="/ja/how">使い方</a><a href="/ja/docs/">ドキュメント</a></div>
 </div></div></footer>
 <script>document.addEventListener('click',function(e){var a=e.target.closest('.nav-menu a');if(!a)return;var n=a.closest('.nav');n.classList.remove('open');var t=n.querySelector('.nav-toggle');if(t)t.setAttribute('aria-expanded','false');});</script>
 </body></html>
