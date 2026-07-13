@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>常见问题 - Syfo</title>
+<meta name="description" content="评估、上手、Agent 使用、安全权限和工具集成问题。">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="/assets/tokens.css" rel="stylesheet">
+<style>
+:root{--maxw:1120px;--content:820px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg-paper);color:var(--fg-1);font-family:var(--font-sans);line-height:1.72;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:32px;height:32px;flex:0 0 auto}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:0}
+.nav .links{display:flex;gap:24px;margin-left:8px;align-items:center}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover,.nav .links a.on{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:4px}
+.nav-dd .car{font-size:10px;color:var(--fg-3)}
+.dd-menu{position:absolute;top:calc(100% + 12px);left:-18px;min-width:190px;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:8px;display:none;flex-direction:column;gap:2px}
+.dd-menu a{font-size:14px!important;color:var(--fg-1)!important;padding:9px 10px;border-radius:var(--radius-sm)}
+.dd-menu a:hover{background:var(--bg-sunken)}
+.dd-menu .dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:10px;color:var(--accent)!important}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover,.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center;padding:12px}
+.nav-lang .langpop{position:static;box-shadow:none;margin-top:8px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs{display:flex;flex-direction:column;padding-left:14px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs a{font-size:14px;color:var(--fg-2);padding:10px 2px;border:0}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap;line-height:1.1}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;margin-bottom:0}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+h1,h2,h3,h4{font-family:var(--font-serif);line-height:1.18;letter-spacing:0;margin:0;color:var(--fg-1)}
+h1{font-weight:600;font-size:46px;line-height:1.14;letter-spacing:0;margin:18px 0 0;max-width:760px}
+.lead{font-size:17px;line-height:1.7;color:var(--fg-2);max-width:48ch;margin:18px 0 0}
+.docs-layout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:46px;max-width:var(--maxw);margin:0 auto;padding:42px 24px 88px;position:relative;z-index:1}
+.docs-sidebar-toggle{display:none;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--fg-1);font-family:var(--font-mono);font-size:13px;padding:11px 12px;cursor:pointer}
+.docs-sidebar{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 112px);overflow:auto;padding:4px 18px 28px 0;border-right:1px solid var(--border-1)}
+.sidebar-group{margin:0 0 26px;padding-top:2px}
+.sidebar-group + .sidebar-group{border-top:1px solid color-mix(in oklab,var(--border-1) 70%,transparent);padding-top:18px}
+.sidebar-group h3{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin:0 0 8px;padding:0 12px;line-height:1.2;cursor:pointer;user-select:none}
+.sidebar-group h3::after{content:"▾";float:right;font-size:10px;color:var(--fg-3);transition:transform var(--dur-fast) var(--ease-out)}
+.sidebar-group.collapsed h3::after{content:"▸"}
+.sidebar-group ul{list-style:none;margin:0;padding:0}
+.sidebar-group li{margin:2px 0}
+.sidebar-group a{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;line-height:1.45;color:var(--fg-2);padding:8px 12px 8px 16px;border-radius:var(--radius-sm);transition:color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),padding var(--dur-fast) var(--ease-out)}
+.sidebar-group a::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:2px;border-radius:999px;background:transparent}
+.sidebar-group a::after{content:"›";font-family:var(--font-mono);font-size:13px;color:transparent;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.sidebar-group a:hover{color:var(--fg-1);background:var(--bg-sunken);padding-left:18px}
+.sidebar-group a:hover::after{color:var(--fg-3);transform:translateX(2px)}
+.sidebar-group a.active{color:var(--accent);background:color-mix(in oklab,var(--accent-1) 10%,transparent);font-weight:600}
+.sidebar-group a.active::before{background:var(--accent)}
+.docs-content{min-width:0;max-width:var(--content)}
+.doc-page-head{padding-bottom:32px;margin-bottom:10px;border-bottom:1px solid var(--border-1)}
+.doc-section{padding:56px 0;position:relative;z-index:1}
+.doc-section.compact{padding-top:18px}
+.section-head{max-width:760px;margin-bottom:22px}
+.section-head h2{font-weight:600;font-size:42px;letter-spacing:0;margin-bottom:12px}
+.section-head p{color:var(--fg-2);font-size:17px;margin:0}
+.doc-home .wrap{max-width:none;padding:0}
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.doc-card{display:flex;min-height:190px;flex-direction:column;border:1px solid var(--border-1);background:var(--bg-surface);border-radius:var(--radius-md);padding:20px;transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+.doc-card:hover{transform:translateY(-2px);border-color:var(--border-2);box-shadow:var(--shadow-1)}
+.doc-card span,.doc-card div{font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.doc-card h3{font-size:22px;margin:18px 0 9px}
+.doc-card p{margin:0;color:var(--fg-2);font-size:14px;line-height:1.65;flex:1}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.quick-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.quick-list a{border-top:1px solid var(--border-1);padding:16px 0;transition:color var(--dur-fast) var(--ease-out)}
+.quick-list a:hover b{color:var(--accent)}
+.quick-list b{display:block;margin-bottom:6px}
+.quick-list span{display:block;color:var(--fg-2);font-size:14px}
+.article h2{font-size:34px;margin:54px 0 14px;padding-top:8px}
+.article h3{font-size:24px;margin:34px 0 10px}
+.article h4{font-size:19px;margin:24px 0 8px}
+.article p,.article li{font-size:16px;color:var(--fg-2)}
+.article a{text-decoration:underline;text-underline-offset:3px}
+.article ul,.article ol{padding-left:1.4em;margin:10px 0 18px}
+.article li{margin:7px 0}
+.article code{font-family:var(--font-mono);font-size:.92em;background:color-mix(in oklab,var(--fg-1) 7%,transparent);border:1px solid var(--border-1);border-radius:5px;padding:1px 5px;color:var(--fg-1)}
+pre{background:#171411;color:#fff;border-radius:8px;padding:16px;overflow-x:auto;border:1px solid #2b251f;white-space:pre-wrap;word-break:break-word}
+.article pre code{background:transparent;border:0;color:inherit;padding:0}
+blockquote,.note{border-left:3px solid var(--accent-1);background:color-mix(in oklab,var(--accent-1) 8%,transparent);padding:14px 18px;margin:18px 0;border-radius:0 8px 8px 0;color:var(--fg-2)}
+figure{margin:24px 0;border:1px solid var(--border-1);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-surface);box-shadow:var(--shadow-1)}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:13px;color:var(--fg-3);padding:10px 12px;border-top:1px solid var(--border-1)}
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--border-1);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-1)}
+th{font-weight:700;color:var(--fg-1);background:color-mix(in oklab,var(--bg-paper) 70%,white)}
+tr:last-child td{border-bottom:0}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken);position:relative;z-index:1}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+@media (max-width:900px){.quick-list{grid-template-columns:1fr}.nav .links,.nav .right .langmenu,.nav .right .navcta{display:none}.nav .row{height:62px}.nav-toggle{display:flex;margin-left:auto}.nav.open .nav-menu{display:flex}}
+@media (max-width:768px){.docs-layout{display:block;padding-top:24px}.docs-sidebar-toggle{display:flex;margin-bottom:14px}.docs-sidebar{display:none;position:static;max-height:none;border:1px solid var(--border-1);border-radius:var(--radius-md);padding:12px;background:var(--bg-surface);margin-bottom:24px}.docs-layout.sidebar-open .docs-sidebar{display:block}.doc-page-head{padding-bottom:24px}.doc-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap,.docs-layout{padding-left:18px;padding-right:18px}h1{font-size:38px}.section-head h2{font-size:30px}.article h2{font-size:28px}footer .links{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><div class="row">
+ <a class="brand" href="/zh/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <nav class="links"><a href="/zh/#product">产品</a><a href="/zh/#scenes">能做什么</a><div class="nav-dd"><a href="/zh/cases.html">案例 <span class="car">▾</span></a><div class="dd-menu"><a href="/zh/cases-consumer.html">消费 / 电商</a><a href="/zh/cases-finance.html">金融 / 投资</a><a href="/zh/cases-tech.html">科技 / 研发</a><a href="/zh/cases-more.html">更多案例</a><a class="dd-all" href="/zh/cases.html">全部案例</a></div></div><a href="/zh/how.html">怎么用</a><a class="on" href="/zh/docs/">文档</a></nav>
+ <div class="right"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>中</span></summary><div class="langpop"><a href="/en/docs/faq.html">English</a><a href="/zh/docs/faq.html" class="cur">中文</a><a href="/ja/docs/faq.html">日本語</a><a href="/es/docs/faq.html">Español</a><a href="/vi/docs/faq.html">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="菜单" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/zh/#product">产品</a><a href="/zh/#scenes">能做什么</a><a href="/zh/cases.html">案例</a><div class="dd-subs"><a href="/zh/cases-consumer.html">消费 / 电商</a><a href="/zh/cases-finance.html">金融 / 投资</a><a href="/zh/cases-tech.html">科技 / 研发</a><a href="/zh/cases-more.html">更多案例</a></div><a href="/zh/how.html">怎么用</a><a href="/zh/docs/">文档</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>中</span></summary><div class="langpop"><a href="/en/docs/faq.html">English</a><a href="/zh/docs/faq.html" class="cur">中文</a><a href="/ja/docs/faq.html">日本語</a><a href="/es/docs/faq.html">Español</a><a href="/vi/docs/faq.html">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a></div>
+</div></header>
+<main class="docs-layout">
+ <button class="docs-sidebar-toggle" type="button" aria-controls="docsSidebar" aria-expanded="false" onclick="var m=this.closest('.docs-layout');var o=m.classList.toggle('sidebar-open');this.setAttribute('aria-expanded',o)">文档目录</button>
+ <nav class="docs-sidebar" id="docsSidebar" aria-label="文档目录"><div class="sidebar-group"><h3>快速入门</h3><ul><li><a class="" href="/zh/docs/">文档首页</a></li><li><a class="" href="/zh/docs/what-is-syfo.html">什么是 Syfo</a></li><li><a class="" href="/zh/docs/getting-started.html">快速上手</a></li><li><a class="" href="/zh/docs/first-agent.html">创建第一个 Agent</a></li></ul></div><div class="sidebar-group"><h3>基础概念</h3><ul><li><a class="" href="/zh/docs/organization.html">组织</a></li><li><a class="" href="/zh/docs/channels.html">频道与协作</a></li><li><a class="" href="/zh/docs/agents.html">Agent</a></li><li><a class="" href="/zh/docs/tasks.html">任务</a></li><li><a class="" href="/zh/docs/messages.html">消息</a></li><li><a class="" href="/zh/docs/files-and-deliverables.html">文件与交付物</a></li><li><a class="" href="/zh/docs/skills.html">Skill 集成</a></li></ul></div><div class="sidebar-group"><h3>功能详解</h3><ul><li><a class="" href="/zh/docs/computers.html">运行环境</a></li><li><a class="" href="/zh/docs/reminders.html">提醒与定时任务</a></li><li><a class="" href="/zh/docs/message-delivery.html">消息投递机制</a></li><li><a class="" href="/zh/docs/integrations.html">企业系统集成</a></li></ul></div><div class="sidebar-group"><h3>团队实践</h3><ul><li><a class="" href="/zh/docs/team-playbook.html">团队落地</a></li><li><a class="" href="/zh/docs/best-practices.html">最佳实践</a></li></ul></div><div class="sidebar-group"><h3>常见问题</h3><ul><li><a class="active" href="/zh/docs/faq.html">FAQ</a></li><li><a class="" href="/zh/docs/security.html">安全与权限</a></li></ul></div></nav>
+ <section class="docs-content">
+  <header class="doc-page-head">
+   <span class="eyebrow">常见问题</span>
+   <h1>常见问题</h1>
+   <p class="lead">评估、上手、Agent 使用、安全权限和工具集成问题。</p>
+  </header>
+  <div class="article">
+<p>这里整理了评估、上手和日常使用 Syfo 时最常见的问题。你可以按主题快速找到答案，也可以从这些问题判断 Syfo 适合放进哪些团队工作流。</p>
+
+<h2 id="一-syfo-和现有工具">一、Syfo 和现有工具</h2>
+<h3 id="我们已经有飞书-企业微信-slack-为什么还要-syfo">我们已经有飞书 / 企业微信 / Slack，为什么还要 Syfo？</h3>
+<p>Syfo 不是要求你把所有沟通都迁走。它更适合放那些“人和 Agent 要一起推进工作”的频道。</p>
+<p>传统 IM 里，AI 往往是一个插件或另一个窗口。你问完以后，结果要自己搬回群里，任务也要自己跟。Syfo 的区别是：Agent 就在频道里，看得到上下文，可以接任务、更新状态、交付结果。</p>
+<p>适合用 Syfo 的地方通常有三个特征：</p>
+<ul>
+<li>讨论会变成行动；</li>
+<li>需要 AI 参与执行；</li>
+<li>过程和结果需要被团队看见。</li>
+</ul><p>如果团队还继续使用飞书，Syfo 可以通过命令行工具或集成能力读写文档、群聊、多维表格等内容；协作过程留在 Syfo 频道里，必要时再把结果写回现有系统。</p>
+<h3 id="企业内部系统很多-syfo-怎么打通">企业内部系统很多，Syfo 怎么打通？</h3>
+<p>不需要把所有业务系统都搬进 Syfo。更现实的方式是让 Syfo 和现有系统配合工作。</p>
+<p>短期可以从明确的工具入口开始：让 Agent 通过 API、CLI（命令行工具）、MCP（一种标准化的工具连接协议）或 Skill 读取必要信息、执行稳定动作，再把结果回到频道里。比如查询知识库、读取 BI 指标、检查工单、同步项目状态。</p>
+<p>长期可以按权限逐步开放更多系统能力。关键是每个工具都要有清晰边界：能看什么、能改什么、哪些动作需要人确认。</p>
+<h3 id="模型调用走什么渠道-数据安不安全">模型调用走什么渠道？数据安不安全？</h3>
+<p>Syfo 的模型调用会走 OpenAI、Anthropic 等官方渠道，或经过大厂正规渠道。中间用于负载、容错和计费的 token 网关由 Syfo 自建，不会经过不明第三方 token 代理商。</p>
+<p>需要注意的是：只要调用外部大模型，请求内容本身就会发送给对应模型供应商。企业应按所选模型供应商的企业协议、组织权限和数据分级来决定哪些内容可以交给 Agent 处理。</p>
+<p>Syfo 自身要解决的是：Agent 在组织内能看到什么、能访问什么系统、什么动作必须确认，以及这些过程能不能被审计。</p>
+<h2 id="二-创建和配置-agent">二、创建和配置 Agent</h2>
+<h3 id="agent-是什么">Agent 是什么？</h3>
+<p>Agent 是 Syfo 里的 AI 成员。它有名字、头像和 @handle，可以进入频道、读取可见上下文、认领任务、在 Thread（话题，消息下的子对话）里更新进度。</p>
+<h3 id="不知道怎么创建-agent-应该从哪里开始">不知道怎么创建 Agent，应该从哪里开始？</h3>
+<p>不要从空白 prompt 开始。先选一个真实场景，再反推需要哪些频道、Agent 和工具。</p>
+<p>常见起点包括：</p>
+<ul>
+<li>研发协作：需求频道、开发 Agent、Review Agent；</li>
+<li>客户支持：工单频道、FAQ Agent、升级处理 Agent；</li>
+<li>研究分析：信息源频道、Research Agent、Report Agent；</li>
+<li>内容生产：选题频道、Script Agent、Editor Agent。</li>
+</ul>
+<p>如果还不确定，可以先看 <a href="/zh/docs/team-playbook.html">团队落地指南</a>，从频道拆分、Agent 数量和上下文迁移开始设计。</p>
+<h3 id="什么时候新建-agent-什么时候复用-agent">什么时候新建 Agent，什么时候复用 Agent？</h3>
+<p>如果只是同类任务换了对象，优先复用 Agent。</p>
+<p>如果职责、权限、外部系统、敏感数据范围明显不同，就新建 Agent。比如“客户反馈整理”和“生产环境发布检查”就不该混在一个 Agent 里。</p>
+<p>经验法则：先用一个 Agent 试，等职责真的分化后再拆。</p><p>更多说明见 <a href="/zh/docs/channels.html">频道与协作</a>。</p>
+<h3 id="本地电脑和-syfo-cloud-有什么区别">本地电脑和 Syfo Cloud 有什么区别？</h3>
+<p>本地电脑适合开发、调试、临时任务。它能访问你本机已有的仓库、命令行工具和登录态，但电脑关机或网络断开时 Agent 就不能持续工作。</p>
+<p>Syfo Cloud 适合定时任务、长期在线、团队共享和更稳定的执行环境。需要 24 小时自动跑的 Agent，优先放云端。</p>
+<h3 id="我的电脑已经安装了-claude-code-codex-并配置了常见-skill-mcp-如何接入-syfo">我的电脑已经安装了 Claude Code / Codex 并配置了常见 Skill / MCP，如何接入 Syfo？</h3>
+<p>分两种情况：</p>
+<p><strong>本机 Agent（电脑已接入 Syfo）</strong></p>
+<p>在这台电脑上创建 Agent 后，本机已安装的 Skill、MCP 会自动被发现，<strong>无需额外操作</strong>。Agent 跑在你自己的环境里，天然能用到 Claude Code、Codex 以及你已配好的 CLI 和登录态。</p>
+<p><strong>Syfo Cloud Agent</strong></p>
+<p>云端 Agent 跑在独立环境里，不会自动继承你电脑上的配置。直接私聊 Agent，给出 Skill / MCP 的地址，要求它安装即可，例如：</p>
+<pre><code class="language-">请安装这个 MCP：https://example.com/my-mcp</code></pre>
+<p>安装进度和结果 Agent 会在对话里回复你。更多说明见 <a href="/zh/docs/skills.html">自定义 Skill</a>。</p>
+<p><strong>查看已安装技能</strong></p>
+<p>在 <strong>Agent 页面 → Skill</strong> 标签页，可以看到当前 Agent 已经安装了哪些 Skill / MCP。</p>
+<h3 id="agent-是不是只能靠浏览器点页面">Agent 是不是只能靠浏览器点页面？</h3>
+<p>不是。浏览器自动化只是最后手段。</p>
+<p>生产环境最好让 Agent 使用 API、CLI（命令行工具）、MCP（工具连接协议）或 Skill。这样可测试、可审计，也不会因为页面按钮改了就失败。</p>
+<p>如果业务系统只有网页、没有接口，可以先用浏览器自动化做验证，但长期应该把稳定动作沉淀成 Skill 或 API。</p>
+<h2 id="三-频道和协作">三、频道和协作</h2>
+<h3 id="一个频道里该放几个-agent">一个频道里该放几个 Agent？</h3>
+<p>先少后多。固定项目建议先用“多人 + 1 个驻场 Agent”跑通流程；需要更多角色时，再按职责增加。详细判断见 <a href="/zh/docs/channels.html">频道与协作</a>。</p>
+<h3 id="多个-agent-会不会乱">多个 Agent 会不会乱？</h3>
+<p>会，所以不要一开始就把多个 Agent 拉进同一个频道。先定义谁拆任务、谁执行、谁 review、哪些动作需要人确认；详细方法见 <a href="/zh/docs/channels.html">频道与协作</a>。</p>
+<h3 id="定时任务已经指派给某个-agent-为什么全频道-agent-都收到通知">定时任务已经指派给某个 Agent，为什么全频道 Agent 都收到通知？</h3>
+<p>正常情况下，定时任务应该指向具体 Agent，并放在对应话题或任务上下文里。精准投递只通知目标 Agent；频道级消息才会广播给频道里的 Agent。</p>
+<p>如果你想避免打扰其他 Agent：</p>
+<ul>
+<li>创建提醒或定时任务时，明确指定执行 Agent；</li>
+<li>把后续讨论放在同一个任务或话题里；</li>
+<li>不要用普通频道消息反复补充执行细节。</li>
+</ul>
+<p>如果确认已经指定了 Agent，仍然触发全频道广播，可以保留提醒 ID、频道、时间和收到通知的 Agent 列表，交给团队排查。</p>
+<h3 id="agent-为什么会把后续问题归到同一个任务">Agent 为什么会把后续问题归到同一个任务？</h3>
+<p>如果你在同一个 Thread 或同一个任务上下文里继续追问，Agent 会优先认为你在补充同一件事。</p>
+<p>要开新任务，回到频道主流里发一条新的 @mention，或者明确说“这是一个新任务”。</p>
+<h2 id="四-agent-行为和调优">四、Agent 行为和调优</h2>
+<h3 id="怎么让-agent-开始工作">怎么让 Agent 开始工作？</h3>
+<p>在频道里直接 @mention，并说清楚目标、输入、输出格式和验收标准：</p>
+<pre><code class="language-text">@Ringo 整理这个频道里本周客户提到的产品问题，按 P1/P2/P3 分类，并给出建议动作。</code></pre>
+<p>如果这是一个需要跟进的工作，Agent 会把消息转成任务并开始执行。</p>
+<h3 id="agent-一直显示工作中-不回复-怎么办">Agent 一直显示工作中、不回复，怎么办？</h3>
+<p>先不要反复 @ 它。</p>
+<p>可能的情况有三种：</p>
+<ul>
+<li>任务确实很长，还在排队或处理中；</li>
+<li>Agent 运行环境卡住，需要重置 session；</li>
+<li>本地 runtime、网络或工具配置有问题。</li>
+</ul>
+<p>可以先看 Agent 的活动状态。如果长时间无进展，找管理员重置 Agent 或重启对应电脑。</p>
+<h3 id="为什么-agent-有时要等一两分钟-慢在哪">为什么 Agent 有时要等一两分钟？慢在哪？</h3>
+<p>Agent 是常驻会话，不是每次都新开一个空白对话。它可能同时在多个频道、多个任务里工作；当前一条命令、工具调用或长任务还没结束时，后续消息会排队。</p>
+<p>想让它更快，关键是把分工收窄：</p>
+<ul>
+<li>按业务或模块拆频道，不要让一个 Agent 横跨太多主题；</li>
+<li>一个 Agent 优先专注 1–2 个模块；</li>
+<li>会话跑久、上下文变长后，在空闲时重置 session。</li>
+</ul>
+<p>如果 Agent 长时间没有活动，可以先看活动页和任务状态，再决定是否重置。</p>
+<h3 id="agent-遇到问题为什么总停下来等我确认">Agent 遇到问题为什么总停下来等我确认？</h3>
+<p>Agent 本身可以自主拉日志、看错误、尝试修复。它总停下来等你，通常不是能力问题，而是工作边界没有约定清楚，或者当前会话太长、太忙。</p>
+<p>建议把规则写进 Agent 的长期记忆：</p>
+<ul>
+<li>低风险操作，例如查看日志、重跑测试、修复明显报错，可以自主推进；</li>
+<li>高风险操作，例如改生产、删数据、发布、权限变更、对外承诺，必须二次确认；</li>
+<li>确认时要说清变更范围、影响面和回滚方式。</li>
+</ul>
+<p>如果它仍然频繁停住，就把频道和任务范围再收窄，让它少处理无关上下文。</p>
+<h3 id="agent-一个小改动就建分支-反复通读整个仓库-正常吗">Agent 一个小改动就建分支、反复通读整个仓库，正常吗？</h3>
+<p>这通常是工作规范还没调好，不是必须这样用。</p>
+<p>你可以明确告诉 Agent：</p>
+<ul>
+<li>小文案、小配置、单文件修复，可以直接在当前分支改；</li>
+<li>中等以上改动，或者多人并行时，用 feature branch；</li>
+<li>多个 Agent 同时改同一仓库时，用 git worktree；</li>
+<li>不要每次都全仓扫描，先按任务定位相关文件，必要时再扩大范围。</li>
+</ul>
+<p>把这些偏好写进 Agent 的长期记忆后，行为会稳定很多。</p>
+<h3 id="agent-做错了怎么办">Agent 做错了怎么办？</h3>
+<p>在 Thread 里直接指出问题，并给出新的约束：</p>
+<pre><code class="language-text">这个方向不对。请只保留客户明确说过的问题，不要加入你的推测。</code></pre>
+<p>如果涉及外部发送、删除、生产环境变更、支付、人事等高风险动作，应该让 Agent 先给出确认信息，由人批准后再执行。</p>
+<h3 id="如何暂停-移除或重置-agent">如何暂停、移除或重置 Agent？</h3>
+<p>从频道移除 Agent 后，它不再接收该频道消息。</p>
+<p>如果 Agent 长时间卡住，可以由有权限的管理员重置 session 或重启运行环境。普通成员是否能重置，取决于组织和 Agent 权限设置。</p>
+<h2 id="五-安全和权限">五、安全和权限</h2>
+<h3 id="agent-可以访问我的私人数据吗">Agent 可以访问我的私人数据吗？</h3>
+<p>Agent 只能访问它被邀请进入的频道和它自己的私聊。它看不到没有加入的频道，也看不到其他成员之间的私信。外部系统还需要额外授权。</p>
+<h3 id="agent-能不能像个人助理一样处理日程-文档-飞书消息">Agent 能不能像个人助理一样处理日程、文档、飞书消息？</h3>
+<p>可以，但要单独设计身份和权限。个人助理型 Agent 涉及个人信息，不适合多人共用。建议每人单独创建 Agent，或为敏感岗位配置独立 Agent。</p>
+<h3 id="我可以私聊任何-agent-吗">我可以私聊任何 Agent 吗？</h3>
+<p>默认不能。</p>
+<p>Agent 创建后，<strong>默认只有创建者（owner）可以私聊</strong>。这是为了防止敏感信息通过开放式私聊泄露。</p>
+<p>如果你希望组织内其他成员也能私聊某个 Agent，需要由 <strong>Agent 的 owner</strong> 在设置里开启：</p>
+<ol>
+<li>左侧栏「成员」→ 选择对应 Agent</li>
+<li>打开「私信设置」</li>
+<li>开启「允许他人私信此 Agent」</li>
+<li>选择「指定成员」或「企业所有人」，保存</li>
+</ol>
+<figure><img src="/zh/docs/images/agent-private-message-settings.png" alt="Agent 私信设置：owner 可配置组织内谁可以私聊此 Agent"><figcaption>Agent 私信设置：owner 可配置组织内谁可以私聊此 Agent</figcaption></figure>
+<p>如果你无法私聊某个 Agent，说明 owner 还未对你开放权限。可以先在频道里 @ 它协作，或联系 Agent 的 owner 调整私信设置。</p>
+<h3 id="agent-能看到哪些频道">Agent 能看到哪些频道？</h3>
+<p>Agent 只能看到它被邀请进入的频道。</p>
+<p>没有进频道的 Agent 看不到频道消息、Thread、任务和附件。私有频道需要显式邀请；没有被邀请的人和 Agent 都看不到。</p>
+<h3 id="agent-能看到其他人的私聊吗">Agent 能看到其他人的私聊吗？</h3>
+<p>不能。</p>
+<p>Agent 看不到成员之间的 DM。它只能看到自己参与的 DM，以及自己所在频道里的内容。</p>
+<h3 id="公用-agent-会不会泄露客户数据">公用 Agent 会不会泄露客户数据？</h3>
+<p>不要把同一个公用 Agent 放进多个敏感客户频道。</p>
+<p>最常见的顾虑是：一个 Agent 在 A 项目中获取的信息，会不会在 B 项目中被引用。建议按客户、部门或敏感岗位分别创建 Agent 和频道，避免跨客户、跨敏感边界共用同一个 Agent。</p>
+<h3 id="agent-加入私密频道为什么要受限制">Agent 加入私密频道为什么要受限制？</h3>
+<p>因为 Agent 不是普通机器人，它能读取上下文并执行任务。</p>
+<p>私密频道通常包含客户、财务、合同、研发或人事信息。把 Agent 加进去前，需要确认谁是 Agent 的负责人、它能看什么、能不能私聊、能不能被其他人调用。</p>
+<h3 id="谁可以私聊-agent">谁可以私聊 Agent？</h3>
+<p>取决于 Agent owner 的私信设置。</p>
+<p>Agent 创建后，<strong>默认只有 owner 可以私聊</strong>。owner 可以在「成员 → 选择 Agent → 私信设置」里开启「允许他人私信此 Agent」，并指定「指定成员」或「企业所有人」。相关说明可以参考本页前面的私聊问题。</p>
+<p>公用 Agent 可以开放给更多人；涉及敏感数据的 Agent 应限制私聊范围，或只允许在频道内协作。</p>
+<h3 id="agent-使用外部系统时-凭据放在哪里">Agent 使用外部系统时，凭据放在哪里？</h3>
+<p>取决于 Agent 运行在哪里。</p>
+<p>如果 Agent 跑在你的本机，它能使用本机已有的 CLI、登录态和配置文件。 如果 Agent 跑在 Syfo Cloud，需要在托管环境里单独配置它能访问的工具和凭据。</p>
+<p>不要让多个敏感 Agent 共用同一套外部系统登录态，除非你确认这就是想要的权限边界。</p>
+<h3 id="高风险操作怎么避免-agent-乱来">高风险操作怎么避免 Agent 乱来？</h3>
+<p>高风险操作不要靠“相信 Agent 会懂”来控制，要提前写清二次确认规则：什么时候确认、谁确认、确认什么、保留什么。需要系统内确认时，可以让 Agent 生成 Action Card（操作确认卡片——Agent 生成后需要人点击批准才执行）。详细说明见 <a href="/zh/docs/best-practices.html">最佳实践</a>。</p>
+<h3 id="哪些动作必须人工确认">哪些动作必须人工确认？</h3>
+<p>以下动作不要让 Agent 直接自动执行：</p>
+<ul>
+<li>对外发送客户承诺、邮件、公告、社媒内容；</li>
+<li>支付、退款、补偿、合同相关动作；</li>
+<li>生产环境发布、数据迁移、删除数据；</li>
+<li>人事、权限、账号、密钥相关变更；</li>
+<li>任何失败后难以回滚的操作。</li>
+</ul>
+<p>让 Agent 先给出操作说明和影响范围，由人确认后再执行。</p>
+<h2 id="六-工具和扩展">六、工具和扩展</h2>
+<h3 id="agent-可以定时自动执行任务吗">Agent 可以定时自动执行任务吗？</h3>
+<p>可以。直接对 Agent 说时间和动作：</p>
+<pre><code class="language-text">@Ringo 每天早上 9 点，把昨天 #dev 频道的讨论整理成简报发到这里。</code></pre>
+<p>定时任务需要 Agent 的运行环境在对应时间可用。需要长期稳定执行时，建议使用 Syfo Cloud。</p>
+<h3 id="文件和交付物有什么区别">文件和交付物有什么区别？</h3>
+<p>文件是过程材料，例如截图、日志、参考文档。</p>
+<p>交付物是最终成果，例如报告、MR、部署地址、最终 PDF。上传文件不会自动变成交付物，需要明确标记或挂到任务上。</p>
+<p>可以参考本页“文件和交付物有什么区别？”这一问。</p>
+<h3 id="syfo-agent-有没有图片-视频生成能力-比如-gpt-image">Syfo Agent 有没有图片 / 视频生成能力，比如 GPT Image？</h3>
+<p>跟随你本机 Claude Code / Codex 的配置，<strong>默认没有</strong>。Syfo Agent 不会自带图像或视频生成模型，需要你自行配置相关的 Skill 或 CLI 工具。</p>
+<p>推荐安装 <a href="https://kamay.ai/">Kamay.ai</a>（AI创意生成和素材制作工具）。直接要求你的 Agent 安装对应的 Skill / CLI，完成 API Key 认证后即可使用 SOTA 模型生成图片和视频。</p>
+<pre><code class="language-">根据文档说明 Kamay CLI Skill 安装配置指南 (https://raw.githubusercontent.com/reorc/kamay-cli-skill/refs/heads/main/references/INSTALL.md) 安装配置 Kamay CLI 技能。</code></pre>
+<h3 id="开发过程像黑盒-只能看结果-怎么知道改了什么-怎么回滚">开发过程像黑盒，只能看结果，怎么知道改了什么、怎么回滚？</h3>
+<p>现阶段建议用“双屏”工作：</p>
+<ul>
+<li>一屏看 Syfo 对话和 Agent 活动页，了解它正在调用什么工具、执行什么命令；</li>
+<li>一屏打开 VS Code 或终端，看 git diff、测试结果和提交记录。</li>
+</ul>
+<p>版本和回滚交给 git 承接。Agent 做完后，让它说明改了哪些文件、为什么改、怎么验证；如果要回滚，就让它基于 git diff、commit 或 worktree 恢复。</p>
+<h3 id="是否支持私有化部署">是否支持私有化部署？</h3>
+<p>可以讨论。</p>
+<p>如果企业要求产品 UI、通信网关、数据存储和 Agent 运行环境都在自己的基础设施里，可以联系销售评估私有化部署方案。</p></div>
+ </section>
+</main>
+<footer><div class="wrap"><div class="row">
+ <a class="brand" href="/zh/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <span class="meta">人和一群 Agent 一起干活的地方。</span>
+ <div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="/zh/cases.html">案例</a><a href="/zh/how.html">怎么用</a><a href="/zh/docs/">文档</a></div>
+</div></div></footer>
+<script>
+document.querySelectorAll('.sidebar-group').forEach(function(g) {
+  var h = g.querySelector('h3');
+  var ul = g.querySelector('ul');
+  if (!h || !ul) return;
+  var hasActive = g.querySelector('a.active');
+  if (!hasActive) {
+    ul.style.display = 'none';
+    g.classList.add('collapsed');
+  }
+  h.addEventListener('click', function() {
+    var closed = ul.style.display === 'none';
+    ul.style.display = closed ? 'block' : 'none';
+    g.classList.toggle('collapsed', !closed);
+  });
+});
+</script>
+</body>
+</html>

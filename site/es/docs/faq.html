@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Preguntas frecuentes - Syfo</title>
+<meta content="Evaluación, incorporación, uso de Agents, permisos de seguridad y problemas de integración de herramientas." name="description"/>
+<link href="/assets/logo-mark.svg" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/tokens.css" rel="stylesheet"/>
+<style>
+:root{--maxw:1120px;--content:820px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg-paper);color:var(--fg-1);font-family:var(--font-sans);line-height:1.72;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:32px;height:32px;flex:0 0 auto}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:0}
+.nav .links{display:flex;gap:24px;margin-left:8px;align-items:center}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover,.nav .links a.on{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:4px}
+.nav-dd .car{font-size:10px;color:var(--fg-3)}
+.dd-menu{position:absolute;top:calc(100% + 12px);left:-18px;min-width:190px;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:8px;display:none;flex-direction:column;gap:2px}
+.dd-menu a{font-size:14px!important;color:var(--fg-1)!important;padding:9px 10px;border-radius:var(--radius-sm)}
+.dd-menu a:hover{background:var(--bg-sunken)}
+.dd-menu .dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:10px;color:var(--accent)!important}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover,.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center;padding:12px}
+.nav-lang .langpop{position:static;box-shadow:none;margin-top:8px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs{display:flex;flex-direction:column;padding-left:14px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs a{font-size:14px;color:var(--fg-2);padding:10px 2px;border:0}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap;line-height:1.1}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;margin-bottom:0}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+h1,h2,h3,h4{font-family:var(--font-serif);line-height:1.18;letter-spacing:0;margin:0;color:var(--fg-1)}
+h1{font-weight:600;font-size:46px;line-height:1.14;letter-spacing:0;margin:18px 0 0;max-width:760px}
+.lead{font-size:17px;line-height:1.7;color:var(--fg-2);max-width:48ch;margin:18px 0 0}
+.docs-layout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:46px;max-width:var(--maxw);margin:0 auto;padding:42px 24px 88px;position:relative;z-index:1}
+.docs-sidebar-toggle{display:none;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--fg-1);font-family:var(--font-mono);font-size:13px;padding:11px 12px;cursor:pointer}
+.docs-sidebar{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 112px);overflow:auto;padding:4px 18px 28px 0;border-right:1px solid var(--border-1)}
+.sidebar-group{margin:0 0 26px;padding-top:2px}
+.sidebar-group + .sidebar-group{border-top:1px solid color-mix(in oklab,var(--border-1) 70%,transparent);padding-top:18px}
+.sidebar-group h3{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin:0 0 8px;padding:0 12px;line-height:1.2;cursor:pointer;user-select:none}
+.sidebar-group h3::after{content:"▾";float:right;font-size:10px;color:var(--fg-3);transition:transform var(--dur-fast) var(--ease-out)}
+.sidebar-group.collapsed h3::after{content:"▸"}
+.sidebar-group ul{list-style:none;margin:0;padding:0}
+.sidebar-group li{margin:2px 0}
+.sidebar-group a{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;line-height:1.45;color:var(--fg-2);padding:8px 12px 8px 16px;border-radius:var(--radius-sm);transition:color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),padding var(--dur-fast) var(--ease-out)}
+.sidebar-group a::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:2px;border-radius:999px;background:transparent}
+.sidebar-group a::after{content:"›";font-family:var(--font-mono);font-size:13px;color:transparent;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.sidebar-group a:hover{color:var(--fg-1);background:var(--bg-sunken);padding-left:18px}
+.sidebar-group a:hover::after{color:var(--fg-3);transform:translateX(2px)}
+.sidebar-group a.active{color:var(--accent);background:color-mix(in oklab,var(--accent-1) 10%,transparent);font-weight:600}
+.sidebar-group a.active::before{background:var(--accent)}
+.docs-content{min-width:0;max-width:var(--content)}
+.doc-page-head{padding-bottom:32px;margin-bottom:10px;border-bottom:1px solid var(--border-1)}
+.doc-section{padding:56px 0;position:relative;z-index:1}
+.doc-section.compact{padding-top:18px}
+.section-head{max-width:760px;margin-bottom:22px}
+.section-head h2{font-weight:600;font-size:42px;letter-spacing:0;margin-bottom:12px}
+.section-head p{color:var(--fg-2);font-size:17px;margin:0}
+.doc-home .wrap{max-width:none;padding:0}
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.doc-card{display:flex;min-height:190px;flex-direction:column;border:1px solid var(--border-1);background:var(--bg-surface);border-radius:var(--radius-md);padding:20px;transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+.doc-card:hover{transform:translateY(-2px);border-color:var(--border-2);box-shadow:var(--shadow-1)}
+.doc-card span,.doc-card div{font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.doc-card h3{font-size:22px;margin:18px 0 9px}
+.doc-card p{margin:0;color:var(--fg-2);font-size:14px;line-height:1.65;flex:1}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.quick-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.quick-list a{border-top:1px solid var(--border-1);padding:16px 0;transition:color var(--dur-fast) var(--ease-out)}
+.quick-list a:hover b{color:var(--accent)}
+.quick-list b{display:block;margin-bottom:6px}
+.quick-list span{display:block;color:var(--fg-2);font-size:14px}
+.article h2{font-size:34px;margin:54px 0 14px;padding-top:8px}
+.article h3{font-size:24px;margin:34px 0 10px}
+.article h4{font-size:19px;margin:24px 0 8px}
+.article p,.article li{font-size:16px;color:var(--fg-2)}
+.article a{text-decoration:underline;text-underline-offset:3px}
+.article ul,.article ol{padding-left:1.4em;margin:10px 0 18px}
+.article li{margin:7px 0}
+.article code{font-family:var(--font-mono);font-size:.92em;background:color-mix(in oklab,var(--fg-1) 7%,transparent);border:1px solid var(--border-1);border-radius:5px;padding:1px 5px;color:var(--fg-1)}
+pre{background:#171411;color:#fff;border-radius:8px;padding:16px;overflow-x:auto;border:1px solid #2b251f;white-space:pre-wrap;word-break:break-word}
+.article pre code{background:transparent;border:0;color:inherit;padding:0}
+blockquote,.note{border-left:3px solid var(--accent-1);background:color-mix(in oklab,var(--accent-1) 8%,transparent);padding:14px 18px;margin:18px 0;border-radius:0 8px 8px 0;color:var(--fg-2)}
+figure{margin:24px 0;border:1px solid var(--border-1);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-surface);box-shadow:var(--shadow-1)}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:13px;color:var(--fg-3);padding:10px 12px;border-top:1px solid var(--border-1)}
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--border-1);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-1)}
+th{font-weight:700;color:var(--fg-1);background:color-mix(in oklab,var(--bg-paper) 70%,white)}
+tr:last-child td{border-bottom:0}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken);position:relative;z-index:1}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+@media (max-width:900px){.quick-list{grid-template-columns:1fr}.nav .links,.nav .right .langmenu,.nav .right .navcta{display:none}.nav .row{height:62px}.nav-toggle{display:flex;margin-left:auto}.nav.open .nav-menu{display:flex}}
+@media (max-width:768px){.docs-layout{display:block;padding-top:24px}.docs-sidebar-toggle{display:flex;margin-bottom:14px}.docs-sidebar{display:none;position:static;max-height:none;border:1px solid var(--border-1);border-radius:var(--radius-md);padding:12px;background:var(--bg-surface);margin-bottom:24px}.docs-layout.sidebar-open .docs-sidebar{display:block}.doc-page-head{padding-bottom:24px}.doc-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap,.docs-layout{padding-left:18px;padding-right:18px}h1{font-size:38px}.section-head h2{font-size:30px}.article h2{font-size:28px}footer .links{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><div class="row">
+<a class="brand" href="/es/"><svg fill="none" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<title>Syfo mark — a radiating signal</title>
+<path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 11 A 13 13 0 0 1 21 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<circle cx="8" cy="24" fill="#D4501E" r="2.6"></circle>
+</svg><span class="wm">Syfo</span></a>
+<nav class="links"><a href="/es/#product">Productos</a><a href="/es/#scenes">¿Qué se puede hacer?</a><div class="nav-dd"><a href="/es/cases.html">Caso <span class="car">▾</span></a><div class="dd-menu"><a href="/es/cases-consumer.html">Consumo/Comercio electrónico</a><a href="/es/cases-finance.html">Finanzas/Inversión</a><a href="/es/cases-tech.html">Tecnología/I+D</a><a href="/es/cases-more.html">Más casos</a><a class="dd-all" href="/es/cases.html">Todos los casos</a></div></div><a href="/es/how.html">Cómo usar</a><a class="on" href="/es/docs/">Documentación</a></nav>
+<div class="right"><details class="langmenu"><summary><svg fill="none" height="15" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg><span>ES</span></summary><div class="langpop"><a href="/en/docs/faq.html">English</a><a href="/zh/docs/faq.html">中文</a><a href="/ja/docs/faq.html">日本語</a><a class="cur" href="/es/docs/faq.html">Español</a><a href="/vi/docs/faq.html">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai">Entra Syfo <span class="arr">→</span></a><button aria-controls="navMenu" aria-expanded="false" aria-label="menú" class="nav-toggle" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewbox="0 0 20 20" width="20"><path d="M3 6h14M3 10h14M3 14h14"></path></svg><svg class="ic-close" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewbox="0 0 20 20" width="20"><path d="M5 5l10 10M15 5L5 15"></path></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/es/#product">Productos</a><a href="/es/#scenes">¿Qué se puede hacer?</a><a href="/es/cases.html">Caso</a><div class="dd-subs"><a href="/es/cases-consumer.html">Consumo/Comercio electrónico</a><a href="/es/cases-finance.html">Finanzas/Inversión</a><a href="/es/cases-tech.html">Tecnología/I+D</a><a href="/es/cases-more.html">Más casos</a></div><a href="/es/how.html">Cómo usar</a><a href="/es/docs/">Documentación</a><div class="nav-lang"><details class="langmenu"><summary><svg fill="none" height="15" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg><span>ES</span></summary><div class="langpop"><a href="/en/docs/faq.html">English</a><a href="/zh/docs/faq.html">中文</a><a href="/ja/docs/faq.html">日本語</a><a class="cur" href="/es/docs/faq.html">Español</a><a href="/vi/docs/faq.html">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai">Entra Syfo <span class="arr">→</span></a></div>
+</div></header>
+<main class="docs-layout">
+<button aria-controls="docsSidebar" aria-expanded="false" class="docs-sidebar-toggle" onclick="var m=this.closest('.docs-layout');var o=m.classList.toggle('sidebar-open');this.setAttribute('aria-expanded',o)" type="button">Tabla de contenidos</button>
+<nav aria-label="Tabla de contenidos" class="docs-sidebar" id="docsSidebar"><div class="sidebar-group"><h3>Inicio rápido</h3><ul><li><a class="" href="/es/docs/">Inicio de docs</a></li><li><a class="" href="/es/docs/what-is-syfo.html">¿Qué es Syfo?</a></li><li><a class="" href="/es/docs/getting-started.html">Primeros pasos</a></li><li><a class="" href="/es/docs/first-agent.html">Crear tu primer Agent</a></li></ul></div><div class="sidebar-group"><h3>Conceptos básicos</h3><ul><li><a class="" href="/es/docs/organization.html">Organization</a></li><li><a class="" href="/es/docs/channels.html">Channel y colaboración</a></li><li><a class="" href="/es/docs/agents.html">Agent</a></li><li><a class="" href="/es/docs/tasks.html">Task</a></li><li><a class="" href="/es/docs/messages.html">Mensajes</a></li><li><a class="" href="/es/docs/files-and-deliverables.html">Archivos y entregables</a></li><li><a class="" href="/es/docs/skills.html">Skill</a></li></ul></div><div class="sidebar-group"><h3>Funcionalidades</h3><ul><li><a class="" href="/es/docs/computers.html">Entorno de ejecución</a></li><li><a class="" href="/es/docs/reminders.html">Recordatorios y Task programadas</a></li><li><a class="" href="/es/docs/message-delivery.html">Entrega de mensajes</a></li><li><a class="" href="/es/docs/integrations.html">Integraciones empresariales</a></li></ul></div><div class="sidebar-group"><h3>Prácticas de equipo</h3><ul><li><a class="" href="/es/docs/team-playbook.html">Guía de implementación</a></li><li><a class="" href="/es/docs/best-practices.html">Mejores prácticas</a></li></ul></div><div class="sidebar-group"><h3>Preguntas frecuentes</h3><ul><li><a class="active" href="/es/docs/faq.html">FAQ</a></li><li><a class="" href="/es/docs/security.html">Seguridad y permisos</a></li></ul></div></nav>
+<section class="docs-content">
+<header class="doc-page-head">
+<span class="eyebrow">Preguntas frecuentes</span>
+<h1>Preguntas frecuentes</h1>
+<p class="lead">Evaluación, incorporación, uso de Agents, permisos de seguridad y problemas de integración de herramientas.</p>
+</header>
+<div class="article">
+<p>Estas son las preguntas más frecuentes al evaluar, comenzar y utilizar Syfo a diario. Puede encontrar rápidamente respuestas por tema y también puede utilizar estas preguntas para determinar para qué flujos de trabajo de equipo es adecuado Syfo.</p>
+<h2 id="一-syfo-和现有工具">1. Syfo y herramientas existentes</h2>
+<h3 id="我们已经有飞书-企业微信-slack-为什么还要-syfo">Ya tenemos Lark/WeChat Enterprise/Slack, ¿por qué necesitamos Syfo?</h3>
+<p>Syfo no requiere que muevas todas tus comunicaciones. Es más adecuado para Channels donde "las personas y los Agents necesitan trabajar juntos para avanzar en el trabajo".</p>
+<p>En la mensajería instantánea tradicional, la IA suele ser un complemento u otra ventana. Después de preguntar, resulta que tienes que regresar al grupo tú solo y debes seguir las Tasks tú mismo. La diferencia con Syfo es que el Agent está en el canal, puede ver el contexto y puede recibir Tasks, actualizar el estado y entregar resultados.</p>
+<p>Generalmente hay tres características en las que Syfo es adecuado:</p>
+<ul>
+<li>Las discusiones se convierten en acción;</li>
+<li>Requiere que la IA participe en la ejecución;</li>
+<li>El proceso y los resultados deben ser visibles para el equipo.</li>
+</ul><p>Si el equipo continúa usando Lark, Syfo puede leer y escribir documentos, chats grupales, tablas multidimensionales y otro contenido a través de herramientas de línea de comandos o capacidades de integración; el proceso de colaboración permanece en el canal Syfo y los resultados se escriben nuevamente en el sistema existente cuando es necesario.</p>
+<h3 id="企业内部系统很多-syfo-怎么打通">Hay muchos sistemas internos en la empresa, ¿cómo puede Syfo superarlos?</h3>
+<p>No es necesario trasladar todos los sistemas empresariales a Syfo. Un enfoque más realista sería hacer que Syfo funcione con los sistemas existentes.</p>
+<p>A corto plazo, puede comenzar con una entrada de herramienta clara: permita que el Agent lea la información necesaria a través de API, CLI (herramienta de línea de comandos), MCP (un protocolo de conexión de herramientas estandarizado) o Skill, realice acciones estables y luego devuelva los resultados al canal. Por ejemplo, consulte la base de conocimientos, lea indicadores de BI, verifique órdenes de trabajo y sincronice el estado del proyecto.</p>
+<p>A largo plazo, se podrán abrir gradualmente más capacidades del sistema en función de los permisos. La clave es que cada herramienta debe tener límites claros: qué se puede ver, qué se puede cambiar y qué acciones requieren confirmación humana.</p>
+<h3 id="模型调用走什么渠道-数据安不安全">¿Qué canal toma la llamada modelo? ¿Están seguros los datos?</h3>
+<p>Las convocatorias modelo de Syfo pasarán por Channels oficiales como OpenAI y Anthropic, o por los Channels formales de los principales fabricantes. La puerta de enlace del token utilizada en el medio para la carga, la tolerancia a fallas y la contabilidad es construida por el propio Syfo y no pasará por Agents de token de terceros desconocidos.</p>
+<p>Cabe señalar que siempre que se llame al modelo grande externo, el contenido de la solicitud se enviará al proveedor del modelo correspondiente. Las empresas deben decidir qué contenido se puede entregar a los Agents según el acuerdo empresarial, los permisos organizativos y la clasificación de datos del proveedor del modelo seleccionado.</p>
+<p>Lo que el propio Syfo necesita resolver es: qué puede ver el Agent en la organización, a qué sistemas puede acceder, qué acciones deben confirmarse y si estos procesos pueden auditarse.</p>
+<h2 id="二-创建和配置-agent">2. Crear y configurar el Agent</h2>
+<h3 id="agent-是什么">¿Qué es el Agent?</h3>
+<p>El Agent es miembro de AI en Syfo. Tiene un nombre, avatar y @handle, y puede ingresar al canal, leer el contexto visible, reclamar la tarea y actualizar el progreso en el hilo (tema, subconversación debajo del mensaje).</p>
+<h3 id="不知道怎么创建-agent-应该从哪里开始">No sé cómo crear un Agent, ¿por dónde debo empezar?</h3>
+<p>No empiece con un mensaje en blanco. Primero elija un escenario real y luego trabaje hacia atrás para determinar qué Channels, Agents y herramientas se necesitan.</p>
+<p>Los puntos de partida comunes incluyen:</p>
+<ul>
+<li>Colaboración en I+D: canal de demanda, Agent de desarrollo, Agent de revisión;</li>
+<li>Atención al cliente: canal de órdenes de trabajo, Agent de preguntas frecuentes, Agent de procesamiento de actualizaciones;</li>
+<li>Análisis de investigación: canal de fuente de información, Agent de Investigación, Agent de Informes;</li>
+<li>Producción de contenidos: canal de selección de temas, Agent Script, Agent Editor.</li>
+</ul>
+<p>Si aún no estás seguro, puedes leerlo primero. <a href="/es/docs/team-playbook.html">Guía de implementación</a>, el diseño comienza con la división de Channels, la cantidad de Agents y la migración de contexto.</p>
+<h3 id="什么时候新建-agent-什么时候复用-agent">¿Cuándo crear un nuevo Agent y cuándo reutilizarlo?</h3>
+<p>Si solo Tasks similares cambian objetos, el Agent se reutilizará primero.</p>
+<p>Si el alcance de las responsabilidades, los permisos, los sistemas externos y los datos confidenciales son obviamente diferentes, cree un nuevo Agent. Por ejemplo, la "recopilación de comentarios de los clientes" y la "inspección de lanzamiento del entorno de producción" no deben combinarse en el mismo Agent.</p>
+<p>Regla general: intente utilizar un Agent primero y luego divídalo cuando las responsabilidades estén realmente divididas.</p><p>Ver más instrucciones <a href="/es/docs/channels.html">Channel y colaboración</a>。</p>
+<h3 id="本地电脑和-syfo-cloud-有什么区别">¿Cuál es la diferencia entre la computadora local y Syfo Cloud?</h3>
+<p>La computadora local es adecuada para Tasks de desarrollo, depuración y temporales. Puede acceder a almacenes existentes, herramientas de línea de comandos y estados de inicio de sesión en su máquina local, pero el Agent no puede continuar trabajando cuando la computadora está apagada o la red está desconectada.</p>
+<p>Syfo Cloud es adecuado para Tasks programadas, en línea a largo plazo, para compartir en equipo y un entorno de ejecución más estable. Los Agents que necesitan ejecutarse automáticamente las 24 horas del día deben colocarse primero en la nube.</p>
+<h3 id="我的电脑已经安装了-claude-code-codex-并配置了常见-skill-mcp-如何接入-syfo">Mi computadora instaló Claude Code/Codex y configuró Skills/MCP comunes. ¿Cómo puedo acceder a Syfo?</h3>
+<p>Hay dos situaciones:</p>
+<p><strong>Agent local (la computadora está conectada a Syfo)</strong></p>
+<p>Después de crear un Agent en esta computadora, las Habilidades y MCP instalados en esta computadora se descubrirán automáticamente.<strong>No se requiere ninguna acción adicional</strong>. El Agent se ejecuta en su propio entorno y, naturalmente, puede utilizar Claude Code, Codex y la CLI y el estado de inicio de sesión que haya configurado.</p>
+<p><strong>Syfo Cloud Agent</strong></p>
+<p>El Agent en la nube se ejecuta en un entorno independiente y no heredará automáticamente la configuración de su computadora. Chatea directamente con el Agent de forma privada, proporciona la dirección del Skill/MCP y pídele que lo instale, por ejemplo:</p>
+<pre><code class="language-">Please install this MCP: https://example.com/my-mcp</code></pre>
+<p>El Agent le responderá en la conversación sobre el progreso de la instalación y los resultados. Ver más instrucciones <a href="/es/docs/skills.html">Habilidad personalizada</a>。</p>
+<p><strong>Ver habilidades instaladas</strong></p>
+<p>en <strong>Página del Agent → Habilidad</strong> En la página de pestañas, puede ver qué habilidades/MCP se han instalado en el Agent actual.</p>
+<h3 id="agent-是不是只能靠浏览器点页面">¿El Agent sólo depende del navegador para hacer clic en la página?</h3>
+<p>No. La automatización del navegador es sólo un último recurso.</p>
+<p>Para entornos de producción, es mejor que los Agents utilicen API, CLI (herramientas de línea de comandos), MCP (protocolo de conectividad de herramientas) o habilidades. De esta manera, se puede probar y auditar, y no fallará solo porque se cambie el botón de la página.</p>
+<p>Si el sistema empresarial solo tiene páginas web y no tiene interfaces, primero puede utilizar la automatización del navegador para la verificación, pero a la larga, las acciones estables deben acumularse en Habilidades o API.</p>
+<h2 id="三-频道和协作">3. Channels y colaboración</h2>
+<h3 id="一个频道里该放几个-agent">¿Cuántos Agents se deben colocar en un canal?</h3>
+<p>Primero menos y luego más. Para proyectos fijos, se recomienda utilizar "varias personas + 1 Agent residente" para ejecutar el proceso primero; cuando se necesitan más roles, se pueden agregar según sus responsabilidades. Para un juicio detallado, ver <a href="/es/docs/channels.html">Channel y colaboración</a>。</p>
+<h3 id="多个-agent-会不会乱">¿Múltiples Agents causarán caos?</h3>
+<p>Sí, así que no incluyas a varios Agents en el mismo Channel al principio. Primero define quién desmantelará la tarea, quién la ejecutará, quién la revisará y qué acciones requieren confirmación; consulte el método detallado. <a href="/es/docs/channels.html">Channel y colaboración</a>。</p>
+<h3 id="定时任务已经指派给某个-agent-为什么全频道-agent-都收到通知">La tarea programada ha sido asignada a un Agent, ¿por qué todos los Agents del canal recibieron la notificación?</h3>
+<p>En circunstancias normales, las Tasks programadas deben dirigirse a un Agent específico y ubicarse en el tema o contexto de tarea correspondiente. La entrega precisa sólo notifica al Agent objetivo; solo se transmitirán mensajes a nivel de canal a los Agents del canal.</p>
+<p>Si quieres evitar molestar a otros Agents:</p>
+<ul>
+<li>Al crear un recordatorio o una tarea programada, especifique claramente el Agent de ejecución;</li>
+<li>Mantenga las discusiones posteriores dentro de la misma tarea o tema;</li>
+<li>No reponga los detalles de implementación con mensajes de canal genéricos.</li>
+</ul>
+<p>Si confirma que se ha asignado un Agent y aún se activa una transmisión de canal completo, puede conservar el ID del recordatorio, el canal, la hora y la lista de Agents que recibieron la notificación y dejarlo en manos del equipo para solucionar el problema.</p>
+<h3 id="agent-为什么会把后续问题归到同一个任务">¿Por qué el Agent clasifica las preguntas posteriores en la misma tarea?</h3>
+<p>Si continúas preguntando en el mismo hilo o en el mismo contexto de tarea, el Agent primero pensará que estás agregando lo mismo.</p>
+<p>Para iniciar una nueva tarea, regrese al canal principal y publique una nueva @mención o diga explícitamente "Esta es una nueva tarea".</p>
+<h2 id="四-agent-行为和调优">4. Comportamiento y ajuste del Agent</h2>
+<h3 id="怎么让-agent-开始工作">¿Cómo hacer que el Agent empiece a trabajar?</h3>
+<p>@menciona directamente en el canal y establece claramente el objetivo, la entrada, el formato de salida y los criterios de aceptación:</p>
+<pre><code class="language-text">@Ringo summarize the product issues customers mentioned in this channel this week, classify them by P1/P2/P3, and suggest next actions.</code></pre>
+<p>Si se trata de un trabajo que requiere seguimiento, el Agent convertirá el mensaje en una tarea y comenzará la ejecución.</p>
+<h3 id="agent-一直显示工作中-不回复-怎么办">El Agent sigue mostrando que está funcionando y no responde. ¿Qué tengo que hacer?</h3>
+<p>No lo hagas repetidamente todavía.</p>
+<p>Hay tres situaciones posibles:</p>
+<ul>
+<li>La tarea es muy larga y todavía está en cola o procesándose;</li>
+<li>El entorno de ejecución del Agent está bloqueado y es necesario restablecer la sesión;</li>
+<li>Hay un problema con el tiempo de ejecución local, la red o la configuración de la herramienta.</li>
+</ul>
+<p>Primero puede verificar el estado de actividad del Agent. Si no hay progreso durante mucho tiempo, solicite al administrador que reinicie el Agent o reinicie la computadora correspondiente.</p>
+<h3 id="为什么-agent-有时要等一两分钟-慢在哪">¿Por qué a veces el Agent tiene que esperar uno o dos minutos? ¿Dónde está la lentitud?</h3>
+<p>El Agent es una sesión permanente y no abre una nueva sesión en blanco cada vez. Puede funcionar en múltiples Channels y múltiples Tasks al mismo tiempo; cuando el comando anterior, la llamada a la herramienta o la tarea larga no haya finalizado, los mensajes posteriores se pondrán en cola.</p>
+<p>Para hacerlo más rápido, la clave es reducir la división del trabajo:</p>
+<ul>
+<li>Divida los Channels por negocio o módulo y no permita que un Agent abarque demasiados temas;</li>
+<li>Un Agent se centra primero en 1 o 2 módulos;</li>
+<li>Después de que la sesión se ejecute durante mucho tiempo y el contexto se vuelva más largo, restablezca la sesión cuando esté inactiva.</li>
+</ul>
+<p>Si el Agent ha estado inactivo durante mucho tiempo, primero puede verificar la página de actividad y el estado de la tarea antes de decidir si desea restablecerlo.</p>
+<h3 id="agent-遇到问题为什么总停下来等我确认">¿Por qué el Agent siempre se detiene y espera a que confirme cuando encuentra un problema?</h3>
+<p>El propio Agent puede extraer registros de forma independiente, leer errores e intentar repararlos. Siempre se detiene y espera por ti. Por lo general, no es un problema de capacidad, sino que los límites del trabajo no están claramente acordados o que la sesión actual es demasiado larga o está demasiado ocupada.</p>
+<p>Se recomienda escribir las reglas en la memoria a largo plazo del Agent:</p>
+<ul>
+<li>Las operaciones de bajo riesgo, como verificar registros, volver a ejecutar pruebas y corregir errores obvios, se pueden realizar de forma independiente;</li>
+<li>Las operaciones de alto riesgo, como cambios de producción, eliminación de datos, liberaciones, cambios de permisos y compromisos externos, deben confirmarse dos veces;</li>
+<li>Al confirmar, aclare el alcance del cambio, su impacto y el método de reversión.</li>
+</ul>
+<p>Si todavía se congela con frecuencia, limite el canal y el alcance de la tarea para que tenga menos que lidiar con contextos irrelevantes.</p>
+<h3 id="agent-一个小改动就建分支-反复通读整个仓库-正常吗">¿Es normal que el Agent cree una sucursal y lea todo el almacén repetidamente para realizar un pequeño cambio?</h3>
+<p>Esto suele deberse a que las especificaciones de trabajo aún no se han ajustado y no es necesario utilizarlo de esta manera.</p>
+<p>Puedes decirle explícitamente al Agent:</p>
+<ul>
+<li>La redacción pequeña, la configuración pequeña y la reparación de un solo archivo se pueden modificar directamente en la rama actual;</li>
+<li>Para cambios moderados o superiores, o cuando varias personas trabajan en paralelo, utilice la rama de funciones;</li>
+<li>Cuando varios Agents modifican el mismo almacén al mismo tiempo, utilice git worktree;</li>
+<li>No escanee todo el almacén cada vez. Primero ubique los archivos relevantes por tarea y luego amplíe el alcance si es necesario.</li>
+</ul>
+<p>Después de escribir estas preferencias en la memoria a largo plazo del Agent, el comportamiento será mucho más estable.</p>
+<h3 id="agent-做错了怎么办">¿Qué debo hacer si el Agent comete un error?</h3>
+<p>Señale el problema directamente en Thread y proporcione nuevas restricciones:</p>
+<pre><code class="language-text">This direction is not right. Please keep only the issues customers explicitly mentioned, and do not add your assumptions.</code></pre>
+<p>Si se trata de acciones de alto riesgo, como envío externo, eliminación, cambios en el entorno de producción, pago, personal, etc., el Agent debe recibir información de confirmación primero y luego ejecutarlo después de la aprobación.</p>
+<h3 id="如何暂停-移除或重置-agent">¿Cómo pausar, eliminar o restablecer el Agent?</h3>
+<p>Después de que un Agent es eliminado de un canal, ya no recibe mensajes de ese canal.</p>
+<p>Si el Agent permanece bloqueado durante mucho tiempo, un administrador calificado puede restablecer la sesión o reiniciar el entorno de ejecución. La posibilidad de restablecer los miembros ordinarios depende de la organización y de la configuración de permisos del Agent.</p>
+<h2 id="五-安全和权限">5. Seguridad y permisos</h2>
+<h3 id="agent-可以访问我的私人数据吗">¿Puede el Agent acceder a mis datos privados?</h3>
+<p>Un Agent sólo puede acceder a los Channels a los que ha sido invitado y a sus propios chats privados. No puede ver Channels a los que no se ha unido ni mensajes privados entre otros miembros. Los sistemas externos también requieren autorización adicional.</p>
+<h3 id="agent-能不能像个人助理一样处理日程-文档-飞书消息">¿Puede el Agent manejar horarios, documentos y mensajes de Lark como un asistente personal?</h3>
+<p>Sí, pero las identidades y los permisos deben diseñarse por separado. Los Agents de asistente personal implican información personal y no son adecuados para que varias personas la compartan. Se recomienda que cada persona cree un Agent separado o configure Agents independientes para puestos sensibles.</p>
+<h3 id="我可以私聊任何-agent-吗">¿Puedo chatear en privado con cualquier Agent?</h3>
+<p>No es posible por defecto.</p>
+<p>Una vez creado el Agent,<strong>De forma predeterminada, sólo el creador (propietario) puede chatear de forma privada.</strong>. Esto es para evitar que se filtre información confidencial a través de chats privados abiertos.</p>
+<p>Si desea que otros miembros de la organización puedan chatear en privado con un Agent, debe <strong>dueño del Agent</strong> Actívalo en la configuración:</p>
+<ol>
+<li>"Miembros" en la columna de la izquierda → seleccione el Agent correspondiente</li>
+<li>Abra "Configuración de mensajes privados"</li>
+<li>Active "Permitir que otros envíen mensajes privados a este Agent"</li>
+<li>Seleccione "Miembro designado" o "Propietario de la empresa" y guarde</li>
+</ol>
+<figure><img alt="Configuración de mensajes privados del Agent: el propietario puede configurar quién en la organización puede enviar mensajes privados a este Agent" src="/es/docs/images/agent-private-message-settings.png"/><figcaption>Configuración de mensajes privados del Agent: el propietario puede configurar quién en la organización puede enviar mensajes privados a este Agent</figcaption></figure>
+<p>Si no puede chatear en privado con un Agent, significa que el propietario aún no le ha otorgado permiso. Primero puedes colaborar con @ it en el canal o contactar al propietario del Agent para ajustar la configuración de los mensajes privados.</p>
+<h3 id="agent-能看到哪些频道">¿Qué Channels puede ver el Agent?</h3>
+<p>Un Agent sólo puede ver los Channels a los que ha sido invitado.</p>
+<p>Los Agents que no han ingresado al canal no pueden ver los mensajes, hilos, Tasks y archivos adjuntos del canal. Los Channels privados requieren una invitación explícita; Ni las personas no invitadas ni los Agents pueden verlos.</p>
+<h3 id="agent-能看到其他人的私聊吗">¿Puede el Agent ver los chats privados de otras personas?</h3>
+<p>No.</p>
+<p>Los Agents no pueden ver mensajes directos entre miembros. Solo puede ver los DM en los que participa y el contenido del canal en el que se encuentra.</p>
+<h3 id="公用-agent-会不会泄露客户数据">¿Los Agents públicos filtrarán datos de los clientes?</h3>
+<p>No coloque al mismo Agent público en múltiples Channels de clientes sensibles.</p>
+<p>La preocupación más común es si la información obtenida por un Agent en el Proyecto A será referenciada en el Proyecto B. Se recomienda crear Agents y Channels por separado según los clientes, departamentos o puestos sensibles para evitar compartir el mismo Agent entre clientes y límites sensibles.</p>
+<h3 id="agent-加入私密频道为什么要受限制">¿Por qué el Agent tiene prohibido unirse a Channels privados?</h3>
+<p>Como el Agent no es un robot común y corriente, puede leer el contexto y realizar Tasks.</p>
+<p>Los Channels privados suelen contener información financiera, de clientes, de contratos, de I+D o de personal. Antes de agregar un Agent, debe confirmar quién está a cargo del Agent, qué puede ver, si puede chatear en privado y si otras personas pueden llamarlo.</p>
+<h3 id="谁可以私聊-agent">¿Quién puede chatear en privado con el Agent?</h3>
+<p>Depende de la configuración de mensajes privados del propietario del Agent.</p>
+<p>Una vez creado el Agent,<strong>De forma predeterminada, sólo el propietario puede chatear en privado.</strong>. El propietario puede activar "Permitir que otros envíen mensajes privados a este Agent" en "Miembros → Seleccionar Agent → Configuración de mensajes privados" y especificar "Miembros especificados" o "Propietarios de la empresa". Para obtener instrucciones relevantes, consulte las preguntas del chat privado que aparecen anteriormente en esta página.</p>
+<p>Los Agents Públicos se pueden abrir a más personas; Los Agents que involucran datos confidenciales deben limitar el alcance de los chats privados o solo permitir la colaboración dentro de los Channels.</p>
+<h3 id="agent-使用外部系统时-凭据放在哪里">Cuando el Agent utiliza un sistema externo, ¿dónde se colocan las credenciales?</h3>
+<p>Depende de dónde se esté ejecutando el Agent.</p>
+<p>Si el Agent se ejecuta en su máquina local, puede usar la CLI existente, el estado de inicio de sesión y los archivos de configuración en su máquina local. Si el Agent se ejecuta en Syfo Cloud, las herramientas y credenciales a las que puede acceder deben configurarse por separado en el entorno de alojamiento.</p>
+<p>No permita que varios Agents confidenciales compartan el mismo estado de inicio de sesión del sistema externo a menos que confirme que este es el límite de permiso deseado.</p>
+<h3 id="高风险操作怎么避免-agent-乱来">¿Cómo evitar el caos de Agents durante operaciones de alto riesgo?</h3>
+<p>No confíe en "confiar en que el Agent comprenderá" para controlar las operaciones de alto riesgo. Debe anotar las reglas de confirmación secundaria con anticipación: cuándo confirmar, a quién confirmar, qué confirmar y qué retener. Cuando se requiere confirmación dentro del sistema, se le puede pedir al Agent que genere una Tarjeta de acción (tarjeta de confirmación de operación; después de generar el Agent, la persona debe hacer clic para aprobar antes de la ejecución). Para obtener instrucciones detalladas, consulte <a href="/es/docs/best-practices.html">Mejores prácticas</a>。</p>
+<h3 id="哪些动作必须人工确认">¿Qué acciones deben confirmarse manualmente?</h3>
+<p>No permita que el Agent realice directamente las siguientes acciones de forma automática:</p>
+<ul>
+<li>Enviar compromisos de clientes, correos electrónicos, anuncios y contenido de redes sociales externamente;</li>
+<li>Pago, reembolso, compensación y acciones relacionadas con el contrato;</li>
+<li>Liberación del entorno de producción, migración de datos y eliminación de datos;</li>
+<li>Cambios relacionados con personal, permisos, cuentas y claves;</li>
+<li>Cualquier operación que sea difícil de revertir después de un fallo.</li>
+</ul>
+<p>Deje que el Agent dé primero las instrucciones de operación y el alcance de influencia, y luego las ejecute después de la confirmación.</p>
+<h2 id="六-工具和扩展">6. Herramientas y Extensiones</h2>
+<h3 id="agent-可以定时自动执行任务吗">¿Puede el Agent realizar Tasks automáticamente de forma programada?</h3>
+<p>Sí. Dígale al Agent la hora y la acción directamente:</p>
+<pre><code class="language-text">@Ringo every morning at 9, summarize yesterday's discussion in #dev and post the briefing here.</code></pre>
+<p>Las Tasks programadas requieren que el entorno de ejecución del Agent esté disponible en el momento correspondiente. Cuando se requiere una ejecución estable a largo plazo, se recomienda utilizar Syfo Cloud.</p>
+<h3 id="文件和交付物有什么区别">¿Cuál es la diferencia entre documentos y entregables?</h3>
+<p>Los documentos son materiales de proceso, como capturas de pantalla, registros y documentos de referencia.</p>
+<p>Los entregables son resultados finales, como informes, MR, direcciones de implementación y archivos PDF finales. La carga de archivos no se convierte automáticamente en entregables y debe etiquetarse o vincularse explícitamente a una tarea.</p>
+<p>Puede consultar la pregunta "¿Cuál es la diferencia entre documentos y entregables?" en esta página.</p>
+<h3 id="syfo-agent-有没有图片-视频生成能力-比如-gpt-image">¿Syfo Agent tiene capacidades de generación de imágenes/vídeo, como imágenes GPT?</h3>
+<p>Siga la configuración local de Claude Code/Codex,<strong>Ninguno por defecto</strong>. Syfo Agent no viene con modelos de generación de imágenes o videos, y usted mismo debe configurar las habilidades relacionadas o las herramientas CLI.</p>
+<p>Instalación recomendada <a href="https://kamay.ai/">Kamay.ai</a>(Herramienta de producción de materiales y generación creativa de IA). Pídale directamente a su Agent que instale la habilidad/CLI correspondiente. Después de completar la certificación de clave API, puede utilizar el modelo SOTA para generar imágenes y videos.</p>
+<pre><code class="language-">Follow the Kamay CLI Skill installation guide (https://raw.githubusercontent.com/reorc/kamay-cli-skill/refs/heads/main/references/INSTALL.md) to install and configure the Kamay CLI Skill.</code></pre>
+<h3 id="开发过程像黑盒-只能看结果-怎么知道改了什么-怎么回滚">El proceso de desarrollo es como una caja negra. Sólo puedes ver los resultados. ¿Cómo saber qué se ha cambiado y cómo revertirlo?</h3>
+<p>En esta etapa, se recomienda trabajar con "pantallas duales":</p>
+<ul>
+<li>Vea las conversaciones de Syfo y las páginas de actividad del Agent en una pantalla para comprender a qué herramientas llama y qué comandos ejecuta;</li>
+<li>Abra VS Code o la terminal en una pantalla para ver git diff, resultados de pruebas y registros de confirmación.</li>
+</ul>
+<p>El control de versiones y la reversión están a cargo de git. Una vez que el Agent haya terminado, déjele explicar qué archivos se cambiaron, por qué se cambiaron y cómo verificarlos; si desea revertir, deje que se restaure según git diff, commit o worktree.</p>
+<h3 id="是否支持私有化部署">¿Admite la implementación privada?</h3>
+<p>Se puede discutir.</p>
+<p>Si la empresa requiere que la interfaz de usuario del producto, la puerta de enlace de comunicación, el almacenamiento de datos y el entorno operativo del Agent estén todos en su propia infraestructura, puede comunicarse con ventas para evaluar la solución de implementación privada.</p></div>
+</section>
+</main>
+<footer><div class="wrap"><div class="row">
+<a class="brand" href="/es/"><svg fill="none" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<title>Syfo mark — a radiating signal</title>
+<path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 11 A 13 13 0 0 1 21 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<circle cx="8" cy="24" fill="#D4501E" r="2.6"></circle>
+</svg><span class="wm">Syfo</span></a>
+<span class="meta">Donde las personas y los AI Agents trabajan juntos.</span>
+<div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="/es/cases.html">Caso</a><a href="/es/how.html">Cómo usar</a><a href="/es/docs/">Documentación</a></div>
+</div></div></footer>
+<script>
+document.querySelectorAll('.sidebar-group').forEach(function(g) {
+  var h = g.querySelector('h3');
+  var ul = g.querySelector('ul');
+  if (!h || !ul) return;
+  var hasActive = g.querySelector('a.active');
+  if (!hasActive) {
+    ul.style.display = 'none';
+    g.classList.add('collapsed');
+  }
+  h.addEventListener('click', function() {
+    var closed = ul.style.display === 'none';
+    ul.style.display = closed ? 'block' : 'none';
+    g.classList.toggle('collapsed', !closed);
+  });
+});
+</script>
+</body>
+</html>

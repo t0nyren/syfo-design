@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Câu hỏi thường gặp - Syfo</title>
+<meta content="Các vấn đề về đánh giá, giới thiệu, sử dụng Agent, quyền bảo mật và tích hợp công cụ." name="description"/>
+<link href="/assets/logo-mark.svg" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/tokens.css" rel="stylesheet"/>
+<style>
+:root{--maxw:1120px;--content:820px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg-paper);color:var(--fg-1);font-family:var(--font-sans);line-height:1.72;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:32px;height:32px;flex:0 0 auto}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:0}
+.nav .links{display:flex;gap:24px;margin-left:8px;align-items:center}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover,.nav .links a.on{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:4px}
+.nav-dd .car{font-size:10px;color:var(--fg-3)}
+.dd-menu{position:absolute;top:calc(100% + 12px);left:-18px;min-width:190px;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:8px;display:none;flex-direction:column;gap:2px}
+.dd-menu a{font-size:14px!important;color:var(--fg-1)!important;padding:9px 10px;border-radius:var(--radius-sm)}
+.dd-menu a:hover{background:var(--bg-sunken)}
+.dd-menu .dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:10px;color:var(--accent)!important}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover,.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center;padding:12px}
+.nav-lang .langpop{position:static;box-shadow:none;margin-top:8px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs{display:flex;flex-direction:column;padding-left:14px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs a{font-size:14px;color:var(--fg-2);padding:10px 2px;border:0}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap;line-height:1.1}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;margin-bottom:0}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+h1,h2,h3,h4{font-family:var(--font-serif);line-height:1.18;letter-spacing:0;margin:0;color:var(--fg-1)}
+h1{font-weight:600;font-size:46px;line-height:1.14;letter-spacing:0;margin:18px 0 0;max-width:760px}
+.lead{font-size:17px;line-height:1.7;color:var(--fg-2);max-width:48ch;margin:18px 0 0}
+.docs-layout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:46px;max-width:var(--maxw);margin:0 auto;padding:42px 24px 88px;position:relative;z-index:1}
+.docs-sidebar-toggle{display:none;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--fg-1);font-family:var(--font-mono);font-size:13px;padding:11px 12px;cursor:pointer}
+.docs-sidebar{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 112px);overflow:auto;padding:4px 18px 28px 0;border-right:1px solid var(--border-1)}
+.sidebar-group{margin:0 0 26px;padding-top:2px}
+.sidebar-group + .sidebar-group{border-top:1px solid color-mix(in oklab,var(--border-1) 70%,transparent);padding-top:18px}
+.sidebar-group h3{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin:0 0 8px;padding:0 12px;line-height:1.2;cursor:pointer;user-select:none}
+.sidebar-group h3::after{content:"▾";float:right;font-size:10px;color:var(--fg-3);transition:transform var(--dur-fast) var(--ease-out)}
+.sidebar-group.collapsed h3::after{content:"▸"}
+.sidebar-group ul{list-style:none;margin:0;padding:0}
+.sidebar-group li{margin:2px 0}
+.sidebar-group a{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;line-height:1.45;color:var(--fg-2);padding:8px 12px 8px 16px;border-radius:var(--radius-sm);transition:color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),padding var(--dur-fast) var(--ease-out)}
+.sidebar-group a::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:2px;border-radius:999px;background:transparent}
+.sidebar-group a::after{content:"›";font-family:var(--font-mono);font-size:13px;color:transparent;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.sidebar-group a:hover{color:var(--fg-1);background:var(--bg-sunken);padding-left:18px}
+.sidebar-group a:hover::after{color:var(--fg-3);transform:translateX(2px)}
+.sidebar-group a.active{color:var(--accent);background:color-mix(in oklab,var(--accent-1) 10%,transparent);font-weight:600}
+.sidebar-group a.active::before{background:var(--accent)}
+.docs-content{min-width:0;max-width:var(--content)}
+.doc-page-head{padding-bottom:32px;margin-bottom:10px;border-bottom:1px solid var(--border-1)}
+.doc-section{padding:56px 0;position:relative;z-index:1}
+.doc-section.compact{padding-top:18px}
+.section-head{max-width:760px;margin-bottom:22px}
+.section-head h2{font-weight:600;font-size:42px;letter-spacing:0;margin-bottom:12px}
+.section-head p{color:var(--fg-2);font-size:17px;margin:0}
+.doc-home .wrap{max-width:none;padding:0}
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.doc-card{display:flex;min-height:190px;flex-direction:column;border:1px solid var(--border-1);background:var(--bg-surface);border-radius:var(--radius-md);padding:20px;transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+.doc-card:hover{transform:translateY(-2px);border-color:var(--border-2);box-shadow:var(--shadow-1)}
+.doc-card span,.doc-card div{font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.doc-card h3{font-size:22px;margin:18px 0 9px}
+.doc-card p{margin:0;color:var(--fg-2);font-size:14px;line-height:1.65;flex:1}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.quick-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.quick-list a{border-top:1px solid var(--border-1);padding:16px 0;transition:color var(--dur-fast) var(--ease-out)}
+.quick-list a:hover b{color:var(--accent)}
+.quick-list b{display:block;margin-bottom:6px}
+.quick-list span{display:block;color:var(--fg-2);font-size:14px}
+.article h2{font-size:34px;margin:54px 0 14px;padding-top:8px}
+.article h3{font-size:24px;margin:34px 0 10px}
+.article h4{font-size:19px;margin:24px 0 8px}
+.article p,.article li{font-size:16px;color:var(--fg-2)}
+.article a{text-decoration:underline;text-underline-offset:3px}
+.article ul,.article ol{padding-left:1.4em;margin:10px 0 18px}
+.article li{margin:7px 0}
+.article code{font-family:var(--font-mono);font-size:.92em;background:color-mix(in oklab,var(--fg-1) 7%,transparent);border:1px solid var(--border-1);border-radius:5px;padding:1px 5px;color:var(--fg-1)}
+pre{background:#171411;color:#fff;border-radius:8px;padding:16px;overflow-x:auto;border:1px solid #2b251f;white-space:pre-wrap;word-break:break-word}
+.article pre code{background:transparent;border:0;color:inherit;padding:0}
+blockquote,.note{border-left:3px solid var(--accent-1);background:color-mix(in oklab,var(--accent-1) 8%,transparent);padding:14px 18px;margin:18px 0;border-radius:0 8px 8px 0;color:var(--fg-2)}
+figure{margin:24px 0;border:1px solid var(--border-1);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-surface);box-shadow:var(--shadow-1)}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:13px;color:var(--fg-3);padding:10px 12px;border-top:1px solid var(--border-1)}
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--border-1);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-1)}
+th{font-weight:700;color:var(--fg-1);background:color-mix(in oklab,var(--bg-paper) 70%,white)}
+tr:last-child td{border-bottom:0}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken);position:relative;z-index:1}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+@media (max-width:900px){.quick-list{grid-template-columns:1fr}.nav .links,.nav .right .langmenu,.nav .right .navcta{display:none}.nav .row{height:62px}.nav-toggle{display:flex;margin-left:auto}.nav.open .nav-menu{display:flex}}
+@media (max-width:768px){.docs-layout{display:block;padding-top:24px}.docs-sidebar-toggle{display:flex;margin-bottom:14px}.docs-sidebar{display:none;position:static;max-height:none;border:1px solid var(--border-1);border-radius:var(--radius-md);padding:12px;background:var(--bg-surface);margin-bottom:24px}.docs-layout.sidebar-open .docs-sidebar{display:block}.doc-page-head{padding-bottom:24px}.doc-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap,.docs-layout{padding-left:18px;padding-right:18px}h1{font-size:38px}.section-head h2{font-size:30px}.article h2{font-size:28px}footer .links{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><div class="row">
+<a class="brand" href="/vi/"><svg fill="none" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<title>Syfo mark — a radiating signal</title>
+<path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 11 A 13 13 0 0 1 21 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<circle cx="8" cy="24" fill="#D4501E" r="2.6"></circle>
+</svg><span class="wm">Syfo</span></a>
+<nav class="links"><a href="/vi/#product">Sản phẩm</a><a href="/vi/#scenes">những gì có thể được thực hiện</a><div class="nav-dd"><a href="/vi/cases.html">trường hợp <span class="car">▾</span></a><div class="dd-menu"><a href="/vi/cases-consumer.html">Người tiêu dùng/Thương mại điện tử</a><a href="/vi/cases-finance.html">Tài chính/Đầu tư</a><a href="/vi/cases-tech.html">Công nghệ/R&amp;D</a><a href="/vi/cases-more.html">Nhiều trường hợp hơn</a><a class="dd-all" href="/vi/cases.html">Tất cả các trường hợp</a></div></div><a href="/vi/how.html">Cách sử dụng</a><a class="on" href="/vi/docs/">Tài liệu</a></nav>
+<div class="right"><details class="langmenu"><summary><svg fill="none" height="15" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg><span>VI</span></summary><div class="langpop"><a href="/en/docs/faq.html">English</a><a href="/zh/docs/faq.html">中文</a><a href="/ja/docs/faq.html">日本語</a><a href="/es/docs/faq.html">Español</a><a class="cur" href="/vi/docs/faq.html">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai">Nhập Syfo <span class="arr">→</span></a><button aria-controls="navMenu" aria-expanded="false" aria-label="thực đơn" class="nav-toggle" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewbox="0 0 20 20" width="20"><path d="M3 6h14M3 10h14M3 14h14"></path></svg><svg class="ic-close" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewbox="0 0 20 20" width="20"><path d="M5 5l10 10M15 5L5 15"></path></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/vi/#product">Sản phẩm</a><a href="/vi/#scenes">những gì có thể được thực hiện</a><a href="/vi/cases.html">trường hợp</a><div class="dd-subs"><a href="/vi/cases-consumer.html">Người tiêu dùng/Thương mại điện tử</a><a href="/vi/cases-finance.html">Tài chính/Đầu tư</a><a href="/vi/cases-tech.html">Công nghệ/R&amp;D</a><a href="/vi/cases-more.html">Nhiều trường hợp hơn</a></div><a href="/vi/how.html">Cách sử dụng</a><a href="/vi/docs/">Tài liệu</a><div class="nav-lang"><details class="langmenu"><summary><svg fill="none" height="15" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg><span>VI</span></summary><div class="langpop"><a href="/en/docs/faq.html">English</a><a href="/zh/docs/faq.html">中文</a><a href="/ja/docs/faq.html">日本語</a><a href="/es/docs/faq.html">Español</a><a class="cur" href="/vi/docs/faq.html">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai">Nhập Syfo <span class="arr">→</span></a></div>
+</div></header>
+<main class="docs-layout">
+<button aria-controls="docsSidebar" aria-expanded="false" class="docs-sidebar-toggle" onclick="var m=this.closest('.docs-layout');var o=m.classList.toggle('sidebar-open');this.setAttribute('aria-expanded',o)" type="button">Mục lục</button>
+<nav aria-label="Mục lục" class="docs-sidebar" id="docsSidebar"><div class="sidebar-group"><h3>Bắt đầu nhanh</h3><ul><li><a class="" href="/vi/docs/">Trang chủ docs</a></li><li><a class="" href="/vi/docs/what-is-syfo.html">Syfo là gì</a></li><li><a class="" href="/vi/docs/getting-started.html">Bắt đầu</a></li><li><a class="" href="/vi/docs/first-agent.html">Tạo Agent đầu tiên</a></li></ul></div><div class="sidebar-group"><h3>Khái niệm cơ bản</h3><ul><li><a class="" href="/vi/docs/organization.html">Organization</a></li><li><a class="" href="/vi/docs/channels.html">Channel và cộng tác</a></li><li><a class="" href="/vi/docs/agents.html">Agent</a></li><li><a class="" href="/vi/docs/tasks.html">Task</a></li><li><a class="" href="/vi/docs/messages.html">Tin nhắn</a></li><li><a class="" href="/vi/docs/files-and-deliverables.html">Tệp và sản phẩm bàn giao</a></li><li><a class="" href="/vi/docs/skills.html">Skill</a></li></ul></div><div class="sidebar-group"><h3>Tính năng</h3><ul><li><a class="" href="/vi/docs/computers.html">Môi trường chạy</a></li><li><a class="" href="/vi/docs/reminders.html">Nhắc nhở và Task định kỳ</a></li><li><a class="" href="/vi/docs/message-delivery.html">Cơ chế gửi tin nhắn</a></li><li><a class="" href="/vi/docs/integrations.html">Tích hợp hệ thống doanh nghiệp</a></li></ul></div><div class="sidebar-group"><h3>Thực tiễn nhóm</h3><ul><li><a class="" href="/vi/docs/team-playbook.html">Hướng dẫn triển khai nhóm</a></li><li><a class="" href="/vi/docs/best-practices.html">Thực tiễn tốt nhất</a></li></ul></div><div class="sidebar-group"><h3>Câu hỏi thường gặp</h3><ul><li><a class="active" href="/vi/docs/faq.html">FAQ</a></li><li><a class="" href="/vi/docs/security.html">Bảo mật và quyền</a></li></ul></div></nav>
+<section class="docs-content">
+<header class="doc-page-head">
+<span class="eyebrow">Câu hỏi thường gặp</span>
+<h1>Câu hỏi thường gặp</h1>
+<p class="lead">Các vấn đề về đánh giá, giới thiệu, sử dụng Agent, quyền bảo mật và tích hợp công cụ.</p>
+</header>
+<div class="article">
+<p>Dưới đây là những câu hỏi thường gặp nhất khi đánh giá, bắt đầu và sử dụng Syfo hàng ngày. Bạn có thể nhanh chóng tìm thấy câu trả lời theo chủ đề và bạn cũng có thể sử dụng những câu hỏi này để xác định Syfo phù hợp với quy trình làm việc nhóm nào.</p>
+<h2 id="一-syfo-和现有工具">1. Syfo và các công cụ hiện có</h2>
+<h3 id="我们已经有飞书-企业微信-slack-为什么还要-syfo">Chúng ta đã có Lark/WeChat Enterprise/Slack, tại sao chúng ta lại cần Syfo?</h3>
+<p>Syfo không yêu cầu bạn phải di chuyển tất cả thông tin liên lạc của mình. Nó phù hợp hơn với những Channel mà “người và Agent cần hợp tác cùng nhau để thúc đẩy công việc”.</p>
+<p>Trong IM truyền thống, AI thường là một plug-in hoặc một cửa sổ khác. Hỏi xong thì phải tự mình di chuyển về nhóm, phải tự mình thực hiện Task. Điểm khác biệt với Syfo là Agent nằm trong Channel, có thể xem ngữ cảnh và có thể nhận Task, cập nhật trạng thái và đưa ra kết quả.</p>
+<p>Thường có ba đặc điểm mà Syfo phù hợp:</p>
+<ul>
+<li>Các cuộc thảo luận biến thành hành động;</li>
+<li>Yêu cầu AI tham gia thực thi;</li>
+<li>Quá trình và kết quả cần phải được nhóm rõ ràng.</li>
+</ul><p>Nếu nhóm tiếp tục sử dụng Lark, Syfo có thể đọc và viết tài liệu, trò chuyện nhóm, bảng đa chiều và các nội dung khác thông qua các công cụ dòng lệnh hoặc khả năng tích hợp; quy trình cộng tác vẫn nằm trong Channel Syfo và kết quả được ghi lại vào hệ thống hiện có khi cần thiết.</p>
+<h3 id="企业内部系统很多-syfo-怎么打通">Trong doanh nghiệp có rất nhiều hệ thống nội bộ, làm sao Syfo có thể vượt qua được?</h3>
+<p>Không cần phải chuyển tất cả hệ thống kinh doanh vào Syfo. Một cách tiếp cận thực tế hơn là để Syfo làm việc với các hệ thống hiện có.</p>
+<p>Trước mắt, bạn có thể bắt đầu với lối vào công cụ rõ ràng: cho phép Agent đọc thông tin cần thiết thông qua API, CLI (công cụ dòng lệnh), MCP (giao thức kết nối công cụ được tiêu chuẩn hóa) hoặc Kỹ năng, thực hiện các hành động ổn định và sau đó trả kết quả về Channel. Ví dụ: truy vấn cơ sở kiến ​​thức, đọc chỉ báo BI, kiểm tra lệnh sản xuất và đồng bộ hóa trạng thái dự án.</p>
+<p>Về lâu dài, nhiều khả năng hệ thống hơn có thể được mở dần dần dựa trên các quyền. Điều quan trọng là mỗi công cụ phải có ranh giới rõ ràng: những gì có thể nhìn thấy, những gì có thể thay đổi và những hành động nào cần có sự xác nhận của con người.</p>
+<h3 id="模型调用走什么渠道-数据安不安全">Cuộc gọi mô hình diễn ra theo Channel nào? Dữ liệu có an toàn không?</h3>
+<p>Các cuộc gọi mô hình của Syfo sẽ đi qua các Channel chính thức như OpenAI và Anthropic hoặc thông qua các Channel chính thức của các nhà sản xuất lớn. Cổng mã thông báo được sử dụng ở giữa để tải, chịu lỗi và tính toán do chính Syfo xây dựng và sẽ không thông qua các Agent mã thông báo của bên thứ ba không xác định.</p>
+<p>Cần lưu ý rằng chỉ cần mô hình lớn bên ngoài được gọi thì nội dung yêu cầu sẽ được gửi đến nhà cung cấp mô hình tương ứng. Doanh nghiệp nên quyết định nội dung nào có thể được bàn giao cho Agent dựa trên thỏa thuận doanh nghiệp, quyền của tổ chức và phân loại dữ liệu của nhà cung cấp mô hình đã chọn.</p>
+<p>Điều mà bản thân Syfo cần giải quyết là: Agent có thể nhìn thấy gì trong tổ chức, Agent có thể truy cập vào hệ thống nào, hành động nào phải được xác nhận và liệu các quy trình này có thể được kiểm tra hay không.</p>
+<h2 id="二-创建和配置-agent">2. Tạo và cấu hình Agent</h2>
+<h3 id="agent-是什么">Agent là gì?</h3>
+<p>Đặc vụ là thành viên AI của Syfo. Nó có tên, hình đại diện và @handle, đồng thời có thể vào Channel, đọc ngữ cảnh hiển thị, xác nhận Task và cập nhật tiến trình trong Chủ đề (chủ đề, cuộc trò chuyện phụ bên dưới tin nhắn).</p>
+<h3 id="不知道怎么创建-agent-应该从哪里开始">Không biết cách tạo Agent, tôi nên bắt đầu từ đâu?</h3>
+<p>Đừng bắt đầu với một dấu nhắc trống. Trước tiên, hãy chọn một tình huống thực tế, sau đó tìm hiểu xem Channel, Agent và công cụ nào là cần thiết.</p>
+<p>Điểm khởi đầu phổ biến bao gồm:</p>
+<ul>
+<li>Hợp tác R&amp;D: Channel nhu cầu, Agent phát triển, Agent đánh giá;</li>
+<li>Hỗ trợ khách hàng: Channel đặt hàng công việc, Agent Câu hỏi thường gặp, Agent xử lý nâng cấp;</li>
+<li>Phân tích nghiên cứu: Channel nguồn thông tin, Agent nghiên cứu, Agent báo cáo;</li>
+<li>Sản xuất nội dung: Channel chọn chủ đề, Script Agent, Editor Agent.</li>
+</ul>
+<p>Nếu bạn vẫn chưa chắc chắn, bạn có thể đọc nó trước <a href="/vi/docs/team-playbook.html">Hướng dẫn triển khai nhóm</a>, thiết kế bắt đầu từ việc tách Channel, số lượng Agent và di chuyển bối cảnh.</p>
+<h3 id="什么时候新建-agent-什么时候复用-agent">Khi nào cần tạo Agent mới và khi nào cần sử dụng lại Agent đó?</h3>
+<p>Nếu chỉ có các tác vụ tương tự thay đổi đối tượng thì Agent sẽ được sử dụng lại trước tiên.</p>
+<p>Nếu phạm vi trách nhiệm, quyền, hệ thống bên ngoài và dữ liệu nhạy cảm rõ ràng là khác nhau, hãy tạo một Agent mới. Ví dụ: không được kết hợp "thu thập phản hồi của khách hàng" và "kiểm tra phát hành môi trường sản xuất" trong cùng một Agent.</p>
+<p>Nguyên tắc nhỏ: Trước tiên hãy thử sử dụng một Agent, sau đó phân chia nó sau khi các trách nhiệm thực sự được phân chia.</p><p>Xem thêm hướng dẫn <a href="/vi/docs/channels.html">Channel và cộng tác</a>。</p>
+<h3 id="本地电脑和-syfo-cloud-有什么区别">Sự khác biệt giữa máy tính cục bộ và Syfo Cloud là gì?</h3>
+<p>Máy tính cục bộ phù hợp để phát triển, gỡ lỗi và thực hiện các tác vụ tạm thời. Nó có thể truy cập vào kho, công cụ dòng lệnh và trạng thái đăng nhập hiện có trên máy cục bộ của bạn, nhưng Agent không thể tiếp tục hoạt động khi máy tính tắt hoặc mạng bị ngắt kết nối.</p>
+<p>Syfo Cloud phù hợp với các tác vụ theo lịch trình, trực tuyến lâu dài, chia sẻ nhóm và môi trường thực thi ổn định hơn. Các Agent cần chạy tự động 24 giờ một ngày nên được đặt trên đám mây trước tiên.</p>
+<h3 id="我的电脑已经安装了-claude-code-codex-并配置了常见-skill-mcp-如何接入-syfo">Máy tính của tôi đã cài đặt Claude Code/Codex và cấu hình Skills/MCP thông dụng. Làm cách nào tôi có thể truy cập Syfo?</h3>
+<p>Có hai tình huống:</p>
+<p><strong>Local Agent (máy tính được kết nối với Syfo)</strong></p>
+<p>Sau khi tạo Agent trên máy tính này, các Kỹ năng và MCP được cài đặt trên máy tính này sẽ tự động được phát hiện.<strong>Không cần thực hiện thêm hành động nào</strong>. Agent chạy trong môi trường của riêng bạn và có thể sử dụng Claude Code, Codex, CLI cũng như trạng thái đăng nhập mà bạn đã định cấu hình một cách tự nhiên.</p>
+<p><strong>Syfo Cloud Agent</strong></p>
+<p>Agent đám mây chạy trong môi trường độc lập và sẽ không tự động kế thừa cấu hình trên máy tính của bạn. Chat trực tiếp riêng với Agent, cho địa chỉ Skill/MCP và yêu cầu cài đặt, ví dụ:</p>
+<pre><code class="language-">Please install this MCP: https://example.com/my-mcp</code></pre>
+<p>Tiến trình cài đặt và kết quả Agent sẽ trả lời bạn trong cuộc trò chuyện. Xem thêm hướng dẫn <a href="/vi/docs/skills.html">Kỹ năng tùy chỉnh</a>。</p>
+<p><strong>Xem các kỹ năng đã cài đặt</strong></p>
+<p>trong <strong>Trang Agent → Kỹ năng</strong> Trên trang tab, bạn có thể xem Kỹ năng/MCP nào đã được cài đặt trên Agent hiện tại.</p>
+<h3 id="agent-是不是只能靠浏览器点页面">Có phải Agent chỉ dựa vào trình duyệt để click vào trang?</h3>
+<p>Không. Tự động hóa trình duyệt chỉ là giải pháp cuối cùng.</p>
+<p>Đối với môi trường sản xuất, tốt nhất nên yêu cầu Agent sử dụng API, CLI (Công cụ dòng lệnh), MCP (Giao thức kết nối công cụ) hoặc Kỹ năng. Bằng cách này, nó có thể được kiểm tra và kiểm tra, và nó sẽ không bị lỗi chỉ vì nút trang bị thay đổi.</p>
+<p>Nếu hệ thống doanh nghiệp chỉ có trang web và không có giao diện, trước tiên bạn có thể sử dụng tự động hóa trình duyệt để xác minh, nhưng về lâu dài, các hành động ổn định sẽ được tích lũy vào Kỹ năng hoặc API.</p>
+<h2 id="三-频道和协作">3. Channel và cộng tác</h2>
+<h3 id="一个频道里该放几个-agent">Nên đặt bao nhiêu Agent trong một Channel?</h3>
+<p>Đầu tiên ít hơn và sau đó nhiều hơn. Đối với các dự án cố định, nên sử dụng "nhiều người + 1 Agent thường trú" để thực hiện quy trình trước; khi cần nhiều vai trò hơn, họ có thể được bổ sung tùy theo trách nhiệm của mình. Để có phán đoán chi tiết, xem <a href="/vi/docs/channels.html">Channel và cộng tác</a>。</p>
+<h3 id="多个-agent-会不会乱">Nhiều đặc vụ sẽ gây ra hỗn loạn?</h3>
+<p>Có, vì vậy đừng kéo nhiều Agent vào cùng một Channel ngay từ đầu. Đầu tiên hãy xác định ai sẽ dỡ bỏ Task, ai sẽ thực hiện nó, ai sẽ xem xét nó và hành động nào cần được xác nhận; xem phương pháp chi tiết. <a href="/vi/docs/channels.html">Channel và cộng tác</a>。</p>
+<h3 id="定时任务已经指派给某个-agent-为什么全频道-agent-都收到通知">Task theo lịch trình đã được giao cho Agent, tại sao tất cả Agent trong Channel đều nhận được thông báo?</h3>
+<p>Trong các trường hợp thông thường, các Task đã lên lịch phải được chuyển đến một Agent cụ thể và đặt trong bối cảnh chủ đề hoặc Task tương ứng. Việc phân phối chính xác chỉ thông báo cho Agent mục tiêu; chỉ các tin nhắn cấp Channel mới được phát tới Agent trong Channel.</p>
+<p>Nếu bạn muốn tránh làm phiền các Agent khác:</p>
+<ul>
+<li>Khi tạo lời nhắc hoặc tác vụ theo lịch trình, hãy chỉ định rõ Agent thực hiện;</li>
+<li>Giữ các cuộc thảo luận tiếp theo trong cùng một Task hoặc chủ đề;</li>
+<li>Không bổ sung chi tiết triển khai bằng các thông báo Channel chung chung.</li>
+</ul>
+<p>Nếu bạn xác nhận rằng một Nhân viên hỗ trợ đã được chỉ định và phát sóng toàn Channel vẫn được kích hoạt, thì bạn có thể giữ lại ID lời nhắc, Channel, thời gian và danh sách Nhân viên hỗ trợ đã nhận được thông báo và để nhóm xử lý sự cố.</p>
+<h3 id="agent-为什么会把后续问题归到同一个任务">Tại sao Agent phân loại các câu hỏi tiếp theo vào cùng một Task?</h3>
+<p>Nếu bạn tiếp tục hỏi trong cùng một Chủ đề hoặc cùng một bối cảnh Task, trước tiên Nhân viên sẽ nghĩ rằng bạn đang thêm điều tương tự.</p>
+<p>Để bắt đầu một Task mới, hãy quay lại Channel chính và đăng @đề cập mới hoặc nói rõ ràng "Đây là một Task mới".</p>
+<h2 id="四-agent-行为和调优">4. Hành vi và điều chỉnh của Agent</h2>
+<h3 id="怎么让-agent-开始工作">Làm thế nào để Agent bắt đầu làm việc?</h3>
+<p>@mention trực tiếp trong Channel và nêu rõ mục tiêu, định dạng đầu vào, đầu ra và tiêu chí chấp nhận:</p>
+<pre><code class="language-text">@Ringo summarize the product issues customers mentioned in this channel this week, classify them by P1/P2/P3, and suggest next actions.</code></pre>
+<p>Nếu đây là công việc cần theo dõi, Agent sẽ chuyển thông báo thành Task và bắt đầu thực hiện.</p>
+<h3 id="agent-一直显示工作中-不回复-怎么办">Agent tiếp tục hiển thị rằng nó đang hoạt động và không trả lời. Tôi nên làm gì?</h3>
+<p>Đừng @ nó nhiều lần.</p>
+<p>Có ba tình huống có thể xảy ra:</p>
+<ul>
+<li>Task thực sự dài và vẫn đang được xếp hàng đợi hoặc xử lý;</li>
+<li>Môi trường chạy Agent bị kẹt và phiên cần được đặt lại;</li>
+<li>Có vấn đề với thời gian chạy cục bộ, mạng hoặc cấu hình công cụ.</li>
+</ul>
+<p>Trước tiên bạn có thể kiểm tra trạng thái hoạt động của Agent. Nếu không có tiến triển trong thời gian dài, hãy yêu cầu quản trị viên đặt lại Agent hoặc khởi động lại máy tính tương ứng.</p>
+<h3 id="为什么-agent-有时要等一两分钟-慢在哪">Tại sao Agent đôi khi phải chờ một hoặc hai phút? Sự chậm chạp ở đâu?</h3>
+<p>Agent là một phiên cố định và không mở phiên trống mới mỗi lần. Nó có thể hoạt động trên nhiều Channel và nhiều Task cùng một lúc; khi lệnh trước, lệnh gọi công cụ hoặc tác vụ dài chưa kết thúc, các tin nhắn tiếp theo sẽ được xếp hàng đợi.</p>
+<p>Để làm nhanh hơn, điều quan trọng là thu hẹp sự phân công lao động:</p>
+<ul>
+<li>Chia các Channel theo doanh nghiệp hoặc mô-đun và không để một Agent trải dài quá nhiều chủ đề;</li>
+<li>Agent tập trung vào 1–2 mô-đun trước tiên;</li>
+<li>Sau khi phiên chạy trong một thời gian dài và ngữ cảnh trở nên dài hơn, hãy đặt lại phiên khi không hoạt động.</li>
+</ul>
+<p>Nếu Agent không hoạt động trong một thời gian dài, trước tiên bạn có thể kiểm tra trang hoạt động và trạng thái Task trước khi quyết định có đặt lại hay không.</p>
+<h3 id="agent-遇到问题为什么总停下来等我确认">Tại sao Agent luôn dừng lại và chờ tôi xác nhận khi gặp sự cố?</h3>
+<p>Bản thân Agent có thể lấy nhật ký, đọc lỗi và cố gắng sửa chữa chúng một cách độc lập. Nó luôn dừng lại và chờ đợi bạn. Thông thường vấn đề không phải là khả năng mà là ranh giới công việc không được thống nhất rõ ràng hoặc thời gian làm việc hiện tại quá dài hoặc quá bận rộn.</p>
+<p>Nên ghi các quy tắc vào bộ nhớ dài hạn của Agent:</p>
+<ul>
+<li>Các hoạt động có rủi ro thấp, chẳng hạn như kiểm tra nhật ký, chạy lại thử nghiệm và sửa các lỗi rõ ràng, có thể được thực hiện độc lập;</li>
+<li>Các hoạt động có rủi ro cao, chẳng hạn như thay đổi sản xuất, xóa dữ liệu, phát hành, thay đổi quyền và cam kết bên ngoài, phải được xác nhận hai lần;</li>
+<li>Khi xác nhận, hãy làm rõ phạm vi thay đổi, tác động của nó và phương pháp khôi phục.</li>
+</ul>
+<p>Nếu nó vẫn thường xuyên bị treo, hãy thu hẹp phạm vi Channel và Task để nó ít phải xử lý bối cảnh không liên quan hơn.</p>
+<h3 id="agent-一个小改动就建分支-反复通读整个仓库-正常吗">Việc Agent tạo một chi nhánh và đọc đi đọc lại toàn bộ kho hàng chỉ vì một thay đổi nhỏ có phải là điều bình thường không?</h3>
+<p>Điều này thường là do các thông số kỹ thuật công việc chưa được điều chỉnh và không cần thiết phải sử dụng theo cách này.</p>
+<p>Bạn có thể nói rõ ràng với Agent:</p>
+<ul>
+<li>Có thể sửa đổi nội dung sao chép nhỏ, cấu hình nhỏ và sửa chữa tệp đơn lẻ trực tiếp trong nhánh hiện tại;</li>
+<li>Đối với các thay đổi vừa phải hoặc cao hơn hoặc khi nhiều người làm việc song song, hãy sử dụng nhánh tính năng;</li>
+<li>Khi nhiều Agent sửa đổi cùng một kho cùng lúc, hãy sử dụng git worktree;</li>
+<li>Đừng quét toàn bộ kho mỗi lần. Trước tiên, hãy xác định vị trí các tệp có liên quan theo tác vụ, sau đó mở rộng phạm vi nếu cần.</li>
+</ul>
+<p>Sau khi ghi những ưu tiên này vào bộ nhớ dài hạn của Agent, hành vi sẽ ổn định hơn rất nhiều.</p>
+<h3 id="agent-做错了怎么办">Tôi nên làm gì nếu Agent mắc lỗi?</h3>
+<p>Chỉ ra vấn đề trực tiếp trong Thread và đưa ra các ràng buộc mới:</p>
+<pre><code class="language-text">This direction is not right. Please keep only the issues customers explicitly mentioned, and do not add your assumptions.</code></pre>
+<p>Nếu nó liên quan đến các hành động có rủi ro cao như gửi bên ngoài, xóa, thay đổi môi trường sản xuất, thanh toán, nhân sự, v.v., Agent phải được cung cấp thông tin xác nhận trước, sau đó mới thực hiện sau khi được phê duyệt.</p>
+<h3 id="如何暂停-移除或重置-agent">Làm cách nào để tạm dừng, xóa hoặc đặt lại Agent?</h3>
+<p>Sau khi Agent bị xóa khỏi Channel, Agent sẽ không nhận được tin nhắn từ Channel đó nữa.</p>
+<p>Nếu Agent bị kẹt trong một thời gian dài, quản trị viên đủ điều kiện có thể đặt lại phiên hoặc khởi động lại môi trường đang chạy. Việc các thành viên thông thường có thể được đặt lại hay không tùy thuộc vào cài đặt quyền của tổ chức và Agent.</p>
+<h2 id="五-安全和权限">5. Bảo mật và quyền</h2>
+<h3 id="agent-可以访问我的私人数据吗">Agent có thể truy cập dữ liệu riêng tư của tôi không?</h3>
+<p>Agent chỉ có thể truy cập các Channel mà Agent đã được mời và các cuộc trò chuyện riêng tư của riêng Agent đó. Nó không thể xem các Channel mà nó chưa tham gia, cũng như không thể xem tin nhắn riêng tư giữa các thành viên khác. Các hệ thống bên ngoài cũng yêu cầu ủy quyền bổ sung.</p>
+<h3 id="agent-能不能像个人助理一样处理日程-文档-飞书消息">Agent có thể xử lý lịch trình, tài liệu và tin nhắn Lark như một trợ lý cá nhân không?</h3>
+<p>Có, nhưng danh tính và quyền phải được thiết kế riêng biệt. Agent trợ lý cá nhân liên quan đến thông tin cá nhân và không phù hợp để nhiều người chia sẻ. Chúng tôi khuyên mỗi người nên tạo một Agent riêng hoặc định cấu hình các Agent độc lập cho các vị trí nhạy cảm.</p>
+<h3 id="我可以私聊任何-agent-吗">Tôi có thể trò chuyện riêng với bất kỳ Agent nào không?</h3>
+<p>Không thể theo mặc định.</p>
+<p>Sau khi tạo Agent,<strong>Theo mặc định, chỉ người sáng tạo (chủ sở hữu) mới có thể trò chuyện riêng tư</strong>. Điều này nhằm ngăn chặn thông tin nhạy cảm bị rò rỉ thông qua các cuộc trò chuyện riêng tư mở.</p>
+<p>Nếu bạn muốn các thành viên khác của tổ chức có thể trò chuyện riêng với Agent, bạn cần phải <strong>Chủ Agent</strong> Bật nó trong cài đặt:</p>
+<ol>
+<li>“Thành viên” ở cột bên trái → chọn Agent tương ứng</li>
+<li>Mở "Cài đặt tin nhắn riêng tư"</li>
+<li>Bật "Cho phép người khác nhắn tin riêng cho Agent này"</li>
+<li>Chọn "Thành viên được chỉ định" hoặc "Chủ doanh nghiệp" và lưu</li>
+</ol>
+<figure><img alt="Cài đặt tin nhắn riêng tư của Agent: chủ sở hữu có thể định cấu hình ai trong tổ chức có thể nhắn tin riêng cho Agent này" src="/vi/docs/images/agent-private-message-settings.png"/><figcaption>Cài đặt tin nhắn riêng tư của Agent: chủ sở hữu có thể định cấu hình ai trong tổ chức có thể nhắn tin riêng cho Agent này</figcaption></figure>
+<p>Nếu bạn không thể trò chuyện riêng với Agent, điều đó có nghĩa là chủ sở hữu chưa cấp quyền cho bạn. Trước tiên, bạn có thể cộng tác với @ it trong Channel hoặc liên hệ với chủ sở hữu của Agent để điều chỉnh cài đặt tin nhắn riêng tư.</p>
+<h3 id="agent-能看到哪些频道">Agent có thể xem những Channel nào?</h3>
+<p>Agent chỉ có thể xem các Channel mà nó đã được mời.</p>
+<p>Các Agent chưa vào Channel không thể xem tin nhắn, chủ đề, Task và tệp đính kèm của Channel. Các Channel riêng tư yêu cầu lời mời rõ ràng; cả những người không được mời và Agent đều không thể nhìn thấy họ.</p>
+<h3 id="agent-能看到其他人的私聊吗">Agent có thể xem cuộc trò chuyện riêng tư của người khác không?</h3>
+<p>Không.</p>
+<p>Agent không thể nhìn thấy DM giữa các thành viên. Nó chỉ có thể nhìn thấy các DM mà nó tham gia và nội dung trên Channel mà nó tham gia.</p>
+<h3 id="公用-agent-会不会泄露客户数据">Các Agent công sẽ rò rỉ dữ liệu khách hàng?</h3>
+<p>Không đưa cùng một Agent công vào nhiều Channel khách hàng nhạy cảm.</p>
+<p>Mối quan tâm phổ biến nhất là liệu thông tin mà Agent thu được trong Dự án A có được tham chiếu trong Dự án B hay không. Nên tạo các Agent và Channel riêng biệt theo khách hàng, bộ phận hoặc các vị trí nhạy cảm để tránh dùng chung một tổng đài viên giữa các khách hàng và các ranh giới nhạy cảm.</p>
+<h3 id="agent-加入私密频道为什么要受限制">Tại sao Agent bị hạn chế tham gia các Channel riêng tư?</h3>
+<p>Vì Agent không phải là một robot thông thường nên nó có thể đọc ngữ cảnh và thực hiện các Task.</p>
+<p>Các Channel riêng thường chứa thông tin khách hàng, tài chính, hợp đồng, R&amp;D hoặc nhân sự. Trước khi thêm Agent, bạn cần xác nhận ai là người phụ trách Agent, những gì họ có thể nhìn thấy, liệu họ có thể trò chuyện riêng tư hay không và liệu người khác có thể gọi cho họ hay không.</p>
+<h3 id="谁可以私聊-agent">Ai có thể trò chuyện riêng với Agent?</h3>
+<p>Tùy thuộc vào cài đặt tin nhắn riêng của chủ sở hữu Agent.</p>
+<p>Sau khi tạo Agent,<strong>Theo mặc định, chỉ chủ sở hữu mới có thể trò chuyện riêng tư</strong>. Chủ sở hữu có thể bật "Cho phép người khác gửi tin nhắn riêng tư đến Agent này" trong "Thành viên → Chọn Agent → Cài đặt tin nhắn riêng tư" và chỉ định "Thành viên được chỉ định" hoặc "Chủ sở hữu công ty". Để biết hướng dẫn liên quan, vui lòng tham khảo các câu hỏi trò chuyện riêng tư trước đó trên trang này.</p>
+<p>Agent công có thể được mở cho nhiều người hơn; Các Agent liên quan đến dữ liệu nhạy cảm nên giới hạn phạm vi trò chuyện riêng tư hoặc chỉ cho phép cộng tác trong các Channel.</p>
+<h3 id="agent-使用外部系统时-凭据放在哪里">Khi Agent sử dụng hệ thống bên ngoài, thông tin xác thực được đặt ở đâu?</h3>
+<p>Phụ thuộc vào nơi Agent đang chạy.</p>
+<p>Nếu Agent chạy trên máy cục bộ của bạn, thì Agent có thể sử dụng CLI, trạng thái đăng nhập và tệp cấu hình hiện có trên máy cục bộ của bạn. Nếu Agent chạy trong Syfo Cloud thì các công cụ và thông tin xác thực mà Agent có thể truy cập cần phải được định cấu hình riêng trong môi trường lưu trữ.</p>
+<p>Không cho phép nhiều Agent nhạy cảm chia sẻ cùng một trạng thái đăng nhập hệ thống bên ngoài trừ khi bạn xác nhận rằng đây là ranh giới quyền mong muốn.</p>
+<h3 id="高风险操作怎么避免-agent-乱来">Làm thế nào để tránh sự hỗn loạn của Agent trong các hoạt động có rủi ro cao?</h3>
+<p>Đừng dựa vào việc “tin tưởng Agent hiểu” để kiểm soát các hoạt động có rủi ro cao. Bạn phải viết trước các quy tắc xác nhận phụ: khi nào cần xác nhận, xác nhận ai, xác nhận cái gì và giữ lại cái gì. Khi cần xác nhận trong hệ thống, Agent có thể được yêu cầu tạo Thẻ hành động (thẻ xác nhận thao tác - sau khi Agent được tạo, người đó cần nhấp để phê duyệt trước khi thực hiện). Để biết hướng dẫn chi tiết, xem <a href="/vi/docs/best-practices.html">Thực tiễn tốt nhất</a>。</p>
+<h3 id="哪些动作必须人工确认">Những hành động nào phải được xác nhận theo cách thủ công?</h3>
+<p>Đừng để Agent trực tiếp thực hiện các hành động sau một cách tự động:</p>
+<ul>
+<li>Gửi các cam kết, email, thông báo và nội dung mạng xã hội ra bên ngoài;</li>
+<li>Thanh toán, hoàn tiền, bồi thường và các hành động liên quan đến hợp đồng;</li>
+<li>Phát hành môi trường sản xuất, di chuyển dữ liệu và xóa dữ liệu;</li>
+<li>Những thay đổi liên quan đến nhân sự, quyền, tài khoản và chìa khóa;</li>
+<li>Bất kỳ hoạt động nào khó quay trở lại sau khi thất bại.</li>
+</ul>
+<p>Hãy để Agent đưa ra hướng dẫn hoạt động và phạm vi ảnh hưởng trước, sau đó thực hiện chúng sau khi xác nhận.</p>
+<h2 id="六-工具和扩展">6. Công cụ và tiện ích mở rộng</h2>
+<h3 id="agent-可以定时自动执行任务吗">Agent có thể tự động thực hiện Task theo lịch trình không?</h3>
+<p>Vâng. Nói trực tiếp với Agent thời gian và hành động:</p>
+<pre><code class="language-text">@Ringo every morning at 9, summarize yesterday's discussion in #dev and post the briefing here.</code></pre>
+<p>Các tác vụ theo lịch trình yêu cầu môi trường chạy của Agent phải sẵn sàng vào thời điểm tương ứng. Khi cần thực thi ổn định lâu dài, nên sử dụng Syfo Cloud.</p>
+<h3 id="文件和交付物有什么区别">Sự khác biệt giữa tài liệu và sản phẩm là gì?</h3>
+<p>Tài liệu là các tài liệu xử lý như ảnh chụp màn hình, nhật ký và tài liệu tham khảo.</p>
+<p>Sản phẩm bàn giao là kết quả cuối cùng như báo cáo, MR, địa chỉ triển khai, bản PDF cuối cùng. Việc tải tệp lên không tự động chuyển thành sản phẩm có thể phân phối và cần phải được gắn thẻ hoặc liên kết rõ ràng với một tác vụ.</p>
+<p>Bạn có thể tham khảo câu hỏi “Sự khác biệt giữa tài liệu và sản phẩm bàn giao là gì?” trên trang này.</p>
+<h3 id="syfo-agent-有没有图片-视频生成能力-比如-gpt-image">Syfo Agent có khả năng tạo hình ảnh/video, chẳng hạn như Hình ảnh GPT không?</h3>
+<p>Thực hiện theo cấu hình Claude Code / Codex cục bộ của bạn,<strong>Không có theo mặc định</strong>. Syfo Agent không đi kèm với các mô hình tạo hình ảnh hoặc video và bạn cần tự mình định cấu hình các Công cụ CLI hoặc Kỹ năng liên quan.</p>
+<p>Cài đặt được đề xuất <a href="https://kamay.ai/">Kamay.ai</a>(Công cụ sản xuất vật liệu và thế hệ sáng tạo AI). Trực tiếp yêu cầu Agent của bạn cài đặt Kỹ năng/CLI tương ứng. Sau khi hoàn thành chứng nhận Khóa API, bạn có thể sử dụng mô hình SOTA để tạo hình ảnh và video.</p>
+<pre><code class="language-">Follow the Kamay CLI Skill installation guide (https://raw.githubusercontent.com/reorc/kamay-cli-skill/refs/heads/main/references/INSTALL.md) to install and configure the Kamay CLI Skill.</code></pre>
+<h3 id="开发过程像黑盒-只能看结果-怎么知道改了什么-怎么回滚">Quá trình phát triển giống như một hộp đen. Bạn chỉ có thể xem kết quả. Làm thế nào để bạn biết những gì đã được thay đổi và làm thế nào để quay trở lại?</h3>
+<p>Ở giai đoạn này, nên làm việc với "màn hình kép":</p>
+<ul>
+<li>Xem các trang hoạt động và cuộc trò chuyện của Syfo trên một màn hình để hiểu công cụ nào nó đang gọi và lệnh nào nó đang thực thi;</li>
+<li>Mở Mã VS hoặc thiết bị đầu cuối trên một màn hình để xem git diff, kết quả kiểm tra và bản ghi cam kết.</li>
+</ul>
+<p>Phiên bản và khôi phục được xử lý bởi git. Sau khi Agent hoàn tất, hãy để Agent giải thích những tệp nào đã được thay đổi, lý do chúng bị thay đổi và cách xác minh chúng; nếu bạn muốn quay lại, hãy để nó được khôi phục dựa trên git diff, commit hoặc Worktree.</p>
+<h3 id="是否支持私有化部署">Nó có hỗ trợ triển khai riêng tư không?</h3>
+<p>Có thể được thảo luận.</p>
+<p>Nếu doanh nghiệp yêu cầu giao diện người dùng sản phẩm, cổng giao tiếp, lưu trữ dữ liệu và môi trường vận hành Agent đều nằm trong cơ sở hạ tầng của riêng mình thì doanh nghiệp có thể liên hệ với bộ phận bán hàng để đánh giá giải pháp triển khai riêng.</p></div>
+</section>
+</main>
+<footer><div class="wrap"><div class="row">
+<a class="brand" href="/vi/"><svg fill="none" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<title>Syfo mark — a radiating signal</title>
+<path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 11 A 13 13 0 0 1 21 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<circle cx="8" cy="24" fill="#D4501E" r="2.6"></circle>
+</svg><span class="wm">Syfo</span></a>
+<span class="meta">Nơi con người và AI Agents làm việc cùng nhau.</span>
+<div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="/vi/cases.html">trường hợp</a><a href="/vi/how.html">Cách sử dụng</a><a href="/vi/docs/">Tài liệu</a></div>
+</div></div></footer>
+<script>
+document.querySelectorAll('.sidebar-group').forEach(function(g) {
+  var h = g.querySelector('h3');
+  var ul = g.querySelector('ul');
+  if (!h || !ul) return;
+  var hasActive = g.querySelector('a.active');
+  if (!hasActive) {
+    ul.style.display = 'none';
+    g.classList.add('collapsed');
+  }
+  h.addEventListener('click', function() {
+    var closed = ul.style.display === 'none';
+    ul.style.display = closed ? 'block' : 'none';
+    g.classList.toggle('collapsed', !closed);
+  });
+});
+</script>
+</body>
+</html>

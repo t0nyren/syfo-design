@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>チーム導入ガイド – Syfo</title>
+<meta content="Channel、Agent、およびコンテキスト設計アプローチにより、個々のトライアルからチームのコラボレーションまで拡張できます。" name="description"/>
+<link href="/assets/logo-mark.svg" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/tokens.css" rel="stylesheet"/>
+<style>
+:root{--maxw:1120px;--content:820px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg-paper);color:var(--fg-1);font-family:var(--font-sans);line-height:1.72;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:32px;height:32px;flex:0 0 auto}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:0}
+.nav .links{display:flex;gap:24px;margin-left:8px;align-items:center}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover,.nav .links a.on{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:4px}
+.nav-dd .car{font-size:10px;color:var(--fg-3)}
+.dd-menu{position:absolute;top:calc(100% + 12px);left:-18px;min-width:190px;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:8px;display:none;flex-direction:column;gap:2px}
+.dd-menu a{font-size:14px!important;color:var(--fg-1)!important;padding:9px 10px;border-radius:var(--radius-sm)}
+.dd-menu a:hover{background:var(--bg-sunken)}
+.dd-menu .dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:10px;color:var(--accent)!important}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover,.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center;padding:12px}
+.nav-lang .langpop{position:static;box-shadow:none;margin-top:8px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs{display:flex;flex-direction:column;padding-left:14px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs a{font-size:14px;color:var(--fg-2);padding:10px 2px;border:0}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap;line-height:1.1}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;margin-bottom:0}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+h1,h2,h3,h4{font-family:var(--font-serif);line-height:1.18;letter-spacing:0;margin:0;color:var(--fg-1)}
+h1{font-weight:600;font-size:46px;line-height:1.14;letter-spacing:0;margin:18px 0 0;max-width:760px}
+.lead{font-size:17px;line-height:1.7;color:var(--fg-2);max-width:48ch;margin:18px 0 0}
+.docs-layout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:46px;max-width:var(--maxw);margin:0 auto;padding:42px 24px 88px;position:relative;z-index:1}
+.docs-sidebar-toggle{display:none;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--fg-1);font-family:var(--font-mono);font-size:13px;padding:11px 12px;cursor:pointer}
+.docs-sidebar{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 112px);overflow:auto;padding:4px 18px 28px 0;border-right:1px solid var(--border-1)}
+.sidebar-group{margin:0 0 26px;padding-top:2px}
+.sidebar-group + .sidebar-group{border-top:1px solid color-mix(in oklab,var(--border-1) 70%,transparent);padding-top:18px}
+.sidebar-group h3{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin:0 0 8px;padding:0 12px;line-height:1.2;cursor:pointer;user-select:none}
+.sidebar-group h3::after{content:"▾";float:right;font-size:10px;color:var(--fg-3);transition:transform var(--dur-fast) var(--ease-out)}
+.sidebar-group.collapsed h3::after{content:"▸"}
+.sidebar-group ul{list-style:none;margin:0;padding:0}
+.sidebar-group li{margin:2px 0}
+.sidebar-group a{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;line-height:1.45;color:var(--fg-2);padding:8px 12px 8px 16px;border-radius:var(--radius-sm);transition:color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),padding var(--dur-fast) var(--ease-out)}
+.sidebar-group a::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:2px;border-radius:999px;background:transparent}
+.sidebar-group a::after{content:"›";font-family:var(--font-mono);font-size:13px;color:transparent;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.sidebar-group a:hover{color:var(--fg-1);background:var(--bg-sunken);padding-left:18px}
+.sidebar-group a:hover::after{color:var(--fg-3);transform:translateX(2px)}
+.sidebar-group a.active{color:var(--accent);background:color-mix(in oklab,var(--accent-1) 10%,transparent);font-weight:600}
+.sidebar-group a.active::before{background:var(--accent)}
+.docs-content{min-width:0;max-width:var(--content)}
+.doc-page-head{padding-bottom:32px;margin-bottom:10px;border-bottom:1px solid var(--border-1)}
+.doc-section{padding:56px 0;position:relative;z-index:1}
+.doc-section.compact{padding-top:18px}
+.section-head{max-width:760px;margin-bottom:22px}
+.section-head h2{font-weight:600;font-size:42px;letter-spacing:0;margin-bottom:12px}
+.section-head p{color:var(--fg-2);font-size:17px;margin:0}
+.doc-home .wrap{max-width:none;padding:0}
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.doc-card{display:flex;min-height:190px;flex-direction:column;border:1px solid var(--border-1);background:var(--bg-surface);border-radius:var(--radius-md);padding:20px;transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+.doc-card:hover{transform:translateY(-2px);border-color:var(--border-2);box-shadow:var(--shadow-1)}
+.doc-card span,.doc-card div{font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.doc-card h3{font-size:22px;margin:18px 0 9px}
+.doc-card p{margin:0;color:var(--fg-2);font-size:14px;line-height:1.65;flex:1}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.quick-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.quick-list a{border-top:1px solid var(--border-1);padding:16px 0;transition:color var(--dur-fast) var(--ease-out)}
+.quick-list a:hover b{color:var(--accent)}
+.quick-list b{display:block;margin-bottom:6px}
+.quick-list span{display:block;color:var(--fg-2);font-size:14px}
+.article h2{font-size:34px;margin:54px 0 14px;padding-top:8px}
+.article h3{font-size:24px;margin:34px 0 10px}
+.article h4{font-size:19px;margin:24px 0 8px}
+.article p,.article li{font-size:16px;color:var(--fg-2)}
+.article a{text-decoration:underline;text-underline-offset:3px}
+.article ul,.article ol{padding-left:1.4em;margin:10px 0 18px}
+.article li{margin:7px 0}
+.article code{font-family:var(--font-mono);font-size:.92em;background:color-mix(in oklab,var(--fg-1) 7%,transparent);border:1px solid var(--border-1);border-radius:5px;padding:1px 5px;color:var(--fg-1)}
+pre{background:#171411;color:#fff;border-radius:8px;padding:16px;overflow-x:auto;border:1px solid #2b251f;white-space:pre-wrap;word-break:break-word}
+.article pre code{background:transparent;border:0;color:inherit;padding:0}
+blockquote,.note{border-left:3px solid var(--accent-1);background:color-mix(in oklab,var(--accent-1) 8%,transparent);padding:14px 18px;margin:18px 0;border-radius:0 8px 8px 0;color:var(--fg-2)}
+figure{margin:24px 0;border:1px solid var(--border-1);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-surface);box-shadow:var(--shadow-1)}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:13px;color:var(--fg-3);padding:10px 12px;border-top:1px solid var(--border-1)}
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--border-1);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-1)}
+th{font-weight:700;color:var(--fg-1);background:color-mix(in oklab,var(--bg-paper) 70%,white)}
+tr:last-child td{border-bottom:0}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken);position:relative;z-index:1}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+@media (max-width:900px){.quick-list{grid-template-columns:1fr}.nav .links,.nav .right .langmenu,.nav .right .navcta{display:none}.nav .row{height:62px}.nav-toggle{display:flex;margin-left:auto}.nav.open .nav-menu{display:flex}}
+@media (max-width:768px){.docs-layout{display:block;padding-top:24px}.docs-sidebar-toggle{display:flex;margin-bottom:14px}.docs-sidebar{display:none;position:static;max-height:none;border:1px solid var(--border-1);border-radius:var(--radius-md);padding:12px;background:var(--bg-surface);margin-bottom:24px}.docs-layout.sidebar-open .docs-sidebar{display:block}.doc-page-head{padding-bottom:24px}.doc-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap,.docs-layout{padding-left:18px;padding-right:18px}h1{font-size:38px}.section-head h2{font-size:30px}.article h2{font-size:28px}footer .links{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><div class="row">
+<a class="brand" href="/ja/"><svg fill="none" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<title>Syfo mark — a radiating signal</title>
+<path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 11 A 13 13 0 0 1 21 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<circle cx="8" cy="24" fill="#D4501E" r="2.6"></circle>
+</svg><span class="wm">Syfo</span></a>
+<nav class="links"><a href="/ja/#product">製品</a><a href="/ja/#scenes">何ができるか</a><div class="nav-dd"><a href="/ja/cases.html">ケース <span class="car">▾</span></a><div class="dd-menu"><a href="/ja/cases-consumer.html">消費者/電子商取引</a><a href="/ja/cases-finance.html">金融・投資</a><a href="/ja/cases-tech.html">技術・研究開発</a><a href="/ja/cases-more.html">さらに多くのケース</a><a class="dd-all" href="/ja/cases.html">すべてのケース</a></div></div><a href="/ja/how.html">使用方法</a><a class="on" href="/ja/docs/">ドキュメント</a></nav>
+<div class="right"><details class="langmenu"><summary><svg fill="none" height="15" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg><span>JA</span></summary><div class="langpop"><a href="/en/docs/team-playbook.html">English</a><a href="/zh/docs/team-playbook.html">中文</a><a class="cur" href="/ja/docs/team-playbook.html">日本語</a><a href="/es/docs/team-playbook.html">Español</a><a href="/vi/docs/team-playbook.html">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai">サイフォを入力してください <span class="arr">→</span></a><button aria-controls="navMenu" aria-expanded="false" aria-label="メニュー" class="nav-toggle" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewbox="0 0 20 20" width="20"><path d="M3 6h14M3 10h14M3 14h14"></path></svg><svg class="ic-close" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" viewbox="0 0 20 20" width="20"><path d="M5 5l10 10M15 5L5 15"></path></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/ja/#product">製品</a><a href="/ja/#scenes">何ができるか</a><a href="/ja/cases.html">ケース</a><div class="dd-subs"><a href="/ja/cases-consumer.html">消費者/電子商取引</a><a href="/ja/cases-finance.html">金融・投資</a><a href="/ja/cases-tech.html">技術・研究開発</a><a href="/ja/cases-more.html">さらに多くのケース</a></div><a href="/ja/how.html">使用方法</a><a href="/ja/docs/">ドキュメント</a><div class="nav-lang"><details class="langmenu"><summary><svg fill="none" height="15" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="15"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg><span>JA</span></summary><div class="langpop"><a href="/en/docs/team-playbook.html">English</a><a href="/zh/docs/team-playbook.html">中文</a><a class="cur" href="/ja/docs/team-playbook.html">日本語</a><a href="/es/docs/team-playbook.html">Español</a><a href="/vi/docs/team-playbook.html">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai">サイフォを入力してください <span class="arr">→</span></a></div>
+</div></header>
+<main class="docs-layout">
+<button aria-controls="docsSidebar" aria-expanded="false" class="docs-sidebar-toggle" onclick="var m=this.closest('.docs-layout');var o=m.classList.toggle('sidebar-open');this.setAttribute('aria-expanded',o)" type="button">目次</button>
+<nav aria-label="目次" class="docs-sidebar" id="docsSidebar"><div class="sidebar-group"><h3>クイックスタート</h3><ul><li><a class="" href="/ja/docs/">Docs ホーム</a></li><li><a class="" href="/ja/docs/what-is-syfo.html">Syfo とは</a></li><li><a class="" href="/ja/docs/getting-started.html">はじめに</a></li><li><a class="" href="/ja/docs/first-agent.html">最初の Agent を作成する</a></li></ul></div><div class="sidebar-group"><h3>基本概念</h3><ul><li><a class="" href="/ja/docs/organization.html">Organization</a></li><li><a class="" href="/ja/docs/channels.html">Channel とコラボレーション</a></li><li><a class="" href="/ja/docs/agents.html">Agent</a></li><li><a class="" href="/ja/docs/tasks.html">Task</a></li><li><a class="" href="/ja/docs/messages.html">メッセージ</a></li><li><a class="" href="/ja/docs/files-and-deliverables.html">ファイルと成果物</a></li><li><a class="" href="/ja/docs/skills.html">Skill</a></li></ul></div><div class="sidebar-group"><h3>機能ガイド</h3><ul><li><a class="" href="/ja/docs/computers.html">実行環境</a></li><li><a class="" href="/ja/docs/reminders.html">リマインダーと定期 Task</a></li><li><a class="" href="/ja/docs/message-delivery.html">メッセージ配信</a></li><li><a class="" href="/ja/docs/integrations.html">企業システム連携</a></li></ul></div><div class="sidebar-group"><h3>チーム実践</h3><ul><li><a class="active" href="/ja/docs/team-playbook.html">チーム導入ガイド</a></li><li><a class="" href="/ja/docs/best-practices.html">ベストプラクティス</a></li></ul></div><div class="sidebar-group"><h3>よくある質問</h3><ul><li><a class="" href="/ja/docs/faq.html">FAQ</a></li><li><a class="" href="/ja/docs/security.html">セキュリティと権限</a></li></ul></div></nav>
+<section class="docs-content">
+<header class="doc-page-head">
+<span class="eyebrow">チーム実践</span>
+<h1>Syfo をチームの日常業務に取り入れましょう</h1>
+<p class="lead">Channel、Agent、およびコンテキスト設計アプローチにより、個々のトライアルからチームのコラボレーションまで拡張できます。</p>
+</header>
+<div class="article"><p>チームが Syfo を正式に導入する準備をしているとき、最初のステップはAgent を構築することではなく、Channel を分割する方法、Agent の作業を分割する方法、およびコンテキストをどこに配置するかを理解することです。このガイドは、この計画を完了するのに役立ちます。</p>
+<p>最初に本当に検討する必要があるのは、「いくつかのAgent を構築する」ことではなく、次のことです。</p>
+<ol>
+<li>どの事業分野がSyfoに参入すべきか。</li>
+<li>各ビジネスラインをどのChannel に分割する必要があるか。</li>
+<li>各 Channel には複数のAgent と、それらが果たす役割が必要です。</li>
+<li>Agent が実際に機能するためにはどのようなコンテキストを確認する必要がありますか?</li>
+<li>チームメンバーが遵守すべきコラボレーション規範。</li>
+</ol>
+<h2 id="先按业务线拆频道">まず事業ラインごとに Channel を分ける</h2>
+<p>Channelは Syfo 内の作業サイトです。Channelは、同じコンテキスト、同じ参加者のセット、同じTaskのセットの周りに存在する必要があります。</p>
+<p>組織構造を最初からコピーしたり、すべてを詰め込んだりしないでください。 <code>#general</code>。まず、現在のチームが実行しているビジネスラインをリストアップし、次に独立したChannelが必要なビジネスラインを判断します。</p>
+<div class="table-wrap"><table><thead><tr><th>シーン</th><th>推奨Channel</th><th>なぜこんなに解体されたのでしょうか？</th></tr></thead><tbody><tr><td>お客様による実装</td><td><code>#customer-a-implementation</code>、<code>#customer-a-delivery-execution</code></td><td>顧客情報、配送の進捗状況、問題の追跡を一元化する必要があります。実装の詳細は、ディスカッション Channel から専用Channel に分割できます。</td></tr><tr><td>社内研究開発</td><td><code>#product-planning</code>、<code>#dev-runtime</code>、<code>#release-review</code></td><td>製品のディスカッション、コードの実装、およびオンライン検査には、さまざまな参加者とさまざまなAgent権限が必要です。</td></tr><tr><td>販売フォローアップ</td><td><code>#sales-leads</code>、<code>#enterprise-demo</code></td><td>セールスリード、顧客の背景、プレゼンテーション資料は、プライベートチャットに散在しないように継続的に収集する必要があります。</td></tr><tr><td>お客様のフィードバック</td><td><code>#customer-feedback</code>、<code>#faq-improvements</code></td><td>元のフィードバックとドキュメント/製品の改善は関連する可能性がありますが、同じスレッド内で混在させる必要はありません。</td></tr></tbody></table></div>
+<p>Channel を分割するときは、次の 4 つの次元を優先します。</p>
+<ul>
+<li><strong>プロジェクトまたはクライアント</strong>: 長期的なプロジェクト、顧客、配送ライン。独立したChannel に適しています。</li>
+<li><strong>感度</strong>: 契約書、見積書、生産環境、顧客のプライバシー、社内担当者、その他の情報を公開Channel に公開しないでください。</li>
+<li><strong>実行フェーズ</strong>: 要件の議論、計画のレビュー、実行の実施、およびオンライン レビューを分離して、1 つのChannelが長すぎたりノイズが多すぎたりするのを避けることができます。</li>
+<li><strong>参加役割</strong>: 何かが長期間にわたって数人の人員と数人のAgentだけを必要とする場合、それを全員メンバーのChannel に入れないでください。</li>
+</ul>
+<p>プロジェクトは 1 つのChannelまたは複数のChannel に対応できます。判断基準は単純です。同じグループの人々、同じAgent のグループ、および同じ権限セットが処理できる場合は、最初に 1 つのChannel に入れます。コンテキスト、権限、または実行リズムが明らかに異なる場合は、分割してください。</p>
+<h2 id="决定每个频道放几个-agent">各 Channel に置く Agent 数を決める</h2>
+<p>Agent は多ければ多いほど良いです。Channel にAgent が追加されるたびに、同じメッセージがより多くのAgent によって読まれる可能性があり、ディスカッションが騒々しくなる可能性が高くなります。</p>
+<p>まず次の判定方法を使用します。</p>
+<div class="table-wrap"><table><thead><tr><th>Channel の種類</th><th>推奨されるAgent の数</th><th>役割に合う</th></tr></thead><tbody><tr><td>デイリープロジェクトChannel</td><td>常駐Agent 1 名</td><td>コンテキストを整理し、Task を追跡し、責任者に思い出させ、明確な作業をTask に変換します。</td></tr><tr><td>特別な実行Channel</td><td>Agent1～2名</td><td>1 人は実行の責任を負い、もう 1 人はレビューまたは承認の責任を負います。責任は違うはずだ。</td></tr><tr><td>攻撃と防御の計画/調査と議論</td><td>短期Agent2～3名</td><td>ユーザー、競合製品、エンジニアリング、データなどさまざまな視点から提案し、結論を出して結論を​​出します。</td></tr><tr><td>機密性の高いビジネスChannel</td><td>少数の独立Agent</td><td>権限に従って独立して構成し、他の顧客、部門、実稼働環境と混在させないでください。</td></tr></tbody></table></div>
+<p>Agent の役割を設計するときは、まず次の 3 つの質問をします。</p>
+<ol>
+<li><strong>同時実行要件</strong>: 同時に実行する必要があるTaskはどれですか?順番にのみ実行する場合は、1 人のAgent が段階的に実行するだけで十分です。</li>
+<li><strong>権限の境界</strong>:顧客情報、コード ウェアハウス、運用サーバー、財務契約を表示できるAgent はどれですか?</li>
+<li><strong>責任の範囲</strong>: 2 つのAgent の出力は繰り返されますか?重複がある場合は、まず責任をマージします。</li>
+</ol>
+<p>3 人を超えるAgent が長期間存在するChannelは、通常、再チェックする必要があります。</p>
+<ul>
+<li>重複する責任があるかどうか。</li>
+<li>専用Channel に分割する必要がありますか?</li>
+<li>異なる権限を持つデータが同じChannel に配置されるかどうか。</li>
+<li>Agent は単に「強く見える」ためだけに追加されるのでしょうか?</li>
+</ul>
+<p>より詳細な判定については、こちらをご覧ください。 <a href="/ja/docs/channels.html">Channel構成とマルチAgent のコラボレーション</a> そして <a href="/ja/docs/message-delivery.html">Agentメッセージ配信メカニズム</a>。</p>
+<h2 id="把上下文迁移到-agent-可见的位置">コンテキストを Agent が見える場所へ移す</h2>
+<p>Agent が適切な仕事をできるかどうかは、モデルだけでなく、何が表示され、どのツールが使用できるかにも依存します。</p>
+<p>Syfo のChannel コンテキスト、Task、ファイル、成果物は、当然ながらChannel内のAgent に預けられます。ただし、外部システムには事前にアクセスする必要があります。コード ライブラリ、サーバー、Lark ドキュメント、企業 WeChat レコード、データベース、BI、内部バックエンドなどは、Agent が配置されているオペレーティング環境からアクセスできる必要があります。</p>
+<div class="table-wrap"><table><thead><tr><th>コンテキスト</th><th>準備するもの</th><th>Agentへのメソッド</th></tr></thead><tbody><tr><td>コードリポジトリ</td><td>GitHub/GitLab アクセス、CLI または SSH キー、一般的なブランチおよびテスト コマンド</td><td>R&amp;D Agent を、ウェアハウスのアクセス許可が設定されたコンピューターまたはクラウド環境で実行し、ウェアハウス、ブランチ、およびテストの入り口をChannel の上部に固定します。</td></tr><tr><td>サーバー</td><td>SSH アカウント、要塞ホスト ルール、読み取り専用または公開権限の境界</td><td>秘密キーをChannel に投稿しないでください。制御されたオペレーティング環境で資格情報を構成し、実行するコマンドと影響範囲をAgent に説明させます。</td></tr><tr><td>Lark/エンタープライズ WeChat ドキュメント</td><td>ドキュメントのリンク、API/CLI/Skillの権限、読み取りが許可されるスペース範囲</td><td>ドキュメント Agent に対応する CLI またはSkillを設定し、主要なドキュメント リンクをChannelまたはTask に送信します。</td></tr><tr><td>お客様とのコミュニケーション記録</td><td>グループチャットエクスポート、CRM、作業指示システム、多次元フォーム</td><td>最初に感度解除の口径とフィールド構造を定義してから、Agent が段階的にそれを整理できるようにします。フィルタリングせずに元のテキスト全体をChannel に移動しないでください。</td></tr><tr><td>内部データ</td><td>データベース、BI、レポート、インジケーターキャリバー</td><td>読み取り専用権限を優先します。Agent にクエリの内容と結果の概要を出力させ、高リスクの書き込みは手動で確認する必要があります。</td></tr><tr><td>プロジェクトルール</td><td>README、Runbook、承認基準、リリースプロセス</td><td>これをChannel、Taskの説明、またはウェアハウス文書の先頭に配置して、新しいメンバーとAgent が同じルールのセットを確実に参照できるようにします。</td></tr></tbody></table></div>
+<p>いくつかの原則:</p>
+<ul>
+<li><strong>作業が行われる場所にコンテキストが配置される</strong>: プロジェクト データはプロジェクト Channel に配置され、顧客情報は顧客Channel に配置され、実行の詳細はTask スレッドに配置されます。</li>
+<li><strong>認証情報は通常のメッセージには入力されません</strong>: キー、トークン、SSH 秘密キーをChannel に直接送信しないでください。これらをAgent実行環境または制御された構成に置きます。</li>
+<li><strong>権限はAgent の責任に基づいて与えられます</strong>: お客様からのフィードバック Agent には運用サーバーの権限は必要ありません。 Release Check Agent は顧客のプライベート チャット記録を必要としません。</li>
+<li><strong>Agent に最初に機能の境界を説明させます</strong>: 外部システムに新たに接続した後、Agent に、アクセスできるもの、アクセスできないもの、およびその確認方法をレポートさせます。</li>
+</ul>
+<p>外部ツールを接続する必要がある場合は、以下を参照してください。 <a href="/ja/docs/skills.html">カスタム Skill</a>。機密データが含まれている場合は、もう一度確認してください <a href="/ja/docs/security.html">セキュリティと権限に関するよくある質問</a>。</p>
+<h2 id="约定团队使用规范">チーム利用ルールに同意する</h2>
+<p>Syfo がうまく活用されるかどうかは、チームが一貫したコラボレーションの習慣を身に付けているかどうかによって決まります。コアChannel の上部に短い仕様をピンで固定することをお勧めします。最初は 1 つのバージョンで十分であり、その後は実際の問題に基づいて調整する必要があります。</p>
+<h3 id="好习惯">良い習慣</h3>
+<ul>
+<li><strong>ニーズは 1 つ、入り口は 1 つ</strong>: 同じことは 1 つのChannelまたは 1 つのTask スレッド内でのみ進められます。</li>
+<li><strong>重要な情報を同じスレッドに入れる</strong>: 背景、情報、議論、決定、承認結果が複数の場所に分散してはいけません。</li>
+<li><strong>必要なものと承認基準を明確に説明する</strong>: 「わかるように手伝ってください」と言うだけでなく、目標、制約、出力形式、何が良い仕事とみなされるかを伝えてください。</li>
+<li><strong>緊急の事項には「緊急」が付きます</strong>: オンラインの障害、顧客の混雑、配送のリスクは、担当者とAgent の両方によって迅速に特定される必要があります。</li>
+<li><strong>Task を使用して実行を開始する</strong>: フォローアップが必要な作業は、所有者、ステータス、次のアクションを含むTask に変換されます。</li>
+<li><strong>Agent がスレッドで進行状況を更新できるようにする</strong>: メイン Channelは重要な結論を保持し、プロセスの詳細はTaskまたはスレッドに収束します。</li>
+</ul>
+<h3 id="不好的习惯">悪い習慣</h3>
+<ul>
+<li>1 つの要件では、同時に多数のAgent がコンテキストを読み取り、繰り返し出力できるようにします。</li>
+<li>複数のChannel に同じ内容を繰り返し投稿すると、結論が二分され、最新の内容がどこにあるのか誰にもわかりません。</li>
+<li>漠然とした指示だけが与えられ、背景、情報、受け入れ基準は与えられません。</li>
+<li>削除、公開、支払い、外部コミットメントなどの取り消し不能な操作をAgent に直接実行させます。</li>
+<li>Agent の出力は、誰かがそれを受け入れない限り、完了したものとみなされます。</li>
+<li>機密性の高い顧客、生産環境、内部管理情報をパブリック Channel に混合します。</li>
+</ul>
+<h3 id="两条铁律">2つの鉄則</h3>
+<ol>
+<li><strong>機密性の高い操作または不可逆的な操作は、人の立ち会いによって確認する必要があります。</strong></li>
+</ol>
+<p>削除、支払い、本番変更、顧客コミットメント、外部納品、権限変更については、Agent が操作内容、影響範囲、ロールバック方法を説明し、担当者の確認を受ける必要があります。</p>
+<ol>
+<li><strong>オンライン障害と顧客のブロックは収束のために優先されます。</strong></li>
+</ol>
+<p>「緊急」で始まり、影響範囲、現在の状況、責任者、予想される結果を説明します。同時に複数のChannel に拡張しないでください。</p>
+<h2 id="一份可直接复制的团队规范">そのままコピーできるチーム規範</h2>
+<pre><code class="language-markdown"># Syfo Team Usage Guidelines
+
+1. Keep one source of truth per request: choose a channel message, task, or Thread as the main line.
+2. Turn executable work into a Task, and keep the owner, status, and next action clear.
+3. When you @Agent, state the context, goal, materials, priority, output format, and acceptance criteria.
+4. Keep key information in the same thread. Do not repeat the same request across multiple channels.
+5. Start urgent items with “Urgent”, and state the impact scope and expected result.
+6. Sensitive or irreversible actions must be confirmed by a human before execution.
+7. Agent output must be reviewed by a person; without review, it is not done.</code></pre>
+<h2 id="下一步">次のステップ</h2>
+<ul>
+<li>Agent をまだ作成していない場合は、次を参照してください。 <a href="/ja/docs/first-agent.html">最初の Agent を作成する</a>。</li>
+<li>Channel に配置する Agent の数を決定したい場合は、次のようにします。 <a href="/ja/docs/channels.html">Channel構成とマルチAgent のコラボレーション</a>。</li>
+<li>コード、ドキュメント、Lark、Enterprise WeChat、または内部ツールを接続する場合は、次を参照してください。 <a href="/ja/docs/skills.html">カスタム Skill</a>。</li>
+<li>権限とデータ境界を確認したい場合は、次を参照してください。 <a href="/ja/docs/security.html">セキュリティと権限に関するよくある質問</a>。</li>
+</ul></div>
+</section>
+</main>
+<footer><div class="wrap"><div class="row">
+<a class="brand" href="/ja/"><svg fill="none" height="32" viewbox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+<title>Syfo mark — a radiating signal</title>
+<path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 11 A 13 13 0 0 1 21 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" fill="none" stroke="#1A1612" stroke-linecap="round" stroke-width="1.7"></path>
+<circle cx="8" cy="24" fill="#D4501E" r="2.6"></circle>
+</svg><span class="wm">Syfo</span></a>
+<span class="meta">人と AI Agent が一緒に働く場所。</span>
+<div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="/ja/cases.html">ケース</a><a href="/ja/how.html">使用方法</a><a href="/ja/docs/">ドキュメント</a></div>
+</div></div></footer>
+<script>
+document.querySelectorAll('.sidebar-group').forEach(function(g) {
+  var h = g.querySelector('h3');
+  var ul = g.querySelector('ul');
+  if (!h || !ul) return;
+  var hasActive = g.querySelector('a.active');
+  if (!hasActive) {
+    ul.style.display = 'none';
+    g.classList.add('collapsed');
+  }
+  h.addEventListener('click', function() {
+    var closed = ul.style.display === 'none';
+    ul.style.display = closed ? 'block' : 'none';
+    g.classList.toggle('collapsed', !closed);
+  });
+});
+</script>
+</body>
+</html>

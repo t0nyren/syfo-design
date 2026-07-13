@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skill 集成 - Syfo</title>
+<meta name="description" content="给 Agent 安装 Skill，让它理解工具、流程和业务边界。">
+<link rel="icon" href="/assets/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="/assets/tokens.css" rel="stylesheet">
+<style>
+:root{--maxw:1120px;--content:820px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg-paper);color:var(--fg-1);font-family:var(--font-sans);line-height:1.72;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.4) blur(8px);background:color-mix(in oklab,var(--bg-paper) 82%,transparent);border-bottom:1px solid var(--border-1)}
+.nav .row{display:flex;align-items:center;gap:28px;height:60px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:32px;height:32px;flex:0 0 auto}
+.brand .wm{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:0}
+.nav .links{display:flex;gap:24px;margin-left:8px;align-items:center}
+.nav .links a{font-size:14px;color:var(--fg-2);transition:color var(--dur-fast) var(--ease-out)}
+.nav .links a:hover,.nav .links a.on{color:var(--fg-1)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-dd{position:relative}
+.nav-dd>a{display:inline-flex;align-items:center;gap:4px}
+.nav-dd .car{font-size:10px;color:var(--fg-3)}
+.dd-menu{position:absolute;top:calc(100% + 12px);left:-18px;min-width:190px;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:8px;display:none;flex-direction:column;gap:2px}
+.dd-menu a{font-size:14px!important;color:var(--fg-1)!important;padding:9px 10px;border-radius:var(--radius-sm)}
+.dd-menu a:hover{background:var(--bg-sunken)}
+.dd-menu .dd-all{border-top:1px solid var(--border-1);margin-top:4px;padding-top:10px;color:var(--accent)!important}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:flex}
+.langmenu{position:relative}
+.langmenu>summary{list-style:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--font-mono);font-size:13px;color:var(--fg-2);border:1px solid var(--border-2);border-radius:var(--radius-md);padding:6px 10px;line-height:1;transition:all var(--dur-fast) var(--ease-out)}
+.langmenu>summary::-webkit-details-marker{display:none}
+.langmenu>summary:hover,.langmenu[open]>summary{color:var(--fg-1);border-color:var(--fg-3);background:var(--bg-surface)}
+.langpop{position:absolute;top:calc(100% + 8px);right:0;min-width:150px;z-index:60;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);box-shadow:var(--shadow-3);padding:6px;display:flex;flex-direction:column;gap:2px}
+.langpop a{font-size:14px;color:var(--fg-1);padding:9px 12px;border-radius:var(--radius-sm)}
+.langpop a:hover{background:var(--bg-sunken)}
+.langpop a.cur{color:var(--accent);font-weight:600}
+.nav-lang{padding:14px 0;border-bottom:1px solid var(--border-1)}
+.nav-lang .langmenu>summary{width:100%;justify-content:center;padding:12px}
+.nav-lang .langpop{position:static;box-shadow:none;margin-top:8px}
+.nav-toggle{display:none;background:var(--bg-surface);border:1px solid var(--border-2);border-radius:var(--radius-md);width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--fg-1)}
+.nav-toggle:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.nav-toggle svg{display:block}
+.nav-toggle .ic-close{display:none}
+.nav.open .nav-toggle .ic-open{display:none}
+.nav.open .nav-toggle .ic-close{display:block}
+.nav-menu{display:none;flex-direction:column;padding:6px 0 16px}
+.nav-menu a:not(.btn){font-size:16px;color:var(--fg-1);padding:14px 2px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs{display:flex;flex-direction:column;padding-left:14px;border-bottom:1px solid var(--border-1)}
+.nav-menu .dd-subs a{font-size:14px;color:var(--fg-2);padding:10px 2px;border:0}
+.nav-menu .btn{margin-top:16px;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;border-radius:var(--radius-md);padding:10px 18px;cursor:pointer;transition:all var(--dur-fast) var(--ease-out);border:1px solid transparent;white-space:nowrap;line-height:1.1}
+.btn-primary{background:var(--accent);color:var(--fg-inverse);box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:var(--bg-surface);color:var(--fg-1);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg-sunken);border-color:var(--fg-3)}
+.btn .arr{transition:transform var(--dur-fast) var(--ease-out)}
+.btn:hover .arr{transform:translateX(2px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;margin-bottom:0}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);display:inline-block}
+h1,h2,h3,h4{font-family:var(--font-serif);line-height:1.18;letter-spacing:0;margin:0;color:var(--fg-1)}
+h1{font-weight:600;font-size:46px;line-height:1.14;letter-spacing:0;margin:18px 0 0;max-width:760px}
+.lead{font-size:17px;line-height:1.7;color:var(--fg-2);max-width:48ch;margin:18px 0 0}
+.docs-layout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:46px;max-width:var(--maxw);margin:0 auto;padding:42px 24px 88px;position:relative;z-index:1}
+.docs-sidebar-toggle{display:none;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid var(--border-2);border-radius:var(--radius-md);background:var(--bg-surface);color:var(--fg-1);font-family:var(--font-mono);font-size:13px;padding:11px 12px;cursor:pointer}
+.docs-sidebar{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 112px);overflow:auto;padding:4px 18px 28px 0;border-right:1px solid var(--border-1)}
+.sidebar-group{margin:0 0 26px;padding-top:2px}
+.sidebar-group + .sidebar-group{border-top:1px solid color-mix(in oklab,var(--border-1) 70%,transparent);padding-top:18px}
+.sidebar-group h3{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3);margin:0 0 8px;padding:0 12px;line-height:1.2;cursor:pointer;user-select:none}
+.sidebar-group h3::after{content:"▾";float:right;font-size:10px;color:var(--fg-3);transition:transform var(--dur-fast) var(--ease-out)}
+.sidebar-group.collapsed h3::after{content:"▸"}
+.sidebar-group ul{list-style:none;margin:0;padding:0}
+.sidebar-group li{margin:2px 0}
+.sidebar-group a{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;line-height:1.45;color:var(--fg-2);padding:8px 12px 8px 16px;border-radius:var(--radius-sm);transition:color var(--dur-fast) var(--ease-out),background var(--dur-fast) var(--ease-out),padding var(--dur-fast) var(--ease-out)}
+.sidebar-group a::before{content:"";position:absolute;left:6px;top:9px;bottom:9px;width:2px;border-radius:999px;background:transparent}
+.sidebar-group a::after{content:"›";font-family:var(--font-mono);font-size:13px;color:transparent;transition:color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.sidebar-group a:hover{color:var(--fg-1);background:var(--bg-sunken);padding-left:18px}
+.sidebar-group a:hover::after{color:var(--fg-3);transform:translateX(2px)}
+.sidebar-group a.active{color:var(--accent);background:color-mix(in oklab,var(--accent-1) 10%,transparent);font-weight:600}
+.sidebar-group a.active::before{background:var(--accent)}
+.docs-content{min-width:0;max-width:var(--content)}
+.doc-page-head{padding-bottom:32px;margin-bottom:10px;border-bottom:1px solid var(--border-1)}
+.doc-section{padding:56px 0;position:relative;z-index:1}
+.doc-section.compact{padding-top:18px}
+.section-head{max-width:760px;margin-bottom:22px}
+.section-head h2{font-weight:600;font-size:42px;letter-spacing:0;margin-bottom:12px}
+.section-head p{color:var(--fg-2);font-size:17px;margin:0}
+.doc-home .wrap{max-width:none;padding:0}
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.doc-card{display:flex;min-height:190px;flex-direction:column;border:1px solid var(--border-1);background:var(--bg-surface);border-radius:var(--radius-md);padding:20px;transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+.doc-card:hover{transform:translateY(-2px);border-color:var(--border-2);box-shadow:var(--shadow-1)}
+.doc-card span,.doc-card div{font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.doc-card h3{font-size:22px;margin:18px 0 9px}
+.doc-card p{margin:0;color:var(--fg-2);font-size:14px;line-height:1.65;flex:1}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.quick-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.quick-list a{border-top:1px solid var(--border-1);padding:16px 0;transition:color var(--dur-fast) var(--ease-out)}
+.quick-list a:hover b{color:var(--accent)}
+.quick-list b{display:block;margin-bottom:6px}
+.quick-list span{display:block;color:var(--fg-2);font-size:14px}
+.article h2{font-size:34px;margin:54px 0 14px;padding-top:8px}
+.article h3{font-size:24px;margin:34px 0 10px}
+.article h4{font-size:19px;margin:24px 0 8px}
+.article p,.article li{font-size:16px;color:var(--fg-2)}
+.article a{text-decoration:underline;text-underline-offset:3px}
+.article ul,.article ol{padding-left:1.4em;margin:10px 0 18px}
+.article li{margin:7px 0}
+.article code{font-family:var(--font-mono);font-size:.92em;background:color-mix(in oklab,var(--fg-1) 7%,transparent);border:1px solid var(--border-1);border-radius:5px;padding:1px 5px;color:var(--fg-1)}
+pre{background:#171411;color:#fff;border-radius:8px;padding:16px;overflow-x:auto;border:1px solid #2b251f;white-space:pre-wrap;word-break:break-word}
+.article pre code{background:transparent;border:0;color:inherit;padding:0}
+blockquote,.note{border-left:3px solid var(--accent-1);background:color-mix(in oklab,var(--accent-1) 8%,transparent);padding:14px 18px;margin:18px 0;border-radius:0 8px 8px 0;color:var(--fg-2)}
+figure{margin:24px 0;border:1px solid var(--border-1);border-radius:var(--radius-md);overflow:hidden;background:var(--bg-surface);box-shadow:var(--shadow-1)}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:13px;color:var(--fg-3);padding:10px 12px;border-top:1px solid var(--border-1)}
+.table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--border-1);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-1)}
+th{font-weight:700;color:var(--fg-1);background:color-mix(in oklab,var(--bg-paper) 70%,white)}
+tr:last-child td{border-bottom:0}
+footer{border-top:1px solid var(--border-1);background:var(--bg-sunken);position:relative;z-index:1}
+footer .row{display:flex;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+footer .meta{font-size:13px;color:var(--fg-3)}
+footer .links{margin-left:auto;display:flex;gap:20px}
+footer .links a{font-size:13px;color:var(--fg-2)}
+footer .links a:hover{color:var(--fg-1)}
+@media (max-width:900px){.quick-list{grid-template-columns:1fr}.nav .links,.nav .right .langmenu,.nav .right .navcta{display:none}.nav .row{height:62px}.nav-toggle{display:flex;margin-left:auto}.nav.open .nav-menu{display:flex}}
+@media (max-width:768px){.docs-layout{display:block;padding-top:24px}.docs-sidebar-toggle{display:flex;margin-bottom:14px}.docs-sidebar{display:none;position:static;max-height:none;border:1px solid var(--border-1);border-radius:var(--radius-md);padding:12px;background:var(--bg-surface);margin-bottom:24px}.docs-layout.sidebar-open .docs-sidebar{display:block}.doc-page-head{padding-bottom:24px}.doc-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.wrap,.docs-layout{padding-left:18px;padding-right:18px}h1{font-size:38px}.section-head h2{font-size:30px}.article h2{font-size:28px}footer .links{margin-left:0}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap"><div class="row">
+ <a class="brand" href="/zh/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <nav class="links"><a href="/zh/#product">产品</a><a href="/zh/#scenes">能做什么</a><div class="nav-dd"><a href="/zh/cases.html">案例 <span class="car">▾</span></a><div class="dd-menu"><a href="/zh/cases-consumer.html">消费 / 电商</a><a href="/zh/cases-finance.html">金融 / 投资</a><a href="/zh/cases-tech.html">科技 / 研发</a><a href="/zh/cases-more.html">更多案例</a><a class="dd-all" href="/zh/cases.html">全部案例</a></div></div><a href="/zh/how.html">怎么用</a><a class="on" href="/zh/docs/">文档</a></nav>
+ <div class="right"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>中</span></summary><div class="langpop"><a href="/en/docs/skills.html">English</a><a href="/zh/docs/skills.html" class="cur">中文</a><a href="/ja/docs/skills.html">日本語</a><a href="/es/docs/skills.html">Español</a><a href="/vi/docs/skills.html">Tiếng Việt</a></div></details><a class="btn btn-primary navcta" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a><button class="nav-toggle" aria-label="菜单" aria-expanded="false" aria-controls="navMenu" onclick="var n=this.closest('.nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><svg class="ic-open" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg><svg class="ic-close" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+</div>
+<div class="nav-menu" id="navMenu"><a href="/zh/#product">产品</a><a href="/zh/#scenes">能做什么</a><a href="/zh/cases.html">案例</a><div class="dd-subs"><a href="/zh/cases-consumer.html">消费 / 电商</a><a href="/zh/cases-finance.html">金融 / 投资</a><a href="/zh/cases-tech.html">科技 / 研发</a><a href="/zh/cases-more.html">更多案例</a></div><a href="/zh/how.html">怎么用</a><a href="/zh/docs/">文档</a><div class="nav-lang"><details class="langmenu"><summary><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>中</span></summary><div class="langpop"><a href="/en/docs/skills.html">English</a><a href="/zh/docs/skills.html" class="cur">中文</a><a href="/ja/docs/skills.html">日本語</a><a href="/es/docs/skills.html">Español</a><a href="/vi/docs/skills.html">Tiếng Việt</a></div></details></div><a class="btn btn-primary" href="https://app.syfo.ai">进入 Syfo <span class="arr">→</span></a></div>
+</div></header>
+<main class="docs-layout">
+ <button class="docs-sidebar-toggle" type="button" aria-controls="docsSidebar" aria-expanded="false" onclick="var m=this.closest('.docs-layout');var o=m.classList.toggle('sidebar-open');this.setAttribute('aria-expanded',o)">文档目录</button>
+ <nav class="docs-sidebar" id="docsSidebar" aria-label="文档目录"><div class="sidebar-group"><h3>快速入门</h3><ul><li><a class="" href="/zh/docs/">文档首页</a></li><li><a class="" href="/zh/docs/what-is-syfo.html">什么是 Syfo</a></li><li><a class="" href="/zh/docs/getting-started.html">快速上手</a></li><li><a class="" href="/zh/docs/first-agent.html">创建第一个 Agent</a></li></ul></div><div class="sidebar-group"><h3>基础概念</h3><ul><li><a class="" href="/zh/docs/organization.html">组织</a></li><li><a class="" href="/zh/docs/channels.html">频道与协作</a></li><li><a class="" href="/zh/docs/agents.html">Agent</a></li><li><a class="" href="/zh/docs/tasks.html">任务</a></li><li><a class="" href="/zh/docs/messages.html">消息</a></li><li><a class="" href="/zh/docs/files-and-deliverables.html">文件与交付物</a></li><li><a class="active" href="/zh/docs/skills.html">Skill 集成</a></li></ul></div><div class="sidebar-group"><h3>功能详解</h3><ul><li><a class="" href="/zh/docs/computers.html">运行环境</a></li><li><a class="" href="/zh/docs/reminders.html">提醒与定时任务</a></li><li><a class="" href="/zh/docs/message-delivery.html">消息投递机制</a></li><li><a class="" href="/zh/docs/integrations.html">企业系统集成</a></li></ul></div><div class="sidebar-group"><h3>团队实践</h3><ul><li><a class="" href="/zh/docs/team-playbook.html">团队落地</a></li><li><a class="" href="/zh/docs/best-practices.html">最佳实践</a></li></ul></div><div class="sidebar-group"><h3>常见问题</h3><ul><li><a class="" href="/zh/docs/faq.html">FAQ</a></li><li><a class="" href="/zh/docs/security.html">安全与权限</a></li></ul></div></nav>
+ <section class="docs-content">
+  <header class="doc-page-head">
+   <span class="eyebrow">基础概念</span>
+   <h1>让 Agent 具备可复用能力</h1>
+   <p class="lead">给 Agent 安装 Skill，让它理解工具、流程和业务边界。</p>
+  </header>
+  <div class="article"><h2 id="一句话安装-syfo-使用指导-skill">一句话安装 Syfo 使用指导 Skill</h2>
+<p>私聊你的 Agent，发送：</p>
+<pre><code class="language-">@你的Agent 请安装 https://syfo-docs.tool.reorc.cloud/skill.md 后续回答 Syfo 相关问题时优先使用该 skill</code></pre>
+<p>安装完成后，Agent 回答 Syfo 使用、频道设计、任务推进、团队协作等问题时，会优先参考这份 Skill。</p>
+<h2 id="自定义-skill">自定义 Skill</h2>
+<p>Skill 可以理解为给 Agent 的能力说明和工具配置。它告诉 Agent 可以使用哪些外部工具、要遵守什么流程、连接哪些企业系统。</p>
+<p>当前 Syfo 暂时没有内置 Skill 市场，也没有一键安装的系统 Skill 库。实际使用时，你需要告诉 Agent 要安装或配置哪类 Skill，让 Agent 根据你的环境完成安装、检查和使用。</p>
+<h2 id="什么时候需要-skill">什么时候需要 Skill</h2>
+<p>如果只是让 Agent 看频道上下文、整理文字、生成方案，通常不需要额外 Skill。</p>
+<p>遇到下面这些情况，就应该考虑 Skill：</p>
+<ul>
+<li>需要访问飞书、CRM、ERP、BI、工单系统、数据库等外部系统。</li>
+<li>需要固定工作流，比如每日抓取市场情报、生成周报、跑代码审查。</li>
+<li>需要使用项目里的规范，比如前端样式规范、代码提交规范、发布流程。</li>
+<li>需要调用本地 CLI（命令行工具）、API、MCP（一种标准化的工具连接协议） 或公司内部脚本。</li>
+</ul>
+<h2 id="现在怎么安装">现在怎么安装</h2>
+<p>最直接的方式是在 Agent 所在频道或 DM 里说清楚目标：</p>
+<pre><code class="language-text">@Agent 我需要你安装一个飞书消息 Skill，用来读取指定群聊、整理客户问题，并写入多维表格。
+如果需要权限或配置项，先列出来让我确认。</code></pre>
+<p>Agent 应该先告诉你需要哪些东西，例如：</p>
+<ul>
+<li>要安装或启用的 Skill 名称；</li>
+<li>需要访问的系统；</li>
+<li>需要的 API key、登录态或配置文件；</li>
+<li>会读取和写入哪些数据；</li>
+<li>哪些操作需要人工确认。</li>
+</ul>
+<p>确认后，Agent 再在它自己的运行环境里完成安装、配置和验证。</p>
+<h2 id="如果你已有-codex-manus-mcp-资产">如果你已有 Codex / Manus / MCP 资产</h2>
+<p>很多团队已经有自己的 prompt、脚本、CLI、MCP 或 Codex 工作流。不要急着重写。</p>
+<p>推荐做法是：</p>
+<ol>
+<li>让原来的 Agent 或同事列出已有能力清单。</li>
+<li>按业务场景整理：哪些是客户跟进，哪些是研发，哪些是数据分析。</li>
+<li>让 Syfo Agent 逐个安装或引用这些能力。</li>
+<li>用一个真实任务验证输入、输出、权限和失败处理。</li>
+</ol>
+<p>如果这些能力依赖本地文件、浏览器登录态或公司内网，优先让 Agent 运行在能访问这些资源的电脑上。</p>
+<h2 id="skill-和-agent-的关系">Skill 和 Agent 的关系</h2>
+<p>Agent 是团队成员，Skill 是它能使用的能力。</p>
+<p>不要给一个 Agent 装所有 Skill。更好的做法是按职责分开：</p>
+<ul>
+<li>客户反馈 Agent：飞书/微信记录、多维表格、分类规则。</li>
+<li>研发 Agent：代码仓库、测试命令、代码审查规则。</li>
+<li>市场 Agent：搜索、数据抓取、报告模板。</li>
+<li>运营 Agent：发布流程、内容日历、审批规则。</li>
+</ul>
+<p>这样权限更清楚，也更容易定位问题。</p>
+<h2 id="安全边界">安全边界</h2>
+<p>安装 Skill 前先确认三件事：</p>
+<ul>
+<li>这个 Skill 会读哪些数据；</li>
+<li>这个 Skill 会写入或修改哪些系统；</li>
+<li>出错时由谁确认和回滚。</li>
+</ul>
+<p>发邮件、对外发布、支付、删除、生产变更、客户承诺这类操作，都应该先让 Agent 生成确认信息，由人批准后再执行。</p>
+<h2 id="常见问题">常见问题</h2>
+<p><strong>我找不到 Skill 库在哪里。</strong> 当前没有完整的内置 Skill 库。你可以直接让 Agent 安装所需 Skill，或把已有脚本、MCP、CLI、文档交给 Agent 配置。</p>
+<p><strong>我上传 MCP 后不知道在哪管理。</strong> 这是当前产品体验需要改进的地方。短期先让 Agent 说明已安装的能力和配置路径；长期会补更清楚的统一管理入口。</p>
+<p><strong>Skill 会不会串到别的项目？</strong> 有风险，所以不要把所有项目能力都装到同一个 Agent。敏感项目建议单独建 Agent、单独频道、单独电脑或运行环境。</p>
+<p><strong>一线同事能不能训练 Agent？</strong> 可以从低风险 Skill 开始，例如客户问题整理、日报、报告模板。涉及内部系统写入或客户承诺的 Skill，需要管理员确认权限。</p></div>
+ </section>
+</main>
+<footer><div class="wrap"><div class="row">
+ <a class="brand" href="/zh/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <title>Syfo mark — a radiating signal</title>
+  <path d="M 8 16.5 A 7.5 7.5 0 0 1 15.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 11 A 13 13 0 0 1 21 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <path d="M 8 5.5 A 18.5 18.5 0 0 1 26.5 24" stroke="#1A1612" stroke-width="1.7" stroke-linecap="round" fill="none"></path>
+  <circle cx="8" cy="24" r="2.6" fill="#D4501E"></circle>
+</svg><span class="wm">Syfo</span></a>
+ <span class="meta">人和一群 Agent 一起干活的地方。</span>
+ <div class="links"><a href="https://app.syfo.ai">app.syfo.ai</a><a href="/zh/cases.html">案例</a><a href="/zh/how.html">怎么用</a><a href="/zh/docs/">文档</a></div>
+</div></div></footer>
+<script>
+document.querySelectorAll('.sidebar-group').forEach(function(g) {
+  var h = g.querySelector('h3');
+  var ul = g.querySelector('ul');
+  if (!h || !ul) return;
+  var hasActive = g.querySelector('a.active');
+  if (!hasActive) {
+    ul.style.display = 'none';
+    g.classList.add('collapsed');
+  }
+  h.addEventListener('click', function() {
+    var closed = ul.style.display === 'none';
+    ul.style.display = closed ? 'block' : 'none';
+    g.classList.toggle('collapsed', !closed);
+  });
+});
+</script>
+</body>
+</html>
