@@ -163,7 +163,7 @@ footer .links a:hover{color:var(--fg-1)}
 </header>
 <div class="article"><p>このガイドでは、実際に動作するAgent を作成するのに 10 分かかります。</p>
 <h2 id="你将创建的-agent">あなたが作成するAgent</h2>
-<p>1つ<strong>デイリーブリーフィングAgent</strong>、毎朝9時に前日のChannelディスカッションの概要を自動的に整理し、指定されたChannel に送信します。</p>
+<p>1つ<strong>デイリーブリーフィングAgent</strong>、毎朝9時に前日のプロジェクトChannel のディスカッションを自動的にまとめ、指定されたChannel に投稿します。</p>
 <h2 id="步骤一-新建-agent">ステップ 1: 新しいAgent を作成する</h2>
 <ol>
 <li>左欄の「+新規」→「Agent」をクリックします</li>
@@ -186,19 +186,24 @@ footer .links a:hover{color:var(--fg-1)}
 <ol>
 <li>「Agent設定」→「ランタイム」に移動します。</li>
 <li>「クラウド」を選択します</li>
-<li>モデルを選択します (推奨: GPT-5.5、ほとんどの実行Task に適しています)</li>
+<li>モデルを選択：</li>
 </ol>
+<ul>
+<li><strong>GPT-5.6 Terra</strong>（推奨）：バランスの取れた能力、ほとんどの実行Task に適しており、コストパフォーマンスが最も優れています</li>
+<li><strong>GPT-5.6 Sol</strong>：フラグシップモデル、複雑な推論、深いコーディング、長いチェーンTask に最適</li>
+<li><strong>GPT-5.6 Luna</strong>：軽量で高速、高頻度のシンプルなTask に最適</li>
+</ul>
 <figure><img alt="Agent作成のステップ 2: Agent名、表示名、説明を入力し、モデルを選択します。" src="/ja/docs/images/create-agent-flow-2.png"/><figcaption>Agent作成のステップ 2: Agent名、表示名、説明を入力し、モデルを選択します。</figcaption></figure>
 <h2 id="步骤三-邀请-agent-到频道">ステップ 3: Agent をChannel に招待する</h2>
 <ol>
-<li>Agent に監視させたいChannel を開きます (例: <code>#general</code>）</li>
+<li>Agent にコラボレーションさせたいChannel を開きます（例：プロジェクトChannel <code>#product-team</code>）</li>
 <li>「Channel設定」→「メンバー」→「Agent を招待」に移動します。</li>
 <li>検索 <code>Daily Briefing</code>、追加</li>
 </ol>
 <figure><img alt="Channel メンバー管理で、新しく作成したAgent をChannel に招待します。" src="/ja/docs/images/invite-agent-to-channel.png"/><figcaption>Channel メンバー管理で、新しく作成したAgent をChannel に招待します。</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">ステップ 4: 最初のコマンドをAgent に送信する</h2>
 <p>Channel内で直接 @メンションします:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #general and post it here in this format:
+<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
 1. Important decisions, if any
 2. Follow-up items
 3. Today's focus

@@ -163,7 +163,7 @@ footer .links a:hover{color:var(--fg-1)}
 </header>
 <div class="article"><p>Esta guía le llevará 10 minutos para crear un Agent que realmente funcione.</p>
 <h2 id="你将创建的-agent">Agent que crearás</h2>
-<p>uno<strong>Agent de información diaria</strong>, organice automáticamente el resumen de discusión del canal del día anterior a las 9 en punto todas las mañanas y envíelo al canal designado.</p>
+<p>uno<strong>Agent de información diaria</strong>, que resume automáticamente las discusiones del Channel del proyecto del día anterior a las 9 AM y las publica en un Channel designado.</p>
 <h2 id="步骤一-新建-agent">Paso 1: crear un nuevo Agent</h2>
 <ol>
 <li>Haga clic en "+ Nuevo" → "Agent" en la columna de la izquierda</li>
@@ -186,19 +186,24 @@ footer .links a:hover{color:var(--fg-1)}
 <ol>
 <li>Vaya a Configuración del Agent → Tiempo de ejecución</li>
 <li>Seleccione "Nube"</li>
-<li>Elija un modelo (recomendado: GPT-5.5, adecuado para la mayoría de las Tasks de ejecución)</li>
+<li>Elige un modelo:</li>
 </ol>
+<ul>
+<li><strong>GPT-5.6 Terra</strong>(recomendado): Capacidad equilibrada, adecuado para la mayoría de Tasks de ejecución, mejor relación costo-rendimiento</li>
+<li><strong>GPT-5.6 Sol</strong>: Modelo insignia, ideal para razonamiento complejo, codificación profunda y Tasks de cadena larga</li>
+<li><strong>GPT-5.6 Luna</strong>: Ligero y rápido, ideal para Tasks simples de alta frecuencia</li>
+</ul>
 <figure><img alt="Paso 2 para crear un Agent: Complete el nombre del Agent, el nombre para mostrar, la descripción y seleccione un modelo" src="/es/docs/images/create-agent-flow-2.png"/><figcaption>Paso 2 para crear un Agent: Complete el nombre del Agent, el nombre para mostrar, la descripción y seleccione un modelo</figcaption></figure>
 <h2 id="步骤三-邀请-agent-到频道">Paso 3: invitar al Agent al canal</h2>
 <ol>
-<li>Abra el canal que desea que el Agent supervise (p. ej. <code>#general</code>）</li>
+<li>Abre el Channel en el que quieras que colabore el Agent (por ejemplo, el Channel del proyecto <code>#product-team</code>）</li>
 <li>Vaya a Configuración del canal → Miembros → Invitar Agent</li>
 <li>Buscar <code>Daily Briefing</code>, agregar</li>
 </ol>
 <figure><img alt="Invitar al Agent recién creado a unirse al canal en la gestión de miembros del canal" src="/es/docs/images/invite-agent-to-channel.png"/><figcaption>Invitar al Agent recién creado a unirse al canal en la gestión de miembros del canal</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">Paso 4: envíe el primer comando al Agent</h2>
 <p>@mencionar directamente en el canal:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #general and post it here in this format:
+<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
 1. Important decisions, if any
 2. Follow-up items
 3. Today's focus

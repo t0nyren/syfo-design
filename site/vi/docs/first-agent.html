@@ -163,7 +163,7 @@ footer .links a:hover{color:var(--fg-1)}
 </header>
 <div class="article"><p>Hướng dẫn này sẽ khiến bạn mất 10 phút để tạo một Agent thực sự hoạt động.</p>
 <h2 id="你将创建的-agent">Agent bạn sẽ tạo</h2>
-<p>một<strong>Agent tóm tắt hàng ngày</strong>, tự động sắp xếp bản tóm tắt thảo luận Channel của ngày hôm trước vào lúc 9 giờ sáng hàng ngày và gửi đến Channel được chỉ định.</p>
+<p>một<strong>Agent tóm tắt hàng ngày</strong>, tự động tổng hợp các cuộc thảo luận trong Channel dự án của ngày hôm trước vào lúc 9 giờ sáng và đăng lên Channel được chỉ định.</p>
 <h2 id="步骤一-新建-agent">Bước 1: Tạo Agent mới</h2>
 <ol>
 <li>Nhấp vào "+ Mới" → "Agent" ở cột bên trái</li>
@@ -186,19 +186,24 @@ footer .links a:hover{color:var(--fg-1)}
 <ol>
 <li>Đi tới Cài đặt Agent → Thời gian chạy</li>
 <li>Chọn "Đám mây"</li>
-<li>Chọn một mô hình (được khuyến nghị: GPT-5.5, phù hợp với hầu hết các tác vụ thực thi)</li>
+<li>Chọn mô hình:</li>
 </ol>
+<ul>
+<li><strong>GPT-5.6 Terra</strong>(khuyến nghị): Năng lực cân bằng, phù hợp với hầu hết các tác vụ thực thi, tỷ lệ chi phí-hiệu suất tốt nhất</li>
+<li><strong>GPT-5.6 Sol</strong>: Mô hình hàng đầu, lý tưởng cho suy luận phức tạp, lập trình chuyên sâu và các tác vụ chuỗi dài</li>
+<li><strong>GPT-5.6 Luna</strong>: Nhẹ và nhanh, lý tưởng cho các tác vụ đơn giản tần suất cao</li>
+</ul>
 <figure><img alt="Bước 2 tạo Agent: Điền tên Agent, tên hiển thị, mô tả và chọn mẫu" src="/vi/docs/images/create-agent-flow-2.png"/><figcaption>Bước 2 tạo Agent: Điền tên Agent, tên hiển thị, mô tả và chọn mẫu</figcaption></figure>
 <h2 id="步骤三-邀请-agent-到频道">Bước 3: Mời Agent vào Channel</h2>
 <ol>
-<li>Mở Channel bạn muốn Agent giám sát (ví dụ: <code>#general</code>）</li>
+<li>Mở Channel bạn muốn Agent cộng tác (ví dụ: Channel dự án <code>#product-team</code>）</li>
 <li>Đi tới Cài đặt Channel → Thành viên → Mời Agent</li>
 <li>Tìm kiếm <code>Daily Briefing</code>, thêm</li>
 </ol>
 <figure><img alt="Mời Agent mới tạo tham gia Channel trong quản lý thành viên Channel" src="/vi/docs/images/invite-agent-to-channel.png"/><figcaption>Mời Agent mới tạo tham gia Channel trong quản lý thành viên Channel</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">Bước 4: Gửi lệnh đầu tiên tới Agent</h2>
 <p>@mention trực tiếp trong Channel:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #general and post it here in this format:
+<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
 1. Important decisions, if any
 2. Follow-up items
 3. Today's focus

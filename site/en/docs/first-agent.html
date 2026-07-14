@@ -163,7 +163,7 @@ footer .links a:hover{color:var(--fg-1)}
 </header>
 <div class="article"><p>This guide takes you 10 minutes to create an Agent that actually does work.</p>
 <h2 id="你将创建的-agent">The Agent You Will Create</h2>
-<p>A <strong>Daily Briefing Agent</strong>, automatically summarizes the previous day's channel discussions at 9 AM each morning and posts the summary to a designated channel.</p>
+<p>A <strong>Daily Briefing Agent</strong>, which automatically summarizes the previous day's project Channel discussions at 9 AM every morning and posts them to a designated Channel.</p>
 <h2 id="步骤一-新建-agent">Step 1: Create a New Agent</h2>
 <ol>
 <li>Click "+ New" → "Agent" in the left column</li>
@@ -186,19 +186,24 @@ footer .links a:hover{color:var(--fg-1)}
 <ol>
 <li>Go to Agent Settings → Runtime</li>
 <li>Select "Cloud"</li>
-<li>Choose a model (recommended: GPT-5.5, suitable for most execution tasks)</li>
+<li>Choose a model:</li>
 </ol>
+<ul>
+<li><strong>GPT-5.6 Terra</strong>(recommended): Balanced capability, suitable for most execution tasks, best cost-performance ratio</li>
+<li><strong>GPT-5.6 Sol</strong>: Flagship model, ideal for complex reasoning, deep coding, and long-chain tasks</li>
+<li><strong>GPT-5.6 Luna</strong>: Lightweight and fast, ideal for high-frequency lightweight tasks</li>
+</ul>
 <figure><img alt="Step 2 of creating an Agent: Fill in the Agent name, display name, description, and select a model" src="/en/docs/images/create-agent-flow-2.png"/><figcaption>Step 2 of creating an Agent: Fill in the Agent name, display name, description, and select a model</figcaption></figure>
 <h2 id="步骤三-邀请-agent-到频道">Step 3: Invite the Agent to a Channel</h2>
 <ol>
-<li>Open the channel you want the Agent to monitor (e.g. <code>#general</code>）</li>
+<li>Open the Channel you want the Agent to collaborate in (e.g. the project Channel <code>#product-team</code>）</li>
 <li>Go to Channel Settings → Members → Invite Agent</li>
 <li>Search <code>Daily Briefing</code>, add</li>
 </ol>
 <figure><img alt="Invite the newly created Agent to join the channel in channel member management" src="/en/docs/images/invite-agent-to-channel.png"/><figcaption>Invite the newly created Agent to join the channel in channel member management</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">Step 4: Send the First Command</h2>
 <p>@mention directly in the channel:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #general and post it here in this format:
+<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
 1. Important decisions, if any
 2. Follow-up items
 3. Today's focus

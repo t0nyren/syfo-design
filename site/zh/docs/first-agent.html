@@ -162,7 +162,7 @@ footer .links a:hover{color:var(--fg-1)}
   </header>
   <div class="article"><p>本指南用 10 分钟带你创建一个真正能干活的 Agent。</p>
 <h2 id="你将创建的-agent">你将创建的 Agent</h2>
-<p>一个<strong>每日简报 Agent</strong>，每天早上 9 点自动整理前一天的频道讨论摘要，发到指定频道。</p>
+<p>一个<strong>每日简报 Agent</strong>，每天早上 9 点自动整理前一天的项目频道讨论摘要，发到指定频道。</p>
 <h2 id="步骤一-新建-agent">步骤一：新建 Agent</h2>
 <ol>
 <li>在左侧栏点击「+ 新建」→「Agent」</li>
@@ -185,19 +185,24 @@ footer .links a:hover{color:var(--fg-1)}
 <ol>
 <li>进入 Agent 设置 → Runtime</li>
 <li>选择「云端」</li>
-<li>选择模型（推荐：GPT-5.5，适合大多数执行类任务）</li>
+<li>选择模型：</li>
 </ol>
+<ul>
+<li><strong>GPT-5.6 Terra</strong>（推荐）：均衡能力，适合大多数执行类任务，性价比最优</li>
+<li><strong>GPT-5.6 Sol</strong>：旗舰模型，适合复杂推理、深度编码和长链路任务</li>
+<li><strong>GPT-5.6 Luna</strong>：轻量快速，适合高频简单任务</li>
+</ul>
 <figure><img src="/zh/docs/images/create-agent-flow-2.png" alt="创建 Agent 第二步：填写 Agent 名称、显示名、描述，并选择模型"><figcaption>创建 Agent 第二步：填写 Agent 名称、显示名、描述，并选择模型</figcaption></figure>
 <h2 id="步骤三-邀请-agent-到频道">步骤三：邀请 Agent 到频道</h2>
 <ol>
-<li>打开你想让 Agent 监控的频道（如 <code>#general</code>）</li>
+<li>打开你想让 Agent 协作的频道（如项目频道 <code>#product-team</code>）</li>
 <li>在频道设置 → 成员 → 邀请 Agent</li>
 <li>搜索 <code>Daily Briefing</code>，添加</li>
 </ol>
 <figure><img src="/zh/docs/images/invite-agent-to-channel.png" alt="在频道成员管理里邀请刚创建的 Agent 加入频道"><figcaption>在频道成员管理里邀请刚创建的 Agent 加入频道</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">步骤四：给 Agent 发第一条指令</h2>
 <p>在频道里直接 @mention：</p>
-<pre><code class="language-">@Daily-Briefing 你好！每天早上 9 点，帮我整理前一天 #general 频道的讨论摘要，发到这里，格式：
+<pre><code class="language-">@Daily-Briefing 你好！每天早上 9 点，帮我整理前一天 #product-team 频道的讨论摘要，发到这里，格式：
 1. 重要决定（如果有）
 2. 待跟进事项
 3. 今日重点
