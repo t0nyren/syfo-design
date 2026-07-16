@@ -85,10 +85,10 @@ def docs_url(page="index.html", lang="zh"):
         page, frag = page.split("#", 1)
         anchor = "#" + frag
     if page in ("", "index", "index.html"):
-        return f"/{lang}/docs/" + anchor
+        return f"https://docs.syfo.ai/{lang}/docs/" + anchor
     if page.endswith(".html"):
-        return f"/{lang}/docs/" + page + anchor
-    return f"/{lang}/docs/" + page + ".html" + anchor
+        return f"https://docs.syfo.ai/{lang}/docs/" + page.removesuffix(".html") + anchor
+    return f"https://docs.syfo.ai/{lang}/docs/" + page + anchor
 
 
 # ── 案例数据 (已抽象, 不含具体内容) ────────────────────────────
