@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Create your first Agent - Syfo</title>
-<meta content="Follow the Daily Briefing example to create a sustainable agent." name="description"/>
+<meta content="Follow the research-assistant example to create a sustainable agent." name="description"/>
 <link href="/assets/logo-mark.svg" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -159,51 +159,45 @@ footer .links a:hover{color:var(--fg-1)}
 <header class="doc-page-head">
 <span class="eyebrow">Agent</span>
 <h1>Create Your First Agent</h1>
-<p class="lead">Follow the Daily Briefing example to create a sustainable agent.</p>
+<p class="lead">Follow the research-assistant example to create a sustainable agent.</p>
 </header>
 <div class="article"><p>This guide takes you 10 minutes to create an Agent that actually does work.</p>
 <h2 id="你将创建的-agent">The Agent You Will Create</h2>
-<p>A <strong>Daily Briefing Agent</strong>, which automatically summarizes the previous day's project Channel discussions at 9 AM every morning and posts them to a designated Channel.</p>
-<h2 id="步骤一-新建-agent">Step 1: Create a New Agent</h2>
-<ol>
-<li>Click "+ New" → "Agent" in the left column</li>
-<li>Fill in the basic information:</li>
-</ol>
-<ul>
-<li><strong>Name</strong>：<code>Daily Briefing</code>(can be changed later)</li>
-<li><strong>Description</strong>: Daily summary of channel discussions</li>
-<li><strong>Avatar</strong>:Choose one (can be skipped)</li>
-</ul>
-<ol>
-<li>Click "Create"</li>
-</ol>
+<p>A <strong>research assistant</strong> (<code>research-assistant</code>): it picks up research work in your channels — looking things up, running competitor research, delivering key-point conclusions — plus a scheduled 9 AM daily briefing to prove it can keep working on its own.</p>
+<h2 id="步骤一-新建-agent">Step 1: Choose Where It Runs</h2>
+<p>Go to the "Members" page in the left sidebar and click "+ Create Agent". The first step of the wizard is choosing where the Agent runs:</p>
+<div class="table-wrap"><table><thead><tr><th>Options</th><th>Best for</th></tr></thead><tbody><tr><td><strong>Syfo Cloud</strong> (recommended)</td><td>Works out of the box, always online, available from phone and web anytime; pick it for scheduled tasks and agents that need to be online 24/7. Billed by credit usage</td></tr><tr><td><strong>My Own Computer</strong></td><td>Runs on your own computer or server with direct access to local files (e.g. development and testing). No credit usage; you configure the AI service yourself</td></tr></tbody></table></div>
 <figure><img alt="The first step to create an Agent: Select the running location. Syfo Cloud hosting is recommended." src="/en/docs/images/create-agent-flow-1.png"/><figcaption>The first step to create an Agent: Select the running location. Syfo Cloud hosting is recommended.</figcaption></figure>
-<p>After creation, the Agent will appear in the Agent list in the sidebar.</p>
-<h2 id="步骤二-配置-runtime">Step 2: Configure the Runtime</h2>
-<p>Runtime is the running environment of the Agent, which determines whether it runs on your computer or in the cloud. Agent requires a Runtime to run. There are two options:</p>
-<div class="table-wrap"><table><thead><tr><th>Options</th><th>Best for</th></tr></thead><tbody><tr><td><strong>Your Computer</strong></td><td>Manually triggered tasks, tasks that strongly depend on the local environment such as development and testing</td></tr><tr><td><strong>Syfo Cloud</strong></td><td>Scheduled tasks, need to be online 24 hours a day</td></tr></tbody></table></div>
-<p>For scheduled tasks, select<strong>Cloud Runtime</strong>：</p>
-<ol>
-<li>Go to Agent Settings → Runtime</li>
-<li>Select "Cloud"</li>
-<li>Choose a model:</li>
-</ol>
+<p>The research assistant needs to run a scheduled briefing, so select <strong>Syfo Cloud</strong> and click "Next".</p>
+<h2 id="步骤二-配置-runtime">Step 2: Configure the Agent</h2>
+<p>The second step is filling in the Agent's basic information and choosing a model:</p>
 <ul>
-<li><strong>GPT-5.6 Terra</strong>(recommended): Balanced capability, suitable for most execution tasks, best cost-performance ratio</li>
-<li><strong>GPT-5.6 Sol</strong>: Flagship model, ideal for complex reasoning, deep coding, and long-chain tasks</li>
+<li><strong>Agent name</strong> (required): <code>research-assistant</code> — its unique handle; letters, digits, hyphens and underscores only</li>
+<li><strong>Display name</strong> (optional): <code>Research Assistant</code> — shown in messages and on the profile page; defaults to the handle if left empty</li>
+<li><strong>Description</strong> (optional): looks things up, runs small research tasks, delivers conclusion cards</li>
+</ul>
+<p>Then choose a model and reasoning effort:</p>
+<ul>
+<li><strong>GPT-5.6 Terra</strong>: Balanced capability, suitable for most execution tasks, best cost-performance ratio</li>
+<li><strong>GPT-5.6 Sol</strong>: Flagship model, ideal for complex reasoning, deep research, and long-chain tasks</li>
 <li><strong>GPT-5.6 Luna</strong>: Lightweight and fast, ideal for high-frequency lightweight tasks</li>
 </ul>
-<figure><img alt="Step 2 of creating an Agent: Fill in the Agent name, display name, description, and select a model" src="/en/docs/images/create-agent-flow-2.png"/><figcaption>Step 2 of creating an Agent: Fill in the Agent name, display name, description, and select a model</figcaption></figure>
+<p>Research work is reasoning-heavy, so pick <strong>GPT-5.6 Sol</strong> and keep reasoning effort at "Medium". Confirm and click "Create Agent".</p>
+<figure><img alt="Step 2 of creating an Agent: Fill in the Agent name, display name, description, and select a model" src="/en/docs/images/create-agent-flow-2.png"/><figcaption>Step 2 of creating an Agent: name research-assistant, a display name, a description, and the model</figcaption></figure>
+<p>After creation, the research assistant appears in the Agents group of the member list; once its status dot turns green, it is online.</p>
 <h2 id="步骤三-邀请-agent-到频道">Step 3: Invite the Agent to a Channel</h2>
 <ol>
-<li>Open the Channel you want the Agent to collaborate in (e.g. the project Channel <code>#product-team</code>）</li>
-<li>Go to Channel Settings → Members → Invite Agent</li>
-<li>Search <code>Daily Briefing</code>, add</li>
+<li>Open the Channel you want the Agent to collaborate in (e.g. the project Channel <code>#product-team</code>; the screenshot below uses <code>#general</code> in a demo workspace)</li>
+<li>Click the members icon at the top right of the channel → Add members</li>
+<li>Search for the assistant's name and click the add button next to the <code>research-assistant</code> (AGENT) row</li>
 </ol>
-<figure><img alt="Invite the newly created Agent to join the channel in channel member management" src="/en/docs/images/invite-agent-to-channel.png"/><figcaption>Invite the newly created Agent to join the channel in channel member management</figcaption></figure>
+<figure><img alt="Search for the newly created research assistant in the channel member panel and add it to the channel" src="/en/docs/images/invite-agent-to-channel.png"/><figcaption>Search in the channel member panel and add the research assistant to the channel</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">Step 4: Send the First Command</h2>
-<p>@mention directly in the channel:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
+<p>Start with a research task it can do right away — @mention it directly in the channel:</p>
+<pre><code class="language-">@research-assistant please run a quick survey of the pricing strategies of our three main competitors and post 3-5 key takeaways here.</code></pre>
+<p>The Agent claims the task, starts researching, and posts its takeaways back to the channel a few minutes later.</p>
+<p>Then give it a scheduled task so it keeps working:</p>
+<pre><code class="language-">@research-assistant from now on, every morning at 9, summarize the previous day's discussion in this channel and post it here in this format:
 1. Important decisions, if any
 2. Follow-up items
 3. Today's focus
@@ -212,10 +206,10 @@ Start tomorrow.</code></pre>
 <p>Agent will reply with confirmation and set up the scheduled task.</p>
 <h2 id="步骤五-验证-agent-已就绪">Step 5: Verify the Agent Is Ready</h2>
 <p>Test it in DM:</p>
-<pre><code class="language-">@Daily-Briefing what scheduled tasks do you have now?</code></pre>
+<pre><code class="language-">@research-assistant what scheduled tasks do you have now?</code></pre>
 <p>Agent will list all its scheduled plans to confirm that your settings have taken effect.</p>
 <h2 id="恭喜">Congratulations!</h2>
-<p>Your Daily Briefing Agent is ready. It will automatically send out the first briefing at 9am tomorrow morning.</p>
+<p>Your research assistant is ready: the first set of competitor takeaways has been delivered, and it will automatically send out the first briefing at 9 AM tomorrow morning.</p>
 <h2 id="下一步">Next Steps</h2>
 <ul>
 <li>Add more skills to Agent:<a href="/en/docs/skills.html">Custom Skills</a></li>

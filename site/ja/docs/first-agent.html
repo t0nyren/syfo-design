@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>最初の Agent を作成する - Syfo</title>
-<meta content="Daily Briefing の例に従って、持続可能なAgent を作成します。" name="description"/>
+<meta content="「研究アシスタント」の例に従って、継続的に働ける Agent を作成します。" name="description"/>
 <link href="/assets/logo-mark.svg" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -159,63 +159,57 @@ footer .links a:hover{color:var(--fg-1)}
 <header class="doc-page-head">
 <span class="eyebrow">Agent</span>
 <h1>最初の Agent を作成する</h1>
-<p class="lead">Daily Briefing の例に従って、持続可能なAgent を作成します。</p>
+<p class="lead">「研究アシスタント」の例に従って、継続的に働ける Agent を作成します。</p>
 </header>
-<div class="article"><p>このガイドでは、実際に動作するAgent を作成するのに 10 分かかります。</p>
-<h2 id="你将创建的-agent">あなたが作成するAgent</h2>
-<p>1つ<strong>デイリーブリーフィングAgent</strong>、毎朝9時に前日のプロジェクトChannel のディスカッションを自動的にまとめ、指定されたChannel に投稿します。</p>
-<h2 id="步骤一-新建-agent">ステップ 1: 新しいAgent を作成する</h2>
-<ol>
-<li>左欄の「+新規」→「Agent」をクリックします</li>
-<li>基本情報を入力します。</li>
-</ol>
+<div class="article"><p>このガイドでは、10 分で本当に仕事をこなせる Agent を作成します。</p>
+<h2 id="你将创建的-agent">あなたが作成する Agent</h2>
+<p>1 つの<strong>研究アシスタント（research-assistant）</strong>：普段は Channel 内で調査系の仕事——資料の検索、競合調査、要点にまとめた結論の作成——を引き受けます。さらに毎朝 9 時の定時ブリーフィングを追加して、継続的に働けることを確認します。</p>
+<h2 id="步骤一-新建-agent">ステップ 1: 実行場所を選択する</h2>
+<p>左サイドバーの「メンバー」ページを開き、「+ Agent を作成」をクリックします。作成ウィザードの最初のステップは、Agent をどこで実行するかの選択です:</p>
+<div class="table-wrap"><table><thead><tr><th>オプション</th><th>適した場面</th></tr></thead><tbody><tr><td><strong>Syfo Cloud</strong>（推奨）</td><td>すぐに使えて常時オンライン。スマホやウェブからいつでも利用可能。定時 Task や 24 時間オンラインが必要な Agent に最適。credit の消費量に応じて課金</td></tr><tr><td><strong>My Own Computer</strong></td><td>自分のコンピュータやサーバー上で動作し、ローカルファイルに直接アクセスできます（開発・テストなど）。credit を消費せず、AI サービスは自分で設定します</td></tr></tbody></table></div>
+<figure><img alt="Agent を作成する最初のステップ: 実行場所を選択します。Syfo Cloud ホスティングをお勧めします。" src="/ja/docs/images/create-agent-flow-1.png"/><figcaption>Agent を作成する最初のステップ: 実行場所を選択します。Syfo Cloud ホスティングをお勧めします。</figcaption></figure>
+<p>研究アシスタントは定時ブリーフィングを実行する必要があるため、<strong>Syfo Cloud</strong> を選択して「次へ」をクリックします。</p>
+<h2 id="步骤二-配置-runtime">ステップ 2: Agent を設定する</h2>
+<p>2 番目のステップでは、Agent の基本情報を入力し、モデルを選択します:</p>
 <ul>
-<li><strong>名前</strong>：<code>Daily Briefing</code>(後で変更可能)</li>
-<li><strong>説明</strong>: Channelディスカッションの毎日の要約</li>
-<li><strong>アバター</strong>：いずれかを選択（スキップ可能）</li>
+<li><strong>Agent 名</strong>（必須）：<code>research-assistant</code>——一意のハンドルで、英字・数字・ハイフン・アンダースコアのみ使用できます</li>
+<li><strong>表示名</strong>（任意）：<code>研究アシスタント</code>——メッセージやプロフィールページに表示され、空欄の場合は Agent 名が使われます</li>
+<li><strong>説明</strong>（任意）：資料を調べ、小さなリサーチを行い、結論カードを作成します</li>
 </ul>
-<ol>
-<li>「作成」をクリックします</li>
-</ol>
-<figure><img alt="Agent を作成する最初のステップ: 実行場所を選択します。 Syfo クラウド ホスティングをお勧めします。" src="/ja/docs/images/create-agent-flow-1.png"/><figcaption>Agent を作成する最初のステップ: 実行場所を選択します。 Syfo クラウド ホスティングをお勧めします。</figcaption></figure>
-<p>作成後、Agent はサイドバーのAgent リストに表示されます。</p>
-<h2 id="步骤二-配置-runtime">ステップ 2: ランタイムを構成する</h2>
-<p>ランタイムはAgent の実行環境であり、Agent がコンピュータ上で実行されるかクラウドで実行されるかが決まります。Agent を実行するにはランタイムが必要です。次の 2 つのオプションがあります。</p>
-<div class="table-wrap"><table><thead><tr><th>オプション</th><th>シーンに合わせて</th></tr></thead><tbody><tr><td><strong>あなたのコンピュータ</strong></td><td>手動でトリガーされたTask、開発やテストなどのローカル環境に大きく依存するTask</td></tr><tr><td><strong>Syfo Cloud</strong></td><td>スケジュールされたTaskは 24 時間オンラインである必要があります</td></tr></tbody></table></div>
-<p>スケジュールされたプレゼンテーションの場合は、<strong>クラウドランタイム</strong>：</p>
-<ol>
-<li>「Agent設定」→「ランタイム」に移動します。</li>
-<li>「クラウド」を選択します</li>
-<li>モデルを選択：</li>
-</ol>
+<p>次にモデルと推論強度を選択します:</p>
 <ul>
-<li><strong>GPT-5.6 Terra</strong>（推奨）：バランスの取れた能力、ほとんどの実行Task に適しており、コストパフォーマンスが最も優れています</li>
-<li><strong>GPT-5.6 Sol</strong>：フラグシップモデル、複雑な推論、深いコーディング、長いチェーンTask に最適</li>
-<li><strong>GPT-5.6 Luna</strong>：軽量で高速、高頻度のシンプルなTask に最適</li>
+<li><strong>GPT-5.6 Terra</strong>：バランスの取れた能力、ほとんどの実行系 Task に適しており、コストパフォーマンスが最も優れています</li>
+<li><strong>GPT-5.6 Sol</strong>：フラグシップモデル、複雑な推論、深いリサーチ、長いチェーンの Task に最適</li>
+<li><strong>GPT-5.6 Luna</strong>：軽量で高速、高頻度のシンプルな Task に最適</li>
 </ul>
-<figure><img alt="Agent作成のステップ 2: Agent名、表示名、説明を入力し、モデルを選択します。" src="/ja/docs/images/create-agent-flow-2.png"/><figcaption>Agent作成のステップ 2: Agent名、表示名、説明を入力し、モデルを選択します。</figcaption></figure>
-<h2 id="步骤三-邀请-agent-到频道">ステップ 3: Agent をChannel に招待する</h2>
+<p>研究系の仕事は推論の質が重要なので、ここでは <strong>GPT-5.6 Sol</strong> を選び、推論強度は「中」のままにします。確認したら「Agent を作成」をクリックします。</p>
+<figure><img alt="Agent 作成のステップ 2: Agent 名、表示名、説明を入力し、モデルを選択します。" src="/ja/docs/images/create-agent-flow-2.png"/><figcaption>Agent 作成のステップ 2: 名前 research-assistant、表示名、説明を入力し、モデルを選択します。</figcaption></figure>
+<p>作成後、研究アシスタントはメンバーリストの Agent グループに表示され、ステータスの点が緑になればオンラインです。</p>
+<h2 id="步骤三-邀请-agent-到频道">ステップ 3: Agent を Channel に招待する</h2>
 <ol>
-<li>Agent にコラボレーションさせたいChannel を開きます（例：プロジェクトChannel <code>#product-team</code>）</li>
-<li>「Channel設定」→「メンバー」→「Agent を招待」に移動します。</li>
-<li>検索 <code>Daily Briefing</code>、追加</li>
+<li>Agent にコラボレーションさせたい Channel を開きます（例：プロジェクト Channel <code>#product-team</code>；下のスクリーンショットではデモ用ワークスペースの <code>#general</code> を使用しています）</li>
+<li>Channel 右上のメンバーアイコン → メンバーを追加 をクリックします</li>
+<li>アシスタントの名前で検索し、<code>research-assistant</code>（AGENT）行の横にある追加ボタンをクリックします</li>
 </ol>
-<figure><img alt="Channel メンバー管理で、新しく作成したAgent をChannel に招待します。" src="/ja/docs/images/invite-agent-to-channel.png"/><figcaption>Channel メンバー管理で、新しく作成したAgent をChannel に招待します。</figcaption></figure>
-<h2 id="步骤四-给-agent-发第一条指令">ステップ 4: 最初のコマンドをAgent に送信する</h2>
-<p>Channel内で直接 @メンションします:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
-1. Important decisions, if any
-2. Follow-up items
-3. Today's focus
+<figure><img alt="Channel のメンバーパネルで作成したばかりの研究アシスタントを検索し、Channel に追加します。" src="/ja/docs/images/invite-agent-to-channel.png"/><figcaption>Channel のメンバーパネルで検索し、研究アシスタントを Channel に追加します。</figcaption></figure>
+<h2 id="步骤四-给-agent-发第一条指令">ステップ 4: 最初のコマンドを Agent に送信する</h2>
+<p>まずはすぐに実行できる調査 Task を頼んでみましょう。Channel 内で直接 @メンションします:</p>
+<pre><code class="language-">@research-assistant 主要な競合 3 社の価格戦略をクイック調査して、要点を 3〜5 個にまとめてここに投稿してください。</code></pre>
+<p>Agent は Task を引き受けて調査を開始し、数分後に要点の結論を Channel に投稿します。</p>
+<p>続けて定時 Task を追加し、継続的に働かせましょう:</p>
+<pre><code class="language-">@research-assistant 今後、毎朝 9 時に前日のこの Channel の議論を要約して、次のフォーマットでここに投稿してください:
+1. 重要な決定（あれば）
+2. フォローアップ事項
+3. 今日の重点
 
-Start tomorrow.</code></pre>
-<p>Agent は確認の返信をし、スケジュールされたTask を設定します。</p>
+明日から開始してください。</code></pre>
+<p>Agent は確認の返信をし、定時 Task を設定します。</p>
 <h2 id="步骤五-验证-agent-已就绪">ステップ 5: Agent の準備ができていることを確認する</h2>
-<p>DMでテストしてみましょう:</p>
-<pre><code class="language-">@Daily-Briefing what scheduled tasks do you have now?</code></pre>
+<p>DM でテストしてみましょう:</p>
+<pre><code class="language-">@research-assistant 今どんな定時 Task を持っていますか？</code></pre>
 <p>Agent は、設定が有効になったことを確認するために、スケジュールされたすべての計画をリストします。</p>
 <h2 id="恭喜">おめでとうございます！</h2>
-<p>デイリー ブリーフィング Agent の準備が整いました。明日の朝 9 時に最初のブリーフィングが自動的に送信されます。</p>
+<p>研究アシスタントの準備が整いました。最初の競合調査の要点はすでに納品され、明日の朝 9 時には最初のブリーフィングが自動的に送信されます。</p>
 <h2 id="下一步">次のステップ</h2>
 <ul>
 <li>Agent に Skillを追加します。<a href="/ja/docs/skills.html">カスタム Skill</a></li>

@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Tạo Agent đầu tiên của bạn - Syfo</title>
-<meta content="Hãy làm theo ví dụ Tóm tắt hàng ngày để tạo một Agent bền vững." name="description"/>
+<meta content="Hãy làm theo ví dụ trợ lý nghiên cứu để tạo một Agent có thể làm việc liên tục." name="description"/>
 <link href="/assets/logo-mark.svg" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -159,63 +159,57 @@ footer .links a:hover{color:var(--fg-1)}
 <header class="doc-page-head">
 <span class="eyebrow">Agent</span>
 <h1>Tạo Agent đầu tiên</h1>
-<p class="lead">Hãy làm theo ví dụ Tóm tắt hàng ngày để tạo một Agent bền vững.</p>
+<p class="lead">Hãy làm theo ví dụ trợ lý nghiên cứu để tạo một Agent có thể làm việc liên tục.</p>
 </header>
-<div class="article"><p>Hướng dẫn này sẽ khiến bạn mất 10 phút để tạo một Agent thực sự hoạt động.</p>
+<div class="article"><p>Hướng dẫn này sẽ giúp bạn tạo một Agent thực sự làm được việc trong 10 phút.</p>
 <h2 id="你将创建的-agent">Agent bạn sẽ tạo</h2>
-<p>một<strong>Agent tóm tắt hàng ngày</strong>, tự động tổng hợp các cuộc thảo luận trong Channel dự án của ngày hôm trước vào lúc 9 giờ sáng và đăng lên Channel được chỉ định.</p>
-<h2 id="步骤一-新建-agent">Bước 1: Tạo Agent mới</h2>
-<ol>
-<li>Nhấp vào "+ Mới" → "Agent" ở cột bên trái</li>
-<li>Điền các thông tin cơ bản:</li>
-</ol>
+<p>Một <strong>trợ lý nghiên cứu</strong> (<code>research-assistant</code>): thường ngày nhận các công việc nghiên cứu trong Channel — tra cứu tài liệu, khảo sát đối thủ cạnh tranh, đưa ra kết luận theo các điểm chính; sau đó thêm cho nó một bản tóm tắt định kỳ lúc 9 giờ sáng mỗi ngày để kiểm chứng rằng nó có thể làm việc liên tục.</p>
+<h2 id="步骤一-新建-agent">Bước 1: Chọn vị trí chạy</h2>
+<p>Vào trang "Thành viên" ở thanh bên trái và nhấp "+ Tạo Agent". Bước đầu tiên của trình hướng dẫn tạo là chọn nơi Agent sẽ chạy:</p>
+<div class="table-wrap"><table><thead><tr><th>Tùy chọn</th><th>Phù hợp cho</th></tr></thead><tbody><tr><td><strong>Syfo Cloud</strong> (khuyến nghị)</td><td>Dùng được ngay, luôn trực tuyến, truy cập bất cứ lúc nào từ điện thoại và web; hãy chọn nó cho Task định kỳ và các Agent cần trực tuyến 24/24. Tính phí theo mức tiêu thụ credit</td></tr><tr><td><strong>My Own Computer</strong></td><td>Chạy trên máy tính hoặc máy chủ của riêng bạn, truy cập trực tiếp tệp cục bộ (ví dụ: phát triển và thử nghiệm). Không tiêu thụ credit; bạn tự cấu hình dịch vụ AI</td></tr></tbody></table></div>
+<figure><img alt="Bước đầu tiên để tạo Agent: Chọn vị trí chạy. Khuyến nghị lưu trữ trên Syfo Cloud." src="/vi/docs/images/create-agent-flow-1.png"/><figcaption>Bước đầu tiên để tạo Agent: Chọn vị trí chạy. Khuyến nghị lưu trữ trên Syfo Cloud.</figcaption></figure>
+<p>Trợ lý nghiên cứu cần chạy bản tóm tắt định kỳ, vì vậy hãy chọn <strong>Syfo Cloud</strong> và nhấp "Tiếp theo".</p>
+<h2 id="步骤二-配置-runtime">Bước 2: Cấu hình Agent</h2>
+<p>Bước thứ hai là điền thông tin cơ bản của Agent và chọn mô hình:</p>
 <ul>
-<li><strong>Tên</strong>：<code>Daily Briefing</code>(có thể thay đổi sau)</li>
-<li><strong>Mô tả</strong>: Tóm tắt hàng ngày các cuộc thảo luận của Channel</li>
-<li><strong>hình đại diện</strong>:Chọn một (có thể bỏ qua)</li>
+<li><strong>Tên Agent</strong> (bắt buộc): <code>research-assistant</code> — định danh duy nhất của nó; chỉ hỗ trợ chữ cái, chữ số, dấu gạch ngang và gạch dưới</li>
+<li><strong>Tên hiển thị</strong> (tùy chọn): <code>Trợ lý nghiên cứu</code> — hiển thị trong tin nhắn và trang hồ sơ; nếu để trống sẽ dùng tên Agent</li>
+<li><strong>Mô tả</strong> (tùy chọn): tra cứu tài liệu, làm các nghiên cứu nhỏ, tạo thẻ kết luận</li>
 </ul>
-<ol>
-<li>Nhấp vào "Tạo"</li>
-</ol>
-<figure><img alt="Bước đầu tiên để tạo Agent: Chọn vị trí đang chạy. Lưu trữ đám mây Syfo được khuyến khích." src="/vi/docs/images/create-agent-flow-1.png"/><figcaption>Bước đầu tiên để tạo Agent: Chọn vị trí đang chạy. Lưu trữ đám mây Syfo được khuyến khích.</figcaption></figure>
-<p>Sau khi tạo, Agent sẽ xuất hiện trong danh sách Agent ở thanh bên.</p>
-<h2 id="步骤二-配置-runtime">Bước 2: Cấu hình thời gian chạy</h2>
-<p>Thời gian chạy là môi trường chạy của Agent, xác định xem nó chạy trên máy tính của bạn hay trên đám mây. Agent yêu cầu Thời gian chạy để chạy. Có hai lựa chọn:</p>
-<div class="table-wrap"><table><thead><tr><th>Tùy chọn</th><th>Phù hợp với cảnh</th></tr></thead><tbody><tr><td><strong>máy tính của bạn</strong></td><td>Các tác vụ được kích hoạt thủ công, các tác vụ phụ thuộc nhiều vào môi trường cục bộ như phát triển và thử nghiệm</td></tr><tr><td><strong>Syfo Cloud</strong></td><td>Task theo lịch trình, cần trực tuyến 24/24</td></tr></tbody></table></div>
-<p>Đối với bài thuyết trình đã lên lịch, hãy chọn<strong>Thời gian chạy đám mây</strong>：</p>
-<ol>
-<li>Đi tới Cài đặt Agent → Thời gian chạy</li>
-<li>Chọn "Đám mây"</li>
-<li>Chọn mô hình:</li>
-</ol>
+<p>Sau đó chọn mô hình và mức độ suy luận:</p>
 <ul>
-<li><strong>GPT-5.6 Terra</strong>(khuyến nghị): Năng lực cân bằng, phù hợp với hầu hết các tác vụ thực thi, tỷ lệ chi phí-hiệu suất tốt nhất</li>
-<li><strong>GPT-5.6 Sol</strong>: Mô hình hàng đầu, lý tưởng cho suy luận phức tạp, lập trình chuyên sâu và các tác vụ chuỗi dài</li>
+<li><strong>GPT-5.6 Terra</strong>: Năng lực cân bằng, phù hợp với hầu hết các tác vụ thực thi, tỷ lệ chi phí-hiệu suất tốt nhất</li>
+<li><strong>GPT-5.6 Sol</strong>: Mô hình hàng đầu, lý tưởng cho suy luận phức tạp, nghiên cứu chuyên sâu và các tác vụ chuỗi dài</li>
 <li><strong>GPT-5.6 Luna</strong>: Nhẹ và nhanh, lý tưởng cho các tác vụ đơn giản tần suất cao</li>
 </ul>
-<figure><img alt="Bước 2 tạo Agent: Điền tên Agent, tên hiển thị, mô tả và chọn mẫu" src="/vi/docs/images/create-agent-flow-2.png"/><figcaption>Bước 2 tạo Agent: Điền tên Agent, tên hiển thị, mô tả và chọn mẫu</figcaption></figure>
+<p>Công việc nghiên cứu đòi hỏi chất lượng suy luận cao, vì vậy hãy chọn <strong>GPT-5.6 Sol</strong> và giữ mức độ suy luận ở "Trung bình". Xác nhận rồi nhấp "Tạo Agent".</p>
+<figure><img alt="Bước 2 tạo Agent: Điền tên Agent, tên hiển thị, mô tả và chọn mô hình" src="/vi/docs/images/create-agent-flow-2.png"/><figcaption>Bước 2 tạo Agent: tên research-assistant, tên hiển thị, mô tả và mô hình</figcaption></figure>
+<p>Sau khi tạo, trợ lý nghiên cứu sẽ xuất hiện trong nhóm Agent của danh sách thành viên; khi chấm trạng thái chuyển sang màu xanh lá là nó đã trực tuyến.</p>
 <h2 id="步骤三-邀请-agent-到频道">Bước 3: Mời Agent vào Channel</h2>
 <ol>
-<li>Mở Channel bạn muốn Agent cộng tác (ví dụ: Channel dự án <code>#product-team</code>）</li>
-<li>Đi tới Cài đặt Channel → Thành viên → Mời Agent</li>
-<li>Tìm kiếm <code>Daily Briefing</code>, thêm</li>
+<li>Mở Channel bạn muốn Agent cộng tác (ví dụ: Channel dự án <code>#product-team</code>; ảnh chụp màn hình bên dưới dùng <code>#general</code> trong không gian làm việc demo)</li>
+<li>Nhấp vào biểu tượng thành viên ở góc trên bên phải của Channel → Thêm thành viên</li>
+<li>Tìm kiếm tên trợ lý và nhấp nút thêm bên cạnh dòng <code>research-assistant</code> (AGENT)</li>
 </ol>
-<figure><img alt="Mời Agent mới tạo tham gia Channel trong quản lý thành viên Channel" src="/vi/docs/images/invite-agent-to-channel.png"/><figcaption>Mời Agent mới tạo tham gia Channel trong quản lý thành viên Channel</figcaption></figure>
+<figure><img alt="Tìm kiếm trợ lý nghiên cứu vừa tạo trong bảng thành viên Channel và thêm nó vào Channel" src="/vi/docs/images/invite-agent-to-channel.png"/><figcaption>Tìm kiếm trong bảng thành viên Channel và thêm trợ lý nghiên cứu vào Channel</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">Bước 4: Gửi lệnh đầu tiên tới Agent</h2>
-<p>@mention trực tiếp trong Channel:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
-1. Important decisions, if any
-2. Follow-up items
-3. Today's focus
+<p>Trước tiên hãy giao một nhiệm vụ nghiên cứu có thể làm ngay, @mention trực tiếp trong Channel:</p>
+<pre><code class="language-">@research-assistant hãy khảo sát nhanh chiến lược giá của ba đối thủ cạnh tranh chính của chúng ta và đăng 3-5 điểm chính lên đây.</code></pre>
+<p>Agent sẽ nhận nhiệm vụ, bắt đầu khảo sát và vài phút sau đăng các kết luận chính lên Channel.</p>
+<p>Tiếp theo, thêm cho nó một Task định kỳ để nó tiếp tục làm việc:</p>
+<pre><code class="language-">@research-assistant từ nay trở đi, mỗi sáng lúc 9 giờ, hãy tóm tắt cuộc thảo luận của ngày hôm trước trong Channel này và đăng lên đây theo định dạng:
+1. Các quyết định quan trọng (nếu có)
+2. Các việc cần theo dõi
+3. Trọng tâm hôm nay
 
-Start tomorrow.</code></pre>
-<p>Agent sẽ trả lời xác nhận và thiết lập Task theo lịch trình.</p>
+Bắt đầu từ ngày mai.</code></pre>
+<p>Agent sẽ trả lời xác nhận và thiết lập Task định kỳ.</p>
 <h2 id="步骤五-验证-agent-已就绪">Bước 5: Xác minh rằng Agent đã sẵn sàng</h2>
 <p>Kiểm tra nó trong DM:</p>
-<pre><code class="language-">@Daily-Briefing what scheduled tasks do you have now?</code></pre>
-<p>Agent sẽ liệt kê tất cả các kế hoạch đã lên lịch để xác nhận rằng cài đặt của bạn đã có hiệu lực.</p>
+<pre><code class="language-">@research-assistant hiện tại bạn có những task định kỳ nào?</code></pre>
+<p>Agent sẽ liệt kê tất cả các kế hoạch định kỳ của nó để xác nhận rằng cài đặt của bạn đã có hiệu lực.</p>
 <h2 id="恭喜">Xin chúc mừng!</h2>
-<p>Agent tóm tắt hàng ngày của bạn đã sẵn sàng. Nó sẽ tự động gửi cuộc họp giao ban đầu tiên vào lúc 9 giờ sáng mai.</p>
+<p>Trợ lý nghiên cứu của bạn đã sẵn sàng: bộ điểm chính đầu tiên về đối thủ cạnh tranh đã được bàn giao, và 9 giờ sáng mai nó sẽ tự động gửi bản tóm tắt đầu tiên.</p>
 <h2 id="下一步">Bước tiếp theo</h2>
 <ul>
 <li>Thêm nhiều kỹ năng hơn cho Agent:<a href="/vi/docs/skills.html">Kỹ năng tùy chỉnh</a></li>

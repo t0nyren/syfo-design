@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Crea tu primer Agent - Syfo</title>
-<meta content="Siga el ejemplo del Daily Briefing para crear un Agent sostenible." name="description"/>
+<meta content="Siga el ejemplo del asistente de investigación para crear un Agent que trabaje de forma continua." name="description"/>
 <link href="/assets/logo-mark.svg" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -159,63 +159,57 @@ footer .links a:hover{color:var(--fg-1)}
 <header class="doc-page-head">
 <span class="eyebrow">Agent</span>
 <h1>Crear tu primer Agent</h1>
-<p class="lead">Siga el ejemplo del Daily Briefing para crear un Agent sostenible.</p>
+<p class="lead">Siga el ejemplo del asistente de investigación para crear un Agent que trabaje de forma continua.</p>
 </header>
-<div class="article"><p>Esta guía le llevará 10 minutos para crear un Agent que realmente funcione.</p>
+<div class="article"><p>Esta guía le llevará 10 minutos para crear un Agent que realmente trabaje.</p>
 <h2 id="你将创建的-agent">Agent que crearás</h2>
-<p>uno<strong>Agent de información diaria</strong>, que resume automáticamente las discusiones del Channel del proyecto del día anterior a las 9 AM y las publica en un Channel designado.</p>
-<h2 id="步骤一-新建-agent">Paso 1: crear un nuevo Agent</h2>
-<ol>
-<li>Haga clic en "+ Nuevo" → "Agent" en la columna de la izquierda</li>
-<li>Complete la información básica:</li>
-</ol>
-<ul>
-<li><strong>Nombre</strong>：<code>Daily Briefing</code>(se puede cambiar más tarde)</li>
-<li><strong>Descripción</strong>: Resumen diario de las discusiones del canal.</li>
-<li><strong>avatar</strong>:Elija uno (se puede omitir)</li>
-</ul>
-<ol>
-<li>Haga clic en "Crear"</li>
-</ol>
+<p>Un <strong>asistente de investigación</strong> (<code>research-assistant</code>): se encarga del trabajo de investigación en sus Channels —buscar información, hacer análisis de la competencia, entregar conclusiones en puntos clave—; además le añadirá un informe programado todos los días a las 9 AM para comprobar que puede trabajar de forma continua.</p>
+<h2 id="步骤一-新建-agent">Paso 1: elegir dónde se ejecuta</h2>
+<p>Vaya a la página "Miembros" en la barra lateral izquierda y haga clic en "+ Crear Agent". El primer paso del asistente de creación es elegir dónde se ejecuta el Agent:</p>
+<div class="table-wrap"><table><thead><tr><th>Opciones</th><th>Adecuado para</th></tr></thead><tbody><tr><td><strong>Syfo Cloud</strong> (recomendado)</td><td>Funciona desde el primer momento, siempre en línea, disponible en cualquier momento desde el móvil y la web; elíjalo para Tasks programadas y Agents que deben estar en línea las 24 horas. Se factura según el consumo de créditos</td></tr><tr><td><strong>My Own Computer</strong></td><td>Se ejecuta en su propia computadora o servidor, con acceso directo a los archivos locales (por ejemplo, desarrollo y pruebas). No consume créditos; usted mismo configura el servicio de IA</td></tr></tbody></table></div>
 <figure><img alt="El primer paso para crear un Agent: seleccionar la ubicación de ejecución. Se recomienda el alojamiento Syfo Cloud." src="/es/docs/images/create-agent-flow-1.png"/><figcaption>El primer paso para crear un Agent: seleccionar la ubicación de ejecución. Se recomienda el alojamiento Syfo Cloud.</figcaption></figure>
-<p>Después de la creación, el Agent aparecerá en la lista de Agents en la barra lateral.</p>
-<h2 id="步骤二-配置-runtime">Paso 2: configurar el tiempo de ejecución</h2>
-<p>El tiempo de ejecución es el entorno de ejecución del Agent, que determina si se ejecuta en su computadora o en la nube. El Agent requiere un tiempo de ejecución para ejecutarse. Hay dos opciones:</p>
-<div class="table-wrap"><table><thead><tr><th>Opciones</th><th>Adecuado para la escena</th></tr></thead><tbody><tr><td><strong>tu computadora</strong></td><td>Tasks activadas manualmente, Tasks que dependen en gran medida del entorno local, como el desarrollo y las pruebas.</td></tr><tr><td><strong>Syfo Cloud</strong></td><td>Tasks programadas, deben estar en línea las 24 horas del día.</td></tr></tbody></table></div>
-<p>Para presentaciones programadas, seleccione<strong>Tiempo de ejecución en la nube</strong>：</p>
-<ol>
-<li>Vaya a Configuración del Agent → Tiempo de ejecución</li>
-<li>Seleccione "Nube"</li>
-<li>Elige un modelo:</li>
-</ol>
+<p>El asistente de investigación necesita ejecutar un informe programado, así que seleccione <strong>Syfo Cloud</strong> y haga clic en "Siguiente".</p>
+<h2 id="步骤二-配置-runtime">Paso 2: configurar el Agent</h2>
+<p>El segundo paso es completar la información básica del Agent y elegir un modelo:</p>
 <ul>
-<li><strong>GPT-5.6 Terra</strong>(recomendado): Capacidad equilibrada, adecuado para la mayoría de Tasks de ejecución, mejor relación costo-rendimiento</li>
-<li><strong>GPT-5.6 Sol</strong>: Modelo insignia, ideal para razonamiento complejo, codificación profunda y Tasks de cadena larga</li>
+<li><strong>Nombre del Agent</strong> (obligatorio): <code>research-assistant</code> — su identificador único; solo admite letras, dígitos, guiones y guiones bajos</li>
+<li><strong>Nombre para mostrar</strong> (opcional): <code>Asistente de investigación</code> — se muestra en los mensajes y en la página de perfil; si se deja vacío, se usa el nombre del Agent</li>
+<li><strong>Descripción</strong> (opcional): busca información, realiza pequeñas investigaciones y entrega tarjetas de conclusiones</li>
+</ul>
+<p>Luego elija el modelo y el nivel de razonamiento:</p>
+<ul>
+<li><strong>GPT-5.6 Terra</strong>: Capacidad equilibrada, adecuado para la mayoría de Tasks de ejecución, mejor relación costo-rendimiento</li>
+<li><strong>GPT-5.6 Sol</strong>: Modelo insignia, ideal para razonamiento complejo, investigación profunda y Tasks de cadena larga</li>
 <li><strong>GPT-5.6 Luna</strong>: Ligero y rápido, ideal para Tasks simples de alta frecuencia</li>
 </ul>
-<figure><img alt="Paso 2 para crear un Agent: Complete el nombre del Agent, el nombre para mostrar, la descripción y seleccione un modelo" src="/es/docs/images/create-agent-flow-2.png"/><figcaption>Paso 2 para crear un Agent: Complete el nombre del Agent, el nombre para mostrar, la descripción y seleccione un modelo</figcaption></figure>
+<p>El trabajo de investigación exige mucho razonamiento, así que elija <strong>GPT-5.6 Sol</strong> y mantenga el nivel de razonamiento en "Medio". Confirme y haga clic en "Crear Agent".</p>
+<figure><img alt="Paso 2 para crear un Agent: Complete el nombre del Agent, el nombre para mostrar, la descripción y seleccione un modelo" src="/es/docs/images/create-agent-flow-2.png"/><figcaption>Paso 2 para crear un Agent: nombre research-assistant, nombre para mostrar, descripción y modelo</figcaption></figure>
+<p>Después de la creación, el asistente de investigación aparecerá en el grupo de Agents de la lista de miembros; cuando su punto de estado se ponga verde, estará en línea.</p>
 <h2 id="步骤三-邀请-agent-到频道">Paso 3: invitar al Agent al canal</h2>
 <ol>
-<li>Abre el Channel en el que quieras que colabore el Agent (por ejemplo, el Channel del proyecto <code>#product-team</code>）</li>
-<li>Vaya a Configuración del canal → Miembros → Invitar Agent</li>
-<li>Buscar <code>Daily Briefing</code>, agregar</li>
+<li>Abra el Channel en el que quiera que colabore el Agent (por ejemplo, el Channel del proyecto <code>#product-team</code>; la captura de abajo usa <code>#general</code> en un espacio de demostración)</li>
+<li>Haga clic en el icono de miembros en la parte superior derecha del canal → Agregar miembros</li>
+<li>Busque el nombre del asistente y haga clic en el botón de agregar junto a la fila <code>research-assistant</code> (AGENT)</li>
 </ol>
-<figure><img alt="Invitar al Agent recién creado a unirse al canal en la gestión de miembros del canal" src="/es/docs/images/invite-agent-to-channel.png"/><figcaption>Invitar al Agent recién creado a unirse al canal en la gestión de miembros del canal</figcaption></figure>
+<figure><img alt="Buscar el asistente de investigación recién creado en el panel de miembros del canal y agregarlo al canal" src="/es/docs/images/invite-agent-to-channel.png"/><figcaption>Busque en el panel de miembros del canal y agregue el asistente de investigación al canal</figcaption></figure>
 <h2 id="步骤四-给-agent-发第一条指令">Paso 4: envíe el primer comando al Agent</h2>
-<p>@mencionar directamente en el canal:</p>
-<pre><code class="language-">@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:
-1. Important decisions, if any
-2. Follow-up items
-3. Today's focus
+<p>Empiece con una tarea de investigación que pueda hacer de inmediato; @mencione al Agent directamente en el canal:</p>
+<pre><code class="language-">@research-assistant haz una investigación rápida sobre las estrategias de precios de nuestros tres principales competidores y publica aquí 3-5 puntos clave.</code></pre>
+<p>El Agent reclamará la tarea, comenzará a investigar y unos minutos después publicará sus conclusiones en el canal.</p>
+<p>Luego asígnele una tarea programada para que siga trabajando:</p>
+<pre><code class="language-">@research-assistant a partir de ahora, todas las mañanas a las 9, resume la discusión del día anterior en este canal y publícala aquí con este formato:
+1. Decisiones importantes, si las hay
+2. Asuntos pendientes de seguimiento
+3. Prioridades de hoy
 
-Start tomorrow.</code></pre>
+Empieza mañana.</code></pre>
 <p>El Agent responderá con confirmación y configurará la tarea programada.</p>
 <h2 id="步骤五-验证-agent-已就绪">Paso 5: Verificar que el Agent esté listo</h2>
 <p>Pruébalo en DM:</p>
-<pre><code class="language-">@Daily-Briefing what scheduled tasks do you have now?</code></pre>
+<pre><code class="language-">@research-assistant ¿qué tareas programadas tienes ahora?</code></pre>
 <p>El Agent enumerará todos sus planes programados para confirmar que su configuración haya entrado en vigor.</p>
 <h2 id="恭喜">¡Felicitaciones!</h2>
-<p>Su Agent de información diaria está listo. Enviará automáticamente el primer informe mañana por la mañana a las 9 a.m.</p>
+<p>Su asistente de investigación está listo: el primer conjunto de puntos clave sobre la competencia ya se ha entregado, y mañana a las 9 AM enviará automáticamente el primer informe.</p>
 <h2 id="下一步">Siguiente paso</h2>
 <ul>
 <li>Agregue más habilidades al Agent:<a href="/es/docs/skills.html">Habilidad personalizada</a></li>
