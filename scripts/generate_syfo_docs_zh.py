@@ -37,6 +37,9 @@ MANUAL_CODE_TRANSLATIONS = {
     "@Daily-Briefing 你好！每天早上 9 点，帮我整理前一天 #product-team 频道的讨论摘要，发到这里，格式：\n1. 重要决定（如果有）\n2. 待跟进事项\n3. 今日重点\n\n从明天开始执行。": "@Daily-Briefing hello. Every morning at 9, please summarize the previous day's discussion in #product-team and post it here in this format:\n1. Important decisions, if any\n2. Follow-up items\n3. Today's focus\n\nStart tomorrow.",
     "@Daily-Briefing 你现在有什么定时任务？": "@Daily-Briefing what scheduled tasks do you have now?",
     "@研究助手 帮我快速调研三家主要竞品的定价策略，整理成 3-5 条要点": "@Research-Assistant could you research the pricing strategy of 3 main competitors? Just 3-5 bullet points",
+    "@研究助手 帮我快速调研三家主要竞品的定价策略，整理成 3-5 条要点发到这里。": "@Research-Assistant could you research the pricing strategy of 3 main competitors? Summarize into 3-5 bullet points and post here.",
+    "@研究助手 以后每天早上 9 点，帮我整理前一天这个频道的讨论摘要，发到这里，格式：\n1. 重要决定（如果有）\n2. 待跟进事项\n3. 今日重点\n\n从明天开始执行。": "@Research-Assistant from now on, every morning at 9, please summarize the previous day's discussion in this channel and post it here in this format:\n1. Important decisions, if any\n2. Follow-up items\n3. Today's focus\n\nStart tomorrow.",
+    "@研究助手 你现在有什么定时任务？": "@Research-Assistant what scheduled tasks do you have now?",
     "@研究助手 整理这个频道里本周客户提到的产品问题，按 P1/P2/P3 分类，并给出建议动作。": "@Research-Assistant summarize the product issues customers mentioned in this channel this week, classify them by P1/P2/P3, and suggest next actions.",
     "@研究助手 每天早上 9 点，把昨天 #product-team 频道的讨论整理成简报发到这里。": "@Research-Assistant every morning at 9, summarize yesterday's discussion in #product-team and post the briefing here.",
     "@研究助手 每天早上 9 点，把昨日 #product-team 频道的讨论整理成简报发到这里": "@Research-Assistant every morning at 9, summarize yesterday's discussion in #product-team and post the briefing here",
@@ -419,7 +422,7 @@ TRANSLATION_TEXT_REPLACEMENTS = {
         ("Messagespaper", "Reports"),
         ("market intelligence", "Market intelligence"),
         ("Team Standup", "Team standup"),
-        ("one<strong>Daily Briefing Agent</strong>", "A <strong>Daily Briefing Agent</strong>"),
+        ("one<strong>Research Assistant (research-assistant) Agent</strong>", "A <strong>Research Assistant (research-assistant) Agent</strong>"),
         ("<strong>avatar</strong>:", "<strong>Avatar</strong>:"),
         ("Create or join a project channel", "Create or join a project Channel"),
         ("balanced ability", "balanced capability"),
@@ -730,7 +733,7 @@ PAGE_META = {
     "index.html": ("Syfo 文档", "从理解产品到团队落地，把 Syfo 作为人机协作工作空间用起来。", "Syfo 文档", "从理解到落地的完整路径"),
     "what-is-syfo.html": ("什么是 Syfo", "理解 Syfo 和传统聊天工具、AI chatbot 的区别。", "概念", "什么是 Syfo"),
     "getting-started.html": ("快速上手", "6 步完成首次协作：进入频道、@Agent、转任务、设置定时任务。", "快速上手", "6 步完成第一次人机协作"),
-    "first-agent.html": ("创建第一个 Agent", "跟着 Daily Briefing 案例创建一个可持续工作的 Agent。", "Agent", "创建你的第一个 Agent"),
+    "first-agent.html": ("创建第一个 Agent", "跟着「研究助手」案例创建一个可持续工作的 Agent。", "Agent", "创建你的第一个 Agent"),
     "organization.html": ("组织", "理解组织作为工作空间的边界：成员、频道、Agent 和权限。", "基础概念", "组织"),
     "channels.html": ("频道与协作", "用频道组织上下文、任务和多 Agent 协作。", "基础概念", "频道与多 Agent 协作"),
     "agents.html": ("Agent", "理解 Agent 在 Syfo 里的角色、权限、运行方式和触发方式。", "基础概念", "Agent"),
@@ -1022,7 +1025,7 @@ def build_index() -> str:
     cards = [
         ("什么是 Syfo", "理解 Syfo 和 Slack/飞书、普通 AI Chatbot 的区别。", "/zh/docs/what-is-syfo.html"),
         ("快速上手", "6 步完成首次协作，包含 @Agent、任务和定时任务。", "/zh/docs/getting-started.html"),
-        ("创建第一个 Agent", "跟着 Daily Briefing 案例创建一个真正能工作的 Agent。", "/zh/docs/first-agent.html"),
+        ("创建第一个 Agent", "跟着「研究助手」案例创建一个真正能工作的 Agent。", "/zh/docs/first-agent.html"),
         ("频道与协作", "学习频道设计、任务推进和多 Agent 协作模式。", "/zh/docs/channels.html"),
         ("团队落地", "规划频道、Agent 分工、上下文迁移和团队规范。", "/zh/docs/team-playbook.html"),
         ("最佳实践", "从分诊 Agent、上下文管理到任务板维护的实际经验。", "/zh/docs/best-practices.html"),
@@ -1079,11 +1082,6 @@ def build_getting_started() -> str:
 
 def build_first_agent() -> str:
     md = read_md("guide", "first-agent.md")
-    md = md.replace(
-        "Agent 需要一个 runtime 才能运行。有两种选择：",
-        "Runtime 是 Agent 的运行环境，决定它跑在你的电脑上还是云端。Agent 需要一个 Runtime 才能运行。有两种选择：",
-    )
-    md = md.replace("Daily Briefing", "每日简报（Daily Briefing）", 1)
     return markdown_to_html(md)
 
 
