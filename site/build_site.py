@@ -35,6 +35,10 @@ LOGO_MARK = open(os.path.join(HERE, "assets/logo-mark.svg"), encoding="utf-8").r
 
 # 顺序即语言切换器的展示顺序 (Tony 指定：英 → 中 → 日 → 西 → 越)。
 LANGS = ["en", "zh", "ja", "es", "vi"]  # vi 保留语言，但不做新 25 案例 (Tony 2026-07-05)
+# ── SEO (task #5025)：canonical/hreflang/OG 的绝对地址基座 + 语言映射 ──
+BASE = "https://syfo.ai"
+HREFLANG = {"en": "en", "zh": "zh-CN", "ja": "ja", "es": "es", "vi": "vi"}
+OG_LOCALE = {"en": "en_US", "zh": "zh_CN", "ja": "ja_JP", "es": "es_ES", "vi": "vi_VN"}
 # 根 / 语言网关：无 cookie/无 Accept-Language 匹配时的兜底语言。
 DEFAULT_LANG = "en"
 # 五语对称：每种语言都在自己的 /<lang>/ 子目录 (含中文 /zh/)，根 / 只做语言网关。
@@ -205,6 +209,78 @@ CASES = {
 ("科技研发 · 组织治理", "当你的团队一半是 AI：招聘、考核与管理",
  "用真实用量账单给 Agent 团队做经营分析：量化广播税与空跑率，回答「一个频道该配几个 Agent」。新 Agent 入职有模拟面试和老 Agent 带教，组织调整三天后用数据做效果回归。",
  ["频道健康度", "AI 模拟面试", "SOP 广播 + ACK", "效果回归"], "tech-org"),
+
+ # ── 行业案例 · 研究 / 内容（slug 前缀 res-，暂只有中文）──
+# ---- 1. res-pipeline（旗舰） ----
+("研究内容 · 投研内容生产线", "一支 AI 小队，把研究内容做成日更生产线",
+ "一位主编带一支各司其职的 Agent 小队：每天自动选题、核验事实、撰写机构级分析稿、多轮质检、排期发布到自有平台与公众号、分时营销触达、复盘阅读表现。两周产出十余篇，人只定方向、给观点、做验收。",
+ ["每日选题", "事实核验", "多轮质检", "排期发布", "阅读复盘"], "res-pipeline"),
+
+# ---- 2. res-rewrite ----
+("研究内容 · 独立深度稿", "从一手研究素材，到有独立观点的原创分析",
+ "行业纪要、研报、公开信息只当线索与背景：撰写 Agent 在此之上做结构重写、补充独立判断，产出分析师体深度稿；质检 Agent 逐条复核事实边界、去掉 AI 腔、确保引用边界清晰，未经二次核验的数字只作市场讨论、不当事实。",
+ ["结构重写", "独立观点", "事实边界核验", "去 AI 腔"], "res-rewrite"),
+
+# ---- 3. res-dataviz ----
+("研究内容 · 数据可视化", "从一手数据，到会讲故事的一张图",
+ "数据 Agent 把散落的数据做成网络图、社群分析、带事件标注的走势图，每张图配「数据源 + 可复算脚本 + 自包含预览 + 边界说明」四件套；口径可追溯、结论不越界，让复杂行业关系一眼看懂。",
+ ["数据可视化", "数据驱动选题", "网络与社群分析", "可复算四件套"], "res-dataviz"),
+
+# ---- 4. res-series ----
+("研究内容 · 系列栏目", "一个专业栏目，多集连续产出",
+ "围绕一个专业主题做系列化内容：调度 Agent 规划选题与多集编排，撰写 Agent 分集承接、各配独立封面，质检把专业可信度放在热点之前；成稿进草稿箱、发布留给人，靠账号校验防误发。",
+ ["系列化内容", "主题策划", "多集编排", "草稿箱待发"], "res-series"),
+
+# ---- 5. res-distribute ----
+("研究内容 · 多渠道分发", "一篇稿子，两个渠道，发布永远人拍板",
+ "自有内容平台 + 行业公众号双渠道：一稿两投、按渠道改写口径；平台侧只提交审核不点发布，公众号侧由人扫码授权，分时多次触达并设冷却间隔防打扰；每次触达留痕、失败即补，绝不绕过平台验证。",
+ ["多渠道分发", "一稿多投", "人授权发布", "分时触达"], "res-distribute"),
+
+# ---- 6. res-orchestrate ----
+("研究内容 · 运营中枢", "让一块看板，管住一支 AI 内容团队",
+ "调度 Agent 是唯一事实源：单点派单、维护内容管线状态机（选题 / 撰写 / 草稿 / 发布），准备发布或已发布超阈值就提醒人；每晚全员按证据互评打分、沉淀规则进长期记忆，团队越跑越准。",
+ ["单一事实源", "管线状态机", "派单不撞车", "自迭代复盘"], "res-orchestrate"),
+
+# ---- 7. res-sourcing ----
+("研究内容 · 信源采集", "让研究的第一手信息，自己每天到位",
+ "信源 Agent 每天定时采集公众号、社区热榜、订阅邮件里的一手线索，抓不到就按时复跑、绝不拿旧内容充数；遇验证一律停、不绕过风控，必要时走 OCR 兜底，并把荐股式情绪词转写成中性可核验线索。",
+ ["信源采集", "定时复跑", "反爬合规", "情绪词转写"], "res-sourcing"),
+
+ # ── 行业案例 · 出海内容 / 英文付费订阅（slug 前缀 os-，暂只有中文）──
+# ---- 1. os-newsletter（旗舰） ----
+("出海内容 · 英文付费订阅刊", "一支 AI 小队，从零搭起并运营一个英文付费订阅刊",
+ "一位工程师-操盘手带一支各司其职的 Agent 小队：定品牌与栏目、把中文一手研究重构成英文原创分析、配统一设计的封面与数据图、多轮质检去 AI 腔、进双库排期，再半自动上线到订阅后台的草稿。人只定方向、给核心观点、做发布授权。",
+ ["品牌定位", "英文重构", "质量闸门", "双库运营", "人授权发布"], "os-newsletter"),
+
+# ---- 2. os-brand ----
+("出海内容 · 品牌定位", "工程师视角，提炼差异化定位与栏目体系",
+ "从操盘手的产业与工程背景出发，做出能收费、够国际化、与既有内容复用而不重复的定位：品牌名候选、读者画像、差异化一句话、免费/付费产品分层与栏目模板，再用一版质检把「凭什么收费、凭什么国际化、能否落地」逐条问过。",
+ ["品牌定位", "差异化", "读者画像", "栏目设计"], "os-brand"),
+
+# ---- 3. os-rewrite ----
+("出海内容 · 英文重构", "一手研究素材，重构成有独立观点的英文分析",
+ "中文纪要、研报、公开信息只当线索与背景：撰写 Agent 按海外读者重排论证顺序、补齐背景与全球可比，写成原生英文分析而非直译；质检 Agent 逐条守事实边界、清英文 AI 腔、确保引用规范，未经二次核验的数字只作市场讨论、不当事实。",
+ ["英文重构", "独立观点", "事实边界核验", "引用规范"], "os-rewrite"),
+
+# ---- 4. os-design ----
+("出海内容 · 设计系统", "一套统一设计语言，长短内容共用一张脸",
+ "配图 Agent 定一套长期设计语言——色彩、字体、母题、标识与多种版式，封面、系统图、矩阵图、金句卡、数据图成系列；数据图走财经媒体风格，口径可追溯、边界写清，并回刷既有素材统一风格，只用官方素材、不伪造标识。",
+ ["设计系统", "数据可视化", "封面配图", "视觉规范"], "os-design"),
+
+# ---- 5. os-qa ----
+("出海内容 · 质量闸门", "双层质检：先守事实边界，再去英文 AI 腔",
+ "多轮窄复核：第一层守事实边界，能力线索不写成订单或收入确认、数据图标注方向性估算；第二层专项清英文模板腔、机械小标题、空泛大词与口号式结尾，不过关就退回、列出具体句子和替换方向。",
+ ["质量闸门", "事实边界核验", "去AI腔", "多轮复核"], "os-qa"),
+
+# ---- 6. os-library ----
+("出海内容 · 内容双库", "长短内容双库 + 三态状态机治理",
+ "用单一事实源把长文与短内容分库归档，各按撰写 / 草稿 / 发布三态流转，index 作准；配每日短内容机制与选题排期，草稿与备发内容不混进聊天记录，谁写到哪一眼可查。",
+ ["内容库", "单一事实源", "状态治理", "选题排期"], "os-library"),
+
+# ---- 7. os-publish ----
+("出海内容 · 半自动上线", "半自动上线到订阅后台，人机接力过验证不绕闸",
+ "自研上传工具读干净正文与素材、在订阅后台建草稿、按预览页修正图文位置；遇验证码或邮箱登录一律停、由人接管，绝不自动发布、绝不绕过风控，账号凭据只存受限文件并提示改密。",
+ ["半自动上线", "人授权发布", "凭据安全", "不绕验证"], "os-publish"),
  ],
  "en": [
  ("Finance · Private fund", "One person runs a systematic fund with a team of Agents",
@@ -242,6 +318,12 @@ CASE_GROUPS = {
   {"id": "tech", "label": "科技 / 研发", "eyebrow": "行业案例",
    "p": "把 Syfo 用得最狠的是 Syfo 自己的研发团队：一支 AI 团队，开发它自己每天跑在上面的产品。按产品域组队长跑、AI 发布工程师、当天闭环的质量线、同伴评审硬规矩、事故响应、一人带队的 Squad、新产品从 0 到 1，以及计费这样的零容错域。",
    "slugs": ["tech-product","tech-release","tech-quality","tech-review","tech-incident","tech-squad","tech-zero2one","tech-highrisk"]},
+  {"id": "research", "label": "研究 / 内容", "eyebrow": "行业案例",
+   "p": "一家研究驱动的硬科技内容机构在 Syfo 上的完整用法：一位主编带一支 Agent 小队，把「选题 → 研究核验 → 撰写 → 质检 → 多渠道发布 → 营销 → 复盘」跑成一条日更内容生产线。从一手素材写成原创深度稿、数据可视化讲行业故事，到系列栏目、合规分发、运营中枢与信源自动化。",
+   "slugs": ["res-pipeline","res-rewrite","res-dataviz","res-series","res-distribute","res-orchestrate","res-sourcing"]},
+  {"id": "oversea", "label": "出海内容 / 英文付费订阅", "eyebrow": "行业案例",
+   "p": "一位工程师-操盘手在 Syfo 上带一支 Agent 小队，从零搭起并运营一个面向全球读者的英文付费订阅刊：把中文一手研究重构成英文原创分析。从品牌定位、栏目体系、英文重构、统一设计与数据图，到双层质检、长短内容双库，再到半自动上线订阅后台——人只定方向、给核心观点、做发布授权。",
+   "slugs": ["os-newsletter","os-brand","os-rewrite","os-design","os-qa","os-library","os-publish"]},
   {"id": "more", "label": "更多案例", "eyebrow": "更多案例",
    "p": "内容创作、零售客服、新媒体运营、vibe coding 做 App、市场研究与 Agent 团队治理——更多行业与职能的真实用法。",
    "slugs": ["comic","sales","content","app","tech-research","tech-org"]},
@@ -686,7 +768,7 @@ T = {
   "card_more": "Read the use case",
   # —— Home ——
   "home_title": "Syfo · Where people and a team of Agents work together",
-  "home_desc": "Syfo is a shared workspace where people and a team of AI Agents collaborate in the same channels, with triggers, tools, and memory that keep Agents working and let tasks hand off cleanly between people and Agents.",
+  "home_desc": "Syfo is a multi-agent workspace where people and AI Agent teams work in shared channels — triggers, tools, and memory keep work moving. Enter at app.syfo.ai.",
   "home_card": '<!-- @dsCard group="Syfo Website" title="Home" -->',
   "hero_eyebrow": "Human × Agent workspace",
   "hero_h1": 'Get people and a team of Agents <span class="accent">truly working together.</span>',
@@ -755,13 +837,49 @@ T = {
 }
 
 
-def head(lang, title, desc, card_marker="", toggle_href="/"):
+def _esc_attr(s):
+    return s.replace('&', '&amp;').replace('"', '&quot;').replace('<', '&lt;')
+
+
+def seo_block(lang, title, desc, page, jsonld=None, alt_langs=None, og_type="website"):
+    """SEO head 片段：canonical + 双向 hreflang(+x-default) + OG/Twitter + JSON-LD。
+    page=None 时（如根网关）返回空。alt_langs=该页面实际存在的语言集合（如 brand-* 案例仅 zh）。"""
+    if page is None:
+        return ""
+    langs = alt_langs or LANGS
+    canon = BASE + url(lang, page)
+    L = [f'<link rel="canonical" href="{canon}">']
+    for lg in langs:
+        L.append(f'<link rel="alternate" hreflang="{HREFLANG[lg]}" href="{BASE + url(lg, page)}">')
+    xd = DEFAULT_LANG if DEFAULT_LANG in langs else langs[0]
+    L.append(f'<link rel="alternate" hreflang="x-default" href="{BASE + url(xd, page)}">')
+    et, ed = _esc_attr(title), _esc_attr(desc)
+    L += [f'<meta property="og:title" content="{et}">',
+          f'<meta property="og:description" content="{ed}">',
+          f'<meta property="og:url" content="{canon}">',
+          f'<meta property="og:type" content="{og_type}">',
+          f'<meta property="og:site_name" content="Syfo">',
+          f'<meta property="og:image" content="{BASE}/assets/og-card.png">',
+          '<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">',
+          f'<meta property="og:locale" content="{OG_LOCALE[lang]}">',
+          '<meta name="twitter:card" content="summary_large_image">',
+          f'<meta name="twitter:title" content="{et}">',
+          f'<meta name="twitter:description" content="{ed}">',
+          f'<meta name="twitter:image" content="{BASE}/assets/og-card.png">']
+    for obj in (jsonld or []):
+        L.append('<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + '</script>')
+    return "\n".join(L) + "\n"
+
+
+def head(lang, title, desc, card_marker="", toggle_href="/", page=None, jsonld=None, alt_langs=None, og_type="website"):
     t = T[lang]
     pre = (card_marker + "\n") if card_marker else ""
+    seo = seo_block(lang, title, desc, page, jsonld, alt_langs, og_type)
     return f"""{pre}<!doctype html><html lang="{t['html_lang']}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{desc}">
-<link rel="icon" href="/assets/logo-mark.svg">
+{seo}<link rel="icon" href="/assets/logo-mark.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet"><link href="/assets/tokens.css" rel="stylesheet">
 <style>{CSS}</style>{FONT_OVERRIDE.get(lang, "")}
@@ -890,8 +1008,13 @@ def docs_page(filename, title, desc, eyebrow, h1, lead, body, cta_label="", cta_
 
 def build_docs_zh():
     generator = os.path.abspath(os.path.join(HERE, "..", "scripts", "generate_syfo_docs_zh.py"))
-    if os.path.exists(generator):
+    docs_src = os.path.abspath(os.path.join(HERE, "..", "..", "syfo-docs", "docs"))
+    if os.path.exists(generator) and os.path.isdir(docs_src):
         runpy.run_path(generator, run_name="__main__")
+        return
+    # ../syfo-docs 源不在本机时保留已提交的 docs/ 产物，避免被下面的最小 fallback 覆盖。
+    if os.path.exists(os.path.join(DIRS["zh"], "docs", "index.html")):
+        print("docs: skipped (../syfo-docs not present; keeping committed docs/)")
         return
 
     docs_page(
@@ -1069,11 +1192,15 @@ def outpath(lang, filename):
     return os.path.join(DIRS[lang], filename)
 
 
+PAGES = []  # (lang, filename) —— 供 sitemap.xml 汇总
+
+
 def write(lang, filename, parts):
     path = outpath(lang, filename)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts))
+    PAGES.append((lang, filename))
 
 
 # 真实产品界面截图（app.syfo.ai 上一段人与 Agent 的真实对话），外加浏览器边框。
@@ -1091,7 +1218,16 @@ def build_home(lang):
     t = T[lang]
     other = "en" if lang == "zh" else "zh"
     toggle = url(other, "index.html")
-    P = [head(lang, t["home_title"], t["home_desc"], t["home_card"], toggle)]
+    org_ld = {"@context": "https://schema.org", "@type": "Organization", "name": "Syfo",
+              "url": BASE, "logo": BASE + "/assets/logo-mark.svg",
+              "sameAs": ["https://app.syfo.ai"]}
+    site_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": "Syfo",
+               "url": BASE, "inLanguage": t["html_lang"]}
+    app_ld = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Syfo",
+              "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
+              "url": "https://app.syfo.ai", "description": t["home_desc"]}
+    P = [head(lang, t["home_title"], t["home_desc"], t["home_card"], toggle,
+              page="index.html", jsonld=[org_ld, site_ld, app_ld])]
     P.append(nav(lang, "index.html"))
 
     pillar1_li = "".join(f"<li>{x}</li>" for x in t["pillar1_li"])
@@ -1164,7 +1300,7 @@ def build_cases(lang):
     t = T[lang]
     other = "en" if lang == "zh" else "zh"
     toggle = url(other, "cases.html")
-    C = [head(lang, t["cases_title"], t["cases_desc"], t["cases_card"], toggle)]
+    C = [head(lang, t["cases_title"], t["cases_desc"], t["cases_card"], toggle, page="cases.html")]
     C.append(nav(lang, "cases.html", "cases"))
     C.append(f"""<section class="casehero"><div class="wrap">
  <span class="eyebrow">{t["cases_eyebrow"]}</span>
@@ -1217,7 +1353,9 @@ def build_industry(lang, g):
         return
     fname = f"cases-{g['id']}.html"
     dscard = f'<!-- @dsCard group="Syfo 官网" title="案例 · {g["label"]}" -->'
-    C = [head(lang, f'{g["label"]} · {t["cases_title"]}', g["p"], dscard, url("en" if lang == "zh" else "zh", "cases.html"))]
+    galts = [lg for lg in LANGS if any(g2["id"] == g["id"] for g2 in CASE_GROUPS.get(lg, []))]
+    C = [head(lang, f'{g["label"]} · {t["cases_title"]}', g["p"], dscard, url("en" if lang == "zh" else "zh", "cases.html"),
+              page=fname, alt_langs=galts)]
     # 行业页各语言未必都有 → 语言切换器退回各语言的案例总览页
     C.append(nav(lang, "cases.html", "cases"))
     pill_parts = []
@@ -1309,7 +1447,7 @@ def build_how(lang):
     t = T[lang]
     other = "en" if lang == "zh" else "zh"
     toggle = url(other, "how.html")
-    H = [head(lang, t["how_title"], t["how_desc"], t["how_card"], toggle)]
+    H = [head(lang, t["how_title"], t["how_desc"], t["how_card"], toggle, page="how.html")]
     H.append(nav(lang, "how.html", "how"))
     H.append(f"""<section class="hero" style="padding-bottom:0"><div class="wrap">
  <span class="eyebrow">{t["how_eyebrow"]}</span>
@@ -1346,6 +1484,402 @@ def build_how(lang):
 # ════════════════════════════════════════════ 案例内页数据 (per-language)
 DETAILS = {
  "zh": {
+  # ── 出海内容 / 英文付费订阅 行业组（os-）──────────────────
+  "os-newsletter":{
+   "sub":"一位受过中美顶尖工科训练、做过汽车 / IT / AI 的操盘手，想面向全球读者做一个有品牌的英文付费订阅刊，把中文一手研究讲给海外投资人、创业者、战略负责人听——但从定位、栏目、写作、配图到质检、上线，一个人根本忙不过来，而且要英文原创、每天有节奏、有纪律。",
+   "meta":[("角色","1 位操盘手 + 一支 Agent 小队"),("起始频道","#策略 · #撰写 · #质检 · #设计"),("上手","一到两天"),("产出","品牌 + 栏目 + 首批英文稿 + 上线草稿")],
+   "want":"把「搭起并运营一个英文付费刊」拆成一条流水线交给一组各管一摊的 Agent：定品牌与栏目体系、把中文一手研究重构成英文原创分析、配统一设计的封面与数据图、多轮质检守事实边界与去英文 AI 腔、进长短内容双库排期，再半自动上线到订阅后台的草稿。你只定方向、给核心观点、做发布授权，机械纪律交给流水线。",
+   "channels":[("#策略","定位、栏目、产品分层、执行表"),("#撰写","英文重构、初稿、预览"),("#质检","事实边界、英文去 AI 腔、引用规范"),("#设计","设计语言、封面、数据图"),("#上线","建库、排期、后台草稿")],
+   "agents":[
+     ("@策略","策略与规划","出可执行策划：定位、栏目、产品分层、执行表；后期改任订阅后台上线执行方。"),
+     ("@调度","流水线调度","建任务、派单、维护内容管线状态与双库，是唯一事实源。"),
+     ("@撰写","英文重构","把中文一手素材按海外读者重排成原生英文分析，非直译。"),
+     ("@质检","双层质量闸门","先守事实边界，再清英文 AI 腔与引用规范，不过关打回。"),
+     ("@配图","设计与配图","定统一设计语言，出封面、系统图与财经风格数据图。"),
+   ],
+   "briefing":"我们要搭起并运营一个英文付费订阅刊。规则：\n· 定位是工程师-操盘手视角的产业情报，不做泛泛的地缘评论，也不是把中文内容直译过来。\n· 中文素材只当线索，进正文的英文分析要有独立观点、事实可追溯。\n· 文风去 AI 味，尤其英文，不留模板腔与写作过程感。\n· 一切止步于草稿与预览，是否发布由我拍板。",
+   "workflow":[
+     ("定位收口","@策略 出定位、栏目与执行表，@质检 复核能否收费 / 够不够国际化 / 能否落地。"),
+     ("英文重构","@撰写 选题、把中文一手研究重构成英文原创分析。"),
+     ("配图配版","@配图 出统一设计的封面与数据图，口径可追溯。"),
+     ("双层质检","@质检 先守事实边界、再去英文 AI 腔，来回到过为止。"),
+     ("进库上线","@调度 进双库排期，半自动上线后台草稿，等我授权发布。"),
+   ],
+   "jobs":[("每日短内容机制","每天产出一两条英文短内容，配轻量图，供我随时前台发布。"),
+           ("内容双库维护","长文与短内容分库、按三态归档，谁写到哪一眼可查。"),
+           ("上线草稿准备","把成稿在订阅后台建成草稿，等我复核授权。")],
+   "followups":["把定位与栏目模板固化，新一批稿子直接套用。",
+                "把英文去 AI 腔的常见问题沉淀成规则，减少来回。",
+                "把上线流程做成一键建草稿，人只做最后授权。"],
+   "tips":["定位卖的是稀缺视角（工程师-操盘手 + 中文一手），不是「懂中国」。",
+           "英文是原创重构不是翻译，论证顺序要按海外读者重排。",
+           "发布权永远在人手里——机器只到草稿与预览。"],
+  },
+  "os-brand":{
+   "sub":"想做的不是又一个泛泛的行业 newsletter，而是一个能收费、够国际化、和既有内容复用而不重复的英文付费刊——定位、读者、差异化、栏目和定价得一次想清楚。",
+   "meta":[("角色","1 位操盘手 + @策略 + @质检"),("起始频道","#策略"),("上手","半天"),("产出","定位 + 读者画像 + 栏目体系 + 执行表")],
+   "want":"从操盘手的产业与工程背景出发，做出一版可执行的品牌策划：品牌名候选、tagline、读者画像、差异化一句话、免费 / 付费产品分层、每个栏目的频率 / 受众 / 样稿 / 模板、30-60-90 天执行表与商业化边界，再用一版质检把「凭什么收费、凭什么国际化、能否落地、是否复用而非重复」逐条问过。",
+   "channels":[("#策略","定位、栏目、产品分层、执行表、质检")],
+   "agents":[
+     ("@策略","品牌与栏目策划","出定位、读者画像、差异化、栏目模板、执行表与商业化边界。"),
+     ("@质检","策划质检","复核国际化 / 付费理由 / 落地节奏 / 复用而非重复，给非阻塞补强。"),
+   ],
+   "briefing":"我们要一版能直接开工的品牌策划。规则：\n· 定位要收窄成一个能守住的差异化视角，不要一上来铺满所有领域。\n· 每个栏目写清频率、目标读者、样稿标题、数据来源和可复用模板。\n· 免费拉新、付费深度、数据库 / 季度专题分层清楚，付费要有付费理由。\n· 素材从既有内容迁移，但英文要重写而不是翻译。",
+   "workflow":[
+     ("出定位","@策略 给品牌名候选、tagline、读者画像与差异化一句话。"),
+     ("搭栏目","设计免费 / 付费栏目，各写频率、受众、样稿、模板。"),
+     ("排执行","出 30-60-90 天执行表与商业化边界。"),
+     ("质检","@质检 复核国际化 / 付费 / 落地 / 复用，给补强。"),
+     ("收口","按补强收窄首月主线，把候选名交我拍板。"),
+   ],
+   "jobs":[("栏目模板维护","每个栏目留一套可复用的结构模板。"),
+           ("执行表跟进","按 30-60-90 天表推进每周动作。"),
+           ("差异化守线","定期复核内容是否守住差异化、没滑成泛泛评论。")],
+   "followups":["把栏目模板做成填空式，撰写直接套。",
+                "把读者画像细化成几类具体人群，指导选题。",
+                "首月只主打一条最有可信度的主线，其余作月度专题。"],
+   "tips":["先收窄一个能守住的主线，再谈扩展板块。",
+           "付费产品要有「免费读什么、付费读什么」的清晰边界。",
+           "背景要转成产品能力写，而不是简历式罗列。"],
+  },
+  "os-rewrite":{
+   "sub":"手上是中文纪要、研报和公开信息，但海外读者要的是能直接用的英文判断——直译没用，得按他们的语境重构论证、补齐背景、守住事实边界。",
+   "meta":[("角色","1 位操盘手 + @撰写 + @质检"),("起始频道","#撰写 · #质检"),("上手","半天"),("红线","独立观点 · 非翻译 · 事实边界")],
+   "want":"把中文一手材料只当线索与背景，产出一篇原生英文分析：撰写 Agent 按海外读者重排论证顺序、补齐「这家公司是谁、为什么重要、全球可比是谁、这个信号怎么影响你」，写成有独立判断的分析而非直译；质检 Agent 逐条守事实边界、清英文 AI 腔、确保引用规范，未经二次核验的数字只作市场讨论、不当事实陈述。",
+   "channels":[("#撰写","英文重构、初稿、预览"),("#质检","事实边界、英文文风、引用规范终检")],
+   "agents":[
+     ("@撰写","英文重构与观点","在中文线索之上重排论证、补齐海外背景、给出独立判断。"),
+     ("@质检","事实与文风终检","核事实边界、把预测与实际分开、清英文模板腔与口号式结尾。"),
+     ("@研究核验","来源分层","标可核实 / 市场观点 / 待核验，给可追溯来源。"),
+   ],
+   "briefing":"我们把中文一手研究重构成英文原创分析。规则：\n· 中文素材只作线索与背景，英文成稿要有自己的结构与判断，不是翻译。\n· 每篇补齐海外读者背景：公司是谁、为什么重要、全球可比、对读者的影响。\n· 未经公告 / 财报 / 官方口径背书的数字只作市场讨论。\n· 英文不写模板化对照句、机械小标题和空泛大词，立场是冷静的分析师。",
+   "workflow":[
+     ("拆线索","@研究核验 把中文材料分成可核实 / 市场观点 / 待核验三层。"),
+     ("重构","@撰写 按海外读者重排论证、补背景与全球可比，写成英文原创。"),
+     ("查引用","核对引用来源标注清晰、观点归属准确。"),
+     ("英文终检","@质检 逐条核边界、清英文 AI 腔与口号式结尾。"),
+     ("定稿","残留词自查通过后定稿，交操盘手验收。"),
+   ],
+   "jobs":[("海外背景补齐","每篇补上「是谁 / 为何重要 / 全球可比 / 影响」四段背景。"),
+           ("事实边界核查","把预测与实际、确定与待核验逐条分开。"),
+           ("英文文风扫描","扫模板腔、机械小标题、空泛大词并清理。")],
+   "followups":["把「海外背景四段」做成固定结构，撰写直接套。",
+                "把常见的英文降调改写沉淀成规则，减少来回。",
+                "给每类题材留一份事实边界清单。"],
+   "tips":["英文是重构不是翻译，价值在按海外语境重排的判断。",
+           "未核实的数字宁可写成市场讨论，也不当事实陈述。",
+           "英文 AI 腔的重灾区是对照句和口号式结尾，重点清。"],
+  },
+  "os-design":{
+   "sub":"一个付费刊要有辨识度：封面、系统图、数据图、金句卡、社交预览图得是一套语言，不能每篇临时拼，还不能乱用别人的标识。",
+   "meta":[("角色","1 位操盘手 + @配图 + @撰写"),("起始频道","#设计 · #撰写"),("上手","半天到一天"),("产出","设计语言 v1 · 封面 · 数据图 · 多种格式")],
+   "want":"让配图 Agent 定一套长期设计语言——色彩、字体、母题、标识与多种版式（封面 / banner / 社交预览 / 页眉），封面、系统图、矩阵图、金句卡、数据图成系列；数据图走财经媒体风格，口径可追溯、边界写清；并回刷既有素材统一风格，全程只用官方素材、不伪造标识。",
+   "channels":[("#设计","设计语言、封面、数据图、格式导出"),("#撰写","图文合并、图注口径对齐")],
+   "agents":[
+     ("@配图","设计与出图","定设计语言，出封面 / 系统图 / 数据图 / 金句卡与多种格式，回刷旧素材。"),
+     ("@撰写","图文合并","把图和分析合成稿，图注固定边界说明。"),
+     ("@质检","视觉与口径核对","核数据图口径、图内文案与正文一致、无伪造标识。"),
+   ],
+   "briefing":"我们定一套统一的视觉语言。规则：\n· 一套色彩 / 字体 / 母题 / 标识贯穿封面、系统图、数据图、金句卡、社交预览。\n· 数据图走财经媒体风格，标注数据源、时间范围与边界，不让图被误读。\n· 只用官方素材，绝不伪造或拼凑标识。\n· 定版后回刷既有素材，保证整体风格一致。",
+   "workflow":[
+     ("定语言","@配图 定色彩 / 字体 / 母题 / 标识与多种版式。"),
+     ("出系列","按语言出封面、系统图、矩阵图、金句卡、数据图。"),
+     ("做数据图","财经风格数据图，标注口径与边界。"),
+     ("图文合并","@撰写 合成稿，图注固定边界说明。"),
+     ("回刷统一","@配图 用新语言回刷既有素材，@质检 核一致性。"),
+   ],
+   "jobs":[("格式化导出","每张视觉按封面 / banner / 社交预览等多格式导出。"),
+           ("数据图口径核对","图内数字与正文口径逐一对齐。"),
+           ("素材库沉淀","把常用版式沉淀成可复用模板。")],
+   "followups":["把封面与数据图做成参数化模板，换内容即出图。",
+                "给每类版式定一份「怎么用」的规范。",
+                "把边界说明标准化，避免图被断章取义。"],
+   "tips":["一套语言贯穿始终，比单张好看更重要。",
+           "只用官方素材、不伪造标识，是底线。",
+           "数据图的图注写清边界，比图本身更防误读。"],
+  },
+  "os-qa":{
+   "sub":"英文付费刊最怕两件事：把「可能 / 在谈」的线索写成既成事实，以及一眼就能看出是 AI 写的英文——两道关都得有人逐条盯。",
+   "meta":[("角色","1 位操盘手 + @质检 + @撰写"),("起始频道","#质检"),("上手","半天"),("红线","事实边界 · 去英文 AI 腔")],
+   "want":"用多轮窄复核守两道关：第一层守事实边界——能力 / 资质线索不写成订单或收入确认，数据图标注方向性估算、非官方统计；第二层专项清英文 AI 腔——模板化对照句、机械小标题、空泛大词、口号式结尾，不过关就退回，并列出具体句子和替换方向，而不是笼统说「再改改」。",
+   "channels":[("#质检","事实边界、英文文风、引用规范、格式终检")],
+   "agents":[
+     ("@质检","双层质量闸门","第一轮核事实边界，第二轮清英文 AI 腔，逐条给退回意见。"),
+     ("@撰写","按意见修订","按退回的具体句子与替换方向改稿。"),
+     ("@研究核验","边界背书","给关键数字找公告 / 财报 / 官方口径背书。"),
+   ],
+   "briefing":"我们守两道质量关。规则：\n· 事实边界优先：能力线索不写成订单 / 收入确认，未核实数字只作市场讨论。\n· 数据图标注方向性估算、非官方统计。\n· 英文去 AI 腔：不留对照句、机械小标题、空泛大词、口号式结尾。\n· 退回要列具体句子和替换方向，不笼统说再改。",
+   "workflow":[
+     ("事实核","@质检 逐条核事实边界，标出越界表述。"),
+     ("找背书","@研究核验 给关键数字找官方口径，找不到就降调。"),
+     ("清 AI 腔","@质检 专项清英文模板腔与口号式结尾。"),
+     ("列意见","把问题列成「具体句子 + 替换方向」退回。"),
+     ("复核","@撰写 改后回收，@质检 复核到过为止。"),
+   ],
+   "jobs":[("事实边界扫描","每篇逐条把预测与实际、能力与订单分开。"),
+           ("英文文风扫描","扫对照句、机械小标题、空泛大词、口号式结尾。"),
+           ("退回意见留痕","每轮退回都留具体句子与替换方向。")],
+   "followups":["把常见越界表述与降调写法做成对照清单。",
+                "把英文 AI 腔高频问题沉淀成规则，撰写自查。",
+                "把两道关做成交稿前的固定 checklist。"],
+   "tips":["先守事实边界，再谈文风——事实错了文风再好也不能发。",
+           "退回要给具体句子和改法，否则来回轮数只会更多。",
+           "英文 AI 腔集中在对照句和结尾口号，重点清这两处。"],
+  },
+  "os-library":{
+   "sub":"一支 AI 内容团队每天并行产长文和短内容，谁在写、写到哪、哪些是草稿、哪些待发——不集中管起来就会各记各的、发重或漏发。",
+   "meta":[("角色","1 位操盘手 + @调度 + 全体 Agent"),("起始频道","#调度"),("上手","一天"),("机制","单一事实源 · 三态状态机")],
+   "want":"用单一事实源把长文与短内容分成两个库归档，各按撰写 / 草稿 / 发布三态流转，index 作准；配每日短内容机制与选题排期，草稿与备发内容不混进聊天记录，谁写到哪、哪些待发一眼可查。",
+   "channels":[("#调度","任务 intake、派单、双库状态、排期")],
+   "agents":[
+     ("@调度","唯一事实源","首触 intake、单点派单、维护长短内容双库与三态状态。"),
+     ("@撰写","按库交付","长文与短内容分别进对应库，标清状态。"),
+     ("@质检","状态守门","核状态流转与发布阈值，防草稿漏发或已发重发。"),
+   ],
+   "briefing":"我们统一管长短内容双库。规则：\n· 调度是唯一事实源，长文一个库、短内容一个库，状态以它为准。\n· 每篇按撰写 → 草稿 → 发布三态流转，index 记录到人到状态。\n· 草稿与备发内容不混进聊天记录，避免各记各的。\n· 准备发布或已发布超阈值先提醒我排期。",
+   "workflow":[
+     ("首触入库","@调度 接住任务、定执行人、进对应库标「撰写」。"),
+     ("状态流转","成稿转「草稿」，我授权后转「发布」，状态以调度为准。"),
+     ("每日短内容","按机制每天产短内容进短内容库，配轻量图。"),
+     ("排期提醒","准备发布或已发布超阈值，@调度 提醒我。"),
+     ("对齐 index","index 随时反映谁写到哪、哪些待发。"),
+   ],
+   "jobs":[("双库归档","长文与短内容分库、按三态归档。"),
+           ("选题排期","维护选题池与发布节奏。"),
+           ("状态提醒","备发或超阈值时提醒人排期。")],
+   "followups":["把双库 index 做成一张看板，状态一眼可查。",
+                "给短内容定一个每日固定产出节奏。",
+                "把「草稿≠已发」做成硬状态，防漏发重发。"],
+   "tips":["单一事实源是长短内容不撞车的前提。",
+           "草稿与备发别混进聊天，进库才算数。",
+           "状态机比口头约定可靠，index 作准。"],
+  },
+  "os-publish":{
+   "sub":"稿子和图都齐了，要发到订阅后台——但后台要登录、可能弹验证码，自动发布一旦出错就是公开事故，这一步必须人机接力、绝不硬闯。",
+   "meta":[("角色","1 位操盘手 + @上线 + @撰写"),("起始频道","#上线"),("上手","半天"),("红线","不自动发布 · 不绕验证 · 凭据受限")],
+   "want":"自研上传工具读干净正文与素材、在订阅后台建草稿、按预览页修正图文位置；遇验证码或邮箱登录一律停、由人接管，绝不自动发布、绝不绕过风控；服务器无图形界面时改由人机接力登录建草稿；账号凭据只存受限文件、不入明文记忆，并主动提示改密。",
+   "channels":[("#上线","上传工具、后台草稿、图文校正、授权发布")],
+   "agents":[
+     ("@上线","后台上传执行","读正文与素材、后台建草稿、按预览修图文位置，遇验证即停。"),
+     ("@撰写","干净正文交付","把成稿拆成干净可复制的正文与素材，供上传直接读。"),
+     ("@质检","上线前复核","核草稿图文位置与预览一致、无残留与错位。"),
+   ],
+   "briefing":"我们把成稿半自动上线到订阅后台。规则：\n· 只建草稿，绝不代人点发布；短内容也只到草稿 / 待发。\n· 遇验证码或邮箱登录链接一律停，人工接管，绝不绕过风控。\n· 服务器无图形界面就换有界面机器或人机接力登录。\n· 账号凭据只写受限文件、不在消息里复述，用后提示改密。",
+   "workflow":[
+     ("备料","@撰写 交干净正文与素材，@上线 读入。"),
+     ("建草稿","@上线 在后台建 Article / 短内容草稿。"),
+     ("校图文","按预览页修正图文位置与配图。"),
+     ("过验证","遇验证码 / 登录一律停，人工接管。"),
+     ("授权发布","@质检 复核后，由我最终授权发布。"),
+   ],
+   "jobs":[("后台建草稿","把成稿在订阅后台建成草稿等人授权。"),
+           ("图文校正","按预览页对齐草稿的图文位置。"),
+           ("凭据看护","凭据只存受限文件，用后提示改密。")],
+   "followups":["把上传工具做成读正文即建草稿，减少手工。",
+                "把「建草稿≠发布」做成硬闸门，防误发。",
+                "给需要验证的步骤留清晰的人工接管入口。"],
+   "tips":["发布权永远在人手里——机器只建草稿。",
+           "遇验证一律停、不绕过，是不封号的底线。",
+           "凭据只存受限文件、不入明文记忆，用后即改密。"],
+  },
+  # ── 研究 / 内容 行业组（res-）──────────────────────────────
+  "res-pipeline":{
+   "sub":"一个人想每天产出机构级的行业研究内容，还要发布、分发、复盘——盯选题、核事实、写稿、配图、排期、推送、看数据，一个人忙不过来，而且要每天不间断、有纪律。",
+   "meta":[("角色","1 位主编 + 一支 Agent 小队"),("起始频道","#选题 · #撰写 · #质检 · #分发"),("上手","一天"),("产出","日更 · 两周十余篇")],
+   "want":"把内容生产拆成每天都要做的几件事，交给一组各管一摊的 Agent：自动选题、核验事实、撰写分析师体深度稿、多轮质检、排期发布到自有平台与公众号、分时营销触达、复盘阅读表现。你只定方向、给核心观点、做最后验收，机械纪律由流水线执行。",
+   "channels":[("#选题","每日选题发现、选题池、方向确认"),("#撰写","资料核验、初稿、配图、预览"),("#质检","事实边界、引用规范、格式、文风把关"),("#分发","排期发布、营销触达、阅读复盘")],
+   "agents":[
+     ("@调度","流水线调度","建任务、派单、维护内容管线状态、统一触发发布与推送，是唯一事实源。"),
+     ("@研究核验","事实分层核验","把线索分成可公开核实 / 市场观点 / 待核验三层，只交来源与边界、不改正文。"),
+     ("@撰写","分析师体撰写","先出观点卡片再写全文，强调独立观点，植入相关旧稿链接。"),
+     ("@质检","多轮质检","逐条核事实边界、引用规范、格式与文风，未过关打回重修。"),
+     ("@配图","数据配图","数据能支撑才配图，图表口径可追溯。"),
+   ],
+   "briefing":"这是一条研究内容的日更生产线。规则：\n· 一手纪要与研报只当线索，进正文的事实必须二次核验、口径可追溯。\n· 立场始终是冷静专业的分析师，不写「在写文章」的痕迹。\n· 每篇过质检（事实边界 + 引用规范 + 格式）才进待发布。\n· 发布与推送统一由调度触发，人做最后验收与授权。",
+   "workflow":[
+     ("每日选题","定时唤醒 @调度 派选题，@撰写 扫信源出候选，进选题池等我选定。"),
+     ("核验撰写","@研究核验 分层核事实，@撰写 出观点卡片、写成分析师体深度稿。"),
+     ("多轮质检","@质检 逐条把关，事实 / 引用规范 / 格式不过关就打回，来回到过为止。"),
+     ("排期发布","我验收后 @调度 排发布窗口，提交平台审核、通过即发布。"),
+     ("触达复盘","分时营销触达，@调度 复盘阅读表现，沉淀到下一轮选题。"),
+   ],
+   "jobs":[("每日选题发现","每天定时扫信源产出候选选题池，等人选定。"),
+           ("每日发布与触达","每天排期发布并分时营销触达，全程留痕。"),
+           ("阅读表现复盘","按题材分层复盘阅读表现，反哺选题与标题。")],
+   "followups":["把复盘结论做成固定的选题与标题清单，越跑越准。",
+                "给每类题材设不同的发布时机策略。",
+                "把常用的事实核验口径沉淀成可复用规则库。"],
+   "tips":["把「观察层」和「生产动作」分清楚——研究与提示是观察层，发布与授权才是生产动作。",
+           "一手信息只当线索，进正文必须二次核验、可追溯。",
+           "核心 KPI 用阅读表现而非「按时交稿」，并按题材分层比较。"],
+  },
+  "res-rewrite":{
+   "sub":"手上有大量一手纪要和研报，但它们只是线索——真正要交付的是有独立观点、站得住事实、引用边界清晰的原创分析稿。",
+   "meta":[("角色","1 位主编 + @撰写 + @质检 + @研究核验"),("起始频道","#撰写 · #质检"),("上手","半天"),("红线","独立观点 · 事实边界")],
+   "want":"把纪要、研报、公开信息只当线索与背景，产出一篇有独立判断的分析师体深度稿：撰写 Agent 做结构重写、给出自己的观点，质检 Agent 逐条核事实边界、去掉 AI 腔、确保引用边界清晰，未经二次核验的数字只作市场讨论、不当事实陈述。",
+   "channels":[("#撰写","初稿、观点打磨、预览"),("#质检","事实边界、引用规范、文风、格式终检")],
+   "agents":[
+     ("@撰写","结构重写与观点","在线索之上重新组织结构、给出独立判断，标清引用来源再交稿。"),
+     ("@质检","事实与文风终检","核事实边界、把预测与实际分开、降调未核实表述、清 AI 腔。"),
+     ("@研究核验","来源分层","标可核实 / 市场观点 / 待核验，给出可追溯来源。"),
+   ],
+   "briefing":"我们要把一手材料转成有独立观点的原创深度稿。规则：\n· 素材只作线索与背景，成稿要有自己的结构与判断，引用他人观点须标明出处。\n· 券商观点、订单、价格、目标价只作待核验线索，进正文前要有公告 / 财报 / 官方口径背书。\n· 不写「不是……而是……」这类 AI 腔，不写作者视角与写作过程感。\n· 立场是冷静的分析师，给判断而非情绪。",
+   "workflow":[
+     ("拆线索","@研究核验 把材料拆成可核实 / 市场观点 / 待核验三层。"),
+     ("重写","@撰写 在线索之上重新组织结构、补充独立判断，成一篇原创稿。"),
+     ("查引用","核对引用来源标注清晰、观点归属准确。"),
+     ("事实终检","@质检 逐条核边界、降调未核实、清 AI 腔与作者视角句。"),
+     ("定稿","残留词自查通过后定稿，交主编验收。"),
+   ],
+   "jobs":[("引用规范核查","每篇交稿前核对引用来源标注、观点归属清晰。"),
+           ("事实边界核查","把预测与实际、确定与待核验逐条分开。"),
+           ("文风红线扫描","扫 AI 腔、作者视角句、情绪词并清理。")],
+   "followups":["把引用与来源标注做成一键核查，交稿即附清单。",
+                "把常见的降调改写沉淀成规则，减少来回轮数。",
+                "给每类题材留一份事实边界清单。"],
+   "tips":["引用他人观点务必标明出处，成稿的价值在独立判断而非改写。",
+           "未核实的数字宁可写成市场讨论，也不当事实陈述。",
+           "把内部核验口径与写作过程从正文彻底剥离。"],
+  },
+  "res-dataviz":{
+   "sub":"复杂的行业关系——谁买了谁、哪些公司抱团、事件如何驱动走势——光靠文字讲不清，需要一张能自证、能复算的图。",
+   "meta":[("角色","1 位主编 + @数据可视化 + @撰写"),("起始频道","#数据 · #撰写"),("上手","半天到一天"),("产出","网络图 · 社群图 · 事件标注走势图")],
+   "want":"把散落的数据做成会讲故事的图：交易关系网络、公司社群划分、带事件标注的走势曲线。每张图都配「数据源 + 可复算脚本 + 自包含预览 + 边界说明」四件套，口径可追溯、结论不越界。",
+   "channels":[("#数据","数据采集、清洗、建图、复算"),("#撰写","图文合并、成稿、口径对齐")],
+   "agents":[
+     ("@数据可视化","数据分析与出图","采数、清洗、建网络 / 社群 / 走势图，出四件套并标注口径与边界。"),
+     ("@撰写","图文合并","把图和分析合成一篇稿，图注固定边界说明。"),
+     ("@质检","口径核对","核数据源可复算、图内文案与正文口径一致。"),
+   ],
+   "briefing":"我们用数据讲行业故事。规则：\n· 每张图必须可复算：附数据源、脚本、自包含预览。\n· 图注写清边界（口径、时间范围、未涵盖项），不让图被误读。\n· 数据不支撑就不硬做图。\n· 图内英文一律中文化，不留模板残留与署名水印。",
+   "workflow":[
+     ("采数清洗","@数据可视化 采集并清洗数据，标注来源与口径。"),
+     ("建图","做网络图 / 社群划分 / 事件标注走势，多轮迭代版式。"),
+     ("配四件套","导出数据源、复算脚本、自包含预览、边界说明。"),
+     ("图文合并","@撰写 把图和分析合成稿，图注固定边界。"),
+     ("口径核对","@质检 核可复算、图正文口径一致后定稿。"),
+   ],
+   "jobs":[("可复算存档","每张图存数据源与复算脚本，随时可重跑。"),
+           ("口径一致检查","图内数字与正文口径逐一对齐。"),
+           ("图库沉淀","把常用图表模板沉淀成可复用库。")],
+   "followups":["把网络图 / 社群图做成参数化模板，换数据即出图。",
+                "给每张图加一段「怎么读这张图」的说明。",
+                "把边界说明标准化，避免图被断章取义。"],
+   "tips":["可复算是底线：没有数据源和脚本的图不进稿。",
+           "图注写清边界，比图本身更能防误读。",
+           "数据不支撑就不配图，别为了好看硬做。"],
+  },
+  "res-series":{
+   "sub":"想围绕一个专业主题做成系列栏目，一集接一集连续产出，还要保持专业可信度、不因追热点翻车。",
+   "meta":[("角色","1 位主编 + @调度 + @撰写 + @质检"),("起始频道","#栏目策划 · #撰写"),("上手","半天"),("产出","分集连载 · 独立封面 · 草稿箱待发")],
+   "want":"把一个专业主题做成系列化内容：调度 Agent 规划选题与多集编排，撰写 Agent 分集承接、各配独立封面，质检把专业可信度放在热点之前。成稿进草稿箱、发布留给人，靠账号校验防误发到错的地方。",
+   "channels":[("#栏目策划","主题拆解、多集编排、选题登记查重"),("#撰写","分集撰写、配图、预览、进草稿箱")],
+   "agents":[
+     ("@调度","栏目编排","把主题拆成多集、排顺序、登记查重、盯进度。"),
+     ("@撰写","分集撰写","逐集承接、各配独立封面，专业口径优先。"),
+     ("@质检","专业与格式把关","核事实与幻觉、格式，专业可信度优先于蹭热点。"),
+   ],
+   "briefing":"我们做一个专业系列栏目。规则：\n· 专业可信度优先，再谈连接热点。\n· 每集独立封面、承接上一集，风格统一。\n· 选题先登记查重，避免和已发集重复。\n· 成稿进草稿箱，发布由人来做，先校验账号再发防误发。",
+   "workflow":[
+     ("拆主题","@调度 把主题拆成多集并排序、登记查重。"),
+     ("写分集","@撰写 逐集承接撰写、配独立封面。"),
+     ("质检","@质检 核专业口径、事实与格式。"),
+     ("进草稿箱","成稿存草稿箱，生成自包含预览。"),
+     ("人工发布","人校验账号后择时发布。"),
+   ],
+   "jobs":[("选题查重登记","每集选题先登记查重，防重复。"),
+           ("分集编排","维护系列顺序与承接关系。"),
+           ("草稿箱管理","成稿统一进草稿箱等人工发布。")],
+   "followups":["把系列风格与封面规范固化成模板。",
+                "给每个主题维护一份「已讲 / 待讲」清单。",
+                "把承接口径写清，保证多集读起来是一个整体。"],
+   "tips":["专业栏目先立可信度，再谈热点流量。",
+           "系列内容靠编排与承接，别各写各的。",
+           "发布留人做、先校验账号，是防误发的硬闸门。"],
+  },
+  "res-distribute":{
+   "sub":"同一篇研究要发到自有平台，也要发到公众号，还要多次触达读者——渠道口径不同、发布风险不同，全靠人盯太累也容易出错。",
+   "meta":[("角色","1 位主编 + @撰写 + @分发 + @调度"),("起始频道","#分发"),("上手","半天"),("红线","人授权发布 · 不绕过验证")],
+   "want":"把一篇稿子发到自有内容平台与行业公众号两个渠道：一稿两投、按渠道改写口径。平台侧只提交审核不点发布，公众号侧由人扫码授权；分时多次触达并设冷却间隔防打扰，每次触达留痕、失败即补，绝不绕过平台验证。",
+   "channels":[("#分发","排期、渠道改写、提交审核、扫码授权、触达、留痕")],
+   "agents":[
+     ("@撰写","渠道改写","按平台与公众号各自口径改写同一篇稿。"),
+     ("@分发","提交与触达","平台侧提交审核、公众号侧待人扫码，分时触达并留痕。"),
+     ("@调度","统一触发","统一管发布与触达提醒，避免多端重复、间隔撞车。"),
+   ],
+   "briefing":"我们做多渠道分发。规则：\n· 平台侧只「提交审核」，绝不代人点「发布」。\n· 公众号侧由我扫码授权，登录态一天有效。\n· 每篇分时多次触达，设冷却间隔防打扰，失败即补不硬凑。\n· 遇验证码 / 风控一律停，不绕过。",
+   "workflow":[
+     ("渠道改写","@撰写 按两个渠道口径各改一版。"),
+     ("提交审核","@分发 在平台侧提交审核，取正式链接。"),
+     ("人工授权","公众号侧等我扫码授权后发布。"),
+     ("分时触达","按冷却间隔分时多次触达目标群，逐次留痕。"),
+     ("补投兜底","失败的触达按规则补投，不重复打扰。"),
+   ],
+   "jobs":[("多渠道发布","每篇在平台与公众号双渠道发布。"),
+           ("分时触达","每篇分时多次触达并设冷却间隔。"),
+           ("触达留痕","每次触达成功与否都留痕、失败即补。")],
+   "followups":["把渠道口径差异写成改写清单，减少人工。",
+                "给触达做一张日历，避免同一天挤在一起。",
+                "把「提交≠发布」做成硬闸门，防误发。"],
+   "tips":["发布权永远在人手里——机器只提交、不拍板。",
+           "触达设冷却间隔，宁少勿扰。",
+           "遇验证一律停，不绕过平台风控。"],
+  },
+  "res-orchestrate":{
+   "sub":"一支 AI 内容团队每天几十条任务并行，谁在写、写到哪、发了几篇、还有几篇待发——不集中管起来就会各记各的、互相撞车。",
+   "meta":[("角色","1 位主编 + @调度 + 全体 Agent"),("起始频道","#调度 · #复盘"),("上手","一天"),("机制","单一事实源 · 每晚复盘")],
+   "want":"让调度 Agent 当唯一事实源：单点派单、维护内容管线的状态机（选题 / 撰写 / 草稿 / 发布），准备发布或已发布数超阈值就提醒人；每晚全员按证据互评打分，把规则沉淀进长期记忆，团队越跑越准。",
+   "channels":[("#调度","任务 intake、派单、管线状态、发布阈值提醒"),("#复盘","每晚证据化互评打分、规则沉淀")],
+   "agents":[
+     ("@调度","唯一事实源","首触 intake、单点派单、维护管线状态机、超阈值提醒人。"),
+     ("@质检","复盘评分","牵头每晚按证据给各环节打分、列改进项。"),
+     ("@研究核验","口径守门","盯数据口径与来源，防台账与结论分叉。"),
+   ],
+   "briefing":"我们统一管一条内容管线。规则：\n· 调度是唯一事实源，所有任务从它这里派、状态以它为准。\n· 每个进后台的动作只设一个执行人，其他 Agent 只补证据、不抢做。\n· 内容管线跑状态机：选题 → 撰写 → 草稿 → 发布，准备发布或已发布超阈值先提醒我。\n· 每晚按证据互评打分，规则写进长期记忆。",
+   "workflow":[
+     ("首触派单","@调度 接住新任务、定唯一执行人、进管线。"),
+     ("状态流转","任务按选题 / 撰写 / 草稿 / 发布流转，状态以调度为准。"),
+     ("阈值提醒","准备发布或已发布数超阈值，@调度 提醒我排期。"),
+     ("每晚复盘","全员按证据互评打分、列改进项。"),
+     ("沉淀规则","把复盘结论与新规则写进各 Agent 长期记忆。"),
+   ],
+   "jobs":[("单点派单","所有任务从调度单点派出，防重复。"),
+           ("管线状态维护","维护内容管线状态机与发布阈值提醒。"),
+           ("每晚复盘","每晚证据化互评打分并沉淀规则。")],
+   "followups":["把发布阈值与提醒规则参数化，随节奏调整。",
+                "把复盘打分做成趋势，看团队是否在变好。",
+                "给新 Agent 入职配一份管线规则速览。"],
+   "tips":["单一事实源是多 Agent 不撞车的前提。",
+           "一个后台动作只设一个执行人，其他只补证据。",
+           "复盘要基于证据打分，才推得动持续改进。"],
+  },
+  "res-sourcing":{
+   "sub":"研究要靠一手信息，但公众号、社区、订阅邮件里的线索每天都在变，人工盯太累，抓取又容易踩验证码与风控。",
+   "meta":[("角色","1 位主编 + @信源 + @研究核验"),("起始频道","#信源"),("上手","半天"),("红线","不绕过验证 · 不拿旧内容充数")],
+   "want":"让信源 Agent 每天定时采集公众号、社区热榜、订阅邮件里的一手线索，抓不到就按时复跑、绝不拿旧内容充数；遇验证一律停、不绕过风控，必要时走 OCR 兜底，并把荐股式情绪词转写成中性、可核验的线索。",
+   "channels":[("#信源","定时采集、复跑、状态记录、线索整理入库")],
+   "agents":[
+     ("@信源","信源采集","定时采公众号 / 社区 / 邮件线索，记录成功或受阻状态，遇验证即停。"),
+     ("@研究核验","线索整理","把情绪词转写成中性、可核验的线索，标注待二次核验。"),
+   ],
+   "briefing":"我们做研究信源自动化采集。规则：\n· 每天定时采集，抓不到就按时复跑，绝不拿旧内容充数。\n· 遇登录 / 验证码 / 风控一律停下记录，不绕过。\n· 荐股式情绪词一律清成中性、可核验线索。\n· 采到的线索只作待核验素材，进正文前仍需二次核验。",
+   "workflow":[
+     ("定时采集","@信源 按时采公众号 / 社区 / 邮件的当日线索。"),
+     ("按时复跑","没采到就按时复跑，仍无则如实记录、不充数。"),
+     ("遇阻即停","遇验证 / 风控停下记录状态，不绕过。"),
+     ("兜底与清洗","必要时 OCR 兜底，@研究核验 把情绪词转写成中性线索。"),
+     ("入库待核","线索入库标注待二次核验，供选题使用。"),
+   ],
+   "jobs":[("每日定时采集","每天定时采一手信源线索。"),
+           ("失败复跑","采不到按时复跑并如实记录状态。"),
+           ("线索整理入库","情绪词转写成中性线索、标注待核验入库。")],
+   "followups":["把信源登记成一张可维护的清单，来源可增可减。",
+                "给每个源记录成功率，长期不稳的换掉。",
+                "把转写规则沉淀，减少人工过滤。"],
+   "tips":["宁可如实报「今天没有」，也不拿旧内容充数。",
+           "遇验证一律停，合规比多抓一条更重要。",
+           "情绪词转写成中性线索，避免把荐股语气带进研究。"],
+  },
   "fund": {
    "sub":"一个人想跑一只系统化的 A 股私募，但盯盘、读财报、算归因、看风险，一个人忙不过来——而且需要每天、不间断、有纪律。",
    "meta":[("角色","1 位 CIO + 5 个 Agent"),("起始频道","#每日盘后 · #投研 · #风控"),("上手","一个交易日"),("数据","行情 · 财报 · 公告")],
@@ -2466,10 +3000,18 @@ def build_detail(lang, slug):
     related = related[:3]
     rel = "".join(case_card(lang, *next(y for y in CASES[lang] if y[4] == s)) for s in related)
 
+    d_alts = [lg for lg in LANGS if any(x[4] == slug for x in CASES[lg])]
+    art_ld = {"@context": "https://schema.org", "@type": "Article",
+              "headline": title, "description": d["sub"], "inLanguage": T[lang]["html_lang"],
+              "mainEntityOfPage": BASE + url(lang, f"case-{slug}.html"),
+              "image": BASE + "/assets/og-card.png",
+              "author": {"@type": "Organization", "name": "Syfo"},
+              "publisher": {"@type": "Organization", "name": "Syfo",
+                            "logo": {"@type": "ImageObject", "url": BASE + "/assets/logo-mark.svg"}}}
     D = [head(lang, f"{title}{t['d_title_suffix']}",
               f"{t['d_desc_prefix']}{title}. {d['sub']}",
               f'<!-- @dsCard group="{"Syfo 官网" if lang=="zh" else "Syfo Website"}" title="{t["d_card_prefix"]}{ind}" -->',
-              toggle)]
+              toggle, page=f"case-{slug}.html", jsonld=[art_ld], alt_langs=d_alts, og_type="article")]
     # 语言切换器：该 slug 若未被所有语言收录（如 brand-* 暂只有中文），切换目标退回各语言的案例列表页，避免 404
     sw_page = f"case-{slug}.html" if all(any(x[4] == slug for x in CASES[lg]) for lg in LANGS) else "cases.html"
     D.append(nav(lang, sw_page, "cases"))
@@ -2590,5 +3132,88 @@ build_docs_zh()
 build_root_gateway()
 build_root_compat()
 
+
+# ════════════════════════════════════════════ SEO 根文件 (task #5025 Batch 1)
+def build_sitemap():
+    """sitemap.xml：全部语言 × 全部页面 (clean URL)。根网关/兼容桩为 noindex，不进 sitemap。"""
+    import datetime
+    today = datetime.date.today().isoformat()
+    rows = []
+    for lang, fname in PAGES:
+        rows.append(f"<url><loc>{BASE + url(lang, fname)}</loc><lastmod>{today}</lastmod></url>")
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+           + "\n".join(rows) + "\n</urlset>\n")
+    with open(os.path.join(HERE, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(xml)
+
+
+def build_robots():
+    """robots.txt：默认全放行 + AI 检索/摘要类 bot 显式 Allow + Sitemap 指令。
+    训练类 bot 口径待 Lynn 定论 (2026-07-16)，当前不写任何 Disallow。"""
+    ai_bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-Web",
+               "PerplexityBot", "Google-Extended", "Applebot-Extended", "Bytespider", "Amazonbot"]
+    lines = ["# syfo.ai — generated by build_site.py (source: syfo-design/site)",
+             "User-agent: *", "Allow: /", ""]
+    lines.append("# AI search / assistant crawlers — explicitly allowed")
+    for bot in ai_bots:
+        lines += [f"User-agent: {bot}", "Allow: /", ""]
+    lines.append(f"Sitemap: {BASE}/sitemap.xml")
+    with open(os.path.join(HERE, "robots.txt"), "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
+
+def build_llms_txt():
+    """/llms.txt：GEO 地基文件——品牌定义/能力/入口/用例索引，机器可读 markdown。"""
+    en_cases = "\n".join(f"- [{c[1]}]({BASE}{url('en', 'case-' + c[4] + '.html')}): {c[2][:140]}"
+                         for c in CASES["en"])
+    txt = f"""# Syfo
+
+> Syfo is a multi-agent workspace where people and a team of AI Agents work together in shared channels. Agents have triggers, tools, and persistent memory, so they keep working across sessions; tasks hand off cleanly between people and Agents on a shared task board.
+
+Syfo (from "symphony") is built by ReOrc (反曲). Product entry: https://app.syfo.ai. Website: {BASE}/en/ (also /zh/, /ja/, /es/, /vi/).
+
+## What Syfo provides
+
+- Shared channels where humans and multiple AI Agents collaborate as teammates
+- A task board (todo / in progress / in review / done) with claims, reviewers and hand-offs
+- Threads, artifacts (versioned deliverables), reminders and action cards
+- Agent runtimes with triggers, tool harnesses and cross-session memory, so Agents run long jobs — not just chat
+
+## Use cases
+
+{en_cases}
+
+## Pages
+
+- [Home]({BASE}/en/): what Syfo is, core mechanisms and collaboration model
+- [Use cases]({BASE}/en/cases): real teams running businesses with Agent teams
+- [How it works]({BASE}/en/how): product walkthrough video
+"""
+    with open(os.path.join(HERE, "llms.txt"), "w", encoding="utf-8") as f:
+        f.write(txt)
+
+
+def build_404():
+    """品牌 404 页 (设计系统同款)：内链首页/用例。edge 配置 error_page 指到 /404.html (Obi)。"""
+    html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Page not found · Syfo</title><link rel="icon" href="/assets/logo-mark.svg">
+<style>body{{font-family:system-ui,-apple-system,'Noto Sans SC',sans-serif;background:#F7F3EA;color:#1A1612;
+display:flex;min-height:100vh;margin:0;align-items:center;justify-content:center;text-align:center}}
+h1{{font-family:Georgia,'Noto Serif SC',serif;font-size:30px;margin:0 0 8px}}
+p{{color:#5C554B;margin:6px 0 18px}}a{{color:#D4501E;text-decoration:none;margin:0 10px}}</style></head>
+<body><div><h1>404</h1><p>This page doesn't exist — but the Agents are still working.</p>
+<p><a href="/en/">Home</a>·<a href="/en/cases">Use cases</a>·<a href="/zh/">中文首页</a>·<a href="https://app.syfo.ai">app.syfo.ai</a></p>
+</div></body></html>"""
+    with open(os.path.join(HERE, "404.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+
+
+build_sitemap()
+build_robots()
+build_llms_txt()
+build_404()
+
 print("wrote " + " + ".join(PREFIX[l] for l in LANGS)
-      + " + root gateway(/) + zh compat stubs: index.html + cases.html + how.html + 6 case detail pages each")
+      + " + root gateway(/) + zh compat stubs + sitemap.xml(" + str(len(PAGES)) + " urls) + robots.txt + llms.txt + 404.html")
