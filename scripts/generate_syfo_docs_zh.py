@@ -315,6 +315,7 @@ MANUAL_TEXT_TRANSLATIONS.update({
         "完整图文教程": "図解ガイド",
         "先跑通一次，再扩展到团队。": "まず一度やってみて、それからチームに広げましょう。",
         "人和一群 Agent 一起干活的地方。": "人と AI Agent が一緒に働く場所。",
+        "频道构成与多 Agent 协作": "Channel 構成とマルチ Agent コラボレーション",
     },
     "es": {
         "基础概念": "Conceptos básicos",
@@ -345,6 +346,7 @@ MANUAL_TEXT_TRANSLATIONS.update({
         "完整图文教程": "Guía visual paso a paso",
         "先跑通一次，再扩展到团队。": "Empieza con una colaboración y luego escálala al equipo.",
         "人和一群 Agent 一起干活的地方。": "Donde las personas y los AI Agents trabajan juntos.",
+        "频道构成与多 Agent 协作": "Composición del Channel y colaboración multi-Agent",
     },
     "vi": {
         "基础概念": "Khái niệm cơ bản",
@@ -375,6 +377,7 @@ MANUAL_TEXT_TRANSLATIONS.update({
         "完整图文教程": "Hướng dẫn trực quan từng bước",
         "先跑通一次，再扩展到团队。": "Bắt đầu với một lần cộng tác, rồi mở rộng ra cả nhóm.",
         "人和一群 Agent 一起干活的地方。": "Nơi con người và AI Agents làm việc cùng nhau.",
+        "频道构成与多 Agent 协作": "Cấu trúc Channel và cộng tác đa Agent",
     },
 })
 
