@@ -1,0 +1,46 @@
+name: Landing artifact
+
+on:
+  pull_request:
+    paths:
+      - "site/**"
+      - "tools/build-landing-artifact.py"
+      - "tools/test-build-landing-artifact.py"
+      - ".github/workflows/landing-artifact.yml"
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "tools/build-landing-artifact.py"
+      - "tools/test-build-landing-artifact.py"
+      - ".github/workflows/landing-artifact.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Contract tests
+        run: python3 tools/test-build-landing-artifact.py
+      - name: Generate site
+        run: python3 site/build_site.py
+      - name: Build and verify versioned artifact
+        run: |
+          python3 tools/build-landing-artifact.py --output dist/syfo-landing.tar.gz
+          python3 tools/build-landing-artifact.py \
+            --verify dist/syfo-landing.tar.gz \
+            --expected-source-commit "$GITHUB_SHA"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: syfo-landing-${{ github.sha }}
+          path: |
+            dist/syfo-landing.tar.gz
+            dist/syfo-landing.tar.gz.manifest.json
+          if-no-files-found: error
+          retention-days: 30
