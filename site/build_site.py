@@ -1029,7 +1029,7 @@ def build_docs_zh():
             + docs_card("快速上手", "注册、创建组织、发出第一条 @Agent 消息。", docs_url("getting-started.html"))
             + docs_card("创建第一个 Agent", "选模型、配 Runtime、让 Agent 上线。", docs_url("first-agent.html"))
             + docs_card("频道与协作", "建频道、拉人和 Agent、用任务推进工作。", docs_url("channels.html"))
-            + '</div><div style="margin-top:18px"><a class="btn btn-ghost" href="https://syfo.ai/guide">完整图文教程 <span class="arr">→</span></a></div></div></section>',
+            + '</div><div style="margin-top:18px"><a class="btn btn-ghost" href="https://syfo-docs.tool.reorc.cloud/guide/">完整图文教程 <span class="arr">→</span></a></div></div></section>',
             '<section id="next" style="padding-top:30px"><div class="wrap"><div class="sec-head"><span class="eyebrow">快捷入口</span><h2>按你现在的问题继续看。</h2></div><div class="howsteps">'
             '<a class="howstep" href="' + docs_url("faq.html") + '"><div class="n">01</div><div><h3>常见问题</h3><p>Agent 使用、安全与权限说明。</p></div></a>'
             '<a class="howstep" href="' + docs_url("skills.html") + '"><div class="n">02</div><div><h3>Skill / MCP 集成</h3><p>了解如何让 Agent 接入工具和能力。</p></div></a>'
@@ -1468,7 +1468,7 @@ def build_how(lang):
     if lang == "zh":
         H.append(f'''<section style="padding-top:30px"><div class="wrap"><div class="sec-head"><span class="eyebrow">{t["how_more_eyebrow"]}</span><h2>{t["how_more_h2"]}</h2></div><div class="howsteps">
  <a class="howstep" href="{docs_url()}"><div class="n">01</div><div><h3>产品文档</h3><p>从注册到团队落地的完整指南。</p></div></a>
- <a class="howstep" href="https://syfo.ai/guide"><div class="n">02</div><div><h3>完整图文教程</h3><p>14 章图文教程，带真实截图。</p></div></a>
+ <a class="howstep" href="{docs_url("getting-started.html")}"><div class="n">02</div><div><h3>快速上手</h3><p>注册、创建组织、发出第一条 @Agent 消息，带真实截图。</p></div></a>
  <a class="howstep" href="{docs_url()}#next"><div class="n">03</div><div><h3>下一步</h3><p>创建 Agent、建频道、发出第一条 @ 消息。</p></div></a>
 </div></div></section>''')
     H.append(f"""<section class="closing"><div class="wrap">

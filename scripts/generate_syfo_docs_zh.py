@@ -1043,7 +1043,7 @@ def build_index() -> str:
     <div class="doc-grid">{html_cards}</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="/zh/docs/getting-started.html">开始 6 步快速上手 <span>→</span></a>
-      <a class="btn btn-ghost" href="https://syfo.ai/guide">完整图文教程 <span>→</span></a>
+      <a class="btn btn-ghost" href="https://syfo-docs.tool.reorc.cloud/guide/">完整图文教程 <span>→</span></a>
     </div>
   </div>
 </section>
